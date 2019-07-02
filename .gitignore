@@ -1,0 +1,5 @@
+*Generated.cs
+*.Generated.*.cs
+Teotihuacan/obj/
+.vs/
+Teotihuacan/bin/

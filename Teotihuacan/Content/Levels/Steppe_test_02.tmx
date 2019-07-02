@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="34" height="19" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="8">
+ <tileset firstgid="1" source="Steppe_01.tsx"/>
+ <tileset firstgid="577" source="Chars test.tsx"/>
+ <tileset firstgid="619" source="Sprites test.tsx"/>
+ <layer id="2" name="Ground" width="34" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC51W7U4CMRDsifJxB8IrGOVDQtBXUJKTH8iTI/oiBz6Cu8lOmC6tGn5M0l7b3dnZ7faqEEKVQFvQzaxdsl/XO7THz3P7asE64QNj73cieMzY7dr61PaonznN+Yz6fSPfbEfPzNwYPNtkt0ffYBv84LcQXBlaxOUvTTkOH0ObvvlYsQfxKUrBi+DVsDLuJdmCDebj/SCWlmkyoTWsI0ZowzF5TlPStqZvPl81nVEfY8G1xcH6AHeCB+PCmnUoRmgPv95fSRp5G3PSUzn0BbfmW8cDm/Men0uez8J5TbIvXwM+Xvh9FjyZ74VgKGItKR+sr5+n7gjXIbAT7BM5hz3126hvwVawEYyIF/Jdhjgez8dzmZD/D8G34GjjveX8nuwtiANsgssyxPeb42B+4IT8gMfO/DcE1fpgOUe+fU64Pp6NB/jibo0pDtTnOsR9srIzfTn0Zf5HxYnL0eVI436n2KeJPCFW1OyN8eD+kupVnI8mgUM4r7eFaQIdGuOFnsH3HXrifKqvVE4LzcWwiHUBD74/rMvQxtsQ1x7XCPNLcaiMI3NhfGodFPn7twlxvabesVz8ufdDuQyMj2oCDr1w6jW+97LWJX3zfZvf8txbVrtz4AMdUvfcc1uH+D3k922dGP+mj4+V7z7XecpOqhb++/+U+l/y/wh691ch7kW5GPCOXsrhB9T5q3YYCgAA
+  </data>
+ </layer>
+ <layer id="5" name="Shadows long" width="34" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYGSAw2TKUcsuFkYGBlYgfoRFjBWLHDUAtc0jFzwbaAdAAbXcQUl6AcU5GyN13EHr+D1GpDpaxS8sfxATXtQM11EwCkYyAAANRlEtGAoAAA==
+  </data>
+ </layer>
+ <layer id="3" name="Objects" width="34" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYHiDJCBOwSKWDMXocpSCRCqbRy5oHGgHQAE2dzwH4hdA/BKIX9HJHQuxiLEzMjBwADEnEHMxEmcOLeJXHWi3BhBrArEWke6gRfy6A+32AGJPIPYi0h3YwnUUjIJRMHQBADo6MxAYCgAA
+  </data>
+ </layer>
+ <layer id="8" name="Chars" width="34" height="19" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAXUAoFMA+2CUQACo/FAGlhB5/DCFz/obgmjs9u2MyFwAhAnItkfMgDpahUV7XTCYZYjATvwuSGeBPcFUckvoXSKBxcS7YkbBOVO7CBwwygY+gAAOuOcRhgKAAA=
+  </data>
+ </layer>
+</map>

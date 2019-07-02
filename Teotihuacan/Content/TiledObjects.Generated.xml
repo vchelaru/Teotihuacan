@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <objecttype name="Bullet">
+    <property name="TeamIndex" type="int" />
+    <property name="BulletSpeed" type="float" default="400" />
+  </objecttype>
+  <objecttype name="Enemy">
+    <property name="SpriteAnimations" type="AnimationChainList" />
+    <property name="MaxHp" type="int" />
+    <property name="CurrentDataCategoryState" type="DataCategory" />
+  </objecttype>
+  <objecttype name="Player" />
+</objecttypes>
