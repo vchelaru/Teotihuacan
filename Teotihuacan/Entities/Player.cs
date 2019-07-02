@@ -20,7 +20,7 @@ namespace Teotihuacan.Entities
         /// </summary>
 		private void CustomInitialize()
 		{
-
+            this.PossibleDirections = PossibleDirections.EightWay;
 
 		}
 
