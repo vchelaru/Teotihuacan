@@ -169,6 +169,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Enemy_Shooter</Name>
     </None>
+    <None Include="content\characters\enemy_shooter_animations.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Enemy_Shooter_Animations</Name>
+    </None>
     <None Include="content\characters\enemy_shooter_spritesheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Enemy_Shooter_SpriteSheet</Name>
@@ -188,6 +192,22 @@
     <None Include="content\characters\hero2animations.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Hero2Animations</Name>
+    </None>
+    <None Include="content\characters\hero_1_animations.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Hero_1_Animations</Name>
+    </None>
+    <None Include="content\characters\hero_1_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Hero_1_SpriteSheet</Name>
+    </None>
+    <None Include="content\characters\hero_2_animations.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Hero_2_Animations</Name>
+    </None>
+    <None Include="content\characters\hero_2_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Hero_2_SpriteSheet</Name>
     </None>
     <None Include="content\entities\player\topdownvalues.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
