@@ -4,9 +4,9 @@
   <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
   <CoordinateType>Pixel</CoordinateType>
   <AnimationChain>
-    <Name>StandardDeath1</Name>
+    <Name>Death</Name>
     <Frame>
-      <TextureName>Deaths_SpriteSheet.png</TextureName>
+      <TextureName>Death_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>20</RightCoordinate>
@@ -15,7 +15,7 @@
       <RelativeY>7</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>Deaths_SpriteSheet.png</TextureName>
+      <TextureName>Death_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>20</LeftCoordinate>
       <RightCoordinate>40</RightCoordinate>
@@ -24,7 +24,7 @@
       <RelativeY>7</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>Deaths_SpriteSheet.png</TextureName>
+      <TextureName>Death_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>40</LeftCoordinate>
       <RightCoordinate>60</RightCoordinate>
@@ -33,7 +33,7 @@
       <RelativeY>7</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>Deaths_SpriteSheet.png</TextureName>
+      <TextureName>Death_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>60</LeftCoordinate>
       <RightCoordinate>80</RightCoordinate>
@@ -42,7 +42,7 @@
       <RelativeY>7</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>Deaths_SpriteSheet.png</TextureName>
+      <TextureName>Death_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>80</LeftCoordinate>
       <RightCoordinate>100</RightCoordinate>
@@ -51,7 +51,7 @@
       <RelativeY>7</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>Deaths_SpriteSheet.png</TextureName>
+      <TextureName>Death_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>100</LeftCoordinate>
       <RightCoordinate>120</RightCoordinate>
@@ -60,7 +60,7 @@
       <RelativeY>7</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>Deaths_SpriteSheet.png</TextureName>
+      <TextureName>Death_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>120</LeftCoordinate>
       <RightCoordinate>140</RightCoordinate>
