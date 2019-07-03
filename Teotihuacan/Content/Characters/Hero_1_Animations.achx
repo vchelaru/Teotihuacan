@@ -4,9 +4,9 @@
   <TimeMeasurementUnit>Second</TimeMeasurementUnit>
   <CoordinateType>Pixel</CoordinateType>
   <AnimationChain>
-    <Name>walk_rot00</Name>
+    <Name>walk_Right</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -14,7 +14,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>32</LeftCoordinate>
       <RightCoordinate>64</RightCoordinate>
@@ -22,7 +22,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -30,7 +30,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>64</LeftCoordinate>
       <RightCoordinate>96</RightCoordinate>
@@ -39,9 +39,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot01</Name>
+    <Name>walk_UpRight</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -49,7 +49,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>128</LeftCoordinate>
       <RightCoordinate>160</RightCoordinate>
@@ -57,7 +57,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -65,7 +65,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>160</LeftCoordinate>
       <RightCoordinate>192</RightCoordinate>
@@ -74,9 +74,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot02</Name>
+    <Name>walk_Up</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>192</LeftCoordinate>
       <RightCoordinate>224</RightCoordinate>
@@ -84,7 +84,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>224</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
@@ -92,7 +92,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>192</LeftCoordinate>
       <RightCoordinate>224</RightCoordinate>
@@ -100,7 +100,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>288</RightCoordinate>
@@ -109,10 +109,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot03</Name>
+    <Name>walk_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -121,7 +121,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>128</LeftCoordinate>
       <RightCoordinate>160</RightCoordinate>
@@ -130,7 +130,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -139,7 +139,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>160</LeftCoordinate>
       <RightCoordinate>192</RightCoordinate>
@@ -148,10 +148,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot04</Name>
+    <Name>walk_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -160,7 +160,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>32</LeftCoordinate>
       <RightCoordinate>64</RightCoordinate>
@@ -169,7 +169,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -178,7 +178,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>64</LeftCoordinate>
       <RightCoordinate>96</RightCoordinate>
@@ -187,10 +187,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot05</Name>
+    <Name>walk_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -199,7 +199,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>416</LeftCoordinate>
       <RightCoordinate>448</RightCoordinate>
@@ -208,7 +208,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -217,7 +217,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>448</LeftCoordinate>
       <RightCoordinate>480</RightCoordinate>
@@ -226,9 +226,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot06</Name>
+    <Name>walk_Down</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>288</LeftCoordinate>
       <RightCoordinate>320</RightCoordinate>
@@ -236,7 +236,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>320</LeftCoordinate>
       <RightCoordinate>352</RightCoordinate>
@@ -244,7 +244,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>288</LeftCoordinate>
       <RightCoordinate>320</RightCoordinate>
@@ -252,7 +252,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>352</LeftCoordinate>
       <RightCoordinate>384</RightCoordinate>
@@ -261,9 +261,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot07</Name>
+    <Name>walk_DownRight</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -271,7 +271,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>416</LeftCoordinate>
       <RightCoordinate>448</RightCoordinate>
@@ -279,7 +279,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -287,7 +287,7 @@
       <BottomCoordinate>48</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>448</LeftCoordinate>
       <RightCoordinate>480</RightCoordinate>
@@ -296,9 +296,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot00</Name>
+    <Name>idle_Right</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -307,9 +307,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot01</Name>
+    <Name>idle_UpRight</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -318,9 +318,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot02</Name>
+    <Name>idle_Up</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>192</LeftCoordinate>
       <RightCoordinate>224</RightCoordinate>
@@ -329,10 +329,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot03</Name>
+    <Name>idle_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -341,10 +341,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot04</Name>
+    <Name>idle_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -353,10 +353,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot05</Name>
+    <Name>idle_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -365,9 +365,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot06</Name>
+    <Name>idle_Down</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>288</LeftCoordinate>
       <RightCoordinate>320</RightCoordinate>
@@ -376,9 +376,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot07</Name>
+    <Name>idle_DownRight</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -387,9 +387,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingFire_rot00</Name>
+    <Name>walk_ShootingFire_Right</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -397,7 +397,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>32</LeftCoordinate>
       <RightCoordinate>64</RightCoordinate>
@@ -405,7 +405,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -413,7 +413,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>64</LeftCoordinate>
       <RightCoordinate>96</RightCoordinate>
@@ -422,9 +422,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingFire_rot01</Name>
+    <Name>walk_ShootingFire_UpRight</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -432,7 +432,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>128</LeftCoordinate>
       <RightCoordinate>160</RightCoordinate>
@@ -440,7 +440,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -448,7 +448,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>160</LeftCoordinate>
       <RightCoordinate>192</RightCoordinate>
@@ -457,9 +457,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingFire_rot02</Name>
+    <Name>walk_ShootingFire_Up</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>192</LeftCoordinate>
       <RightCoordinate>224</RightCoordinate>
@@ -467,7 +467,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>224</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
@@ -475,7 +475,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>192</LeftCoordinate>
       <RightCoordinate>224</RightCoordinate>
@@ -483,7 +483,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>288</RightCoordinate>
@@ -492,10 +492,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingFire_rot03</Name>
+    <Name>walk_ShootingFire_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -504,7 +504,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>128</LeftCoordinate>
       <RightCoordinate>160</RightCoordinate>
@@ -513,7 +513,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -522,7 +522,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>160</LeftCoordinate>
       <RightCoordinate>192</RightCoordinate>
@@ -531,10 +531,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingFire_rot04</Name>
+    <Name>walk_ShootingFire_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -543,7 +543,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>32</LeftCoordinate>
       <RightCoordinate>64</RightCoordinate>
@@ -552,7 +552,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -561,7 +561,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>64</LeftCoordinate>
       <RightCoordinate>96</RightCoordinate>
@@ -570,10 +570,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingFire_rot05</Name>
+    <Name>walk_ShootingFire_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -582,7 +582,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>416</LeftCoordinate>
       <RightCoordinate>448</RightCoordinate>
@@ -591,7 +591,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -600,7 +600,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>448</LeftCoordinate>
       <RightCoordinate>480</RightCoordinate>
@@ -609,9 +609,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingFire_rot06</Name>
+    <Name>walk_ShootingFire_Down</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>288</LeftCoordinate>
       <RightCoordinate>320</RightCoordinate>
@@ -619,7 +619,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>320</LeftCoordinate>
       <RightCoordinate>352</RightCoordinate>
@@ -627,7 +627,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>288</LeftCoordinate>
       <RightCoordinate>320</RightCoordinate>
@@ -635,7 +635,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>352</LeftCoordinate>
       <RightCoordinate>384</RightCoordinate>
@@ -644,9 +644,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingFire_rot07</Name>
+    <Name>walk_ShootingFire_DownRight</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -654,7 +654,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>416</LeftCoordinate>
       <RightCoordinate>448</RightCoordinate>
@@ -662,7 +662,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -670,7 +670,7 @@
       <BottomCoordinate>96</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>448</LeftCoordinate>
       <RightCoordinate>480</RightCoordinate>
@@ -679,9 +679,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingFire_rot00</Name>
+    <Name>idle_ShootingFire_Right</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -690,9 +690,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingFire_rot01</Name>
+    <Name>idle_ShootingFire_UpRight</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -701,9 +701,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingFire_rot02</Name>
+    <Name>idle_ShootingFire_Up</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>192</LeftCoordinate>
       <RightCoordinate>224</RightCoordinate>
@@ -712,10 +712,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingFire_rot03</Name>
+    <Name>idle_ShootingFire_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -724,10 +724,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingFire_rot04</Name>
+    <Name>idle_ShootingFire_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -736,10 +736,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingFire_rot05</Name>
+    <Name>idle_ShootingFire_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -748,9 +748,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingFire_rot06</Name>
+    <Name>idle_ShootingFire_Down</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>288</LeftCoordinate>
       <RightCoordinate>320</RightCoordinate>
@@ -759,9 +759,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingFire_rot07</Name>
+    <Name>idle_ShootingFire_DownRight</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -770,9 +770,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingLighning_rot00</Name>
+    <Name>walk_ShootingLighning_Right</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -780,7 +780,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>32</LeftCoordinate>
       <RightCoordinate>64</RightCoordinate>
@@ -788,7 +788,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -796,7 +796,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>64</LeftCoordinate>
       <RightCoordinate>96</RightCoordinate>
@@ -805,9 +805,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingLighning_rot01</Name>
+    <Name>walk_ShootingLighning_UpRight</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -815,7 +815,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>128</LeftCoordinate>
       <RightCoordinate>160</RightCoordinate>
@@ -823,7 +823,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -831,7 +831,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>160</LeftCoordinate>
       <RightCoordinate>192</RightCoordinate>
@@ -840,9 +840,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingLighning_rot02</Name>
+    <Name>walk_ShootingLighning_Up</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>192</LeftCoordinate>
       <RightCoordinate>224</RightCoordinate>
@@ -850,7 +850,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>224</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
@@ -858,7 +858,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>192</LeftCoordinate>
       <RightCoordinate>224</RightCoordinate>
@@ -866,7 +866,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>288</RightCoordinate>
@@ -875,10 +875,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingLighning_rot03</Name>
+    <Name>walk_ShootingLighning_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -887,7 +887,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>128</LeftCoordinate>
       <RightCoordinate>160</RightCoordinate>
@@ -896,7 +896,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -905,7 +905,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>160</LeftCoordinate>
       <RightCoordinate>192</RightCoordinate>
@@ -914,10 +914,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingLighning_rot04</Name>
+    <Name>walk_ShootingLighning_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -926,7 +926,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>32</LeftCoordinate>
       <RightCoordinate>64</RightCoordinate>
@@ -935,7 +935,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -944,7 +944,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>64</LeftCoordinate>
       <RightCoordinate>96</RightCoordinate>
@@ -953,10 +953,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingLighning_rot05</Name>
+    <Name>walk_ShootingLighning_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -965,7 +965,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>416</LeftCoordinate>
       <RightCoordinate>448</RightCoordinate>
@@ -974,7 +974,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -983,7 +983,7 @@
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>448</LeftCoordinate>
       <RightCoordinate>480</RightCoordinate>
@@ -992,9 +992,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingLighning_rot06</Name>
+    <Name>walk_ShootingLighning_Down</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>288</LeftCoordinate>
       <RightCoordinate>320</RightCoordinate>
@@ -1002,7 +1002,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>320</LeftCoordinate>
       <RightCoordinate>352</RightCoordinate>
@@ -1010,7 +1010,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>288</LeftCoordinate>
       <RightCoordinate>320</RightCoordinate>
@@ -1018,7 +1018,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>352</LeftCoordinate>
       <RightCoordinate>384</RightCoordinate>
@@ -1027,9 +1027,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walkShootingLighning_rot07</Name>
+    <Name>walk_ShootingLighning_DownRight</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -1037,7 +1037,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>416</LeftCoordinate>
       <RightCoordinate>448</RightCoordinate>
@@ -1045,7 +1045,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -1053,7 +1053,7 @@
       <BottomCoordinate>144</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>448</LeftCoordinate>
       <RightCoordinate>480</RightCoordinate>
@@ -1062,9 +1062,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingLighning_rot00</Name>
+    <Name>idle_ShootingLighning_Right</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -1073,9 +1073,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingLighning_rot01</Name>
+    <Name>idle_ShootingLighning_UpRight</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -1084,9 +1084,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingLighning_rot02</Name>
+    <Name>idle_ShootingLighning_Up</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>192</LeftCoordinate>
       <RightCoordinate>224</RightCoordinate>
@@ -1095,10 +1095,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingLighning_rot03</Name>
+    <Name>idle_ShootingLighning_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>96</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -1107,10 +1107,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingLighning_rot04</Name>
+    <Name>idle_ShootingLighning_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>32</RightCoordinate>
@@ -1119,10 +1119,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingLighning_rot05</Name>
+    <Name>idle_ShootingLighning_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>
@@ -1131,9 +1131,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingLighning_rot06</Name>
+    <Name>idle_ShootingLighning_Down</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>288</LeftCoordinate>
       <RightCoordinate>320</RightCoordinate>
@@ -1142,9 +1142,9 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idleShootingLighning_rot07</Name>
+    <Name>idle_ShootingLighning_DownRight</Name>
     <Frame>
-      <TextureName>Hero1.png</TextureName>
+      <TextureName>Hero_1_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>416</RightCoordinate>

@@ -4,7 +4,7 @@
   <TimeMeasurementUnit>Second</TimeMeasurementUnit>
   <CoordinateType>Pixel</CoordinateType>
   <AnimationChain>
-    <Name>walk_rot00_Right</Name>
+    <Name>walk_Right</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -43,7 +43,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot01_RightUp</Name>
+    <Name>walk_UpRight</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -82,7 +82,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot02_Up</Name>
+    <Name>walk_Up</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -121,7 +121,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot03_LeftUp</Name>
+    <Name>walk_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
@@ -164,7 +164,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot04_Left</Name>
+    <Name>walk_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
@@ -207,7 +207,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot05_LeftDown</Name>
+    <Name>walk_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
@@ -250,7 +250,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot06_Down</Name>
+    <Name>walk_Down</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -289,7 +289,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_rot07_RightDown</Name>
+    <Name>walk_DownRight</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -328,7 +328,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot00</Name>
+    <Name>idle_Right</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -340,7 +340,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot01</Name>
+    <Name>idle_UpRight</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -352,7 +352,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot02</Name>
+    <Name>idle_Up</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -364,7 +364,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot03</Name>
+    <Name>idle_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
@@ -377,7 +377,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot04</Name>
+    <Name>idle_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
@@ -390,7 +390,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot05</Name>
+    <Name>idle_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
@@ -403,7 +403,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot06</Name>
+    <Name>idle_Down</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -415,7 +415,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_rot07</Name>
+    <Name>idle_DownRight</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -427,7 +427,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>shoot_rot00_Right</Name>
+    <Name>shoot_Right</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -448,7 +448,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>shoot_rot01_RightUp</Name>
+    <Name>shoot_UpRight</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -469,7 +469,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>shoot_rot02_Up</Name>
+    <Name>shoot_Up</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -490,7 +490,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>shoot_rot03_LeftUp</Name>
+    <Name>shoot_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
@@ -513,7 +513,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>shoot_rot04_Left</Name>
+    <Name>shoot_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
@@ -536,7 +536,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>shoot_rot05_LeftDown</Name>
+    <Name>shoot_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
@@ -559,7 +559,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>shoot_rot06_Down</Name>
+    <Name>shoot_Down</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -580,7 +580,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>shoot_rot07_RightDown</Name>
+    <Name>shoot_DownRight</Name>
     <Frame>
       <TextureName>Enemy_Shooter_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>

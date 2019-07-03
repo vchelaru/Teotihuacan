@@ -623,7 +623,7 @@
                 <InstructionSave>
                   <Type>String</Type>
                   <Member>SpriteAnimations</Member>
-                  <ValueAsString>Enemy_Shooter</ValueAsString>
+                  <ValueAsString>Enemy_Shooter_Animations</ValueAsString>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Int32</Type>
@@ -638,7 +638,7 @@
                 <InstructionSave>
                   <Type>String</Type>
                   <Member>SpriteAnimations</Member>
-                  <ValueAsString>Enemy_Shooter</ValueAsString>
+                  <ValueAsString>Enemy_Shooter_Animations</ValueAsString>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Int32</Type>
@@ -653,7 +653,7 @@
                 <InstructionSave>
                   <Type>String</Type>
                   <Member>SpriteAnimations</Member>
-                  <ValueAsString>Enemy_Shooter</ValueAsString>
+                  <ValueAsString>Enemy_Shooter_Animations</ValueAsString>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Int32</Type>
@@ -792,7 +792,7 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Characters/Enemy_Shooter.achx</Name>
+          <Name>Characters/Enemy_Shooter_Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -903,13 +903,13 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Characters/Hero1Animations.achx</Name>
+          <Name>Characters/Hero_1_Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Name>Characters/Hero2Animations.achx</Name>
+          <Name>Characters/Hero_2_Animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
