@@ -155,6 +155,21 @@
               <Name>SourceType</Name>
               <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
             </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\SpawnPoint</SourceClassGenericType>
+          <InstanceName>SpawnPointList</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
             <PropertySave>
               <Name>SecondCollisionMass</Name>
               <ValueAsFloat>1</ValueAsFloat>
@@ -907,6 +922,74 @@
         </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+      </CustomVariables>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\SpawnPoint</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>16</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Microsoft.Xna.Framework.Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>SkyBlue</ValueAsString>
+          </CustomProperty>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
       <Is2D>true</Is2D>
     </EntitySave>
   </Entities>

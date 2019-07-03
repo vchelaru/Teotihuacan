@@ -1,6 +1,4 @@
 
-
-
 using Microsoft.Xna.Framework;
 
 namespace Teotihuacan.Entities
