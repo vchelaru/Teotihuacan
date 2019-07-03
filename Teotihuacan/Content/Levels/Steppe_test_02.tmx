@@ -15,7 +15,7 @@
  </layer>
  <layer id="3" name="Objects" width="34" height="19">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYHiDJCBOwSKWDMXocpSCRCqbRy5oHGgHQAE2dzwH4hdA/BKIX9HJHQuxiLEzMjBwADEnEHMxEmcOLeJXHWi3BhBrArEWke6gRfy6A+32AGJPIPYi0h3YwnUUjIJRMHQBADo6MxAYCgAA
+   H4sIAAAAAAAAC1NgGHigMNAOGAXDGiQBcQoWsWQoRpejFCRS2TxyQeNAOwAKsLnjORC/AOKXQPyKTu5YiEWMnZGBgQOIOYGYi5E4c2gRv+pAuzWAWBOItYh0By3i1x1otwcQewKxF5HuwBauo2AUjALSgcJAO4AB4gYANZ19kBgKAAA=
   </data>
  </layer>
  <layer id="8" name="Chars" width="34" height="19" visible="0">

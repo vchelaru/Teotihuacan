@@ -13,6 +13,7 @@ using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
 using Teotihuacan.GameData;
 using Teotihuacan.Managers;
+using FlatRedBall.TileEntities;
 
 namespace Teotihuacan.Screens
 {
@@ -25,6 +26,9 @@ namespace Teotihuacan.Screens
 
         void CustomInitialize()
 		{
+
+            TileEntityInstantiator.CreateEntitiesFrom(Map);
+
             spawnManager = new SpawnManager();
 
         }

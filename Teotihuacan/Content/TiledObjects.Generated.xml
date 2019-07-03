@@ -10,4 +10,5 @@
     <property name="CurrentDataCategoryState" type="DataCategory" />
   </objecttype>
   <objecttype name="Player" />
+  <objecttype name="SpawnPoint" />
 </objecttypes>

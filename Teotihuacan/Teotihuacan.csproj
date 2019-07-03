@@ -60,6 +60,7 @@
     <Compile Include="Factories\BulletFactory.Generated.cs" />
     <Compile Include="Factories\EnemyFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />
+    <Compile Include="Factories\SpawnPointFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameData\Level1Spawns.cs" />

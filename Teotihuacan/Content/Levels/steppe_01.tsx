@@ -27,6 +27,7 @@
  <tile id="13" terrain="0,0,3,0"/>
  <tile id="14" terrain="3,3,3,0"/>
  <tile id="15" terrain="3,3,0,3"/>
+ <tile id="31" type="SpawnPoint"/>
  <tile id="32" terrain="0,1,0,1"/>
  <tile id="33" terrain="1,1,1,1"/>
  <tile id="34" terrain="1,0,1,0"/>
