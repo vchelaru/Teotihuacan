@@ -27,11 +27,14 @@ namespace Teotihuacan.Managers
                 {
                     // todo - determine spawn locations...
                     var x = 100;
-                    var y = 100;
+                    var y = -100;
 
                     var enemy = Factories.EnemyFactory.CreateNew(x, y);
                     enemy.CurrentDataCategoryState = data;
+
                 }
+
+                CurrentSpawnIndex++;
             }
         }
 

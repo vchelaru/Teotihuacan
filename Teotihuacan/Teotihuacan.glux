@@ -55,7 +55,7 @@
             </PropertySave>
             <PropertySave>
               <Name>CollisionCreationOptions</Name>
-              <ValueAsInt>2</ValueAsInt>
+              <ValueAsInt>4</ValueAsInt>
             </PropertySave>
             <PropertySave>
               <Name>CollisionTileSize</Name>
@@ -77,12 +77,20 @@
               <Name>CollisionFillTop</Name>
               <ValueAsFloat>256</ValueAsFloat>
             </PropertySave>
+            <PropertySave>
+              <Name>SourceTmxName</Name>
+              <ValueAsString>Map</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionTileTypeName</Name>
+              <ValueAsString>Wall</ValueAsString>
+            </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
           <SourceClassType>TileShapeCollection</SourceClassType>
-          <InstanceName>TileShapeCollectionInstance</InstanceName>
+          <InstanceName>SolidCollisions</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -184,11 +192,15 @@
             </PropertySave>
             <PropertySave>
               <Name>SecondCollisionName</Name>
-              <ValueAsString>TileShapeCollectionInstance</ValueAsString>
+              <ValueAsString>SolidCollisions</ValueAsString>
             </PropertySave>
             <PropertySave>
               <Name>CollisionType</Name>
               <ValueAsInt>1</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionMass</Name>
+              <ValueAsFloat>1</ValueAsFloat>
             </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
@@ -260,11 +272,15 @@
             </PropertySave>
             <PropertySave>
               <Name>SecondCollisionName</Name>
-              <ValueAsString>TileShapeCollectionInstance</ValueAsString>
+              <ValueAsString>SolidCollisions</ValueAsString>
             </PropertySave>
             <PropertySave>
               <Name>CollisionType</Name>
               <ValueAsInt>1</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionMass</Name>
+              <ValueAsFloat>1</ValueAsFloat>
             </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
@@ -412,7 +428,7 @@
             </PropertySave>
             <PropertySave>
               <Name>SecondCollisionName</Name>
-              <ValueAsString>TileShapeCollectionInstance</ValueAsString>
+              <ValueAsString>SolidCollisions</ValueAsString>
             </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
@@ -420,6 +436,55 @@
           <SourceName />
           <SourceClassType>FlatRedBall.Math.Collision.CollidableListVsTileShapeCollectionRelationship&lt;Entities.Bullet&gt;</SourceClassType>
           <InstanceName>BulletVsSolidCollision</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-3</ValueAsFloat>
+          </CustomProperty>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>LayeredTileMap</SourceClassType>
+          <InstanceName>Map</InstanceName>
+          <SetByDerived>true</SetByDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Camera</SourceClassType>
+          <InstanceName>CameraInstance</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -440,8 +505,31 @@
           <RuntimeType>Gum.Wireframe.GraphicalUiElement</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Levels/Steppe_test_02.tmx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.TileGraphics.LayeredTileMap</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <NamedObjects>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">File</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>File</SourceType>
+          <SourceFile>Levels/Steppe_test_02.tmx</SourceFile>
+          <SourceName>Entire File (LayeredTileMap)</SourceName>
+          <SourceClassType>LayeredTileMap</SourceClassType>
+          <InstanceName>Map</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
         <NamedObjectSave>
           <Properties>
             <PropertySave>
@@ -450,7 +538,7 @@
             </PropertySave>
             <PropertySave>
               <Name>CollisionCreationOptions</Name>
-              <ValueAsInt>2</ValueAsInt>
+              <ValueAsInt>4</ValueAsInt>
             </PropertySave>
             <PropertySave>
               <Name>CollisionTileSize</Name>
@@ -472,12 +560,49 @@
               <Name>CollisionFillTop</Name>
               <ValueAsFloat>256</ValueAsFloat>
             </PropertySave>
+            <PropertySave>
+              <Name>SourceTmxName</Name>
+              <ValueAsString>Map</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionTileTypeName</Name>
+              <ValueAsString>Wall</ValueAsString>
+            </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
           <SourceClassType>TileShapeCollection</SourceClassType>
-          <InstanceName>TileShapeCollectionInstance</InstanceName>
+          <InstanceName>SolidCollisions</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>205</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>-150</ValueAsFloat>
+          </CustomProperty>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Camera</SourceClassType>
+          <InstanceName>CameraInstance</InstanceName>
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -584,7 +709,7 @@
           <CustomProperty>
             <Type>Microsoft.Xna.Framework.Color</Type>
             <Member>Color</Member>
-            <ValueAsString>Red</ValueAsString>
+            <ValueAsString>Yellow</ValueAsString>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -713,6 +838,7 @@
           </Properties>
           <Name>SpriteAnimations</Name>
           <Type>AnimationChainList</Type>
+          <DefaultValue xsi:type="xsd:string">Enemy_Shooter_Animations</DefaultValue>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>AnimationChains</SourceObjectProperty>
         </CustomVariable>
@@ -749,12 +875,12 @@
           <CustomProperty>
             <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
             <Member>AnimationChains</Member>
-            <ValueAsString>Enemy_Shooter</ValueAsString>
+            <ValueAsString>Enemy_Shooter_Animations</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>walk_rot00_Right</ValueAsString>
+            <ValueAsString>walk_Right</ValueAsString>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -773,7 +899,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>16</ValueAsFloat>
+            <ValueAsFloat>7</ValueAsFloat>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -860,12 +986,12 @@
           <CustomProperty>
             <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
             <Member>AnimationChains</Member>
-            <ValueAsString>Hero1Animations</ValueAsString>
+            <ValueAsString>Hero_1_Animations</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>walk_rot00</ValueAsString>
+            <ValueAsString>walk_Right</ValueAsString>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -884,7 +1010,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>16</ValueAsFloat>
+            <ValueAsFloat>7</ValueAsFloat>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -1076,16 +1202,16 @@
   <DisplaySettings>
     <Is2D>true</Is2D>
     <GenerateDisplayCode>true</GenerateDisplayCode>
-    <ResolutionWidth>800</ResolutionWidth>
-    <ResolutionHeight>600</ResolutionHeight>
-    <FixedAspectRatio>false</FixedAspectRatio>
-    <AspectRatioWidth>16</AspectRatioWidth>
-    <AspectRatioHeight>9</AspectRatioHeight>
+    <ResolutionWidth>480</ResolutionWidth>
+    <ResolutionHeight>320</ResolutionHeight>
+    <FixedAspectRatio>true</FixedAspectRatio>
+    <AspectRatioWidth>4</AspectRatioWidth>
+    <AspectRatioHeight>3</AspectRatioHeight>
     <SupportLandscape>true</SupportLandscape>
     <SupportPortrait>false</SupportPortrait>
     <RunInFullScreen>false</RunInFullScreen>
     <AllowWindowResizing>false</AllowWindowResizing>
-    <Scale>100</Scale>
+    <Scale>200</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
     <ResizeBehaviorGum>StretchVisibleArea</ResizeBehaviorGum>
     <DominantInternalCoordinates>Height</DominantInternalCoordinates>

@@ -169,10 +169,6 @@
     <Content Include="Content\shader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="content\characters\enemy_shooter.achx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Enemy_Shooter</Name>
-    </None>
     <None Include="content\characters\enemy_shooter_animations.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Enemy_Shooter_Animations</Name>
@@ -180,22 +176,6 @@
     <None Include="content\characters\enemy_shooter_spritesheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Enemy_Shooter_SpriteSheet</Name>
-    </None>
-    <None Include="content\characters\hero1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Hero1</Name>
-    </None>
-    <None Include="content\characters\hero1animations.achx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Hero1Animations</Name>
-    </None>
-    <None Include="content\characters\hero2.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Hero2</Name>
-    </None>
-    <None Include="content\characters\hero2animations.achx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Hero2Animations</Name>
     </None>
     <None Include="content\characters\hero_1_animations.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -308,6 +288,34 @@
     <None Include="content\gumproject\standards\text.gutx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>text</Name>
+    </None>
+    <None Include="content\levels\characters test export.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>characters test export</Name>
+    </None>
+    <None Include="content\levels\chars test.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>chars test</Name>
+    </None>
+    <None Include="content\levels\sprites test export.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>sprites test export</Name>
+    </None>
+    <None Include="content\levels\sprites test.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>sprites test</Name>
+    </None>
+    <None Include="content\levels\steppe_01.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>steppe_01</Name>
+    </None>
+    <None Include="content\levels\steppe_test_02.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Steppe_test_02</Name>
+    </None>
+    <None Include="content\levels\tiles steppe export.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>tiles steppe export</Name>
     </None>
     <None Include="Libraries\DesktopGl\Debug\FlatRedBall.Forms.dll" />
     <None Include="Libraries\DesktopGl\Debug\GumCoreXnaPc.dll" />

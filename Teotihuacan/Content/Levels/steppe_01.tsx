@@ -50,17 +50,23 @@
  <tile id="75" terrain="0,3,0,0"/>
  <tile id="76" terrain="3,3,0,0"/>
  <tile id="77" terrain="3,0,0,0"/>
+ <tile id="96" type="Wall"/>
+ <tile id="97" type="Wall"/>
+ <tile id="98" type="Wall"/>
+ <tile id="99" type="Wall"/>
  <tile id="107" terrain="0,0,0,5"/>
  <tile id="108" terrain="0,0,5,5"/>
  <tile id="109" terrain="0,0,5,0"/>
  <tile id="110" terrain="5,5,5,0"/>
  <tile id="111" terrain="5,5,0,0"/>
  <tile id="112" terrain="5,5,0,5"/>
+ <tile id="128" type="Wall"/>
  <tile id="139" terrain="0,5,0,5"/>
  <tile id="140" terrain="5,5,5,5"/>
  <tile id="141" terrain="5,0,5,0"/>
  <tile id="142" terrain="5,0,5,0"/>
  <tile id="144" terrain="0,5,0,5"/>
+ <tile id="160" type="Wall"/>
  <tile id="171" terrain="0,5,0,0"/>
  <tile id="172" terrain="5,5,0,0"/>
  <tile id="173" terrain="5,0,0,0"/>
