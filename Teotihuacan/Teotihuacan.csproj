@@ -45,6 +45,10 @@
     <Compile Include="Entities\Bullet.Generated.cs">
       <DependentUpon>Bullet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\CameraController.cs" />
+    <Compile Include="Entities\CameraController.Generated.cs">
+      <DependentUpon>CameraController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Enemy.Generated.cs">
       <DependentUpon>Enemy.cs</DependentUpon>
@@ -193,6 +197,10 @@
     <None Include="content\characters\hero_2_spritesheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Hero_2_SpriteSheet</Name>
+    </None>
+    <None Include="content\entities\enemy\topdownvalues.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TopDownValues</Name>
     </None>
     <None Include="content\entities\player\topdownvalues.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

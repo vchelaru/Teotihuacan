@@ -8,12 +8,14 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
-using Teotihuacan.TopDown;
+using FlatRedBall.Math;
 
 namespace Teotihuacan.Entities
 {
-	public partial class Enemy : ITopDownEntity
+	public partial class CameraController
 	{
+        public List<PositionedObject> Targets { get; private set; } = new List<PositionedObject>();
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -27,7 +29,8 @@ namespace Teotihuacan.Entities
 
 		private void CustomActivity()
 		{
-
+            this.XVelocity = Targets[0].X - this.X;
+            this.YVelocity = Targets[0].Y - this.Y;
 
 		}
 
