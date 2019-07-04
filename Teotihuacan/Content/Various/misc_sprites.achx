@@ -387,6 +387,7 @@
       <RightCoordinate>57</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
@@ -395,6 +396,7 @@
       <RightCoordinate>76</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
@@ -403,6 +405,7 @@
       <RightCoordinate>95</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -412,6 +415,7 @@
       <RightCoordinate>76</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -421,6 +425,7 @@
       <RightCoordinate>57</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -430,6 +435,7 @@
       <RightCoordinate>38</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
@@ -438,6 +444,7 @@
       <RightCoordinate>19</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
@@ -446,6 +453,7 @@
       <RightCoordinate>38</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -457,6 +465,7 @@
       <RightCoordinate>57</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -468,6 +477,7 @@
       <RightCoordinate>76</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -479,6 +489,7 @@
       <RightCoordinate>95</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -491,6 +502,7 @@
       <RightCoordinate>76</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -503,6 +515,7 @@
       <RightCoordinate>57</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -515,6 +528,7 @@
       <RightCoordinate>38</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -526,6 +540,7 @@
       <RightCoordinate>19</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -537,6 +552,7 @@
       <RightCoordinate>38</RightCoordinate>
       <TopCoordinate>25</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>
