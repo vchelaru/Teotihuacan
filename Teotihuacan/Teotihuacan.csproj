@@ -49,6 +49,10 @@
     <Compile Include="Entities\CameraController.Generated.cs">
       <DependentUpon>CameraController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DebuggingVariables.cs" />
+    <Compile Include="Entities\DebuggingVariables.Generated.cs">
+      <DependentUpon>DebuggingVariables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Enemy.Generated.cs">
       <DependentUpon>Enemy.cs</DependentUpon>

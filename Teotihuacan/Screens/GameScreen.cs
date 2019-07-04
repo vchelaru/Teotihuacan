@@ -15,6 +15,7 @@ using Teotihuacan.GameData;
 using Teotihuacan.Managers;
 using FlatRedBall.TileEntities;
 using Teotihuacan.Entities;
+using FlatRedBall.TileCollisions;
 
 namespace Teotihuacan.Screens
 {
@@ -26,13 +27,14 @@ namespace Teotihuacan.Screens
 
         SpawnManager spawnManager;
 
+        TileNodeNetwork nodeNetwork;
+
         #endregion
 
         #region Initialize
 
         void CustomInitialize()
 		{
-
             TileEntityInstantiator.CreateEntitiesFrom(Map);
 
             spawnManager = new SpawnManager();
@@ -43,10 +45,64 @@ namespace Teotihuacan.Screens
 
             Factories.EnemyFactory.EntitySpawned = HandleEnemySpawn;
 
+            InitializeNodeNetworks();
+        }
+
+        private void InitializeNodeNetworks()
+        {
+            nodeNetwork = TileNodeNetworkCreator.CreateFromTypes(
+                Map, DirectionalType.Four, new string[] { "Ground" });
+            // todo - add ground:
+            //nodeNetwork = new TileNodeNetwork(Map.X, Map.Y - Map.Height, Map.WidthPerTile.Value,
+            //    Map.NumberTilesWide.Value, Map.NumberTilesTall.Value, DirectionalType.Eight);
+            //nodeNetwork.LinkColor = Microsoft.Xna.Framework.Color.Gray;
+            //nodeNetwork.NodeColor = Microsoft.Xna.Framework.Color.White;
+
+            var names = Map.TileProperties
+                .Where(item => item.Value.Any(subItem => 
+                    subItem.Name == "Type" && (subItem.Value as string) == "Wall"))
+                .Select(item => item.Key)    
+                .ToArray();
+
+            var mapHafSize = Map.WidthPerTile.Value/2.0f;
+
+            foreach (var layer in Map.MapLayers)
+            {
+                foreach(var name in names)
+                {
+                    if(layer.NamedTileOrderedIndexes.ContainsKey(name))
+                    {
+                      var indexes = layer.NamedTileOrderedIndexes[name];
+
+                        foreach(var index in indexes)
+                        {
+                            var bottomLeftPosition = layer.Vertices[index * 4].Position;
+
+                            var node = nodeNetwork.TiledNodeAtWorld(
+                                bottomLeftPosition.X + mapHafSize,
+                                bottomLeftPosition.Y + mapHafSize);
+                            if(node != null)
+                            {
+                                nodeNetwork.Remove(node);
+                            }
+                        }
+                    }
+                }
+            }
+
+            if(DebuggingVariables.ShowNodeNetwork)
+            {
+                nodeNetwork.Visible = true;
+                nodeNetwork.UpdateShapes();
+
+            }
         }
 
         private void InitializeCollisions()
         {
+            SolidCollisions.Visible = DebuggingVariables.ShowSolidCollision;
+
+
             // add border around the tile map
             int borderSizeWide = Map.NumberTilesWide.Value + 2;
 

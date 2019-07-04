@@ -10,63 +10,63 @@
   <terrain name="Shadow small" tile="386"/>
   <terrain name="Shadow big" tile="389"/>
  </terraintypes>
- <tile id="0" terrain="0,0,0,1"/>
- <tile id="1" terrain="0,0,1,1"/>
- <tile id="2" terrain="0,0,1,0"/>
- <tile id="3" terrain="1,1,1,0"/>
- <tile id="4" terrain="1,1,0,1"/>
- <tile id="5" terrain="2,2,2,0"/>
- <tile id="6" terrain="2,2,0,0"/>
- <tile id="7" terrain="2,2,0,2"/>
- <tile id="8" terrain="0,0,0,2"/>
- <tile id="9" terrain="0,0,2,0"/>
- <tile id="10" terrain="2,2,2,2"/>
- <tile id="11" terrain="0,0,0,3"/>
- <tile id="12" terrain="0,0,3,3"/>
- <tile id="13" terrain="0,0,3,0"/>
- <tile id="14" terrain="3,3,3,0"/>
- <tile id="15" terrain="3,3,0,3"/>
- <tile id="16" terrain="0,0,0,4"/>
- <tile id="17" terrain="0,0,4,4"/>
- <tile id="18" terrain="0,0,4,0"/>
- <tile id="19" terrain="4,4,4,0"/>
- <tile id="20" terrain="4,4,0,4"/>
- <tile id="64" terrain="0,1,0,1"/>
- <tile id="65" terrain="1,1,1,1"/>
- <tile id="66" terrain="1,0,1,0"/>
- <tile id="67" terrain="1,0,1,1"/>
- <tile id="68" terrain="0,1,1,1"/>
- <tile id="69" terrain="2,0,2,0"/>
- <tile id="70" terrain="0,0,0,0"/>
- <tile id="71" terrain="0,2,0,2"/>
- <tile id="72" terrain="0,2,0,0"/>
- <tile id="73" terrain="2,0,0,0"/>
- <tile id="75" terrain="0,3,0,3"/>
- <tile id="76" terrain="3,3,3,3"/>
- <tile id="77" terrain="3,0,3,0"/>
- <tile id="78" terrain="3,0,3,3"/>
- <tile id="79" terrain="0,3,3,3"/>
- <tile id="80" terrain="0,4,0,4"/>
- <tile id="81" terrain="4,4,4,4"/>
- <tile id="82" terrain="4,0,4,0"/>
- <tile id="83" terrain="4,0,4,4"/>
- <tile id="84" terrain="0,4,4,4"/>
- <tile id="128" terrain="0,1,0,0"/>
- <tile id="129" terrain="1,1,0,0"/>
- <tile id="130" terrain="1,0,0,0"/>
- <tile id="133" terrain="2,0,2,2"/>
- <tile id="134" terrain="0,0,2,2"/>
- <tile id="135" terrain="0,2,2,2"/>
- <tile id="139" terrain="0,3,0,0"/>
- <tile id="140" terrain="3,3,0,0"/>
- <tile id="141" terrain="3,0,0,0"/>
- <tile id="142" terrain="3,3,3,3" probability="0.2"/>
- <tile id="143" terrain="3,3,3,3" probability="0.1"/>
- <tile id="144" terrain="0,4,0,0"/>
- <tile id="145" terrain="4,4,0,0"/>
- <tile id="146" terrain="4,0,0,0"/>
- <tile id="147" terrain="4,4,4,4" probability="0.2"/>
- <tile id="148" terrain="4,4,4,4" probability="0.1"/>
+ <tile id="0" type="Ground" terrain="0,0,0,1"/>
+ <tile id="1" type="Ground" terrain="0,0,1,1"/>
+ <tile id="2" type="Ground" terrain="0,0,1,0"/>
+ <tile id="3" type="Ground" terrain="1,1,1,0"/>
+ <tile id="4" type="Ground" terrain="1,1,0,1"/>
+ <tile id="5" type="Ground" terrain="2,2,2,0"/>
+ <tile id="6" type="Ground" terrain="2,2,0,0"/>
+ <tile id="7" type="Ground" terrain="2,2,0,2"/>
+ <tile id="8" type="Ground" terrain="0,0,0,2"/>
+ <tile id="9" type="Ground" terrain="0,0,2,0"/>
+ <tile id="10" type="Ground" terrain="2,2,2,2"/>
+ <tile id="11" type="Ground" terrain="0,0,0,3"/>
+ <tile id="12" type="Ground" terrain="0,0,3,3"/>
+ <tile id="13" type="Ground" terrain="0,0,3,0"/>
+ <tile id="14" type="Ground" terrain="3,3,3,0"/>
+ <tile id="15" type="Ground" terrain="3,3,0,3"/>
+ <tile id="16" type="Ground" terrain="0,0,0,4"/>
+ <tile id="17" type="Ground" terrain="0,0,4,4"/>
+ <tile id="18" type="Ground" terrain="0,0,4,0"/>
+ <tile id="19" type="Ground" terrain="4,4,4,0"/>
+ <tile id="20" type="Ground" terrain="4,4,0,4"/>
+ <tile id="64" type="Ground" terrain="0,1,0,1"/>
+ <tile id="65" type="Ground" terrain="1,1,1,1"/>
+ <tile id="66" type="Ground" terrain="1,0,1,0"/>
+ <tile id="67" type="Ground" terrain="1,0,1,1"/>
+ <tile id="68" type="Ground" terrain="0,1,1,1"/>
+ <tile id="69" type="Ground" terrain="2,0,2,0"/>
+ <tile id="70" type="Ground" terrain="0,0,0,0"/>
+ <tile id="71" type="Ground" terrain="0,2,0,2"/>
+ <tile id="72" type="Ground" terrain="0,2,0,0"/>
+ <tile id="73" type="Ground" terrain="2,0,0,0"/>
+ <tile id="75" type="Ground" terrain="0,3,0,3"/>
+ <tile id="76" type="Ground" terrain="3,3,3,3"/>
+ <tile id="77" type="Ground" terrain="3,0,3,0"/>
+ <tile id="78" type="Ground" terrain="3,0,3,3"/>
+ <tile id="79" type="Ground" terrain="0,3,3,3"/>
+ <tile id="80" type="Ground" terrain="0,4,0,4"/>
+ <tile id="81" type="Ground" terrain="4,4,4,4"/>
+ <tile id="82" type="Ground" terrain="4,0,4,0"/>
+ <tile id="83" type="Ground" terrain="4,0,4,4"/>
+ <tile id="84" type="Ground" terrain="0,4,4,4"/>
+ <tile id="128" type="Ground" terrain="0,1,0,0"/>
+ <tile id="129" type="Ground" terrain="1,1,0,0"/>
+ <tile id="130" type="Ground" terrain="1,0,0,0"/>
+ <tile id="133" type="Ground" terrain="2,0,2,2"/>
+ <tile id="134" type="Ground" terrain="0,0,2,2"/>
+ <tile id="135" type="Ground" terrain="0,2,2,2"/>
+ <tile id="139" type="Ground" terrain="0,3,0,0"/>
+ <tile id="140" type="Ground" terrain="3,3,0,0"/>
+ <tile id="141" type="Ground" terrain="3,0,0,0"/>
+ <tile id="142" type="Ground" terrain="3,3,3,3" probability="0.2"/>
+ <tile id="143" type="Ground" terrain="3,3,3,3" probability="0.1"/>
+ <tile id="144" type="Ground" terrain="0,4,0,0"/>
+ <tile id="145" type="Ground" terrain="4,4,0,0"/>
+ <tile id="146" type="Ground" terrain="4,0,0,0"/>
+ <tile id="147" type="Ground" terrain="4,4,4,4" probability="0.2"/>
+ <tile id="148" type="Ground" terrain="4,4,4,4" probability="0.1"/>
  <tile id="192" type="Wall"/>
  <tile id="193" type="Wall"/>
  <tile id="194" type="Wall"/>
