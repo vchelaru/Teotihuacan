@@ -208,7 +208,7 @@ namespace FlatRedBall.TileEntities
                         {
                             bool isEntity = typesInThisAssembly.Any(item => item.Name.Contains($".Entities.") && item.Name.EndsWith(entityType));
 
-                            if(isEntity)
+                            if (isEntity)
                             {
                                 string message =
                                     $"The factory for entity {entityType} could not be found. To create instances of this entity, " +
