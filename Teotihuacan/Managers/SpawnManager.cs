@@ -1,4 +1,5 @@
-﻿using FlatRedBall.Math;
+﻿using FlatRedBall;
+using FlatRedBall.Math;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Teotihuacan.Managers
     {
         int CurrentSpawnIndex;
         
-        public void DoActivity(PositionedObjectList<Enemy> enemies, LevelSpawnsBase spawns)
+        public void DoActivity(PositionedObjectList<Enemy> enemies, PositionedObjectList<SpawnPoint> spawnPoints, LevelSpawnsBase spawns)
         {
             var hasSpawnsLeft = CurrentSpawnIndex < spawns.MiniWaves.Count;
 
@@ -29,7 +30,9 @@ namespace Teotihuacan.Managers
                     var x = 100;
                     var y = -100;
 
-                    var enemy = Factories.EnemyFactory.CreateNew(x, y);
+                    var spawnPoint = FlatRedBallServices.Random.In(spawnPoints);
+
+                    var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
                     enemy.CurrentDataCategoryState = data;
 
                 }

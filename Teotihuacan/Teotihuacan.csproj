@@ -290,33 +290,17 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>text</Name>
     </None>
-    <None Include="content\levels\characters test export.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>characters test export</Name>
-    </None>
-    <None Include="content\levels\chars test.tsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>chars test</Name>
-    </None>
-    <None Include="content\levels\sprites test export.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>sprites test export</Name>
-    </None>
-    <None Include="content\levels\sprites test.tsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>sprites test</Name>
-    </None>
-    <None Include="content\levels\steppe_01.tsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>steppe_01</Name>
-    </None>
     <None Include="content\levels\steppe_test_02.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Steppe_test_02</Name>
     </None>
-    <None Include="content\levels\tiles steppe export.png">
+    <None Include="content\levels\tileset_main.tsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>tiles steppe export</Name>
+      <Name>tileset_main</Name>
+    </None>
+    <None Include="content\levels\tilesheet_main.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>tilesheet_main</Name>
     </None>
     <None Include="Libraries\DesktopGl\Debug\FlatRedBall.Forms.dll" />
     <None Include="Libraries\DesktopGl\Debug\GumCoreXnaPc.dll" />

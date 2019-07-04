@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.2" tiledversion="1.2.4" name="Main" tilewidth="16" tileheight="16" tilecount="4096" columns="64">
- <image source="TileSheet_Main" width="1024" height="1024"/>
+ <image source="TileSheet_Main.png" width="1024" height="1024"/>
  <terraintypes>
   <terrain name="Base ground" tile="70"/>
   <terrain name="Dark ground" tile="65"/>

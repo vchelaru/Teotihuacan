@@ -35,7 +35,7 @@ namespace Teotihuacan.Screens
 
 		void CustomActivity(bool firstTimeCalled)
 		{
-            spawnManager.DoActivity(EnemyList, Spawns);
+            spawnManager.DoActivity(EnemyList, SpawnPointList, Spawns);
 
 
         }
