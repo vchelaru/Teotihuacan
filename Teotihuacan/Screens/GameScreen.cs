@@ -145,17 +145,27 @@ namespace Teotihuacan.Screens
 
         private void DoAi()
         {
+            var refreshAi = InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Space);
             foreach(var enemy in EnemyList)
             {
                 var ai = enemy.InputDevice as TopDown.TopDownAiInput<Enemy>;
+                if(refreshAi)
+                {
+                    // slow for now, will do this on a frequency:
+                    var path = nodeNetwork.GetPathOrClosest(ref enemy.Position, ref PlayerList[0].Position);
+                    ai.Path.Clear();
+                    ai.Path.AddRange(path.Select(item => item.Position).Skip(1));
+                    ai.Target = ai.Path.FirstOrDefault();
+                }
                 ai.Activity();
-                ai.Target = PlayerList[0].Position;
             }
         }
 
         private void HandleEnemySpawn(Enemy enemy)
         {
             var input = new TopDown.TopDownAiInput<Enemy>(enemy);
+            input.RemoveTargetOnReaching = true;
+            input.StopOnTarget = false;
             enemy.InitializeTopDownInput(input);
         }
 

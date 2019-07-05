@@ -71,6 +71,8 @@ namespace Teotihuacan.TopDown
 
         public Vector3? Target { get; set; }
 
+        public List<Vector3> Path { get; private set; } = new List<Vector3>();
+
         public T Owner { get; set; }
 
         public TopDownAiInput(T owner)
@@ -94,8 +96,16 @@ namespace Teotihuacan.TopDown
 
                 if(Math.Abs(xDiff) < epsilon && Math.Abs(yDiff) < epsilon && RemoveTargetOnReaching)
                 {
-                    Target = null;
                     TargetReached?.Invoke(Owner);
+                    if(Path.Count > 0)
+                    {
+                        Target = Path[0];
+                        Path.RemoveAt(0);
+                    }
+                    else
+                    {
+                        Target = null;
+                    }
                 }
                 else if(xDiff != 0 || yDiff != 0)
                 {
