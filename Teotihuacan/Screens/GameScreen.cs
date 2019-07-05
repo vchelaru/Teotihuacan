@@ -33,7 +33,6 @@ namespace Teotihuacan.Screens
 
         int currentFrameSkipIndex;
 
-        Polygon pathFindingPolygon;
 
         #endregion
 
@@ -111,8 +110,6 @@ namespace Teotihuacan.Screens
 
         private void InitializeCollisions()
         {
-            pathFindingPolygon = Polygon.CreateRectangle(7, 7);
-
             SolidCollisions.Visible = DebuggingVariables.ShowSolidCollision;
 
 
@@ -161,41 +158,8 @@ namespace Teotihuacan.Screens
             for(int i = currentFrameSkipIndex; i < EnemyList.Count; i+= AiFrameSkip)
             {
                 var enemy = EnemyList[i];
-                var ai = enemy.InputDevice as TopDown.TopDownAiInput<Enemy>;
-                var path = nodeNetwork.GetPathOrClosest(ref enemy.Position, ref PlayerList[0].Position);
-                ai.Path.Clear();
-                var points = path.Select(item => item.Position).ToList();
 
-                while(points.Count > 0)
-                {
-                    var length = (points[0] - enemy.Position).Length();
-                    pathFindingPolygon.SetPoint(0,  length / 2.0f, enemy.CircleInstance.Radius);
-                    pathFindingPolygon.SetPoint(1,  length / 2.0f, -enemy.CircleInstance.Radius);
-                    pathFindingPolygon.SetPoint(2, -length / 2.0f, -enemy.CircleInstance.Radius);
-                    pathFindingPolygon.SetPoint(3, -length / 2.0f, enemy.CircleInstance.Radius);
-                    pathFindingPolygon.SetPoint(4,  length / 2.0f, enemy.CircleInstance.Radius);
-
-                    pathFindingPolygon.X = (points[0].X + enemy.Position.X) / 2.0f;
-                    pathFindingPolygon.Y = (points[0].Y + enemy.Position.Y) / 2.0f;
-
-                    var angle = (float)System.Math.Atan2(points[0].Y - enemy.Position.Y, points[0].X - enemy.Position.X);
-                    pathFindingPolygon.RotationZ = angle;
-
-                    var hasClearPath = !SolidCollisions.CollideAgainst(pathFindingPolygon);
-
-                    if(hasClearPath && points.Count > 1)
-                    {
-                        points.RemoveAt(0);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-
-
-                ai.Path.AddRange(points);
-                ai.Target = ai.Path.FirstOrDefault();
+                enemy.DoAiActivity(true, nodeNetwork, PlayerList[0], SolidCollisions);
 
             }
             currentFrameSkipIndex = (currentFrameSkipIndex + 1) % AiFrameSkip;
