@@ -106,6 +106,7 @@ namespace Teotihuacan.TopDown
                     {
                         Target = null;
                     }
+
                 }
                 else if(xDiff != 0 || yDiff != 0)
                 {
