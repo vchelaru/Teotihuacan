@@ -29,6 +29,11 @@ namespace Teotihuacan.Screens
 
         TileNodeNetwork nodeNetwork;
 
+        const int AiFrameSkip = 10;
+
+        int currentFrameSkipIndex;
+
+
         #endregion
 
         #region Initialize
@@ -96,6 +101,11 @@ namespace Teotihuacan.Screens
                 nodeNetwork.UpdateShapes();
 
             }
+            else
+            {
+                nodeNetwork.Visible = false;
+
+            }
         }
 
         private void InitializeCollisions()
@@ -145,17 +155,28 @@ namespace Teotihuacan.Screens
 
         private void DoAi()
         {
+            for(int i = currentFrameSkipIndex; i < EnemyList.Count; i+= AiFrameSkip)
+            {
+                var enemy = EnemyList[i];
+
+                enemy.DoAiActivity(true, nodeNetwork, PlayerList[0], SolidCollisions);
+
+            }
+            currentFrameSkipIndex = (currentFrameSkipIndex + 1) % AiFrameSkip;
+
             foreach(var enemy in EnemyList)
             {
                 var ai = enemy.InputDevice as TopDown.TopDownAiInput<Enemy>;
+
                 ai.Activity();
-                ai.Target = PlayerList[0].Position;
             }
         }
 
         private void HandleEnemySpawn(Enemy enemy)
         {
             var input = new TopDown.TopDownAiInput<Enemy>(enemy);
+            input.RemoveTargetOnReaching = true;
+            input.StopOnTarget = false;
             enemy.InitializeTopDownInput(input);
         }
 
