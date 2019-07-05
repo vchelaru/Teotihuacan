@@ -39,6 +39,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animation\ChainNameHelperMethods.cs" />
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
     <Compile Include="DataTypes\TopDownValues.Generated.cs" />
     <Compile Include="Entities\Bullet.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="TileGraphics\TileNodeNetworkCreator.cs" />
     <Compile Include="TileGraphics\Tileset.cs" />
     <Compile Include="TileGraphics\TilesetExtensionMethods.cs" />
+    <Compile Include="Animation\Actions.cs" />
     <Compile Include="TopDown\Enums.cs" />
     <Compile Include="TopDown\Interfaces.cs" />
     <Compile Include="TopDown\TopDownAiInput.cs" />

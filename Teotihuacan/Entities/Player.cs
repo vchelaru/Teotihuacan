@@ -10,16 +10,19 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
 using FlatRedBall.Gui;
+using Teotihuacan.Animation;
 
 namespace Teotihuacan.Entities
 {
 	public partial class Player
 	{
-        TopDownDirection directionAiming;
         I2DInput rightStick;
         Vector3 aimingVector;
         AnimationController spriteAnimationController;
         bool wasPrimaryInputPressed => InputDevice.DefaultPrimaryActionInput.WasJustPressed || InputManager.Mouse.ButtonPushed(Mouse.MouseButtons.LeftButton);
+        PrimaryActions currentPrimaryAction = PrimaryActions.idle;
+        AnimationLayer shootingLayer;
+
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -40,14 +43,12 @@ namespace Teotihuacan.Entities
             AnimationLayer walkAnimationLayer = new AnimationLayer();
             walkAnimationLayer.EveryFrameAction  = () =>
             {
-                if(MovementInput.Magnitude > .01)
-                {
-                    return MakeAnimationChainName("walk");
-                }
-                return MakeAnimationChainName("idle");
+                return GetChainName(currentPrimaryAction);
             };
-
             spriteAnimationController.Layers.Add(walkAnimationLayer);
+
+            shootingLayer = new AnimationLayer();
+            spriteAnimationController.Layers.Add(shootingLayer);
         }
 
         private void InitializeTwinStickInput()
@@ -61,10 +62,17 @@ namespace Teotihuacan.Entities
 
         private void CustomActivity()
 		{
+            DoPrimaryActionActivity();
             DoAimingActivity();
             DoShootingActivity();
             spriteAnimationController.Activity();
 		}
+
+        private void DoPrimaryActionActivity()
+        {
+            const float movementThreashHold = 0.01f;
+            currentPrimaryAction = MovementInput.Magnitude > movementThreashHold ? PrimaryActions.walk : PrimaryActions.idle;
+        }
 
         private void DoAimingActivity()
         {
@@ -99,32 +107,16 @@ namespace Teotihuacan.Entities
 
                 var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
                 bullet.Velocity = bullet.BulletSpeed * direction;
+
+                shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.ShootingFire));
             }
         }
 
-        private string MakeAnimationChainName(string action)
+        private string GetChainName(PrimaryActions primaryAction, SecondaryActions secondaryAction = SecondaryActions.None)
         {
-            switch(TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay))
-            {
-                case TopDownDirection.Down:
-                    return $"{action}_{nameof(TopDownDirection.Down)}";
-                case TopDownDirection.DownLeft:
-                    return $"{action}_{nameof(TopDownDirection.DownLeft)}";
-                case TopDownDirection.DownRight:
-                    return $"{action}_{nameof(TopDownDirection.DownRight)}";
-                case TopDownDirection.Left:
-                    return $"{action}_{nameof(TopDownDirection.Left)}";
-                case TopDownDirection.Right:
-                    return $"{action}_{nameof(TopDownDirection.Right)}";
-                case TopDownDirection.Up:
-                    return $"{action}_{nameof(TopDownDirection.Up)}";
-                case TopDownDirection.UpLeft:
-                    return $"{action}_{nameof(TopDownDirection.UpLeft)}";
-                case TopDownDirection.UpRight:
-                    return $"{action}_{nameof(TopDownDirection.UpRight)}";
-            }
+            var direction = TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
 
-            return $"{action}_{nameof(TopDownDirection.Down)}";
+            return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, direction);
         }
 
         private void CustomDestroy()
