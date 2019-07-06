@@ -97,7 +97,14 @@ namespace Teotihuacan.Entities
 
             bool isLineOfSight = path.Count < 2 && target != null;
 
+            bool isInRange = false;
+
             if(isLineOfSight)
+            {
+                isInRange = (target.Position - this.Position).Length() < MaxShootingDistance;
+            }
+
+            if(isInRange)
             {
                 // line of site
                 CurrentBehavior = Behavior.Shooting;

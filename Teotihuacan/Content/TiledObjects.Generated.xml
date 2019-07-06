@@ -9,6 +9,7 @@
     <property name="MaxHp" type="int" />
     <property name="CurrentDataCategoryState" type="DataCategory" />
     <property name="FireShotsPerSecond" type="float" default="1" />
+    <property name="MaxShootingDistance" type="float" default="200" />
   </objecttype>
   <objecttype name="Player">
     <property name="FireShotsPerSecond" type="float" default="4" />
