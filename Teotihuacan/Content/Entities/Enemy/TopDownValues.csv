@@ -1,2 +1,3 @@
 "Name (System.String, required)",MaxSpeed (System.Single),AccelerationTime (System.Single),DecelerationTime (System.Single),UpdateDirectionFromVelocity (System.Boolean)
-DefaultValues,70,.35,.175,True
+DefaultValues,60,.35,.175,True
+WhileShooting,30,.25,.125,True

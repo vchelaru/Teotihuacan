@@ -8,7 +8,10 @@
     <property name="SpriteAnimations" type="AnimationChainList" default="Enemy_Shooter_Animations" />
     <property name="MaxHp" type="int" />
     <property name="CurrentDataCategoryState" type="DataCategory" />
+    <property name="FireShotsPerSecond" type="float" default="1" />
   </objecttype>
-  <objecttype name="Player" />
+  <objecttype name="Player">
+    <property name="FireShotsPerSecond" type="float" default="4" />
+  </objecttype>
   <objecttype name="SpawnPoint" />
 </objecttypes>

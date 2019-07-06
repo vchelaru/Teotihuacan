@@ -16,20 +16,30 @@ namespace Teotihuacan.Entities
 {
 	public partial class Player
 	{
+        #region Fields/Properties
+
         I2DInput rightStick;
         Vector3 aimingVector;
         AnimationController spriteAnimationController;
-        bool wasPrimaryInputPressed => InputDevice.DefaultPrimaryActionInput.WasJustPressed || InputManager.Mouse.ButtonPushed(Mouse.MouseButtons.LeftButton);
-        PrimaryActions currentPrimaryAction = PrimaryActions.idle;
-        AnimationLayer shootingLayer;
+        bool isPrimaryInputDown => 
+            InputDevice.DefaultPrimaryActionInput.IsDown || 
+            InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton);
 
+        PrimaryActions currentPrimaryAction = PrimaryActions.idle;
+        SecondaryActions currentSecondaryAction = SecondaryActions.None;
+        AnimationLayer shootingLayer;
+        double lastFireShotTime;
+
+        #endregion
+
+        #region Initialize
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
         /// added to managers will not have this method called.
         /// </summary>
-		private void CustomInitialize()
+        private void CustomInitialize()
 		{
             this.PossibleDirections = PossibleDirections.EightWay;
 
@@ -60,11 +70,16 @@ namespace Teotihuacan.Entities
             }
         }
 
+        #endregion
+
+        #region Activity
+
         private void CustomActivity()
 		{
             DoPrimaryActionActivity();
             DoAimingActivity();
             DoShootingActivity();
+            DoMovementValueUpdate();
             spriteAnimationController.Activity();
 		}
 
@@ -99,16 +114,45 @@ namespace Teotihuacan.Entities
 
         private void DoShootingActivity()
         {
-            var didShoot = wasPrimaryInputPressed;
 
-            if(didShoot)
+            if (isPrimaryInputDown)
+            {
+                // todo - support different weapons:
+                currentSecondaryAction = SecondaryActions.ShootingFire;
+            }
+            else
+            {
+                currentSecondaryAction = SecondaryActions.None;
+            }
+
+            if(currentSecondaryAction == SecondaryActions.ShootingFire &&
+                FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastFireShotTime) > 
+                1/FireShotsPerSecond
+                )
             {
                 var direction = aimingVector;
 
                 var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
                 bullet.Velocity = bullet.BulletSpeed * direction;
+                bullet.TeamIndex = 0; // be explicit about it. Player team is 0.
 
                 shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.ShootingFire));
+
+                lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
+            }
+        }
+
+        private void DoMovementValueUpdate()
+        {
+            switch(currentSecondaryAction)
+            {
+                case SecondaryActions.None:
+                    mCurrentMovement = TopDownValues[DataTypes.TopDownValues.DefaultValues];
+                    break;
+                case SecondaryActions.ShootingFire:
+                case SecondaryActions.ShootingLightning:
+                    mCurrentMovement = TopDownValues[DataTypes.TopDownValues.WhileShooting];
+                    break;
             }
         }
 
@@ -118,6 +162,8 @@ namespace Teotihuacan.Entities
 
             return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, direction);
         }
+
+        #endregion
 
         private void CustomDestroy()
 		{

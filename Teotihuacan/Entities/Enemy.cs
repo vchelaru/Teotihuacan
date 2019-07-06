@@ -11,27 +11,38 @@ using FlatRedBall.Math.Geometry;
 using Teotihuacan.TopDown;
 using System.Linq;
 using FlatRedBall.TileCollisions;
+using Microsoft.Xna.Framework;
 
 namespace Teotihuacan.Entities
 {
+    #region Enums
+
     public enum Behavior
     {
         Chasing,
         Shooting
     }
 
-	public partial class Enemy : ITopDownEntity
+    #endregion
+
+    public partial class Enemy : ITopDownEntity
 	{
+        #region Fields/Properties
+
         Polygon pathFindingPolygon;
 
         Behavior CurrentBehavior;
+
+        double lastFireShotTime;
+
+        #endregion
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
         /// added to managers will not have this method called.
         /// </summary>
-		private void CustomInitialize()
+        private void CustomInitialize()
 		{
             if(pathFindingPolygon == null)
             {
@@ -42,21 +53,62 @@ namespace Teotihuacan.Entities
 
 		private void CustomActivity()
 		{
-
+            SetMovementValues();
 
 		}
+
+        private void SetMovementValues()
+        {
+
+        }
 
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
             PositionedObject target, TileShapeCollection solidCollisions)
         {
-            if (CurrentBehavior == Behavior.Chasing)
+            if (refreshPath)
             {
-                DoChasingBehavior(nodeNetwork, target, solidCollisions);
+                // enemies always move towards player, but really slowly when shooting
+                RefreshPath(nodeNetwork, target, solidCollisions);
+            }
 
+            UpdateCurrentBehavior(nodeNetwork, target);
+
+            UpdateMovementBehavior();
+
+            DoShootingActivity(target);
+        }
+
+        private void UpdateMovementBehavior()
+        {
+            if (CurrentBehavior == Behavior.Shooting)
+            {
+                mCurrentMovement = TopDownValues[DataTypes.TopDownValues.WhileShooting];
+            }
+            else
+            {
+                mCurrentMovement = TopDownValues[DataTypes.TopDownValues.DefaultValues];
             }
         }
 
-        private void DoChasingBehavior(NodeNetwork nodeNetwork, PositionedObject target, TileShapeCollection solidCollisions)
+        private void UpdateCurrentBehavior(NodeNetwork nodeNetwork, PositionedObject target)
+        {
+            var ai = InputDevice as TopDown.TopDownAiInput<Enemy>;
+            var path = ai.Path;
+
+            bool isLineOfSight = path.Count < 2 && target != null;
+
+            if(isLineOfSight)
+            {
+                // line of site
+                CurrentBehavior = Behavior.Shooting;
+            }
+            else
+            {
+                CurrentBehavior = Behavior.Chasing;
+            }
+        }
+
+        private void RefreshPath(NodeNetwork nodeNetwork, PositionedObject target, TileShapeCollection solidCollisions)
         {
             var ai = InputDevice as TopDown.TopDownAiInput<Enemy>;
             var path = nodeNetwork.GetPathOrClosest(ref Position, ref target.Position);
@@ -93,6 +145,32 @@ namespace Teotihuacan.Entities
 
             ai.Path.AddRange(points);
             ai.Target = ai.Path.FirstOrDefault();
+        }
+
+        private void DoShootingActivity(PositionedObject target)
+        {
+            if (
+                CurrentBehavior == Behavior.Shooting &&
+                FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastFireShotTime) >
+                1 / FireShotsPerSecond
+                )
+            {
+                var direction = Vector3.Right;
+                if(X - target.X != 0 || Y - target.Y != 0)
+                {
+                    direction = target.Position - this.Position;
+                    direction.Normalize();
+                }
+
+                var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
+                bullet.Velocity = bullet.BulletSpeed * direction;
+                bullet.TeamIndex = 1; // be explicit about it. Player team is 0.
+
+                // For rick - animations on enemies here
+                //shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.ShootingFire));
+
+                lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
+            }
         }
 
         private void CustomDestroy()
