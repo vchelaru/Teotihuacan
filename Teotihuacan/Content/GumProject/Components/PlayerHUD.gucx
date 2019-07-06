@@ -1,0 +1,1078 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ComponentSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>PlayerHUD</Name>
+  <BaseType>Container</BaseType>
+  <State>
+    <Name>Default</Name>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyGauge.Height</Name>
+      <Value xsi:type="xsd:float">36</Value>
+      <ExposedAsName>EnergyGauge_Height</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>EnergyGauge.Visible</Name>
+      <ExposedAsName>EnergyGauge_Visible</ExposedAsName>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyGauge.Width</Name>
+      <Value xsi:type="xsd:float">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyGauge.X</Name>
+      <Value xsi:type="xsd:float">8</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyGauge.Y</Name>
+      <Value xsi:type="xsd:float">61</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>EnergyGauge.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergySpriteBottomRim.Height</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>EnergySpriteBottomRim.Height Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>EnergySpriteBottomRim.Parent</Name>
+      <Value xsi:type="xsd:string">EnergyGauge</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>EnergySpriteBottomRim.SourceFile</Name>
+      <Value xsi:type="xsd:string">huds_menus_spritesheet.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>EnergySpriteBottomRim.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergySpriteBottomRim.Texture Height</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergySpriteBottomRim.Texture Left</Name>
+      <Value xsi:type="xsd:int">37</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergySpriteBottomRim.Texture Top</Name>
+      <Value xsi:type="xsd:int">10</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergySpriteBottomRim.Texture Width</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergySpriteBottomRim.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>EnergySpriteBottomRim.X Origin</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>EnergySpriteBottomRim.X Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergySpriteBottomRim.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>EnergySpriteBottomRim.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>EnergySpriteBottomRim.Y Units</Name>
+      <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergySpriteMain.Height</Name>
+      <Value xsi:type="xsd:float">-2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>EnergySpriteMain.Height Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>EnergySpriteMain.Parent</Name>
+      <Value xsi:type="xsd:string">EnergyGauge</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>EnergySpriteMain.SourceFile</Name>
+      <Value xsi:type="xsd:string">huds_menus_spritesheet.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>EnergySpriteMain.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergySpriteMain.Texture Height</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergySpriteMain.Texture Left</Name>
+      <Value xsi:type="xsd:int">37</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergySpriteMain.Texture Top</Name>
+      <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergySpriteMain.Texture Width</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergySpriteMain.Y</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergySpriteTopRim.Height</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>EnergySpriteTopRim.Height Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>EnergySpriteTopRim.Parent</Name>
+      <Value xsi:type="xsd:string">EnergyGauge</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>EnergySpriteTopRim.SourceFile</Name>
+      <Value xsi:type="xsd:string">huds_menus_spritesheet.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>EnergySpriteTopRim.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergySpriteTopRim.Texture Height</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergySpriteTopRim.Texture Left</Name>
+      <Value xsi:type="xsd:int">37</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergySpriteTopRim.Texture Top</Name>
+      <Value xsi:type="xsd:int">10</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergySpriteTopRim.Texture Width</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergySpriteTopRim.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HealthGauge.Height</Name>
+      <Value xsi:type="xsd:float">36</Value>
+      <ExposedAsName>HealthGauge_Height</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>HealthGauge.Parent</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>HealthGauge.Visible</Name>
+      <ExposedAsName>HealthGauge_Visible</ExposedAsName>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HealthGauge.Width</Name>
+      <Value xsi:type="xsd:float">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HealthGauge.X</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HealthGauge.Y</Name>
+      <Value xsi:type="xsd:float">61</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>HealthGauge.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HealthSpriteBottomRim.Height</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>HealthSpriteBottomRim.Height Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>HealthSpriteBottomRim.Parent</Name>
+      <Value xsi:type="xsd:string">HealthGauge</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>HealthSpriteBottomRim.SourceFile</Name>
+      <Value xsi:type="xsd:string">huds_menus_spritesheet.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>HealthSpriteBottomRim.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthSpriteBottomRim.Texture Height</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthSpriteBottomRim.Texture Left</Name>
+      <Value xsi:type="xsd:int">37</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthSpriteBottomRim.Texture Top</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthSpriteBottomRim.Texture Width</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HealthSpriteBottomRim.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>HealthSpriteBottomRim.X Origin</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>HealthSpriteBottomRim.X Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HealthSpriteBottomRim.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>HealthSpriteBottomRim.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>HealthSpriteBottomRim.Y Units</Name>
+      <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HealthSpriteMain.Height</Name>
+      <Value xsi:type="xsd:float">-2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>HealthSpriteMain.Height Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>HealthSpriteMain.Parent</Name>
+      <Value xsi:type="xsd:string">HealthGauge</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>HealthSpriteMain.SourceFile</Name>
+      <Value xsi:type="xsd:string">huds_menus_spritesheet.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>HealthSpriteMain.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthSpriteMain.Texture Height</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthSpriteMain.Texture Left</Name>
+      <Value xsi:type="xsd:int">37</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthSpriteMain.Texture Top</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthSpriteMain.Texture Width</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HealthSpriteMain.Y</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HealthSpriteTopRim.Height</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>HealthSpriteTopRim.Height Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>HealthSpriteTopRim.Parent</Name>
+      <Value xsi:type="xsd:string">HealthGauge</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>HealthSpriteTopRim.SourceFile</Name>
+      <Value xsi:type="xsd:string">huds_menus_spritesheet.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>HealthSpriteTopRim.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthSpriteTopRim.Texture Height</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthSpriteTopRim.Texture Left</Name>
+      <Value xsi:type="xsd:int">37</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthSpriteTopRim.Texture Top</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthSpriteTopRim.Texture Width</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HealthSpriteTopRim.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Height</Name>
+      <Value xsi:type="xsd:float">92</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>PanelSprite.SourceFile</Name>
+      <Value xsi:type="xsd:string">huds_menus_spritesheet.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>PanelSprite.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>PanelSprite.Texture Height</Name>
+      <Value xsi:type="xsd:int">92</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>PanelSprite.Texture Left</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>PanelSprite.Texture Top</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>PanelSprite.Texture Width</Name>
+      <Value xsi:type="xsd:int">16</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PanelSprite.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PanelSprite.X Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PanelSprite.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PortraitCategoryState</Type>
+      <Name>PortraitCategoryState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>PortraitSprite.SourceFile</Name>
+      <Value xsi:type="xsd:string">huds_menus_spritesheet.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>PortraitSprite.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>PortraitSprite.Texture Height</Name>
+      <Value xsi:type="xsd:int">14</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>PortraitSprite.Texture Left</Name>
+      <Value xsi:type="xsd:int">37</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>PortraitSprite.Texture Top</Name>
+      <Value xsi:type="xsd:int">19</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>PortraitSprite.Texture Width</Name>
+      <Value xsi:type="xsd:int">14</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PortraitSprite.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PortraitSprite.Y</Name>
+      <Value xsi:type="xsd:float">3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>State</Type>
+      <Name>State</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Width</Name>
+      <Value xsi:type="xsd:float">16</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>XPGauge.Height</Name>
+      <Value xsi:type="xsd:float">20</Value>
+      <ExposedAsName>XPGauge_Height</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>XPGauge.Visible</Name>
+      <ExposedAsName>XPGauge_Visible</ExposedAsName>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>XPGauge.Width</Name>
+      <Value xsi:type="xsd:float">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>XPGauge.X</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>XPGauge.Y</Name>
+      <Value xsi:type="xsd:float">90</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>XPGauge.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>XPSpriteBottomRim.Height</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>XPSpriteBottomRim.Height Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>XPSpriteBottomRim.Parent</Name>
+      <Value xsi:type="xsd:string">XPGauge</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>XPSpriteBottomRim.SourceFile</Name>
+      <Value xsi:type="xsd:string">huds_menus_spritesheet.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>XPSpriteBottomRim.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>XPSpriteBottomRim.Texture Height</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>XPSpriteBottomRim.Texture Left</Name>
+      <Value xsi:type="xsd:int">37</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>XPSpriteBottomRim.Texture Top</Name>
+      <Value xsi:type="xsd:int">16</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>XPSpriteBottomRim.Texture Width</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>XPSpriteBottomRim.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>XPSpriteBottomRim.X Origin</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>XPSpriteBottomRim.X Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>XPSpriteBottomRim.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>XPSpriteBottomRim.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>XPSpriteBottomRim.Y Units</Name>
+      <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>XPSpriteMain.Height</Name>
+      <Value xsi:type="xsd:float">-2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>XPSpriteMain.Height Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>XPSpriteMain.Parent</Name>
+      <Value xsi:type="xsd:string">XPGauge</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>XPSpriteMain.SourceFile</Name>
+      <Value xsi:type="xsd:string">huds_menus_spritesheet.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>XPSpriteMain.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>XPSpriteMain.Texture Height</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>XPSpriteMain.Texture Left</Name>
+      <Value xsi:type="xsd:int">37</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>XPSpriteMain.Texture Top</Name>
+      <Value xsi:type="xsd:int">13</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>XPSpriteMain.Texture Width</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>XPSpriteMain.Y</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>XPSpriteTopRim.Height</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>XPSpriteTopRim.Height Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>XPSpriteTopRim.Parent</Name>
+      <Value xsi:type="xsd:string">XPGauge</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>XPSpriteTopRim.SourceFile</Name>
+      <Value xsi:type="xsd:string">huds_menus_spritesheet.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>XPSpriteTopRim.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>XPSpriteTopRim.Texture Height</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>XPSpriteTopRim.Texture Left</Name>
+      <Value xsi:type="xsd:int">37</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>XPSpriteTopRim.Texture Top</Name>
+      <Value xsi:type="xsd:int">16</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>XPSpriteTopRim.Texture Width</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>XPSpriteTopRim.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>AnimationFrames</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
+  </State>
+  <Category>
+    <Name>PortraitCategory</Name>
+    <State>
+      <Name>Player1</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">37</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">19</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Width</Name>
+        <Value xsi:type="xsd:int">14</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Height</Name>
+        <Value xsi:type="xsd:int">14</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Player2</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">37</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">35</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Width</Name>
+        <Value xsi:type="xsd:int">14</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Height</Name>
+        <Value xsi:type="xsd:int">14</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Player3</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">37</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">51</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Width</Name>
+        <Value xsi:type="xsd:int">14</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Height</Name>
+        <Value xsi:type="xsd:int">14</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Player4</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">37</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">67</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Width</Name>
+        <Value xsi:type="xsd:int">14</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PortraitSprite.Texture Height</Name>
+        <Value xsi:type="xsd:int">14</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
+  <Instance>
+    <Name>PanelSprite</Name>
+    <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>HealthGauge</Name>
+    <BaseType>Container</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>HealthSpriteMain</Name>
+    <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>HealthSpriteTopRim</Name>
+    <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>HealthSpriteBottomRim</Name>
+    <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PortraitSprite</Name>
+    <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>EnergyGauge</Name>
+    <BaseType>Container</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>EnergySpriteMain</Name>
+    <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>EnergySpriteTopRim</Name>
+    <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>EnergySpriteBottomRim</Name>
+    <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>XPGauge</Name>
+    <BaseType>Container</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>XPSpriteMain</Name>
+    <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>XPSpriteTopRim</Name>
+    <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>XPSpriteBottomRim</Name>
+    <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Behaviors />
+</ComponentSave>

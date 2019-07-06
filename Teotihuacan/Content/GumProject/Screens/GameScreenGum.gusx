@@ -3,5 +3,258 @@
   <Name>GameScreenGum</Name>
   <State>
     <Name>Default</Name>
+    <Variable>
+      <Type>float</Type>
+      <Name>BaseHUDInstance.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>BaseHUDInstance.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>PlayerHUDInstance.Parent</Name>
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PortraitCategoryState</Type>
+      <Name>PlayerHUDInstance.PortraitCategoryState</Name>
+      <Value xsi:type="xsd:string">Player1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDInstance.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>PlayerHUDInstance.X Origin</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PlayerHUDInstance.X Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDInstance.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>PlayerHUDInstance.Y Origin</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PlayerHUDInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>PlayerHUDInstance1.Parent</Name>
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PortraitCategoryState</Type>
+      <Name>PlayerHUDInstance1.PortraitCategoryState</Name>
+      <Value xsi:type="xsd:string">Player2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDInstance1.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>PlayerHUDInstance1.X Origin</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PlayerHUDInstance1.X Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDInstance1.Y</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>PlayerHUDInstance1.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PlayerHUDInstance1.Y Units</Name>
+      <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>PlayerHUDInstance2.Parent</Name>
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PortraitCategoryState</Type>
+      <Name>PlayerHUDInstance2.PortraitCategoryState</Name>
+      <Value xsi:type="xsd:string">Player3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDInstance2.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>PlayerHUDInstance2.X Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PlayerHUDInstance2.X Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDInstance2.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>PlayerHUDInstance2.Y Origin</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PlayerHUDInstance2.Y Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>PlayerHUDInstance3.Parent</Name>
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PortraitCategoryState</Type>
+      <Name>PlayerHUDInstance3.PortraitCategoryState</Name>
+      <Value xsi:type="xsd:string">Player4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDInstance3.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>PlayerHUDInstance3.X Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PlayerHUDInstance3.X Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDInstance3.Y</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>PlayerHUDInstance3.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PlayerHUDInstance3.Y Units</Name>
+      <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>BaseHUDInstance.X Origin</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>BaseHUDInstance.X Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>BaseHUDInstance.Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>BaseHUDInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
   </State>
+  <Instance>
+    <Name>PlayerHUDInstance</Name>
+    <BaseType>PlayerHUD</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDInstance1</Name>
+    <BaseType>PlayerHUD</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDInstance2</Name>
+    <BaseType>PlayerHUD</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDInstance3</Name>
+    <BaseType>PlayerHUD</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>BaseHUDInstance</Name>
+    <BaseType>BaseHUD</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
 </ScreenSave>
