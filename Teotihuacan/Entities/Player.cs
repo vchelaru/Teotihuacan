@@ -30,6 +30,9 @@ namespace Teotihuacan.Entities
         AnimationLayer shootingLayer;
         double lastFireShotTime;
 
+        int damageTaken;
+
+        bool canTakeDamage => damageTaken < MaxHP;
         #endregion
 
         #region Initialize
@@ -114,11 +117,12 @@ namespace Teotihuacan.Entities
 
         private void DoShootingActivity()
         {
-
+            Bullet.DataCategory bulletData = null;
             if (isPrimaryInputDown)
             {
                 // todo - support different weapons:
                 currentSecondaryAction = SecondaryActions.ShootingFire;
+                bulletData = Bullet.DataCategory.PlayerFire;
             }
             else
             {
@@ -133,8 +137,8 @@ namespace Teotihuacan.Entities
                 var direction = aimingVector;
 
                 var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
+                bullet.CurrentDataCategoryState = bulletData;
                 bullet.Velocity = bullet.BulletSpeed * direction;
-                bullet.TeamIndex = 0; // be explicit about it. Player team is 0.
 
                 shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.ShootingFire));
 
@@ -164,6 +168,19 @@ namespace Teotihuacan.Entities
         }
 
         #endregion
+
+        public bool TakeDamage(int damageToTake)
+        {
+            bool didTakeDamage = false;
+
+            if(canTakeDamage)
+            {
+                didTakeDamage = true;
+                damageTaken += damageToTake;
+            }
+
+            return didTakeDamage;
+        }
 
         private void CustomDestroy()
 		{

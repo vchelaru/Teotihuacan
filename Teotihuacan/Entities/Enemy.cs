@@ -35,6 +35,9 @@ namespace Teotihuacan.Entities
 
         double lastFireShotTime;
 
+        int damageTaken;
+
+        bool canTakeDamage => damageTaken < CurrentDataCategoryState?.MaxHp;
         #endregion
 
         /// <summary>
@@ -48,7 +51,6 @@ namespace Teotihuacan.Entities
             {
                 pathFindingPolygon = Polygon.CreateRectangle(7, 7);
             }
-
 		}
 
 		private void CustomActivity()
@@ -65,17 +67,20 @@ namespace Teotihuacan.Entities
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
             PositionedObject target, TileShapeCollection solidCollisions)
         {
-            if (refreshPath)
+            if (CurrentDataCategoryState.MaxHp > damageTaken)
             {
-                // enemies always move towards player, but really slowly when shooting
-                RefreshPath(nodeNetwork, target, solidCollisions);
+                if (refreshPath)
+                {
+                    // enemies always move towards player, but really slowly when shooting
+                    RefreshPath(nodeNetwork, target, solidCollisions);
+                }
+
+                UpdateCurrentBehavior(nodeNetwork, target);
+
+                UpdateMovementBehavior();
+
+                DoShootingActivity(target);
             }
-
-            UpdateCurrentBehavior(nodeNetwork, target);
-
-            UpdateMovementBehavior();
-
-            DoShootingActivity(target);
         }
 
         private void UpdateMovementBehavior()
@@ -178,6 +183,30 @@ namespace Teotihuacan.Entities
 
                 lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
             }
+        }
+
+        public bool TakeDamage(int damageToTake)
+        {
+            bool tookDamage = false;
+            if(canTakeDamage)
+            {
+                tookDamage = true;
+                damageTaken += damageToTake;
+
+                if(damageTaken >= CurrentDataCategoryState.MaxHp)
+                {
+                    PerformDeath();
+                }
+            }
+
+            return tookDamage;
+        }
+
+        private void PerformDeath()
+        {
+            Velocity = Vector3.Zero;
+            //ToDo: Perform death animations
+            Destroy();
         }
 
         private void CustomDestroy()

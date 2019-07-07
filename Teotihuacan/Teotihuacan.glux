@@ -603,6 +603,55 @@
           <ValueAsBool>true</ValueAsBool>
         </PropertySave>
       </Properties>
+      <StateCategoryList>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>TeamIndex</Member>
+                  <ValueAsInt>0</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>BulletSpeed</Member>
+                  <ValueAsFloat>400</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>DamageToDeal</Member>
+                  <ValueAsInt>5</ValueAsInt>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>PlayerFire</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>TeamIndex</Member>
+                  <ValueAsInt>1</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>BulletSpeed</Member>
+                  <ValueAsFloat>200</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>DamageToDeal</Member>
+                  <ValueAsInt>5</ValueAsInt>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>EnemyBullet</Name>
+            </StateSave>
+          </States>
+          <ExcludedVariables />
+          <Name>DataCategory</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
+      </StateCategoryList>
       <CustomVariables>
         <CustomVariable>
           <Properties>
@@ -654,6 +703,16 @@
           <Name>BulletSpeed</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">400</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DamageToDeal</Name>
+          <Type>int</Type>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -1088,6 +1147,17 @@
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">4</DefaultValue>
           <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MaxHP</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">500</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
