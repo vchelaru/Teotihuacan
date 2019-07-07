@@ -76,7 +76,9 @@
     <Compile Include="GameData\LevelSpawnsBase.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumRuntimes\BaseHUDRuntime.cs" />
-    <Compile Include="GumRuntimes\BaseHUDRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\BaseHUDRuntime.Generated.cs">
+      <DependentUpon>BaseHUDRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
@@ -91,7 +93,9 @@
     </Compile>
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\PlayerHUDRuntime.cs" />
-    <Compile Include="GumRuntimes\PlayerHUDRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\PlayerHUDRuntime.Generated.cs">
+      <DependentUpon>PlayerHUDRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\PolygonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />

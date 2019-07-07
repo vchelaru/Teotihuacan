@@ -16,6 +16,7 @@ using Teotihuacan.Managers;
 using FlatRedBall.TileEntities;
 using Teotihuacan.Entities;
 using FlatRedBall.TileCollisions;
+using Teotihuacan.GumRuntimes;
 
 namespace Teotihuacan.Screens
 {
@@ -51,6 +52,8 @@ namespace Teotihuacan.Screens
             Factories.EnemyFactory.EntitySpawned = HandleEnemySpawn;
 
             InitializeNodeNetworks();
+
+            InitializeUi();
         }
 
         private void InitializeNodeNetworks()
@@ -140,6 +143,11 @@ namespace Teotihuacan.Screens
 
                 worldY -= Map.HeightPerTile.Value;
             }
+        }
+
+        private void InitializeUi()
+        {
+            ((GameScreenGumRuntime)GameScreenGum).SetNumberOfPlayers(PlayerList.Count);
         }
 
         #endregion
