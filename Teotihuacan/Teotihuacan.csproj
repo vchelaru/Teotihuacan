@@ -75,6 +75,8 @@
     <Compile Include="GameData\Level1Spawns.cs" />
     <Compile Include="GameData\LevelSpawnsBase.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
+    <Compile Include="GumRuntimes\BaseHUDRuntime.cs" />
+    <Compile Include="GumRuntimes\BaseHUDRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
@@ -88,6 +90,8 @@
       <DependentUpon>Level1GumRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\PlayerHUDRuntime.cs" />
+    <Compile Include="GumRuntimes\PlayerHUDRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\PolygonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
@@ -212,6 +216,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TopDownValues</Name>
     </None>
+    <None Include="content\gumproject\components\basehud.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>basehud</Name>
+    </None>
+    <None Include="content\gumproject\components\playerhud.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>playerhud</Name>
+    </None>
     <None Include="content\gumproject\fontcache\font18arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>font18arial</Name>
@@ -223,6 +235,10 @@
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GumProject</Name>
+    </None>
+    <None Include="content\gumproject\huds_menus_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>huds_menus_spritesheet</Name>
     </None>
     <None Include="content\gumproject\screens\gamescreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
