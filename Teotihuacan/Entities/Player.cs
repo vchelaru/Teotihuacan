@@ -21,9 +21,27 @@ namespace Teotihuacan.Entities
         I2DInput rightStick;
         Vector3 aimingVector;
         AnimationController spriteAnimationController;
-        bool isPrimaryInputDown => 
-            InputDevice.DefaultPrimaryActionInput.IsDown || 
-            InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton);
+        bool isPrimaryInputDown
+        {
+            get
+            {
+                if(InputDevice == InputManager.Keyboard)
+                {
+                    return InputDevice.DefaultPrimaryActionInput.IsDown || 
+                        InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton);
+
+                }
+                else if(InputDevice is Xbox360GamePad gamePad)
+                {
+                    return gamePad.RightTrigger.IsDown;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        }
 
         PrimaryActions currentPrimaryAction = PrimaryActions.idle;
         SecondaryActions currentSecondaryAction = SecondaryActions.None;
@@ -107,9 +125,12 @@ namespace Teotihuacan.Entities
                 newAimingVector = cursorPosition - new Vector3(X, Y, 0);
             }
 
-            //Normalize at the end in case the right stick input is not at max magnitude
-            newAimingVector.Normalize();
-            aimingVector = newAimingVector;
+            if(newAimingVector.X != 0 || newAimingVector.Y != 0)
+            {
+                //Normalize at the end in case the right stick input is not at max magnitude
+                newAimingVector.Normalize();
+                aimingVector = newAimingVector;
+            }
         }
 
         private void DoShootingActivity()
@@ -158,9 +179,16 @@ namespace Teotihuacan.Entities
 
         private string GetChainName(PrimaryActions primaryAction, SecondaryActions secondaryAction = SecondaryActions.None)
         {
-            var direction = TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
+            if(aimingVector.X != 0 || aimingVector.Y != 0)
+            {
+                var direction = TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
 
-            return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, direction);
+                return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, direction);
+            }
+            else
+            {
+                return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, TopDownDirection.Right);
+            }
         }
 
         #endregion
