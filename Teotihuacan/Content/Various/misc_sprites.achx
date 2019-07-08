@@ -555,4 +555,39 @@
       <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
+  <AnimationChain>
+    <Name>ProjectileExplosion</Name>
+    <Frame>
+      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>0</LeftCoordinate>
+      <RightCoordinate>13</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>13</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>13</LeftCoordinate>
+      <RightCoordinate>26</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>13</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>26</LeftCoordinate>
+      <RightCoordinate>39</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>13</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>39</LeftCoordinate>
+      <RightCoordinate>52</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>13</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
 </AnimationChainArraySave>
