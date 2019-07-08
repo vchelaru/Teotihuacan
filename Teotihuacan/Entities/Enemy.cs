@@ -12,6 +12,7 @@ using Teotihuacan.TopDown;
 using System.Linq;
 using FlatRedBall.TileCollisions;
 using Microsoft.Xna.Framework;
+using Teotihuacan.Animation;
 
 namespace Teotihuacan.Entities
 {
@@ -38,6 +39,16 @@ namespace Teotihuacan.Entities
 
         int shotsLeftInClip;
 
+        public int CurrentHP { get; private set; }
+
+        Vector3 aimingVector = Vector3.Right;
+
+        bool canTakeDamage => CurrentHP > 0;
+
+        AnimationController spriteAnimationController;
+        AnimationLayer shootingAnimationLayer;
+
+        PrimaryActions currentPrimaryAction;
         #endregion
 
         #region Initialize
@@ -54,8 +65,29 @@ namespace Teotihuacan.Entities
                 pathFindingPolygon = Polygon.CreateRectangle(7, 7);
             }
 
-            shotsLeftInClip = ClipSize;
 
+            shotsLeftInClip = ClipSize;
+            InitializeAnimations();
+		}
+
+        private void InitializeAnimations()
+        {
+            spriteAnimationController = new AnimationController(SpriteInstance);
+
+            AnimationLayer walkingLayer = new AnimationLayer();
+            walkingLayer.EveryFrameAction = () =>
+            {
+                return GetChainName(currentPrimaryAction);
+            };
+            spriteAnimationController.Layers.Add(walkingLayer);
+
+            shootingAnimationLayer = new AnimationLayer();
+            spriteAnimationController.Layers.Add(shootingAnimationLayer);
+        }
+
+        private void CustomActivity()
+		{
+            SetMovementValues();
         }
 
         #endregion
@@ -68,17 +100,42 @@ namespace Teotihuacan.Entities
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
             PositionedObject target, TileShapeCollection solidCollisions)
         {
-            if (refreshPath)
+            if (CurrentHP > 0)
             {
-                // enemies always move towards player, but really slowly when shooting
-                RefreshPath(nodeNetwork, target, solidCollisions);
+                if (refreshPath)
+                {
+                    // enemies always move towards player, but really slowly when shooting
+                    RefreshPath(nodeNetwork, target, solidCollisions);
+                }
+
+                UpdateAimingBehavior(target);
+
+                UpdatePrimaryAction();
+
+                UpdateCurrentBehavior(nodeNetwork, target);
+
+                UpdateCurrentMovementValues();
+
+                DoShootingActivity(target);
+
             }
 
-            UpdateCurrentBehavior(nodeNetwork, target);
+            spriteAnimationController.Activity();
+        }
 
-            UpdateCurrentMovementValues();
+        private void UpdatePrimaryAction()
+        {
+            const float movementThreashHold = 0.01f;
+            currentPrimaryAction = Velocity.LengthSquared() > movementThreashHold ? PrimaryActions.walk : PrimaryActions.idle;
+        }
 
-            DoShootingActivity(target);
+        private void UpdateAimingBehavior(PositionedObject target)
+        {
+            if (X - target.X != 0 || Y - target.Y != 0)
+            {
+                aimingVector = new Vector3(target.X, target.Y, 0) - new Vector3(X, Y, 0);
+                aimingVector.Normalize();
+            }
         }
 
         private void UpdateCurrentMovementValues()
@@ -185,23 +242,60 @@ namespace Teotihuacan.Entities
                 1 / FireShotsPerSecond
                 )
             {
-                var direction = Vector3.Right;
-                if(X - target.X != 0 || Y - target.Y != 0)
-                {
-                    direction = target.Position - this.Position;
-                    direction.Normalize();
-                }
-
                 var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
-                bullet.Velocity = bullet.BulletSpeed * direction;
-                bullet.TeamIndex = 1; // be explicit about it. Player team is 0.
-
-                // For rick - animations on enemies here
-                //shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.ShootingFire));
+                bullet.Z = this.Z - 1;
+                bullet.CurrentDataCategoryState = Bullet.DataCategory.EnemyBullet;
+                bullet.Velocity = bullet.BulletSpeed * aimingVector;
+                bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections));
+                shootingAnimationLayer.PlayOnce(GetChainName(PrimaryActions.shoot));
 
                 lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
 
                 shotsLeftInClip--;
+            }
+        }
+
+        public bool TakeDamage(int damageToTake)
+        {
+            bool tookDamage = false;
+            if(canTakeDamage)
+            {
+                tookDamage = true;
+                CurrentHP -= damageToTake;
+
+                if(CurrentHP <= 0)
+                {
+                    PerformDeath();
+                }
+            }
+
+            return tookDamage;
+        }
+
+        private void PerformDeath()
+        {
+            var death = SpriteManager.AddParticleSprite(Death_1_SpriteSheet);
+            death.AnimationChains = Death_1;
+            death.CurrentChainName = nameof(PrimaryActions.Death);
+            death.Position = SpriteInstance.Position;
+            death.TextureScale = 1;
+            death.Animate = true;
+            SpriteManager.RemoveSpriteAtTime(death, death.CurrentChain.TotalLength);
+            Destroy();
+        }
+
+
+        private string GetChainName(PrimaryActions primaryAction, SecondaryActions secondaryAction = SecondaryActions.None)
+        {
+            if (aimingVector.X != 0 || aimingVector.Y != 0)
+            {
+                var direction = TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
+
+                return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, direction);
+            }
+            else
+            {
+                return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, TopDownDirection.Right);
             }
         }
 

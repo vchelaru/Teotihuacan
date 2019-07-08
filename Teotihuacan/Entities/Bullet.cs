@@ -8,6 +8,7 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using Teotihuacan.Animation;
 
 namespace Teotihuacan.Entities
 {
@@ -30,9 +31,14 @@ namespace Teotihuacan.Entities
 
 		}
 
+        public void SetAnimationChainFromVelocity(TopDownDirection aimingDirection)
+        {
+            SpriteInstance.CurrentChainName = ChainNameHelperMethods.GenerateChainName(PrimaryActions.Fireball, aimingDirection);
+        }
+
 		private void CustomDestroy()
 		{
-
+            //Todo: spawn particle vfx.
 
 		}
 

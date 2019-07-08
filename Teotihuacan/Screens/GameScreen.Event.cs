@@ -18,20 +18,20 @@ namespace Teotihuacan.Screens
         {
             if(bullet.TeamIndex == 1)
             {
-                // it's an enemy bullet
-                bullet.Destroy();
-
-                //player.TakeDamage();
+                if (player.TakeDamage(bullet.DamageToDeal))
+                {
+                    bullet.Destroy();
+                }
             }
         }
         void OnBulletVsEnemyCollisionOccurred (Bullet bullet, Enemy enemy) 
         {
             if(bullet.TeamIndex == 0)
             {
-                // it's a player bullet
-                bullet.Destroy();
-
-                enemy.Destroy();
+                if(enemy.TakeDamage(bullet.DamageToDeal))
+                {
+                    bullet.Destroy();
+                }
             }
         }
         void OnBulletVsSolidCollisionOccurred (Bullet bullet, TileShapeCollection solid) 
