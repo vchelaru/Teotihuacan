@@ -88,6 +88,10 @@
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\GameOverRuntime.cs" />
+    <Compile Include="GumRuntimes\GameOverRuntime.Generated.cs">
+      <DependentUpon>GameOverRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\GameScreenGumRuntime.cs" />
     <Compile Include="GumRuntimes\GameScreenGumRuntime.Generated.cs">
       <DependentUpon>GameScreenGumRuntime.cs</DependentUpon>
@@ -97,7 +101,13 @@
     <Compile Include="GumRuntimes\Level1GumRuntime.Generated.cs">
       <DependentUpon>Level1GumRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\LevelStartRuntime.cs" />
+    <Compile Include="GumRuntimes\LevelStartRuntime.Generated.cs">
+      <DependentUpon>LevelStartRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\PlayerHUDJoinRuntime.cs" />
+    <Compile Include="GumRuntimes\PlayerHUDJoinRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\PlayerHUDRuntime.cs" />
     <Compile Include="GumRuntimes\PlayerHUDRuntime.Generated.cs">
       <DependentUpon>PlayerHUDRuntime.cs</DependentUpon>
@@ -246,9 +256,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>basehud</Name>
     </None>
+    <None Include="content\gumproject\components\gameover.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>gameover</Name>
+    </None>
+    <None Include="content\gumproject\components\levelstart.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>levelstart</Name>
+    </None>
     <None Include="content\gumproject\components\playerhud.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>playerhud</Name>
+    </None>
+    <None Include="content\gumproject\components\playerhudjoin.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>playerhudjoin</Name>
     </None>
     <None Include="content\gumproject\fontcache\font18arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -257,6 +279,22 @@
     <None Include="content\gumproject\fontcache\font18arial_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial_0</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font22arial_black_o1.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font22arial_black_o1</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font22arial_black_o1_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font22Arial_Black_o1_0</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font30arial_black_o1.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font30arial_black_o1</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font30arial_black_o1_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font30Arial_Black_o1_0</Name>
     </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

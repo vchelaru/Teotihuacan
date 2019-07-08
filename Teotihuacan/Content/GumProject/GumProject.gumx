@@ -17,11 +17,23 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ComponentReference>
+    <Name>BaseHUD</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>GameOver</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>LevelStart</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>PlayerHUD</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
-    <Name>BaseHUD</Name>
+    <Name>PlayerHUDJoin</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <StandardElementReference>
