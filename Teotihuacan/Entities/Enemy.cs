@@ -36,13 +36,14 @@ namespace Teotihuacan.Entities
 
         double lastFireShotTime;
 
-        int damageTaken;
+        public int CurrentHealth { get; private set; }
 
         Vector3 aimingVector = Vector3.Right;
 
-        bool canTakeDamage => damageTaken < CurrentDataCategoryState?.MaxHp;
+        bool canTakeDamage => CurrentHealth > 0;
 
         AnimationController spriteAnimationController;
+        AnimationLayer shootingAnimationLayer;
 
         PrimaryActions currentPrimaryAction;
         #endregion
@@ -72,6 +73,9 @@ namespace Teotihuacan.Entities
                 return GetChainName(currentPrimaryAction);
             };
             spriteAnimationController.Layers.Add(walkingLayer);
+
+            shootingAnimationLayer = new AnimationLayer();
+            spriteAnimationController.Layers.Add(shootingAnimationLayer);
         }
 
         private void CustomActivity()
@@ -88,7 +92,7 @@ namespace Teotihuacan.Entities
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
             PositionedObject target, TileShapeCollection solidCollisions)
         {
-            if (CurrentDataCategoryState.MaxHp > damageTaken)
+            if (CurrentHealth > 0)
             {
                 if (refreshPath)
                 {
@@ -106,8 +110,9 @@ namespace Teotihuacan.Entities
 
                 DoShootingActivity(target);
 
-                spriteAnimationController.Activity();
             }
+
+            spriteAnimationController.Activity();
         }
 
         private void UpdatePrimaryAction()
@@ -213,8 +218,7 @@ namespace Teotihuacan.Entities
                 bullet.CurrentDataCategoryState = Bullet.DataCategory.EnemyBullet;
                 bullet.Velocity = bullet.BulletSpeed * aimingVector;
 
-                // For rick - animations on enemies here
-                //shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.ShootingFire));
+                shootingAnimationLayer.PlayOnce(GetChainName(PrimaryActions.shoot));
 
                 lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
             }
@@ -226,9 +230,9 @@ namespace Teotihuacan.Entities
             if(canTakeDamage)
             {
                 tookDamage = true;
-                damageTaken += damageToTake;
+                CurrentHealth -= damageToTake;
 
-                if(damageTaken >= CurrentDataCategoryState.MaxHp)
+                if(CurrentHealth <= 0)
                 {
                     PerformDeath();
                 }
@@ -239,8 +243,13 @@ namespace Teotihuacan.Entities
 
         private void PerformDeath()
         {
-            Velocity = Vector3.Zero;
-            //ToDo: Perform death animations
+            var death = SpriteManager.AddParticleSprite(Death_1_SpriteSheet);
+            death.AnimationChains = Death_1;
+            death.CurrentChainName = nameof(PrimaryActions.Death);
+            death.Position = SpriteInstance.Position;
+            death.TextureScale = 1;
+            death.Animate = true;
+            SpriteManager.RemoveSpriteAtTime(death, death.CurrentChain.TotalLength);
             Destroy();
         }
 

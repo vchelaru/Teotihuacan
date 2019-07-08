@@ -10,7 +10,8 @@ namespace Teotihuacan.Animation
     {
         idle = 0,
         walk = 1,
-        shoot = 2
+        shoot = 2,
+        Death = 3
     }
 
     public enum SecondaryActions

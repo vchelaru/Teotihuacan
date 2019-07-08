@@ -55,7 +55,13 @@
       <DependentUpon>DebuggingVariables.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Enemy.cs" />
+    <Compile Include="Entities\Enemy.Event.cs">
+      <DependentUpon>Enemy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Enemy.Generated.cs">
+      <DependentUpon>Enemy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Enemy.Generated.Event.cs">
       <DependentUpon>Enemy.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Player.cs" />
@@ -188,6 +194,14 @@
     <Content Include="Content\shader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="content\characters\death_1.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Death_1</Name>
+    </None>
+    <None Include="content\characters\death_1_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Death_1_SpriteSheet</Name>
+    </None>
     <None Include="content\characters\enemy_shooter_animations.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Enemy_Shooter_Animations</Name>
@@ -195,6 +209,14 @@
     <None Include="content\characters\enemy_shooter_spritesheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Enemy_Shooter_SpriteSheet</Name>
+    </None>
+    <None Include="content\characters\enemy_suicider_animations.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Enemy_Suicider_Animations</Name>
+    </None>
+    <None Include="content\characters\enemy_suicider_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Enemy_Suicider_SpriteSheet</Name>
     </None>
     <None Include="content\characters\hero_1_animations.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
