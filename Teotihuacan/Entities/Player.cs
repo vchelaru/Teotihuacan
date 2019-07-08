@@ -48,9 +48,11 @@ namespace Teotihuacan.Entities
         AnimationLayer shootingLayer;
         double lastFireShotTime;
 
-        int damageTaken;
+        public int CurrentHP { get; private set; }
 
-        bool canTakeDamage => damageTaken < MaxHP;
+        bool canTakeDamage => CurrentHP > 0;
+
+        public Action UpdateHud;
         #endregion
 
         #region Initialize
@@ -63,6 +65,7 @@ namespace Teotihuacan.Entities
         private void CustomInitialize()
 		{
             this.PossibleDirections = PossibleDirections.EightWay;
+            CurrentHP = MaxHP;
 
             InitializeTwinStickInput();
             InitializeAnimationLayers();
@@ -160,6 +163,7 @@ namespace Teotihuacan.Entities
                 var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
                 bullet.CurrentDataCategoryState = bulletData;
                 bullet.Velocity = bullet.BulletSpeed * direction;
+                bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections));
 
                 shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.ShootingFire));
 
@@ -204,7 +208,10 @@ namespace Teotihuacan.Entities
             if(canTakeDamage)
             {
                 didTakeDamage = true;
-                damageTaken += damageToTake;
+                CurrentHP -= damageToTake;
+
+                CurrentHP = Math.Max(CurrentHP, 0);
+                UpdateHud?.Invoke();
             }
 
             return didTakeDamage;

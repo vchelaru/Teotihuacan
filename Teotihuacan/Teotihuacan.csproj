@@ -358,6 +358,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>tilesheet_main</Name>
     </None>
+    <None Include="content\various\misc_sprites.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>misc_sprites</Name>
+    </None>
+    <None Include="content\various\misc_sprites_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>misc_sprites_SpriteSheet</Name>
+    </None>
     <None Include="Libraries\DesktopGl\Debug\FlatRedBall.Forms.dll" />
     <None Include="Libraries\DesktopGl\Debug\GumCoreXnaPc.dll" />
     <None Include="Libraries\DesktopGl\Debug\StateInterpolation.dll" />

@@ -16,7 +16,7 @@ namespace Teotihuacan.Entities
         {
             if(CurrentDataCategoryState != null)
             {
-                CurrentHealth = MaxHp;
+                CurrentHP = MaxHp;
             }
         }
 

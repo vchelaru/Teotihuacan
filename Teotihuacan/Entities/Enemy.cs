@@ -36,11 +36,11 @@ namespace Teotihuacan.Entities
 
         double lastFireShotTime;
 
-        public int CurrentHealth { get; private set; }
+        public int CurrentHP { get; private set; }
 
         Vector3 aimingVector = Vector3.Right;
 
-        bool canTakeDamage => CurrentHealth > 0;
+        bool canTakeDamage => CurrentHP > 0;
 
         AnimationController spriteAnimationController;
         AnimationLayer shootingAnimationLayer;
@@ -92,7 +92,7 @@ namespace Teotihuacan.Entities
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
             PositionedObject target, TileShapeCollection solidCollisions)
         {
-            if (CurrentHealth > 0)
+            if (CurrentHP > 0)
             {
                 if (refreshPath)
                 {
@@ -215,9 +215,10 @@ namespace Teotihuacan.Entities
                 )
             {
                 var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
+                bullet.Z = this.Z - 1;
                 bullet.CurrentDataCategoryState = Bullet.DataCategory.EnemyBullet;
                 bullet.Velocity = bullet.BulletSpeed * aimingVector;
-
+                bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections));
                 shootingAnimationLayer.PlayOnce(GetChainName(PrimaryActions.shoot));
 
                 lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
@@ -230,9 +231,9 @@ namespace Teotihuacan.Entities
             if(canTakeDamage)
             {
                 tookDamage = true;
-                CurrentHealth -= damageToTake;
+                CurrentHP -= damageToTake;
 
-                if(CurrentHealth <= 0)
+                if(CurrentHP <= 0)
                 {
                     PerformDeath();
                 }

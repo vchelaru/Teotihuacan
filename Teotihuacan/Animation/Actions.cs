@@ -11,7 +11,9 @@ namespace Teotihuacan.Animation
         idle = 0,
         walk = 1,
         shoot = 2,
-        Death = 3
+        Fireball = 4,
+        Skull = 5,
+        Death = 6
     }
 
     public enum SecondaryActions
@@ -31,6 +33,12 @@ namespace Teotihuacan.Animation
                     return $"{nameof(PrimaryActions.shoot)}_";
                 case PrimaryActions.walk:
                     return $"{nameof(PrimaryActions.walk)}_";
+                case PrimaryActions.Fireball:
+                    return $"{nameof(PrimaryActions.Fireball)}_";
+                case PrimaryActions.Skull:
+                    return $"{nameof(PrimaryActions.Skull)}_";
+                case PrimaryActions.Death:
+                    return $"{nameof(PrimaryActions.Death)}_";
             }
 
             return $"{nameof(PrimaryActions.idle)}_";

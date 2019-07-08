@@ -150,7 +150,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Fireball_Rot_00_Right</Name>
+    <Name>Fireball_Right</Name>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>0.3</FrameLength>
@@ -172,7 +172,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Fireball_Rot_02_UpRight</Name>
+    <Name>Fireball_UpRight</Name>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>0.3</FrameLength>
@@ -194,7 +194,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Fireball_Rot_04_Up</Name>
+    <Name>Fireball_Up</Name>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>0.3</FrameLength>
@@ -217,7 +217,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Fireball_Rot_06_UpLeft</Name>
+    <Name>Fireball_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
@@ -241,7 +241,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Fireball_Rot_08_Left</Name>
+    <Name>Fireball_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
@@ -266,7 +266,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Fireball_Rot_10_DownLeft</Name>
+    <Name>Fireball_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <FlipVertical>true</FlipVertical>
@@ -292,7 +292,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Fireball_Rot_12_Down</Name>
+    <Name>Fireball_Down</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <FlipVertical>true</FlipVertical>
@@ -317,7 +317,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Fireball_Rot_14_DownRight</Name>
+    <Name>Fireball_DownRight</Name>
     <Frame>
       <FlipVertical>true</FlipVertical>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
@@ -457,7 +457,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Skull_Rot_00_Right</Name>
+    <Name>Skull_Right</Name>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
@@ -469,7 +469,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Skull_Rot_02_UpRight</Name>
+    <Name>Skull_UpRight</Name>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
@@ -481,7 +481,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Skull_Rot_04_Up</Name>
+    <Name>Skull_Up</Name>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
@@ -493,7 +493,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Skull_Rot_06_UpLeft</Name>
+    <Name>Skull_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
@@ -506,7 +506,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Skull_Rot_08_Left</Name>
+    <Name>Skull_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
@@ -519,7 +519,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Skull_Rot_10_DownLeft</Name>
+    <Name>Skull_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
@@ -532,7 +532,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Skull_Rot_12_Down</Name>
+    <Name>Skull_Down</Name>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
@@ -544,7 +544,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Skull_Rot_14_DownRight</Name>
+    <Name>Skull_DownRight</Name>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
