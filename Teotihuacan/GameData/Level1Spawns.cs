@@ -16,11 +16,6 @@ namespace Teotihuacan.GameData
                     Spawns = new List<Entities.Enemy.DataCategory>
                     {
                         Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
                     }
                 });
 

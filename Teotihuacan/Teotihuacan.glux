@@ -947,7 +947,7 @@
           </Properties>
           <Name>FireShotsPerSecond</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">2.3</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -959,6 +959,28 @@
           <Name>MaxShootingDistance</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ClipSize</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">10</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsForReload</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">4.7</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>

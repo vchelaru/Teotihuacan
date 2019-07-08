@@ -20,7 +20,8 @@ namespace Teotihuacan.Entities
     public enum Behavior
     {
         Chasing,
-        Shooting
+        Shooting,
+        Reloading
     }
 
     #endregion
@@ -35,7 +36,11 @@ namespace Teotihuacan.Entities
 
         double lastFireShotTime;
 
+        int shotsLeftInClip;
+
         #endregion
+
+        #region Initialize
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -49,18 +54,16 @@ namespace Teotihuacan.Entities
                 pathFindingPolygon = Polygon.CreateRectangle(7, 7);
             }
 
-		}
-
-		private void CustomActivity()
-		{
-            SetMovementValues();
-
-		}
-
-        private void SetMovementValues()
-        {
+            shotsLeftInClip = ClipSize;
 
         }
+
+        #endregion
+
+        private void CustomActivity()
+		{
+
+		}
 
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
             PositionedObject target, TileShapeCollection solidCollisions)
@@ -73,18 +76,22 @@ namespace Teotihuacan.Entities
 
             UpdateCurrentBehavior(nodeNetwork, target);
 
-            UpdateMovementBehavior();
+            UpdateCurrentMovementValues();
 
             DoShootingActivity(target);
         }
 
-        private void UpdateMovementBehavior()
+        private void UpdateCurrentMovementValues()
         {
             if (CurrentBehavior == Behavior.Shooting)
             {
                 mCurrentMovement = TopDownValues[DataTypes.TopDownValues.WhileShooting];
             }
-            else
+            else if(CurrentBehavior == Behavior.Reloading)
+            {
+                mCurrentMovement = TopDownValues[DataTypes.TopDownValues.WhileReloading];
+            }
+            else 
             {
                 mCurrentMovement = TopDownValues[DataTypes.TopDownValues.DefaultValues];
             }
@@ -92,26 +99,43 @@ namespace Teotihuacan.Entities
 
         private void UpdateCurrentBehavior(NodeNetwork nodeNetwork, PositionedObject target)
         {
-            var ai = InputDevice as TopDown.TopDownAiInput<Enemy>;
-            var path = ai.Path;
-
-            bool isLineOfSight = path.Count < 2 && target != null;
-
-            bool isInRange = false;
-
-            if(isLineOfSight)
+            if(shotsLeftInClip == 0)
             {
-                isInRange = (target.Position - this.Position).Length() < MaxShootingDistance;
-            }
+                // do reload activity
+                CurrentBehavior = Behavior.Reloading;
 
-            if(isInRange)
-            {
-                // line of site
-                CurrentBehavior = Behavior.Shooting;
+                var isDoneReloading = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastFireShotTime) >
+                    SecondsForReload;
+
+                if(isDoneReloading)
+                {
+                    shotsLeftInClip = ClipSize;
+                    CurrentBehavior = Behavior.Chasing;
+                }
             }
             else
             {
-                CurrentBehavior = Behavior.Chasing;
+                var ai = InputDevice as TopDown.TopDownAiInput<Enemy>;
+                var path = ai.Path;
+
+                bool isLineOfSight = path.Count < 2 && target != null;
+
+                bool isInRange = false;
+
+                if(isLineOfSight)
+                {
+                    isInRange = (target.Position - this.Position).Length() < MaxShootingDistance;
+                }
+
+                if(isInRange)
+                {
+                    // line of site
+                    CurrentBehavior = Behavior.Shooting;
+                }
+                else
+                {
+                    CurrentBehavior = Behavior.Chasing;
+                }
             }
         }
 
@@ -156,8 +180,7 @@ namespace Teotihuacan.Entities
 
         private void DoShootingActivity(PositionedObject target)
         {
-            if (
-                CurrentBehavior == Behavior.Shooting &&
+            if (CurrentBehavior == Behavior.Shooting &&
                 FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastFireShotTime) >
                 1 / FireShotsPerSecond
                 )
@@ -177,6 +200,8 @@ namespace Teotihuacan.Entities
                 //shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.ShootingFire));
 
                 lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
+
+                shotsLeftInClip--;
             }
         }
 
