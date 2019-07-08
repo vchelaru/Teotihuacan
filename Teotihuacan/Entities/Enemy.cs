@@ -85,11 +85,6 @@ namespace Teotihuacan.Entities
             spriteAnimationController.Layers.Add(shootingAnimationLayer);
         }
 
-        private void CustomActivity()
-		{
-            SetMovementValues();
-        }
-
         #endregion
 
         private void CustomActivity()
@@ -267,9 +262,28 @@ namespace Teotihuacan.Entities
                 {
                     PerformDeath();
                 }
+                else
+                {
+                    FlashWhite();
+                }
             }
 
             return tookDamage;
+        }
+
+        private void FlashWhite()
+        {
+            this.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
+            this.SpriteInstance.Red = 1;
+            this.SpriteInstance.Green = 1;
+            this.SpriteInstance.Blue = 1;
+
+            this.Call(ReturnFromFlash).After(FlashDuration);
+        }
+
+        private void ReturnFromFlash()
+        {
+            this.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
         }
 
         private void PerformDeath()

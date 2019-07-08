@@ -721,13 +721,13 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <Member>Y</Member>
+            <ValueAsFloat>7</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
-            <Member>Y</Member>
-            <ValueAsFloat>7</ValueAsFloat>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
@@ -1025,7 +1025,7 @@
           </Properties>
           <Name>FireShotsPerSecond</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">2.3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">2.7</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1047,7 +1047,7 @@
           </Properties>
           <Name>ClipSize</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">9</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1059,6 +1059,18 @@
           <Name>SecondsForReload</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">4.7</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>FlashDuration</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.15</DefaultValue>
+          <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -1097,7 +1109,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>7</ValueAsFloat>
+            <ValueAsFloat>5</ValueAsFloat>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -1262,7 +1274,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>7</ValueAsFloat>
+            <ValueAsFloat>5</ValueAsFloat>
           </CustomProperty>
           <Properties>
             <PropertySave>
