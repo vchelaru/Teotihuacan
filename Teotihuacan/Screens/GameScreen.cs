@@ -148,6 +148,7 @@ namespace Teotihuacan.Screens
         private void InitializeUi()
         {
             ((GameScreenGumRuntime)GameScreenGum).SetNumberOfPlayers(PlayerList.Count);
+            ((GameScreenGumRuntime)GameScreenGum).SetHUDOwners(PlayerList);
         }
 
         #endregion
