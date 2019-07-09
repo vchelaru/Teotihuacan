@@ -29,8 +29,11 @@ namespace Teotihuacan.Entities
 
 		private void CustomActivity()
 		{
-            this.XVelocity = Targets[0].X - this.X;
-            this.YVelocity = Targets[0].Y - this.Y;
+            if (Targets.Count > 0)
+            {
+                this.XVelocity = Targets[0].X - this.X;
+                this.YVelocity = Targets[0].Y - this.Y;
+            }
 
 		}
 

@@ -53,5 +53,15 @@ namespace Teotihuacan.GumRuntimes
 
 
         }
+
+        public void ShowGameOver(Screens.GameScreen currentScreen)
+        {
+            this.GameOverInstance.Visible = true;
+            GameOverInstance.FadeToBlackAnimation.Play();
+            GameOverInstance.FadeToBlackAnimation.EndReached += () =>
+            {
+                currentScreen.RestartScreen(false);
+            };
+        }
     }
 }

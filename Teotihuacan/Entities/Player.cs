@@ -221,12 +221,31 @@ namespace Teotihuacan.Entities
                     CurrentHP = Math.Max(CurrentHP, 0);
                     UpdateHud?.Invoke();
 
-                    FlashWhite();
+                    if (CurrentHP > 0)
+                    {
+                        FlashWhite();
+                    }
+                    else
+                    {
+                        PerformDeath();
+                    }
 
                 }
             }
 
             return didTakeDamage;
+        }
+
+        private void PerformDeath()
+        {
+            var death = SpriteManager.AddParticleSprite(Death_1_SpriteSheet);
+            death.AnimationChains = Death_1;
+            death.CurrentChainName = nameof(PrimaryActions.Death);
+            death.Position = SpriteInstance.Position;
+            death.TextureScale = 1;
+            death.Animate = true;
+            SpriteManager.RemoveSpriteAtTime(death, death.CurrentChain.TotalLength);
+            Destroy();
         }
 
         private void FlashWhite()
