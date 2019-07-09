@@ -13,7 +13,8 @@ namespace Teotihuacan.Animation
         shoot = 2,
         Fireball = 4,
         Skull = 5,
-        Death = 6
+        Death = 6,
+        ProjectileExplosion = 7
     }
 
     public enum SecondaryActions
@@ -39,6 +40,8 @@ namespace Teotihuacan.Animation
                     return $"{nameof(PrimaryActions.Skull)}_";
                 case PrimaryActions.Death:
                     return $"{nameof(PrimaryActions.Death)}_";
+                case PrimaryActions.ProjectileExplosion:
+                    return $"{nameof(PrimaryActions.ProjectileExplosion)}_";
             }
 
             return $"{nameof(PrimaryActions.idle)}_";

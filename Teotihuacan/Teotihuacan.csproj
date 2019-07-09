@@ -107,7 +107,9 @@
     </Compile>
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\PlayerHUDJoinRuntime.cs" />
-    <Compile Include="GumRuntimes\PlayerHUDJoinRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\PlayerHUDJoinRuntime.Generated.cs">
+      <DependentUpon>PlayerHUDJoinRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\PlayerHUDRuntime.cs" />
     <Compile Include="GumRuntimes\PlayerHUDRuntime.Generated.cs">
       <DependentUpon>PlayerHUDRuntime.cs</DependentUpon>
@@ -399,6 +401,10 @@
     <None Include="content\various\misc_sprites.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>misc_sprites</Name>
+    </None>
+    <None Include="content\various\misc_sprites_placeholders_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>misc_sprites_placeholders_spritesheet</Name>
     </None>
     <None Include="content\various\misc_sprites_spritesheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
