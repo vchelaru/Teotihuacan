@@ -216,11 +216,11 @@ namespace Teotihuacan.Entities
                     CurrentHP = Math.Max(CurrentHP, 0);
                     UpdateHud?.Invoke();
 
-                    //if (CurrentHP > 0)
-                    //{
-                    //    FlashWhite();
-                    //}
-                    //else
+                    if (CurrentHP > 0)
+                    {
+                        FlashWhite();
+                    }
+                    else
                     {
                         PerformDeath();
                     }
