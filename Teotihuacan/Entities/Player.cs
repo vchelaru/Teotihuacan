@@ -69,7 +69,6 @@ namespace Teotihuacan.Entities
             this.PossibleDirections = PossibleDirections.EightWay;
             CurrentHP = MaxHP;
 
-            InitializeTwinStickInput();
             InitializeAnimationLayers();
 		}
 
@@ -87,13 +86,10 @@ namespace Teotihuacan.Entities
             spriteAnimationController.Layers.Add(shootingLayer);
         }
 
-        private void InitializeTwinStickInput()
+        public void SetTwinStickInput(Xbox360GamePad gamePad)
         {
-            var inputAsGamepad = InputDevice as Xbox360GamePad;
-            if (inputAsGamepad != null)
-            {
-                rightStick = inputAsGamepad.RightStick;
-            }
+            InitializeTopDownInput(gamePad);
+            rightStick = gamePad.RightStick;
         }
 
         #endregion
@@ -134,7 +130,7 @@ namespace Teotihuacan.Entities
             }
 
             // in case the stick happens to report 0:
-            if(newAimingVector.X == 0 || newAimingVector.Y == 0)
+            if(newAimingVector.X == 0 && newAimingVector.Y == 0)
             {
                 newAimingVector.X = 1;
             }

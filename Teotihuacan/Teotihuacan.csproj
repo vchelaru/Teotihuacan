@@ -107,7 +107,9 @@
     </Compile>
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\PauseRuntime.cs" />
-    <Compile Include="GumRuntimes\PauseRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\PauseRuntime.Generated.cs">
+      <DependentUpon>PauseRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\PlayerHUDJoinRuntime.cs" />
     <Compile Include="GumRuntimes\PlayerHUDJoinRuntime.Generated.cs">
       <DependentUpon>PlayerHUDJoinRuntime.cs</DependentUpon>

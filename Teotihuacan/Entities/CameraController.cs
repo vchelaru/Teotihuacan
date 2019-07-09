@@ -9,6 +9,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Math;
+using System.Linq;
 
 namespace Teotihuacan.Entities
 {
@@ -31,8 +32,19 @@ namespace Teotihuacan.Entities
 		{
             if (Targets.Count > 0)
             {
-                this.XVelocity = Targets[0].X - this.X;
-                this.YVelocity = Targets[0].Y - this.Y;
+                var minX = Targets.Min(item => item.X);
+                var maxX = Targets.Max(item => item.X);
+
+                var minY = Targets.Min(item => item.Y);
+                var maxY = Targets.Max(item => item.Y);
+
+
+
+                var targetX = (minX + maxX) / 2.0f;
+                var targetY = (minY + maxY) / 2.0f;
+
+                this.XVelocity = targetX - this.X;
+                this.YVelocity = targetY - this.Y;
             }
 
 		}
