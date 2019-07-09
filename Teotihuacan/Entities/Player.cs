@@ -208,13 +208,35 @@ namespace Teotihuacan.Entities
             if(canTakeDamage)
             {
                 didTakeDamage = true;
-                CurrentHP -= damageToTake;
 
-                CurrentHP = Math.Max(CurrentHP, 0);
-                UpdateHud?.Invoke();
+                if(CurrentHP > 0)
+                {
+                    CurrentHP -= damageToTake;
+
+                    CurrentHP = Math.Max(CurrentHP, 0);
+                    UpdateHud?.Invoke();
+
+                    FlashWhite();
+
+                }
             }
 
             return didTakeDamage;
+        }
+
+        private void FlashWhite()
+        {
+            this.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
+            this.SpriteInstance.Red = 1;
+            this.SpriteInstance.Green = 1;
+            this.SpriteInstance.Blue = 1;
+
+            this.Call(ReturnFromFlash).After(FlashDuration);
+        }
+
+        private void ReturnFromFlash()
+        {
+            this.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
         }
 
         private void CustomDestroy()
