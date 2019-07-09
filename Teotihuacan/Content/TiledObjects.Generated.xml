@@ -20,6 +20,7 @@
     <property name="MaxHP" type="int" default="500" />
     <property name="FlashDuration" type="float" default="0.15" />
     <property name="CurrentColorCategoryState" type="ColorCategory" default="Blue" />
+    <property name="SpriteInstanceAnimationChains" type="AnimationChainList" />
   </objecttype>
   <objecttype name="SpawnPoint" />
 </objecttypes>

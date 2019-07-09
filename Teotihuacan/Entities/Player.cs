@@ -131,6 +131,12 @@ namespace Teotihuacan.Entities
                 newAimingVector = cursorPosition - new Vector3(X, Y, 0);
             }
 
+            // in case the stick happens to report 0:
+            if(newAimingVector.X == 0 || newAimingVector.Y == 0)
+            {
+                newAimingVector.X = 1;
+            }
+
             if(newAimingVector.X != 0 || newAimingVector.Y != 0)
             {
                 //Normalize at the end in case the right stick input is not at max magnitude

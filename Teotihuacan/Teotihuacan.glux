@@ -1167,19 +1167,43 @@
         <StateSaveCategory>
           <States>
             <StateSave>
-              <InstructionSaves />
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceAnimationChains</Member>
+                  <ValueAsString>Hero_2_Animations</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
               <Name>Blue</Name>
             </StateSave>
             <StateSave>
-              <InstructionSaves />
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceAnimationChains</Member>
+                  <ValueAsString>Hero_1_Animations</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
               <Name>Red</Name>
             </StateSave>
             <StateSave>
-              <InstructionSaves />
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceAnimationChains</Member>
+                  <ValueAsString>Hero_1_Animations</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
               <Name>Yellow</Name>
             </StateSave>
             <StateSave>
-              <InstructionSaves />
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceAnimationChains</Member>
+                  <ValueAsString>Hero_2_Animations</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
               <Name>Green</Name>
             </StateSave>
           </States>
@@ -1271,6 +1295,18 @@
           <Name>CurrentColorCategoryState</Name>
           <Type>ColorCategory</Type>
           <DefaultValue xsi:type="xsd:string">Blue</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>AnimationChainList</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceAnimationChains</Name>
+          <Type>AnimationChainList</Type>
+          <SourceObject>SpriteInstance</SourceObject>
+          <SourceObjectProperty>AnimationChains</SourceObjectProperty>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
