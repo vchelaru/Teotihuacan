@@ -17,7 +17,7 @@
   </objecttype>
   <objecttype name="Player">
     <property name="FireShotsPerSecond" type="float" default="4" />
-    <property name="MaxHP" type="int" default="500" />
+    <property name="MaxHP" type="int" default="100" />
     <property name="FlashDuration" type="float" default="0.15" />
     <property name="CurrentColorCategoryState" type="ColorCategory" default="Blue" />
     <property name="SpriteInstanceAnimationChains" type="AnimationChainList" />

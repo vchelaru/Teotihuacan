@@ -196,17 +196,24 @@ namespace Teotihuacan.Screens
 
         void CustomActivity(bool firstTimeCalled)
 		{
-            spawnManager.DoActivity(EnemyList, SpawnPointList, Spawns);
-
-            if (PlayerList.Count > 0)
+            if(IsPaused == false)
             {
-                DoCheckPauseInput();
-                DoAi();
+                spawnManager.DoActivity(EnemyList, SpawnPointList, Spawns);
+
+                if (PlayerList.Count > 0)
+                {
+                    DoAi();
+                }
             }
 
             DoUiActivity();
 
             DoCheckForGameOver();
+
+            if (PlayerList.Count > 0)
+            {
+                DoCheckPauseInput();
+            }
         }
 
             
@@ -279,7 +286,7 @@ namespace Teotihuacan.Screens
 
         void CustomDestroy()
 		{
-
+            Camera.Main.Detach();
 
 		}
 

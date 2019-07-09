@@ -696,7 +696,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Y</Member>
-            <ValueAsFloat>7</ValueAsFloat>
+            <ValueAsFloat>3.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -707,6 +707,11 @@
             <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
             <Member>AnimationChains</Member>
             <ValueAsString>misc_sprites</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>UseAnimationRelativePosition</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -731,6 +736,11 @@
             <Type>Microsoft.Xna.Framework.Color</Type>
             <Member>Color</Member>
             <ValueAsString>Yellow</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -1091,6 +1101,11 @@
             <Member>Radius</Member>
             <ValueAsFloat>5</ValueAsFloat>
           </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
           <Properties>
             <PropertySave>
               <Name>SourceType</Name>
@@ -1271,7 +1286,7 @@
           </Properties>
           <Name>MaxHP</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">500</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">100</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1346,6 +1361,11 @@
             <Type>float</Type>
             <Member>Radius</Member>
             <ValueAsFloat>5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <Properties>
             <PropertySave>

@@ -24,9 +24,10 @@ namespace Teotihuacan.Entities
         /// </summary>
 		private void CustomInitialize()
 		{
+            Camera.Main.RelativeX = 0;
+            Camera.Main.RelativeY = 0;
 
-
-		}
+        }
 
 		private void CustomActivity()
 		{
