@@ -34,6 +34,7 @@ namespace Teotihuacan.Screens
 
         int currentFrameSkipIndex;
 
+        bool hasGameOverBeenTriggered = false;
 
         #endregion
 
@@ -159,7 +160,21 @@ namespace Teotihuacan.Screens
 		{
             spawnManager.DoActivity(EnemyList, SpawnPointList, Spawns);
 
-            DoAi();
+            if (PlayerList.Count > 0)
+            {
+                DoAi();
+            }
+
+            DoCheckForGameOver();
+        }
+
+        private void DoCheckForGameOver()
+        {
+            if(PlayerList.Count <= 0 && hasGameOverBeenTriggered == false)
+            {
+                hasGameOverBeenTriggered = true;
+                ((GameScreenGumRuntime)GameScreenGum).ShowGameOver(this);
+            }
         }
 
         private void DoAi()

@@ -27,5 +27,15 @@ namespace Teotihuacan.GumRuntimes
             this.PlayerHUDInstance2.SetOwningPlayer(players.Count > 2 ? players[2] : null);
             this.PlayerHUDInstance3.SetOwningPlayer(players.Count > 3 ? players[3] : null);
         }
+
+        public void ShowGameOver(Screens.GameScreen currentScreen)
+        {
+            this.GameOverInstance.Visible = true;
+            GameOverInstance.FadeToBlackAnimation.Play();
+            GameOverInstance.FadeToBlackAnimation.EndReached += () =>
+            {
+                currentScreen.RestartScreen(false);
+            };
+        }
     }
 }
