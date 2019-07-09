@@ -106,6 +106,8 @@
       <DependentUpon>LevelStartRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\PauseRuntime.cs" />
+    <Compile Include="GumRuntimes\PauseRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\PlayerHUDJoinRuntime.cs" />
     <Compile Include="GumRuntimes\PlayerHUDJoinRuntime.Generated.cs">
       <DependentUpon>PlayerHUDJoinRuntime.cs</DependentUpon>
@@ -265,6 +267,10 @@
     <None Include="content\gumproject\components\levelstart.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>levelstart</Name>
+    </None>
+    <None Include="content\gumproject\components\pause.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pause</Name>
     </None>
     <None Include="content\gumproject\components\playerhud.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

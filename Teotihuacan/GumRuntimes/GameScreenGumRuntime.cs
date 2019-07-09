@@ -63,5 +63,10 @@ namespace Teotihuacan.GumRuntimes
                 currentScreen.RestartScreen(false);
             };
         }
+
+        public void SetPauseScreenVisibility(bool isVisible)
+        {
+            this.PauseInstance.Visible = isVisible;
+        }
     }
 }

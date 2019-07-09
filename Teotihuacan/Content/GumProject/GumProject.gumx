@@ -29,6 +29,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>Pause</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>PlayerHUD</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

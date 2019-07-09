@@ -199,6 +199,7 @@ namespace Teotihuacan.Screens
 
             if (PlayerList.Count > 0)
             {
+                DoCheckPauseInput();
                 DoAi();
             }
 
@@ -215,6 +216,27 @@ namespace Teotihuacan.Screens
                 PlayerList);
         }
 
+
+        private void DoCheckPauseInput()
+        {
+            foreach(var player in PlayerList)
+            {
+                if(player.PauseInputPressed)
+                {
+                    if(IsPaused)
+                    {
+                        UnpauseThisScreen();
+                        ((GameScreenGumRuntime)GameScreenGum).SetPauseScreenVisibility(false);
+                    }
+                    else
+                    {
+                        PauseThisScreen();
+                        ((GameScreenGumRuntime)GameScreenGum).SetPauseScreenVisibility(true);
+                    }
+                    
+                }
+            }
+        }
 
         private void DoCheckForGameOver()
         {
