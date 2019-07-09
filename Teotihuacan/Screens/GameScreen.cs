@@ -158,11 +158,11 @@ namespace Teotihuacan.Screens
 
         void CustomActivity(bool firstTimeCalled)
 		{
-            DoCheckPauseInput();
             spawnManager.DoActivity(EnemyList, SpawnPointList, Spawns);
 
             if (PlayerList.Count > 0)
             {
+                DoCheckPauseInput();
                 DoAi();
             }
 
