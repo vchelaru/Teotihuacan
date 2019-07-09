@@ -161,6 +161,7 @@ namespace Teotihuacan.Entities
                 var direction = aimingVector;
 
                 var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
+                bullet.Owner = this;
                 bullet.CurrentDataCategoryState = bulletData;
                 bullet.Velocity = bullet.BulletSpeed * direction;
                 bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections));
@@ -198,8 +199,6 @@ namespace Teotihuacan.Entities
                 return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, TopDownDirection.Right);
             }
         }
-
-        #endregion
 
         public bool TakeDamage(int damageToTake)
         {
@@ -239,6 +238,9 @@ namespace Teotihuacan.Entities
             this.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
         }
 
+        #endregion
+
+
         private void CustomDestroy()
 		{
 
@@ -251,4 +253,34 @@ namespace Teotihuacan.Entities
 
         }
 	}
+
+    public static class ColorStateExtensions
+    {
+        public static int ToInt(this Player.ColorCategory category)
+        {
+            if (category == Player.ColorCategory.Blue)
+                return 0;
+            if (category == Player.ColorCategory.Red)
+                return 1;
+            if (category == Player.ColorCategory.Yellow)
+                return 2;
+            if (category == Player.ColorCategory.Green)
+                return 3;
+
+            return -1;
+        }
+
+        public static Player.ColorCategory ToPlayerColorCategory(this int value)
+        {
+            switch(value)
+            {
+                case 0: return Player.ColorCategory.Blue;
+                case 1: return Player.ColorCategory.Red;
+                case 2: return Player.ColorCategory.Yellow;
+                case 3: return Player.ColorCategory.Green;
+            }
+
+            return Player.ColorCategory.Blue;
+        }
+    }
 }

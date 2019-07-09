@@ -41,6 +41,8 @@ namespace Teotihuacan.Screens
 
         void CustomInitialize()
 		{
+            CreatePlayers();
+
             TileEntityInstantiator.CreateEntitiesFrom(Map);
 
             spawnManager = new SpawnManager();
@@ -54,6 +56,42 @@ namespace Teotihuacan.Screens
             InitializeNodeNetworks();
 
             InitializeUi();
+        }
+
+        private void CreatePlayers()
+        {
+            var numberOfControllers = InputManager.NumberOfConnectedGamePads;
+
+            if(numberOfControllers == 0)
+            {
+                var player = new Player();
+                player.CurrentColorCategoryState =
+                    Player.ColorCategory.Blue;
+                PlayerList.Add(player);
+                player.InitializeTopDownInput(InputManager.Keyboard);
+            }
+            else
+            {
+                foreach(var controller in InputManager.Xbox360GamePads)
+                {
+                    if(controller.IsConnected)
+                    {
+                        var player = new Player();
+                        player.CurrentColorCategoryState =
+                            PlayerList.Count.ToPlayerColorCategory();
+
+                        PlayerList.Add(player);
+                        player.InitializeTopDownInput(controller);
+                    }
+                }
+            }
+
+            for(int i = 0; i < PlayerList.Count; i++)
+            {
+                var player = PlayerList[i];
+                player.Y = -40;
+                player.X = 40 + i * 40;
+            }
         }
 
         private void InitializeNodeNetworks()
@@ -148,7 +186,6 @@ namespace Teotihuacan.Screens
         private void InitializeUi()
         {
             ((GameScreenGumRuntime)GameScreenGum).SetNumberOfPlayers(PlayerList.Count);
-            ((GameScreenGumRuntime)GameScreenGum).SetHUDOwners(PlayerList);
         }
 
         #endregion
@@ -160,6 +197,14 @@ namespace Teotihuacan.Screens
             spawnManager.DoActivity(EnemyList, SpawnPointList, Spawns);
 
             DoAi();
+
+            DoUiActivity();
+        }
+
+        private void DoUiActivity()
+        {
+            (GameScreenGum as GameScreenGumRuntime).CustomActivity(
+                PlayerList);
         }
 
         private void DoAi()
@@ -168,7 +213,7 @@ namespace Teotihuacan.Screens
             {
                 var enemy = EnemyList[i];
 
-                enemy.DoAiActivity(true, nodeNetwork, PlayerList[0], SolidCollisions);
+                enemy.DoAiActivity(true, nodeNetwork, PlayerList, SolidCollisions);
 
             }
             currentFrameSkipIndex = (currentFrameSkipIndex + 1) % AiFrameSkip;

@@ -8,6 +8,10 @@ namespace Teotihuacan.GumRuntimes
 {
     public partial class GameScreenGumRuntime
     {
+        List<PlayerHUDRuntime> playerHuds = new List<PlayerHUDRuntime>();
+        List<PlayerHUDJoinRuntime> playerJoinHuds =
+            new List<PlayerHUDJoinRuntime>();
+
         partial void CustomInitialize()
         {
         }
@@ -18,14 +22,36 @@ namespace Teotihuacan.GumRuntimes
             this.PlayerHUDInstance1.Visible = numberOfPlayers > 1;
             this.PlayerHUDInstance2.Visible = numberOfPlayers > 2;
             this.PlayerHUDInstance3.Visible = numberOfPlayers > 3;
+
+            playerHuds.Add(PlayerHUDInstance);
+            playerHuds.Add(PlayerHUDInstance1);
+            playerHuds.Add(PlayerHUDInstance2);
+            playerHuds.Add(PlayerHUDInstance3);
+
+            playerJoinHuds.Add(PlayerHUDJoinInstance);
+            playerJoinHuds.Add(PlayerHUDJoinInstance1);
+            playerJoinHuds.Add(PlayerHUDJoinInstance2);
+            playerJoinHuds.Add(PlayerHUDJoinInstance3);
         }
 
-        public void SetHUDOwners(PositionedObjectList<Player> players)
+
+
+        public void CustomActivity(PositionedObjectList<Player> players)
         {
-            this.PlayerHUDInstance.SetOwningPlayer(players.Count > 0 ? players[0] : null);
-            this.PlayerHUDInstance1.SetOwningPlayer(players.Count > 1 ? players[1] : null);
-            this.PlayerHUDInstance2.SetOwningPlayer(players.Count > 2 ? players[2] : null);
-            this.PlayerHUDInstance3.SetOwningPlayer(players.Count > 3 ? players[3] : null);
+            foreach(var player in players)
+            {
+                var index = player.CurrentColorCategoryState.ToInt();
+
+                playerHuds[index].Visible = true;
+                playerHuds[index].UpdateHealth(player);
+            }
+
+            for(int i = 0; i < 4; i++)
+            {
+                playerJoinHuds[i].Visible = !playerHuds[i].Visible;
+            }
+
+
         }
     }
 }

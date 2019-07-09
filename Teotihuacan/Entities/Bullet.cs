@@ -14,6 +14,9 @@ namespace Teotihuacan.Entities
 {
 	public partial class Bullet
 	{
+        public Player Owner { get; set; }
+
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not

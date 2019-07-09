@@ -13,6 +13,7 @@ using System.Linq;
 using FlatRedBall.TileCollisions;
 using Microsoft.Xna.Framework;
 using Teotihuacan.Animation;
+using FlatRedBall.Math;
 
 namespace Teotihuacan.Entities
 {
@@ -49,6 +50,11 @@ namespace Teotihuacan.Entities
         AnimationLayer shootingAnimationLayer;
 
         PrimaryActions currentPrimaryAction;
+
+        PositionedObject target;
+
+        PositionedObject forcedTarget;
+        double timeForcedTargetSet;
         #endregion
 
         #region Initialize
@@ -87,16 +93,20 @@ namespace Teotihuacan.Entities
 
         #endregion
 
+        #region Activity
+
         private void CustomActivity()
 		{
 
 		}
 
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
-            PositionedObject target, TileShapeCollection solidCollisions)
+            PositionedObjectList<Player> players, TileShapeCollection solidCollisions)
         {
             if (CurrentHP > 0)
             {
+                DoTargetDecision(players);
+
                 if (refreshPath)
                 {
                     // enemies always move towards player, but really slowly when shooting
@@ -116,6 +126,58 @@ namespace Teotihuacan.Entities
             }
 
             spriteAnimationController.Activity();
+        }
+
+        private void DoTargetDecision(PositionedObjectList<Player> players)
+        {
+
+            if(forcedTarget != null)
+            {
+                target = forcedTarget;
+
+                var timeSinceSet =
+                    FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(timeForcedTargetSet);
+
+                if(timeSinceSet > 8)
+                {
+                    forcedTarget = null;
+                }
+            }
+            else if(target == null)
+            {
+                PositionedObject closest = GetClosest(players);
+
+                target = closest;
+            }
+            else
+            {
+                if(CurrentBehavior == Behavior.Chasing)
+                {
+                    // see if there is anything closer
+                    target = GetClosest(players);
+                }
+                // else if shooting/reloading, chase that same target so long as in chasing mode
+
+            }
+        }
+
+        private PositionedObject GetClosest(PositionedObjectList<Player> players)
+        {
+            PositionedObject closest = null;
+            // get closest:
+            float closestDistance = float.PositiveInfinity;
+
+            foreach (var player in players)
+            {
+                var distanceToPlayer = (player.Position - this.Position).Length();
+                if (distanceToPlayer < closestDistance)
+                {
+                    closestDistance = distanceToPlayer;
+                    closest = player;
+                }
+            }
+
+            return closest;
         }
 
         private void UpdatePrimaryAction()
@@ -250,7 +312,7 @@ namespace Teotihuacan.Entities
             }
         }
 
-        public bool TakeDamage(int damageToTake)
+        public bool TakeDamage(int damageToTake, Player owner)
         {
             bool tookDamage = false;
             if(canTakeDamage)
@@ -265,6 +327,9 @@ namespace Teotihuacan.Entities
                 else
                 {
                     FlashWhite();
+
+                    forcedTarget = owner;
+                    timeForcedTargetSet = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
                 }
             }
 
@@ -312,6 +377,8 @@ namespace Teotihuacan.Entities
                 return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, TopDownDirection.Right);
             }
         }
+
+        #endregion
 
         private void CustomDestroy()
 		{

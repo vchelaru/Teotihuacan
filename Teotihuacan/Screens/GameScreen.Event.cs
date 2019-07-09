@@ -28,7 +28,7 @@ namespace Teotihuacan.Screens
         {
             if(bullet.TeamIndex == 0)
             {
-                if(enemy.TakeDamage(bullet.DamageToDeal))
+                if(enemy.TakeDamage(bullet.DamageToDeal, bullet.Owner))
                 {
                     bullet.Destroy();
                 }

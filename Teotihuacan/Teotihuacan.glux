@@ -109,32 +109,6 @@
           <InstanceName>PlayerList</InstanceName>
           <AttachToContainer>false</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
-          <ContainedObjects>
-            <NamedObjectSave>
-              <CustomProperty>
-                <Type>float</Type>
-                <Member>X</Member>
-                <ValueAsFloat>100</ValueAsFloat>
-              </CustomProperty>
-              <CustomProperty>
-                <Type>float</Type>
-                <Member>Y</Member>
-                <ValueAsFloat>-30</ValueAsFloat>
-              </CustomProperty>
-              <Properties>
-                <PropertySave>
-                  <Name>SourceType</Name>
-                  <ValueAsObject xsi:type="SourceType">Entity</ValueAsObject>
-                </PropertySave>
-              </Properties>
-              <SourceType>Entity</SourceType>
-              <SourceClassType>Entities\Player</SourceClassType>
-              <InstanceName>Player1</InstanceName>
-              <AttachToContainer>true</AttachToContainer>
-              <GenerateTimedEmit>true</GenerateTimedEmit>
-              <IndependentOfCamera>true</IndependentOfCamera>
-            </NamedObjectSave>
-          </ContainedObjects>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -1183,6 +1157,38 @@
           <ValueAsBool>true</ValueAsBool>
         </PropertySave>
       </Properties>
+      <StateCategoryList>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves />
+              <Name>Blue</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves />
+              <Name>Red</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves />
+              <Name>Yellow</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves />
+              <Name>Green</Name>
+            </StateSave>
+          </States>
+          <ExcludedVariables>
+            <string>X</string>
+            <string>Y</string>
+            <string>Z</string>
+            <string>FireShotsPerSecond</string>
+            <string>MaxHP</string>
+            <string>FlashDuration</string>
+          </ExcludedVariables>
+          <Name>ColorCategory</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
+      </StateCategoryList>
       <CustomVariables>
         <CustomVariable>
           <Properties>
@@ -1248,6 +1254,17 @@
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0.15</DefaultValue>
           <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>ColorCategory</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CurrentColorCategoryState</Name>
+          <Type>ColorCategory</Type>
+          <DefaultValue xsi:type="xsd:string">Blue</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
