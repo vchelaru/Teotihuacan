@@ -36,6 +36,7 @@ namespace Teotihuacan.Screens
         }
         void OnBulletVsSolidCollisionOccurred (Bullet bullet, TileShapeCollection solid) 
         {
+            bullet.SpawnVFX();
             bullet.Destroy();
         }
 

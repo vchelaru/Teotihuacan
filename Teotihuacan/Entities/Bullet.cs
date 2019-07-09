@@ -39,9 +39,21 @@ namespace Teotihuacan.Entities
             SpriteInstance.CurrentChainName = ChainNameHelperMethods.GenerateChainName(PrimaryActions.Fireball, aimingDirection);
         }
 
+        public void SpawnVFX()
+        {
+            var explosion = SpriteManager.AddParticleSprite(misc_sprites_SpriteSheet);
+            explosion.AnimationChains = misc_sprites;
+            explosion.CurrentChainName = nameof(PrimaryActions.ProjectileExplosion);
+            explosion.Position = SpriteInstance.Position;
+            explosion.TextureScale = 1;
+            explosion.Animate = true;
+
+            SpriteManager.RemoveSpriteAtTime(explosion, explosion.CurrentChain.TotalLength);
+        }
+
 		private void CustomDestroy()
 		{
-            //Todo: spawn particle vfx.
+            
 
 		}
 
