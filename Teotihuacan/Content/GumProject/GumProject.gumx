@@ -16,6 +16,10 @@
     <Name>Level1Gum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
+  <ScreenReference>
+    <Name>UiTestScreenGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
   <ComponentReference>
     <Name>BaseHUD</Name>
     <ElementType>Component</ElementType>
