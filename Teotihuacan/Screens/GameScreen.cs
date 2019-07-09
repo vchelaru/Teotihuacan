@@ -158,6 +158,7 @@ namespace Teotihuacan.Screens
 
         void CustomActivity(bool firstTimeCalled)
 		{
+            DoCheckPauseInput();
             spawnManager.DoActivity(EnemyList, SpawnPointList, Spawns);
 
             if (PlayerList.Count > 0)
@@ -166,6 +167,27 @@ namespace Teotihuacan.Screens
             }
 
             DoCheckForGameOver();
+        }
+
+        private void DoCheckPauseInput()
+        {
+            foreach(var player in PlayerList)
+            {
+                if(player.PauseInputPressed)
+                {
+                    if(IsPaused)
+                    {
+                        UnpauseThisScreen();
+                        ((GameScreenGumRuntime)GameScreenGum).SetPauseScreenVisibility(false);
+                    }
+                    else
+                    {
+                        PauseThisScreen();
+                        ((GameScreenGumRuntime)GameScreenGum).SetPauseScreenVisibility(true);
+                    }
+                    
+                }
+            }
         }
 
         private void DoCheckForGameOver()

@@ -53,6 +53,8 @@ namespace Teotihuacan.Entities
         bool canTakeDamage => CurrentHP > 0;
 
         public Action UpdateHud;
+
+        public bool PauseInputPressed => InputDevice.DefaultPauseInput.WasJustPressed;
         #endregion
 
         #region Initialize

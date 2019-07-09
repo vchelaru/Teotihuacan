@@ -46,6 +46,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>PauseInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>PlayerHUDInstance.Parent</Name>
       <Value xsi:type="xsd:string">ContainerInstance</Value>
@@ -392,6 +398,11 @@
   <Instance>
     <Name>GameOverInstance</Name>
     <BaseType>GameOver</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PauseInstance</Name>
+    <BaseType>Pause</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
