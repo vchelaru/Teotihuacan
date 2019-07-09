@@ -654,14 +654,14 @@
       <Name>OneVisible</Name>
       <Variable>
         <Type>bool</Type>
-        <Name>TextOne.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
+        <Name>TextGo.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>bool</Type>
-        <Name>TextTwo.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
+        <Name>TextOne.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -672,7 +672,7 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
-        <Name>TextGo.Visible</Name>
+        <Name>TextTwo.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -681,14 +681,14 @@
       <Name>TwoVisible</Name>
       <Variable>
         <Type>bool</Type>
-        <Name>TextOne.Visible</Name>
+        <Name>TextGo.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>bool</Type>
-        <Name>TextTwo.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
+        <Name>TextOne.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -699,8 +699,8 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
-        <Name>TextGo.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
+        <Name>TextTwo.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -708,6 +708,12 @@
       <Name>ThreeVisible</Name>
       <Variable>
         <Type>bool</Type>
+        <Name>TextGo.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
         <Name>TextOne.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
@@ -721,12 +727,6 @@
       <Variable>
         <Type>bool</Type>
         <Name>TextTwo.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>TextGo.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
