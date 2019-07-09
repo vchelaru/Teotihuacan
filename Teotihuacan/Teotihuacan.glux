@@ -704,14 +704,14 @@
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-            <ValueAsString>misc_sprites</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>bool</Type>
             <Member>UseAnimationRelativePosition</Member>
             <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>misc_sprites</ValueAsString>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -733,14 +733,14 @@
             <ValueAsFloat>3</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>Microsoft.Xna.Framework.Color</Type>
-            <Member>Color</Member>
-            <ValueAsString>Yellow</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>bool</Type>
             <Member>Visible</Member>
             <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Microsoft.Xna.Framework.Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>Yellow</ValueAsString>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -1500,6 +1500,14 @@
         </PropertySave>
         <PropertySave>
           <Name>ShowMouse</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+        <PropertySave>
+          <Name>IncludeFormsInComponents</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+        <PropertySave>
+          <Name>IncludeComponentToFormsAssociation</Name>
           <ValueAsBool>true</ValueAsBool>
         </PropertySave>
       </Properties>
