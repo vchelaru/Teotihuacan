@@ -37,6 +37,9 @@ namespace Teotihuacan.Entities
         public void SetAnimationChainFromVelocity(TopDownDirection aimingDirection)
         {
             SpriteInstance.CurrentChainName = ChainNameHelperMethods.GenerateChainName(PrimaryActions.Fireball, aimingDirection);
+            var positionOffset = TopDownDirectionExtensions.ToVector(aimingDirection);
+
+            Position += positionOffset * OffsetRadius;
         }
 
         public void SpawnVFX()

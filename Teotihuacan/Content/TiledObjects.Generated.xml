@@ -4,6 +4,7 @@
     <property name="TeamIndex" type="int" />
     <property name="BulletSpeed" type="float" default="400" />
     <property name="DamageToDeal" type="int" />
+    <property name="OffsetRadius" type="float" />
   </objecttype>
   <objecttype name="Enemy">
     <property name="SpriteAnimations" type="AnimationChainList" default="Enemy_Shooter_Animations" />
