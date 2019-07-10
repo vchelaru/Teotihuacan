@@ -10,12 +10,15 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Math;
 using System.Linq;
+using FlatRedBall.TileGraphics;
 
 namespace Teotihuacan.Entities
 {
 	public partial class CameraController
 	{
         public List<PositionedObject> Targets { get; private set; } = new List<PositionedObject>();
+
+        public LayeredTileMap Map { get; set; }
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -43,6 +46,18 @@ namespace Teotihuacan.Entities
 
                 var targetX = (minX + maxX) / 2.0f;
                 var targetY = (minY + maxY) / 2.0f;
+
+                if(Map != null)
+                {
+                    targetX = Math.Max(Map.X + Camera.Main.OrthogonalWidth/2.0f, targetX);
+                    targetX = Math.Min(Map.X + Map.Width - Camera.Main.OrthogonalWidth/2.0f, targetX);
+
+                    targetY = Math.Max(Map.Y + Camera.Main.OrthogonalHeight / 2.0f, targetY);
+                    targetY = Math.Min(Map.Y - Camera.Main.OrthogonalHeight / 2.0f, targetY);
+
+                    X = Map.X + Map.Width / 2.0f;
+                    Y = Map.Y - Map.Height / 2.0f;
+                }
 
                 this.XVelocity = targetX - this.X;
                 this.YVelocity = targetY - this.Y;
