@@ -232,9 +232,8 @@ namespace Teotihuacan.Screens
         private void DoUiActivity()
         {
             (GameScreenGum as GameScreenGumRuntime).CustomActivity(
-                PlayerList);
+                PlayerList, PlayerBaseList[0]);
         }
-
 
         private void DoCheckPauseInput()
         {

@@ -17,6 +17,7 @@ namespace Teotihuacan.GumRuntimes
         public void UpdateHealth(Player owningPlayer)
         {
             HealthGauge.Height = healthGageMax * ((float)(owningPlayer.CurrentHP) / (float)(owningPlayer.MaxHP));
+            
         }
     }
 }

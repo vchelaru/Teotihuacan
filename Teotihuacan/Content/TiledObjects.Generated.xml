@@ -23,6 +23,9 @@
     <property name="CurrentColorCategoryState" type="ColorCategory" default="Blue" />
     <property name="SpriteInstanceAnimationChains" type="AnimationChainList" />
   </objecttype>
-  <objecttype name="PlayerBase" />
+  <objecttype name="PlayerBase">
+    <property name="MaxHp" type="int" default="300" />
+    <property name="FlashDuration" type="float" default="0.15" />
+  </objecttype>
   <objecttype name="SpawnPoint" />
 </objecttypes>

@@ -13,6 +13,11 @@ namespace Teotihuacan.Entities
 {
 	public partial class PlayerBase
 	{
+
+        public int CurrentHP { get; private set; }
+        bool canTakeDamage => CurrentHP > 0;
+
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -20,7 +25,7 @@ namespace Teotihuacan.Entities
         /// </summary>
 		private void CustomInitialize()
 		{
-
+            CurrentHP = MaxHp;
 
 		}
 
@@ -30,7 +35,43 @@ namespace Teotihuacan.Entities
 
 		}
 
-		private void CustomDestroy()
+        public bool TakeDamage(int damageToTake)
+        {
+            bool tookDamage = false;
+            if (canTakeDamage)
+            {
+                tookDamage = true;
+                CurrentHP -= damageToTake;
+
+                if (CurrentHP <= 0)
+                {
+                    //PerformDeath();
+                }
+                else
+                {
+                    FlashWhite();
+                }
+            }
+
+            return tookDamage;
+        }
+
+        private void FlashWhite()
+        {
+            this.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
+            this.SpriteInstance.Red = 1;
+            this.SpriteInstance.Green = 1;
+            this.SpriteInstance.Blue = 1;
+
+            this.Call(ReturnFromFlash).After(FlashDuration);
+        }
+
+        private void ReturnFromFlash()
+        {
+            this.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
+        }
+
+        private void CustomDestroy()
 		{
 
 

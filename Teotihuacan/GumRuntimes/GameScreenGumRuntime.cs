@@ -36,7 +36,7 @@ namespace Teotihuacan.GumRuntimes
 
 
 
-        public void CustomActivity(PositionedObjectList<Player> players)
+        public void CustomActivity(PositionedObjectList<Player> players, PlayerBase playerBase)
         {
             foreach(var player in players)
             {
@@ -51,6 +51,7 @@ namespace Teotihuacan.GumRuntimes
                 playerJoinHuds[i].Visible = !playerHuds[i].Visible;
             }
 
+            BaseHUDInstance.UpdateHealth(playerBase);
 
         }
 

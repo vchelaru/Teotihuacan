@@ -43,7 +43,9 @@ namespace Teotihuacan.Screens
         {
             if(bullet.TeamIndex == 1)
             {
-                // base take damage
+
+                playerBase.TakeDamage(bullet.DamageToDeal);
+                bullet.SpawnVFX();
                 bullet.Destroy();
             }
         }
