@@ -810,6 +810,11 @@
                   <Member>DamageToDeal</Member>
                   <ValueAsInt>5</ValueAsInt>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>OffsetRadius</Member>
+                  <ValueAsFloat>5</ValueAsFloat>
+                </InstructionSave>
               </InstructionSaves>
               <Name>PlayerFire</Name>
             </StateSave>
@@ -829,6 +834,11 @@
                   <Type>Int32</Type>
                   <Member>DamageToDeal</Member>
                   <ValueAsInt>5</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>OffsetRadius</Member>
+                  <ValueAsFloat>5</ValueAsFloat>
                 </InstructionSave>
               </InstructionSaves>
               <Name>EnemyBullet</Name>
@@ -900,6 +910,16 @@
           </Properties>
           <Name>DamageToDeal</Name>
           <Type>int</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>OffsetRadius</Name>
+          <Type>float</Type>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
