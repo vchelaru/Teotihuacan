@@ -68,12 +68,17 @@
     <Compile Include="Entities\Player.Generated.cs">
       <DependentUpon>Player.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\PlayerBase.cs" />
+    <Compile Include="Entities\PlayerBase.Generated.cs">
+      <DependentUpon>PlayerBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\SpawnPoint.cs" />
     <Compile Include="Entities\SpawnPoint.Generated.cs">
       <DependentUpon>SpawnPoint.cs</DependentUpon>
     </Compile>
     <Compile Include="Factories\BulletFactory.Generated.cs" />
     <Compile Include="Factories\EnemyFactory.Generated.cs" />
+    <Compile Include="Factories\PlayerBaseFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />
     <Compile Include="Factories\SpawnPointFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
@@ -106,7 +111,9 @@
     <Compile Include="GumRuntimes\DefaultForms\ButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\DefaultForms\CheckBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\DefaultForms\ColoredFrameRuntime.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\ColoredFrameRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\ColoredFrameRuntime.Generated.cs">
+      <DependentUpon>ColoredFrameRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\DefaultForms\ComboBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\DefaultForms\ListBoxItemRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\DefaultForms\ListBoxRuntime.Generated.cs" />
@@ -121,9 +128,13 @@
     <Compile Include="GumRuntimes\DefaultForms\TreeViewItemRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\DefaultForms\TreeViewRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\DefaultForms\TreeViewToggleButtonRuntime.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\TreeViewToggleButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\TreeViewToggleButtonRuntime.Generated.cs">
+      <DependentUpon>TreeViewToggleButtonRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\DefaultForms\UserControlRuntime.cs" />
-    <Compile Include="GumRuntimes\DefaultForms\UserControlRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\DefaultForms\UserControlRuntime.Generated.cs">
+      <DependentUpon>UserControlRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\GameOverRuntime.cs" />
     <Compile Include="GumRuntimes\GameOverRuntime.Generated.cs">
       <DependentUpon>GameOverRuntime.cs</DependentUpon>
@@ -159,7 +170,9 @@
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\UiTestScreenGumRuntime.cs" />
-    <Compile Include="GumRuntimes\UiTestScreenGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\UiTestScreenGumRuntime.Generated.cs">
+      <DependentUpon>UiTestScreenGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\SpawnManager.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />

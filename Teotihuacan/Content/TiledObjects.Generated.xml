@@ -22,5 +22,6 @@
     <property name="CurrentColorCategoryState" type="ColorCategory" default="Blue" />
     <property name="SpriteInstanceAnimationChains" type="AnimationChainList" />
   </objecttype>
+  <objecttype name="PlayerBase" />
   <objecttype name="SpawnPoint" />
 </objecttypes>

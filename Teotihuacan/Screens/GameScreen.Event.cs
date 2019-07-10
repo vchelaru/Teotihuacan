@@ -39,6 +39,18 @@ namespace Teotihuacan.Screens
             bullet.SpawnVFX();
             bullet.Destroy();
         }
+        void OnBulletVsPlayerBaseSolidCollisionOccurred (Entities.Bullet bullet, Entities.PlayerBase playerBase) 
+        {
+            if(bullet.TeamIndex == 1)
+            {
+                // base take damage
+                bullet.Destroy();
+            }
+        }
+        void OnPlayerVsPlayerBaseHealingCollisionOccurred (Entities.Player bullet, Entities.PlayerBase playerBase) 
+        {
+            // todo - make the player heal HP
+        }
 
     }
 }

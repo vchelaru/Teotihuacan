@@ -31,6 +31,10 @@
  <tile id="18" type="Ground" terrain="0,0,4,0"/>
  <tile id="19" type="Ground" terrain="4,4,4,0"/>
  <tile id="20" type="Ground" terrain="4,4,0,4"/>
+ <tile id="52" type="RemoveMe"/>
+ <tile id="53" type="RemoveMe"/>
+ <tile id="54" type="RemoveMe"/>
+ <tile id="55" type="RemoveMe"/>
  <tile id="64" type="Ground" terrain="0,1,0,1"/>
  <tile id="65" type="Ground" terrain="1,1,1,1"/>
  <tile id="66" type="Ground" terrain="1,0,1,0"/>
@@ -51,6 +55,15 @@
  <tile id="82" type="Ground" terrain="4,0,4,0"/>
  <tile id="83" type="Ground" terrain="4,0,4,4"/>
  <tile id="84" type="Ground" terrain="0,4,4,4"/>
+ <tile id="116" type="RemoveMe"/>
+ <tile id="117" type="PlayerBase">
+  <properties>
+   <property name="X" type="float" value="8"/>
+   <property name="Y" type="float" value="-8"/>
+  </properties>
+ </tile>
+ <tile id="118" type="RemoveMe"/>
+ <tile id="119" type="RemoveMe"/>
  <tile id="128" type="Ground" terrain="0,1,0,0"/>
  <tile id="129" type="Ground" terrain="1,1,0,0"/>
  <tile id="130" type="Ground" terrain="1,0,0,0"/>
@@ -67,17 +80,46 @@
  <tile id="146" type="Ground" terrain="4,0,0,0"/>
  <tile id="147" type="Ground" terrain="4,4,4,4" probability="0.2"/>
  <tile id="148" type="Ground" terrain="4,4,4,4" probability="0.1"/>
+ <tile id="180" type="RemoveMe"/>
+ <tile id="181" type="RemoveMe"/>
+ <tile id="182" type="RemoveMe"/>
+ <tile id="183" type="RemoveMe"/>
  <tile id="192" type="Wall"/>
  <tile id="193" type="Wall"/>
  <tile id="194" type="Wall"/>
  <tile id="195" type="Wall"/>
+ <tile id="244" type="RemoveMe"/>
+ <tile id="245" type="RemoveMe"/>
+ <tile id="246" type="RemoveMe"/>
+ <tile id="247" type="RemoveMe"/>
  <tile id="256" type="Wall"/>
+ <tile id="308" type="RemoveMe"/>
+ <tile id="309" type="RemoveMe"/>
+ <tile id="310" type="RemoveMe"/>
+ <tile id="311" type="RemoveMe"/>
  <tile id="320" type="Wall"/>
+ <tile id="372" type="RemoveMe"/>
+ <tile id="373" type="PlayerBase">
+  <properties>
+   <property name="X" type="float" value="8"/>
+   <property name="Y" type="float" value="-8"/>
+  </properties>
+ </tile>
+ <tile id="374" type="RemoveMe"/>
+ <tile id="375" type="RemoveMe"/>
  <tile id="386" terrain=",,5,"/>
  <tile id="389" terrain=",,6,"/>
+ <tile id="436" type="RemoveMe"/>
+ <tile id="437" type="RemoveMe"/>
+ <tile id="438" type="RemoveMe"/>
+ <tile id="439" type="RemoveMe"/>
  <tile id="450" terrain="5,,5,"/>
  <tile id="452" terrain="6,6,6,6"/>
  <tile id="453" terrain="6,,6,"/>
+ <tile id="500" type="RemoveMe"/>
+ <tile id="501" type="RemoveMe"/>
+ <tile id="502" type="RemoveMe"/>
+ <tile id="503" type="RemoveMe"/>
  <tile id="512" terrain=",5,,"/>
  <tile id="513" terrain="5,5,,"/>
  <tile id="514" terrain="5,,,"/>

@@ -17,6 +17,7 @@ using FlatRedBall.TileEntities;
 using Teotihuacan.Entities;
 using FlatRedBall.TileCollisions;
 using Teotihuacan.GumRuntimes;
+using FlatRedBall.TileGraphics;
 
 namespace Teotihuacan.Screens
 {
@@ -45,6 +46,8 @@ namespace Teotihuacan.Screens
             CreatePlayers();
 
             TileEntityInstantiator.CreateEntitiesFrom(Map);
+            Map.RemoveTiles(t => t.Any(item => item.Name == "Type" && (item.Value as string) == "RemoveMe"), Map.TileProperties);
+
 
             spawnManager = new SpawnManager();
 
@@ -156,19 +159,28 @@ namespace Teotihuacan.Screens
         {
             SolidCollisions.Visible = DebuggingVariables.ShowSolidCollision;
 
-
             // add border around the tile map
+            AddBorderAroundMap();
+
+            PlayerVsPlayerBaseHealingCollision.SetSecondSubCollision(item => item.HealingAura);
+            EnemyVsPlayerBaseSolidCollision.SetSecondSubCollision(item => item.SolidRectangle);
+            PlayerVsPlayerBaseSolidCollision.SetSecondSubCollision(item => item.SolidRectangle);
+            BulletVsPlayerBaseSolidCollision.SetSecondSubCollision(item => item.SolidRectangle);
+        }
+
+        private void AddBorderAroundMap()
+        {
             int borderSizeWide = Map.NumberTilesWide.Value + 2;
 
             var leftX = Map.X - Map.WidthPerTile.Value / 2.0f;
             var rightX = Map.X + Map.Width + Map.WidthPerTile.Value / 2.0f;
-            
+
             float worldX = leftX;
             float topY = Map.Y + Map.HeightPerTile.Value / 2.0f;
 
-            float bottomY = Map.Y - Map.Height- Map.HeightPerTile.Value / 2.0f;
+            float bottomY = Map.Y - Map.Height - Map.HeightPerTile.Value / 2.0f;
 
-            for(int x = 0; x < borderSizeWide; x++)
+            for (int x = 0; x < borderSizeWide; x++)
             {
                 SolidCollisions.AddCollisionAtWorld(worldX, topY);
                 SolidCollisions.AddCollisionAtWorld(worldX, bottomY);
@@ -216,8 +228,6 @@ namespace Teotihuacan.Screens
                 DoCheckPauseInput();
             }
         }
-
-            
 
         private void DoUiActivity()
         {
