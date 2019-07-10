@@ -226,6 +226,7 @@ namespace Teotihuacan.Entities
                     shotsLeftInClip = ClipSize;
                     CurrentBehavior = Behavior.Chasing;
                 }
+                shootingAnimationLayer.StopPlay();
             }
             else
             {
