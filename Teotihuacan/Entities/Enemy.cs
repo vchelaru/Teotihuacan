@@ -138,7 +138,7 @@ namespace Teotihuacan.Entities
                 var timeSinceSet =
                     FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(timeForcedTargetSet);
 
-                if(timeSinceSet > 8)
+                if(timeSinceSet > AggroDuration)
                 {
                     forcedTarget = null;
                 }
