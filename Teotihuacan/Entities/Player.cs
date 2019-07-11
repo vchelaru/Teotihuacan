@@ -47,14 +47,16 @@ namespace Teotihuacan.Entities
         SecondaryActions currentSecondaryAction = SecondaryActions.None;
         AnimationLayer shootingLayer;
         double lastFireShotTime;
+        double lastHealingTime;
 
-        public int CurrentHP { get; private set; }
+        public float CurrentHP { get; private set; }
 
         bool canTakeDamage => CurrentHP > 0;
 
         public Action UpdateHud;
 
         public bool PauseInputPressed => InputDevice.DefaultPauseInput.WasJustPressed;
+
         #endregion
 
         #region Initialize
@@ -103,6 +105,7 @@ namespace Teotihuacan.Entities
             DoShootingActivity();
             DoMovementValueUpdate();
             spriteAnimationController.Activity();
+            UpdateOverlaySprite();
 		}
 
         private void DoPrimaryActionActivity()
@@ -234,6 +237,17 @@ namespace Teotihuacan.Entities
             return didTakeDamage;
         }
 
+        public void Heal(float healingRate)
+        {
+            var amount = healingRate * TimeManager.SecondDifference;
+
+            var newValue = CurrentHP + amount;
+
+            this.CurrentHP = System.Math.Min(newValue, MaxHP) ;
+
+            lastHealingTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
+        }
+
         private void PerformDeath()
         {
             var death = SpriteManager.AddParticleSprite(Death_1_SpriteSheet);
@@ -261,8 +275,41 @@ namespace Teotihuacan.Entities
             this.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
         }
 
-        #endregion
+        private void UpdateOverlaySprite()
+        {
+            var show = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastHealingTime) <
+                .25f;
 
+            if(show)
+            {
+                BlueOverlay.Visible = true;
+                BlueOverlay.RelativePosition = SpriteInstance.RelativePosition;
+                BlueOverlay.LeftTextureCoordinate = SpriteInstance.LeftTextureCoordinate;
+                BlueOverlay.RightTextureCoordinate = SpriteInstance.RightTextureCoordinate;
+                BlueOverlay.TopTextureCoordinate = SpriteInstance.TopTextureCoordinate;
+                BlueOverlay.BottomTextureCoordinate = SpriteInstance.BottomTextureCoordinate;
+                BlueOverlay.FlipHorizontal = SpriteInstance.FlipHorizontal;
+                BlueOverlay.FlipVertical = SpriteInstance.FlipVertical;
+
+                var time = (TimeManager.CurrentTime * 3) % 2;
+
+                if(time < 1)
+                {
+                    BlueOverlay.Alpha = (float)(1 - time / 2.0f);
+                }
+                else
+                {
+                    BlueOverlay.Alpha = (float)time / 2.0f;
+                }
+
+            }
+            else
+            {
+                BlueOverlay.Visible = false;
+            }
+        }
+
+        #endregion
 
         private void CustomDestroy()
 		{

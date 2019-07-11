@@ -49,9 +49,9 @@ namespace Teotihuacan.Screens
                 bullet.Destroy();
             }
         }
-        void OnPlayerVsPlayerBaseHealingCollisionOccurred (Entities.Player bullet, Entities.PlayerBase playerBase) 
+        void OnPlayerVsPlayerBaseHealingCollisionOccurred (Entities.Player player, Entities.PlayerBase playerBase) 
         {
-            // todo - make the player heal HP
+            player.Heal(playerBase.HealingRatePerSecond);
         }
 
     }

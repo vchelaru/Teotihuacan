@@ -258,10 +258,14 @@ namespace Teotihuacan.Screens
 
         private void DoCheckForGameOver()
         {
-            if(PlayerList.Count <= 0 && hasGameOverBeenTriggered == false)
+            if(hasGameOverBeenTriggered == false)
             {
-                hasGameOverBeenTriggered = true;
-                ((GameScreenGumRuntime)GameScreenGum).ShowGameOver(this);
+                if(PlayerList.Count <= 0 || PlayerBaseList[0].CurrentHP <= 0)
+                {
+                    hasGameOverBeenTriggered = true;
+                    ((GameScreenGumRuntime)GameScreenGum).ShowGameOver(this);
+                }
+
             }
         }
 
