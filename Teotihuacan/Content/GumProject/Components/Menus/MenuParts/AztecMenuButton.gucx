@@ -130,12 +130,6 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>ColorCategoryState</Type>
-      <Name>TextInstance.ColorCategoryState</Name>
-      <Value xsi:type="xsd:string">Gray</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>string</Type>
       <Name>TextInstance.Font</Name>
       <Value xsi:type="xsd:string">Arial Black</Value>
@@ -292,33 +286,6 @@
         <Value xsi:type="xsd:int">141</Value>
         <SetsValue>true</SetsValue>
       </Variable>
-      <Variable>
-        <Type>ColorCategoryState</Type>
-        <Name>TextInstance.ColorCategoryState</Name>
-        <Value xsi:type="xsd:string">Gray</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>TextInstance.OutlineThickness</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <Category>Font</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>HorizontalAlignment</Type>
-        <Name>X Origin</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <Category>Position</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>VerticalAlignment</Type>
-        <Name>Y Origin</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <Category>Position</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
     </State>
     <State>
       <Name>Disabled</Name>
@@ -350,33 +317,6 @@
         <Type>int</Type>
         <Name>SpriteInstance.Texture Width</Name>
         <Value xsi:type="xsd:int">141</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ColorCategoryState</Type>
-        <Name>TextInstance.ColorCategoryState</Name>
-        <Value xsi:type="xsd:string">Gray</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>TextInstance.OutlineThickness</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <Category>Font</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>HorizontalAlignment</Type>
-        <Name>X Origin</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <Category>Position</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>VerticalAlignment</Type>
-        <Name>Y Origin</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <Category>Position</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">
@@ -420,33 +360,6 @@
         <Value xsi:type="xsd:int">141</Value>
         <SetsValue>true</SetsValue>
       </Variable>
-      <Variable>
-        <Type>ColorCategoryState</Type>
-        <Name>TextInstance.ColorCategoryState</Name>
-        <Value xsi:type="xsd:string">Gray</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>TextInstance.OutlineThickness</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <Category>Font</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>HorizontalAlignment</Type>
-        <Name>X Origin</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <Category>Position</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>VerticalAlignment</Type>
-        <Name>Y Origin</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <Category>Position</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
       <VariableList xsi:type="VariableListSaveOfString">
         <Type>string</Type>
         <Name>AnimationFrames</Name>
@@ -486,30 +399,6 @@
         <Type>int</Type>
         <Name>SpriteInstance.Texture Width</Name>
         <Value xsi:type="xsd:int">141</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>ColorCategoryState</Type>
-        <Name>TextInstance.ColorCategoryState</Name>
-        <Value xsi:type="xsd:string">Gray</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>TextInstance.OutlineThickness</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>HorizontalAlignment</Type>
-        <Name>X Origin</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>VerticalAlignment</Type>
-        <Name>Y Origin</Name>
-        <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">

@@ -106,9 +106,21 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>TextPaused.Blue</Name>
+      <Value xsi:type="xsd:int">192</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>TextPaused.Font</Name>
       <Value xsi:type="xsd:string">Arial Black</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>TextPaused.Green</Name>
+      <Value xsi:type="xsd:int">192</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -133,6 +145,12 @@
       <Type>int</Type>
       <Name>TextPaused.OutlineThickness</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>TextPaused.Red</Name>
+      <Value xsi:type="xsd:int">192</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
