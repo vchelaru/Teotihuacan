@@ -248,6 +248,10 @@ namespace Teotihuacan.Screens
                     }
 
                 }
+                else if(gamePad.ButtonPushed(Xbox360GamePad.Button.Back) && this.IsPaused && PlayerList.Count > 1)
+                {
+                    DropPlayer(PlayerList.First(item => item.InputDevice == gamePad));
+                }
                 else if(gamePad.IsConnected == false && PlayerList.Any(item => item.InputDevice == gamePad))
                 {
                     // player disconnected, so pause and drop the player:
