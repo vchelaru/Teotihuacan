@@ -14,6 +14,38 @@ using Teotihuacan.Animation;
 
 namespace Teotihuacan.Entities
 {
+    #region ColorStateExtension Class
+    public static class ColorStateExtensions
+    {
+        public static int ToInt(this Player.ColorCategory category)
+        {
+            if (category == Player.ColorCategory.Blue)
+                return 0;
+            if (category == Player.ColorCategory.Red)
+                return 1;
+            if (category == Player.ColorCategory.Yellow)
+                return 2;
+            if (category == Player.ColorCategory.Green)
+                return 3;
+
+            return -1;
+        }
+
+        public static Player.ColorCategory ToPlayerColorCategory(this int value)
+        {
+            switch(value)
+            {
+                case 0: return Player.ColorCategory.Blue;
+                case 1: return Player.ColorCategory.Red;
+                case 2: return Player.ColorCategory.Yellow;
+                case 3: return Player.ColorCategory.Green;
+            }
+
+            return Player.ColorCategory.Blue;
+        }
+    }
+    #endregion
+
 	public partial class Player
 	{
         #region Fields/Properties
@@ -217,7 +249,10 @@ namespace Teotihuacan.Entities
 
                 if(CurrentHP > 0)
                 {
-                    CurrentHP -= damageToTake;
+                    if(DebuggingVariables.ArePlayersInvincible == false)
+                    {
+                        CurrentHP -= damageToTake;
+                    }
 
                     CurrentHP = Math.Max(CurrentHP, 0);
                     UpdateHud?.Invoke();
@@ -324,33 +359,4 @@ namespace Teotihuacan.Entities
         }
 	}
 
-    public static class ColorStateExtensions
-    {
-        public static int ToInt(this Player.ColorCategory category)
-        {
-            if (category == Player.ColorCategory.Blue)
-                return 0;
-            if (category == Player.ColorCategory.Red)
-                return 1;
-            if (category == Player.ColorCategory.Yellow)
-                return 2;
-            if (category == Player.ColorCategory.Green)
-                return 3;
-
-            return -1;
-        }
-
-        public static Player.ColorCategory ToPlayerColorCategory(this int value)
-        {
-            switch(value)
-            {
-                case 0: return Player.ColorCategory.Blue;
-                case 1: return Player.ColorCategory.Red;
-                case 2: return Player.ColorCategory.Yellow;
-                case 3: return Player.ColorCategory.Green;
-            }
-
-            return Player.ColorCategory.Blue;
-        }
-    }
 }
