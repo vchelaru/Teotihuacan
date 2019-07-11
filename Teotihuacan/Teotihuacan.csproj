@@ -152,6 +152,18 @@
     <Compile Include="GumRuntimes\LevelStartRuntime.Generated.cs">
       <DependentUpon>LevelStartRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\Menus\MenuParts\AztecMenuButtonRuntime.cs" />
+    <Compile Include="GumRuntimes\Menus\MenuParts\AztecMenuButtonRuntime.Generated.cs">
+      <DependentUpon>AztecMenuButtonRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\Menus\MenuParts\GodTopGradientRuntime.cs" />
+    <Compile Include="GumRuntimes\Menus\MenuParts\GodTopGradientRuntime.Generated.cs">
+      <DependentUpon>GodTopGradientRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GumRuntimes\Menus\PauseMenuRuntime.cs" />
+    <Compile Include="GumRuntimes\Menus\PauseMenuRuntime.Generated.cs">
+      <DependentUpon>PauseMenuRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\PauseRuntime.cs" />
     <Compile Include="GumRuntimes\PauseRuntime.Generated.cs">
@@ -397,6 +409,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>levelstart</Name>
     </None>
+    <None Include="content\gumproject\components\menus\menuparts\aztecmenubutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>aztecmenubutton</Name>
+    </None>
+    <None Include="content\gumproject\components\menus\menuparts\godtopgradient.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>godtopgradient</Name>
+    </None>
+    <None Include="content\gumproject\components\menus\pausemenu.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pausemenu</Name>
+    </None>
     <None Include="content\gumproject\components\pause.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>pause</Name>
@@ -416,6 +440,14 @@
     <None Include="content\gumproject\fontcache\font18arial_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial_0</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font18arial_black_o1.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font18arial_black_o1</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font18arial_black_o1_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font18Arial_Black_o1_0</Name>
     </None>
     <None Include="content\gumproject\fontcache\font22arial_black_o1.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

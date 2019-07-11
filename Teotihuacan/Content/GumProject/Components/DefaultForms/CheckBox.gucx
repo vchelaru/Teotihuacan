@@ -5,11 +5,6 @@
   <State>
     <Name>Default</Name>
     <Variable>
-      <Type>CheckBoxCategory</Type>
-      <Name>CheckBoxCategoryState</Name>
-      <SetsValue>false</SetsValue>
-    </Variable>
-    <Variable>
       <Type>float</Type>
       <Name>ColoredFrameInstance.Height</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -74,6 +69,11 @@
       <Name>Height</Name>
       <Value xsi:type="xsd:float">50</Value>
       <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>CheckBoxCategory</Type>
+      <Name>CheckBoxCategoryState</Name>
+      <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
       <Type>string</Type>

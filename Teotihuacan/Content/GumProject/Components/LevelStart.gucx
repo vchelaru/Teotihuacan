@@ -106,6 +106,12 @@
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>GodTopGradientInstance.Y</Name>
+      <Value xsi:type="xsd:float">28</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>Height</Name>
       <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
@@ -219,19 +225,19 @@
     <Variable>
       <Type>float</Type>
       <Name>TextGo.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">170</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>VerticalAlignment</Type>
       <Name>TextGo.Y Origin</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>TextGo.Y Units</Name>
-      <Value xsi:type="xsd:int">7</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -332,19 +338,19 @@
     <Variable>
       <Type>float</Type>
       <Name>TextOne.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">170</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>VerticalAlignment</Type>
       <Name>TextOne.Y Origin</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>TextOne.Y Units</Name>
-      <Value xsi:type="xsd:int">7</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -450,19 +456,19 @@
     <Variable>
       <Type>float</Type>
       <Name>TextThree.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">170</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>VerticalAlignment</Type>
       <Name>TextThree.Y Origin</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>TextThree.Y Units</Name>
-      <Value xsi:type="xsd:int">7</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -563,19 +569,19 @@
     <Variable>
       <Type>float</Type>
       <Name>TextTwo.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">170</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>VerticalAlignment</Type>
       <Name>TextTwo.Y Origin</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>TextTwo.Y Units</Name>
-      <Value xsi:type="xsd:int">7</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -760,8 +766,8 @@
     </State>
   </Category>
   <Instance>
-    <Name>DarkRect</Name>
-    <BaseType>ColoredRectangle</BaseType>
+    <Name>GodTopGradientInstance</Name>
+    <BaseType>Menus/MenuParts/GodTopGradient</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
@@ -782,6 +788,11 @@
   <Instance>
     <Name>TextGo</Name>
     <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>DarkRect</Name>
+    <BaseType>ColoredRectangle</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />

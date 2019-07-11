@@ -1,125 +1,103 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ComponentSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Name>GameOver</Name>
+  <Name>Menus/PauseMenu</Name>
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
     <Variable>
-      <Type>AlphaState</Type>
-      <Name>AlphaState</Name>
-      <SetsValue>false</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>DarkRect.Alpha</Name>
-      <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>DarkRect.Blue</Name>
-      <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>DarkRect.Green</Name>
-      <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>DarkRect.Height</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>DarkRect.Height Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>DarkRect.Parent</Name>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>DarkRect.Red</Name>
-      <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>bool</Type>
-      <Name>DarkRect.Visible</Name>
+      <Name>AztecMenuButton_Quit.Clips Children</Name>
       <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>AztecMenuButton_Quit.Text</Name>
+      <Value xsi:type="xsd:string">QUIT</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
-      <Name>DarkRect.Width</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Name>AztecMenuButton_Quit.Y</Name>
+      <Value xsi:type="xsd:float">208</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>AztecMenuButton_Resume.Text</Name>
+      <Value xsi:type="xsd:string">RESUME</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>AztecMenuButton_Resume.Y</Name>
+      <Value xsi:type="xsd:float">172</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>DarkOverlay.Alpha</Name>
+      <Value xsi:type="xsd:int">192</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>DarkOverlay.Blue</Name>
+      <Value xsi:type="xsd:int">50</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>DarkOverlay.Green</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>DarkOverlay.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>DarkRect.Width Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>DarkRect.X</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>DarkRect.X Origin</Name>
+      <Name>DarkOverlay.Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>DarkRect.X Units</Name>
-      <Value xsi:type="xsd:int">6</Value>
+      <Type>int</Type>
+      <Name>DarkOverlay.Red</Name>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>DarkRect.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Name>DarkOverlay.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>VerticalAlignment</Type>
-      <Name>DarkRect.Y Origin</Name>
+      <Type>DimensionUnitType</Type>
+      <Name>DarkOverlay.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>DarkRect.Y Units</Name>
-      <Value xsi:type="xsd:int">7</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>GodTopGradientInstance.Y</Name>
-      <Value xsi:type="xsd:float">28</Value>
+      <Value xsi:type="xsd:float">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>Height</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>Height Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -128,160 +106,174 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>TextPaused.Blue</Name>
+      <Value xsi:type="xsd:int">192</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
-      <Name>Text.Font</Name>
+      <Name>TextPaused.Font</Name>
       <Value xsi:type="xsd:string">Arial Black</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>Text.FontSize</Name>
-      <Value xsi:type="xsd:int">22</Value>
+      <Name>TextPaused.Green</Name>
+      <Value xsi:type="xsd:int">192</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>Text.Height</Name>
+      <Name>TextPaused.Height</Name>
       <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>Text.Height Units</Name>
+      <Name>TextPaused.Height Units</Name>
       <Value xsi:type="xsd:int">4</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>HorizontalAlignment</Type>
-      <Name>Text.HorizontalAlignment</Name>
+      <Name>TextPaused.HorizontalAlignment</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>Text.OutlineThickness</Name>
+      <Name>TextPaused.OutlineThickness</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>string</Type>
-      <Name>Text.Parent</Name>
+      <Type>int</Type>
+      <Name>TextPaused.Red</Name>
+      <Value xsi:type="xsd:int">192</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>string</Type>
-      <Name>Text.Text</Name>
-      <Value xsi:type="xsd:string">GAME OVER</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>Text.UseFontSmoothing</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Name>TextPaused.Text</Name>
+      <Value xsi:type="xsd:string">PAUSED</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>VerticalAlignment</Type>
-      <Name>Text.VerticalAlignment</Name>
+      <Name>TextPaused.VerticalAlignment</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>Text.Width</Name>
+      <Name>TextPaused.Width</Name>
       <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>Text.Width Units</Name>
+      <Name>TextPaused.Width Units</Name>
       <Value xsi:type="xsd:int">4</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>Text.X</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>HorizontalAlignment</Type>
-      <Name>Text.X Origin</Name>
+      <Name>TextPaused.X Origin</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
-      <Name>Text.X Units</Name>
+      <Name>TextPaused.X Units</Name>
       <Value xsi:type="xsd:int">6</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>Text.Y</Name>
-      <Value xsi:type="xsd:float">170</Value>
+      <Name>TextPaused.Y</Name>
+      <Value xsi:type="xsd:float">142</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>VerticalAlignment</Type>
-      <Name>Text.Y Origin</Name>
+      <Name>TextPaused.Y Origin</Name>
       <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
-      <Name>Text.Y Units</Name>
+      <Name>TextPaused.Y Units</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>Width</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>Width Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>X Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>X Units</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>Y Units</Name>
+      <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>AnimationFrames</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
   </State>
-  <Category>
-    <Name>Alpha</Name>
-    <State>
-      <Name>Transparent</Name>
-      <Variable>
-        <Type>int</Type>
-        <Name>DarkRect.Alpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-    </State>
-    <State>
-      <Name>Opaque</Name>
-      <Variable>
-        <Type>int</Type>
-        <Name>DarkRect.Alpha</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <Category>Rendering</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-    </State>
-  </Category>
+  <Instance>
+    <Name>DarkOverlay</Name>
+    <BaseType>ColoredRectangle</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
   <Instance>
     <Name>GodTopGradientInstance</Name>
     <BaseType>Menus/MenuParts/GodTopGradient</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
-    <Name>Text</Name>
-    <BaseType>Text</BaseType>
+    <Name>AztecMenuButton_Resume</Name>
+    <BaseType>Menus/MenuParts/AztecMenuButton</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
-    <Name>DarkRect</Name>
-    <BaseType>ColoredRectangle</BaseType>
+    <Name>AztecMenuButton_Quit</Name>
+    <BaseType>Menus/MenuParts/AztecMenuButton</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>TextPaused</Name>
+    <BaseType>Text</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Behaviors />
