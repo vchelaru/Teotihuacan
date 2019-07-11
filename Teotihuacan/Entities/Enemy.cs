@@ -101,11 +101,11 @@ namespace Teotihuacan.Entities
 		}
 
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
-            PositionedObjectList<Player> players, TileShapeCollection solidCollisions)
+            PositionedObjectList<Player> players, PlayerBase playerBase, TileShapeCollection solidCollisions)
         {
             if (CurrentHP > 0)
             {
-                DoTargetDecision(players);
+                DoTargetDecision(players, playerBase);
 
                 if (refreshPath)
                 {
@@ -128,7 +128,7 @@ namespace Teotihuacan.Entities
             spriteAnimationController.Activity();
         }
 
-        private void DoTargetDecision(PositionedObjectList<Player> players)
+        private void DoTargetDecision(PositionedObjectList<Player> players, PlayerBase playerBase)
         {
 
             if(forcedTarget != null)
@@ -145,7 +145,7 @@ namespace Teotihuacan.Entities
             }
             else if(target == null)
             {
-                PositionedObject closest = GetClosest(players);
+                PositionedObject closest = GetClosest(players, playerBase);
 
                 target = closest;
             }
@@ -154,14 +154,14 @@ namespace Teotihuacan.Entities
                 if(CurrentBehavior == Behavior.Chasing)
                 {
                     // see if there is anything closer
-                    target = GetClosest(players);
+                    target = GetClosest(players, playerBase);
                 }
                 // else if shooting/reloading, chase that same target so long as in chasing mode
 
             }
         }
 
-        private PositionedObject GetClosest(PositionedObjectList<Player> players)
+        private PositionedObject GetClosest(PositionedObjectList<Player> players, PlayerBase playerBase)
         {
             PositionedObject closest = null;
             // get closest:
@@ -175,6 +175,13 @@ namespace Teotihuacan.Entities
                     closestDistance = distanceToPlayer;
                     closest = player;
                 }
+            }
+
+            var distancetoBase = (playerBase.Position - this.Position).Length();
+            if(distancetoBase < closestDistance)
+            {
+                closestDistance = distancetoBase;
+                closest = playerBase;
             }
 
             return closest;

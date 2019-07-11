@@ -271,7 +271,7 @@ namespace Teotihuacan.Screens
             {
                 var enemy = EnemyList[i];
 
-                enemy.DoAiActivity(true, nodeNetwork, PlayerList, SolidCollisions);
+                enemy.DoAiActivity(true, nodeNetwork, PlayerList, PlayerBaseList[0], SolidCollisions);
 
             }
             currentFrameSkipIndex = (currentFrameSkipIndex + 1) % AiFrameSkip;
