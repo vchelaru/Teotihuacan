@@ -1191,7 +1191,7 @@
                 <InstructionSave>
                   <Type>String</Type>
                   <Member>SpriteAnimations</Member>
-                  <ValueAsString>Enemy_Shooter_Animations</ValueAsString>
+                  <ValueAsString>Enemy_Suicider_Animations</ValueAsString>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Int32</Type>
@@ -1712,6 +1712,23 @@
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Circle</SourceClassType>
           <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Line</SourceClassType>
+          <InstanceName>LightningCollisionLine</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
