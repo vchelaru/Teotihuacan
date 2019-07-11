@@ -106,6 +106,12 @@
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>GodTopGradientInstance.Y</Name>
+      <Value xsi:type="xsd:float">28</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>Height</Name>
       <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
@@ -213,19 +219,19 @@
     <Variable>
       <Type>float</Type>
       <Name>Text.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">170</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>VerticalAlignment</Type>
       <Name>Text.Y Origin</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>Text.Y Units</Name>
-      <Value xsi:type="xsd:int">7</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -263,6 +269,11 @@
       </Variable>
     </State>
   </Category>
+  <Instance>
+    <Name>GodTopGradientInstance</Name>
+    <BaseType>Menus/MenuParts/GodTopGradient</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
   <Instance>
     <Name>Text</Name>
     <BaseType>Text</BaseType>
