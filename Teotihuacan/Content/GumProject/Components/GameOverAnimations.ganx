@@ -6,14 +6,26 @@
       <Name>FadeToBlack</Name>
       <States>
         <AnimatedStateSave>
-          <StateName>Alpha/Transparent</StateName>
-          <Time>2</Time>
+          <StateName>VisualsAlpha/Transparent</StateName>
+          <Time>0</Time>
           <InterpolationType>Linear</InterpolationType>
           <Easing>Out</Easing>
         </AnimatedStateSave>
         <AnimatedStateSave>
-          <StateName>Alpha/Opaque</StateName>
-          <Time>3</Time>
+          <StateName>VisualsAlpha/Opaque</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>BlackOverlayAlpha/Transparent</StateName>
+          <Time>9</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>BlackOverlayAlpha/Opaque</StateName>
+          <Time>10</Time>
           <InterpolationType>Linear</InterpolationType>
           <Easing>Out</Easing>
         </AnimatedStateSave>
