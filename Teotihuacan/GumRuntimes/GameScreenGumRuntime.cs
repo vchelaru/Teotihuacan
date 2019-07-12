@@ -38,6 +38,12 @@ namespace Teotihuacan.GumRuntimes
 
         public void CustomActivity(PositionedObjectList<Player> players, PlayerBase playerBase)
         {
+            // make all huds invisible, will be made visible below:
+            foreach(var hud in playerHuds)
+            {
+                hud.Visible = false;
+            }
+
             foreach(var player in players)
             {
                 var index = player.CurrentColorCategoryState.ToInt();
@@ -48,7 +54,8 @@ namespace Teotihuacan.GumRuntimes
 
             for(int i = 0; i < 4; i++)
             {
-                playerJoinHuds[i].Visible = !playerHuds[i].Visible;
+                playerJoinHuds[i].Visible = !playerHuds[i].Visible && 
+                    FlatRedBall.Input.InputManager.Xbox360GamePads[i].IsConnected;
             }
 
             BaseHUDInstance.UpdateHealth(playerBase);

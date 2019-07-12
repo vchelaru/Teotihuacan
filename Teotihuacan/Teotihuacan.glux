@@ -339,6 +339,46 @@
               <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
             </PropertySave>
             <PropertySave>
+              <Name>SecondCollisionMass</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionElasticity</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionName</Name>
+              <ValueAsString>PlayerList</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>SecondCollisionName</Name>
+              <ValueAsString>PlayerList</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionType</Name>
+              <ValueAsInt>1</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionMass</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>FlatRedBall.Math.Collision.ListVsListRelationship&lt;Entities.Player, Entities.Player&gt;</SourceClassType>
+          <InstanceName>PlayerVsPlayerSolidCollision</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+            <PropertySave>
               <Name>FirstCollisionMass</Name>
               <ValueAsFloat>1</ValueAsFloat>
             </PropertySave>
@@ -1203,6 +1243,18 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ArePlayersInvincible</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\DebuggingVariables</Name>
@@ -1711,6 +1763,45 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>Hero_1_Animations</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>walk_Right</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>1</ValueAsInt>
+          </CustomProperty>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>BlueOverlay</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
             <Member>Radius</Member>
             <ValueAsFloat>5</ValueAsFloat>
           </CustomProperty>
@@ -1832,6 +1923,17 @@
           <Name>FlashDuration</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0.15</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>HealingRatePerSecond</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>

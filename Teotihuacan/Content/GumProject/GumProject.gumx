@@ -33,15 +33,15 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
-    <Name>DefaultForms/CheckBox</Name>
-    <ElementType>Component</ElementType>
-  </ComponentReference>
-  <ComponentReference>
     <Name>DefaultForms/ColoredFrame</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/ComboBox</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>DefaultForms/CheckBox</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
@@ -109,6 +109,18 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>Menus/MenuParts/AztecMenuButton</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>Menus/MenuParts/GodTopGradient</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>Menus/PauseMenu</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>Pause</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -160,10 +172,10 @@
     <Name>ButtonBehavior</Name>
   </BehaviorReference>
   <BehaviorReference>
-    <Name>CheckBoxBehavior</Name>
+    <Name>ComboBoxBehavior</Name>
   </BehaviorReference>
   <BehaviorReference>
-    <Name>ComboBoxBehavior</Name>
+    <Name>CheckBoxBehavior</Name>
   </BehaviorReference>
   <BehaviorReference>
     <Name>ListBoxBehavior</Name>

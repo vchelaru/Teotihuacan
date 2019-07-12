@@ -43,11 +43,12 @@ namespace Teotihuacan.Screens
 
         void CustomInitialize()
 		{
-            CreatePlayers();
 
             TileEntityInstantiator.CreateEntitiesFrom(Map);
             Map.RemoveTiles(t => t.Any(item => item.Name == "Type" && (item.Value as string) == "RemoveMe"), Map.TileProperties);
 
+            // Create players after other entities so they can be spawned next to the base
+            CreatePlayers();
 
             spawnManager = new SpawnManager();
 
@@ -84,13 +85,7 @@ namespace Teotihuacan.Screens
                 {
                     if(controller.IsConnected)
                     {
-                        var player = new Player();
-                        player.CurrentColorCategoryState =
-                            PlayerList.Count.ToPlayerColorCategory();
-
-                        PlayerList.Add(player);
-                        player.InitializeTopDownInput(controller);
-                        player.SetTwinStickInput(controller);
+                        JoinWith(controller);
                     }
                 }
             }
@@ -98,9 +93,14 @@ namespace Teotihuacan.Screens
             for(int i = 0; i < PlayerList.Count; i++)
             {
                 var player = PlayerList[i];
-                player.Y = -40;
-                player.X = 40 + i * 40;
+                SetInitialPlayerPosition(player);
             }
+        }
+
+        private void SetInitialPlayerPosition(Player player)
+        {
+            player.Y = this.PlayerBaseList[0].Y;
+            player.X = this.PlayerBaseList[0].X + 48;
         }
 
         private void InitializeNodeNetworks()
@@ -230,6 +230,55 @@ namespace Teotihuacan.Screens
             {
                 DoCheckPauseInput();
             }
+
+            // do this after pause/unpause
+            JoinUnjoinActivity();
+        }
+
+        private void JoinUnjoinActivity()
+        {
+            foreach(var gamePad in InputManager.Xbox360GamePads)
+            {
+                if(gamePad.ButtonPushed(Xbox360GamePad.Button.Start))
+                {
+                    // See if this is connected with no player:
+                    var alreadyUsed = PlayerList.Any(item => item.InputDevice == gamePad);
+
+                    if(alreadyUsed == false)
+                    {
+                        var newPlayer = JoinWith(gamePad);
+                        SetInitialPlayerPosition(newPlayer);
+                    }
+
+                }
+                else if(gamePad.ButtonPushed(Xbox360GamePad.Button.Back) && this.IsPaused && PlayerList.Count > 1)
+                {
+                    DropPlayer(PlayerList.First(item => item.InputDevice == gamePad));
+                }
+                else if(gamePad.IsConnected == false && PlayerList.Any(item => item.InputDevice == gamePad))
+                {
+                    // player disconnected, so pause and drop the player:
+                    DropPlayer(PlayerList.First(item => item.InputDevice == gamePad));
+                }
+            }
+        }
+
+        private void DropPlayer(Player player)
+        {
+            player.Destroy();
+        }
+
+        private Player JoinWith(Xbox360GamePad controller)
+        {
+            var player = new Player();
+            player.CurrentColorCategoryState =
+                PlayerList.Count.ToPlayerColorCategory();
+
+            PlayerList.Add(player);
+            player.InitializeTopDownInput(controller);
+            player.SetTwinStickInput(controller);
+
+            return player;
         }
 
         private void DoUiActivity()
@@ -261,10 +310,14 @@ namespace Teotihuacan.Screens
 
         private void DoCheckForGameOver()
         {
-            if(PlayerList.Count <= 0 && hasGameOverBeenTriggered == false)
+            if(hasGameOverBeenTriggered == false)
             {
-                hasGameOverBeenTriggered = true;
-                ((GameScreenGumRuntime)GameScreenGum).ShowGameOver(this);
+                if(PlayerList.Count <= 0 || PlayerBaseList[0].CurrentHP <= 0)
+                {
+                    hasGameOverBeenTriggered = true;
+                    ((GameScreenGumRuntime)GameScreenGum).ShowGameOver(this);
+                }
+
             }
         }
 
@@ -274,7 +327,7 @@ namespace Teotihuacan.Screens
             {
                 var enemy = EnemyList[i];
 
-                enemy.DoAiActivity(true, nodeNetwork, PlayerList, SolidCollisions);
+                enemy.DoAiActivity(true, nodeNetwork, PlayerList, PlayerBaseList[0], SolidCollisions);
 
             }
             currentFrameSkipIndex = (currentFrameSkipIndex + 1) % AiFrameSkip;
