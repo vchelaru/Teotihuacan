@@ -279,55 +279,19 @@
     <State>
       <Name>Transparent</Name>
       <Variable>
-        <Type>AlphaState</Type>
-        <Name>GodTopGradientInstance.AlphaState</Name>
-        <Value xsi:type="xsd:string">Transparent</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>State</Type>
-        <Name>State</Name>
-        <Value xsi:type="xsd:string">Default</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>int</Type>
         <Name>Text.Alpha</Name>
         <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>VisualsAlphaState</Type>
-        <Name>VisualsAlphaState</Name>
-        <Value xsi:type="xsd:string">Transparent</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>Opaque</Name>
       <Variable>
-        <Type>AlphaState</Type>
-        <Name>GodTopGradientInstance.AlphaState</Name>
-        <Value xsi:type="xsd:string">Opaque</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>State</Type>
-        <Name>State</Name>
-        <Value xsi:type="xsd:string">Default</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>int</Type>
         <Name>Text.Alpha</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>VisualsAlphaState</Type>
-        <Name>VisualsAlphaState</Name>
-        <Value xsi:type="xsd:string">Transparent</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

@@ -6,6 +6,26 @@
       <Name>FadeToBlack</Name>
       <States>
         <AnimatedStateSave>
+          <StateName>BlackOverlayAlpha/Transparent</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>BlackOverlayAlpha/Opaque</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>PopupAppear</Name>
+      <States>
+        <AnimatedStateSave>
           <StateName>VisualsAlpha/Transparent</StateName>
           <Time>0</Time>
           <InterpolationType>Linear</InterpolationType>
@@ -17,20 +37,13 @@
           <InterpolationType>Linear</InterpolationType>
           <Easing>Out</Easing>
         </AnimatedStateSave>
-        <AnimatedStateSave>
-          <StateName>BlackOverlayAlpha/Transparent</StateName>
-          <Time>9</Time>
-          <InterpolationType>Linear</InterpolationType>
-          <Easing>Out</Easing>
-        </AnimatedStateSave>
-        <AnimatedStateSave>
-          <StateName>BlackOverlayAlpha/Opaque</StateName>
-          <Time>10</Time>
-          <InterpolationType>Linear</InterpolationType>
-          <Easing>Out</Easing>
-        </AnimatedStateSave>
       </States>
-      <Animations />
+      <Animations>
+        <AnimationReferenceSave>
+          <Name>GodTopGradientInstance.FadeIn</Name>
+          <Time>0</Time>
+        </AnimationReferenceSave>
+      </Animations>
       <Events />
     </AnimationSave>
   </Animations>
