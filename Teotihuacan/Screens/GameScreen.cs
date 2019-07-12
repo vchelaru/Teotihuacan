@@ -54,7 +54,10 @@ namespace Teotihuacan.Screens
             InitializeCollisions();
 
             CameraControllerInstance.Targets.AddRange(PlayerList);
+            CameraControllerInstance.Targets.AddRange(PlayerBaseList);
             CameraControllerInstance.Map = Map;
+
+            CameraControllerInstance.SetStartPositionAndZoom();
 
             Factories.EnemyFactory.EntitySpawned = HandleEnemySpawn;
 

@@ -105,6 +105,10 @@
     <Compile Include="GumRuntimes\Behaviors\ITreeViewBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\ITreeViewItemBehavior.Generated.cs" />
     <Compile Include="GumRuntimes\Behaviors\IUserControlBehavior.Generated.cs" />
+    <Compile Include="GumRuntimes\CameraTestScreenGumRuntime.cs" />
+    <Compile Include="GumRuntimes\CameraTestScreenGumRuntime.Generated.cs">
+      <DependentUpon>CameraTestScreenGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
@@ -178,6 +182,10 @@
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\CameraTestScreen.cs" />
+    <Compile Include="Screens\CameraTestScreen.Generated.cs">
+      <DependentUpon>CameraTestScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\GameScreen.Event.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
@@ -441,6 +449,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>huds_menus_spritesheet</Name>
     </None>
+    <None Include="content\gumproject\screens\cameratestscreengum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CameraTestScreenGum</Name>
+    </None>
     <None Include="content\gumproject\screens\gamescreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GameScreenGum</Name>
@@ -528,6 +540,10 @@
     <None Include="content\gumproject\uispritesheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>uispritesheet</Name>
+    </None>
+    <None Include="content\levels\camera_test.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Camera_test</Name>
     </None>
     <None Include="content\levels\steppe_test_02.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
