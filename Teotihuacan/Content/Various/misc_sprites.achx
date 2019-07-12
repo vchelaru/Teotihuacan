@@ -558,36 +558,133 @@
   <AnimationChain>
     <Name>ProjectileExplosion</Name>
     <Frame>
-      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>13</RightCoordinate>
-      <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>13</BottomCoordinate>
+      <TopCoordinate>48</TopCoordinate>
+      <BottomCoordinate>59</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>13</LeftCoordinate>
       <RightCoordinate>26</RightCoordinate>
-      <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>13</BottomCoordinate>
+      <TopCoordinate>48</TopCoordinate>
+      <BottomCoordinate>59</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>26</LeftCoordinate>
       <RightCoordinate>39</RightCoordinate>
+      <TopCoordinate>48</TopCoordinate>
+      <BottomCoordinate>59</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>39</LeftCoordinate>
+      <RightCoordinate>52</RightCoordinate>
+      <TopCoordinate>48</TopCoordinate>
+      <BottomCoordinate>59</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>52</LeftCoordinate>
+      <RightCoordinate>65</RightCoordinate>
+      <TopCoordinate>48</TopCoordinate>
+      <BottomCoordinate>59</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>65</LeftCoordinate>
+      <RightCoordinate>78</RightCoordinate>
+      <TopCoordinate>48</TopCoordinate>
+      <BottomCoordinate>59</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>BigExplosion</Name>
+    <Frame>
+      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>0</LeftCoordinate>
+      <RightCoordinate>47</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>13</BottomCoordinate>
+      <BottomCoordinate>47</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>39</LeftCoordinate>
-      <RightCoordinate>52</RightCoordinate>
+      <LeftCoordinate>47</LeftCoordinate>
+      <RightCoordinate>94</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>13</BottomCoordinate>
+      <BottomCoordinate>47</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>94</LeftCoordinate>
+      <RightCoordinate>141</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>47</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>141</LeftCoordinate>
+      <RightCoordinate>188</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>47</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>188</LeftCoordinate>
+      <RightCoordinate>235</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>47</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>235</LeftCoordinate>
+      <RightCoordinate>282</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>47</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>282</LeftCoordinate>
+      <RightCoordinate>329</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>47</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>329</LeftCoordinate>
+      <RightCoordinate>376</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>47</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>376</LeftCoordinate>
+      <RightCoordinate>423</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>47</BottomCoordinate>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>
