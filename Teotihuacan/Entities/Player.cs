@@ -104,6 +104,8 @@ namespace Teotihuacan.Entities
             CurrentHP = MaxHP;
 
             InitializeAnimationLayers();
+
+            InitializeCollision();
 		}
 
         private void InitializeAnimationLayers()
@@ -124,6 +126,15 @@ namespace Teotihuacan.Entities
         {
             InitializeTopDownInput(gamePad);
             rightStick = gamePad.RightStick;
+        }
+
+        private void InitializeCollision()
+        {
+            this.LightningCollisionLine.RelativePoint1 = new Point3D();
+
+            this.LightningCollisionLine.RelativePoint2 = new Point3D(500, 0, 0);
+
+            LightningCollisionLine.ParentRotationChangesRotation = false;
         }
 
         #endregion
@@ -170,12 +181,11 @@ namespace Teotihuacan.Entities
                 newAimingVector.X = 1;
             }
 
-            if(newAimingVector.X != 0 || newAimingVector.Y != 0)
-            {
-                //Normalize at the end in case the right stick input is not at max magnitude
-                newAimingVector.Normalize();
-                aimingVector = newAimingVector;
-            }
+            //Normalize at the end in case the right stick input is not at max magnitude
+            newAimingVector.Normalize();
+            aimingVector = newAimingVector;
+
+            LightningCollisionLine.RelativeRotationZ = (float)Math.Atan2(aimingVector.Y, aimingVector.X);
         }
 
         private void DoShootingActivity()

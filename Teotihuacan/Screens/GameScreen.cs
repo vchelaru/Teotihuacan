@@ -18,6 +18,7 @@ using Teotihuacan.Entities;
 using FlatRedBall.TileCollisions;
 using Teotihuacan.GumRuntimes;
 using FlatRedBall.TileGraphics;
+using Microsoft.Xna.Framework;
 
 namespace Teotihuacan.Screens
 {
@@ -36,6 +37,8 @@ namespace Teotihuacan.Screens
         int currentFrameSkipIndex;
 
         bool hasGameOverBeenTriggered = false;
+
+        Vector2? lastLineCollisionPoint;
 
         #endregion
 
@@ -162,11 +165,33 @@ namespace Teotihuacan.Screens
             // add border around the tile map
             AddBorderAroundMap();
 
-            PlayerVsPlayerBaseHealingCollision.SetSecondSubCollision(item => item.HealingAura);
+            PlayerVsSolidCollision.SetFirstSubCollision(item => item.CircleInstance);
+
+            PlayerVsPlayerSolidCollision.SetFirstSubCollision(item => item.CircleInstance);
+            PlayerVsPlayerSolidCollision.SetSecondSubCollision(item => item.CircleInstance);
+
+            PlayerVsEnemyRelationship.SetFirstSubCollision(item => item.CircleInstance);
+
+            BulletVsPlayerCollision.SetSecondSubCollision(item => item.CircleInstance);
+
             EnemyVsPlayerBaseSolidCollision.SetSecondSubCollision(item => item.SolidRectangle);
+
+            PlayerVsPlayerBaseSolidCollision.SetFirstSubCollision(item => item.CircleInstance);
             PlayerVsPlayerBaseSolidCollision.SetSecondSubCollision(item => item.SolidRectangle);
+
+
             BulletVsPlayerBaseSolidCollision.SetSecondSubCollision(item => item.SolidRectangle);
+
+            PlayerVsPlayerBaseHealingCollision.SetFirstSubCollision(item => item.CircleInstance);
+            PlayerVsPlayerBaseHealingCollision.SetSecondSubCollision(item => item.HealingAura);
+            PlayerVsPlayerBaseHealingCollision.Name = nameof(PlayerVsPlayerBaseHealingCollision);
+
+            PlayerLightningVsSolidCollision.SetFirstSubCollision(item => item.LightningCollisionLine);
+            PlayerLightningVsSolidCollision.CollisionOccurred += HandleLightningVsSolidCollision;
+            PlayerLightningVsSolidCollision.IsActive = false;
         }
+
+
 
         private void AddBorderAroundMap()
         {
@@ -217,6 +242,8 @@ namespace Teotihuacan.Screens
                 {
                     DoAi();
                 }
+
+                DoCollisionActivity();
             }
 
             DoUiActivity();
@@ -230,6 +257,29 @@ namespace Teotihuacan.Screens
 
             // do this after pause/unpause
             JoinUnjoinActivity();
+        }
+
+        private void HandleLightningVsSolidCollision(Player player, TileShapeCollection tileMap)
+        {
+            lastLineCollisionPoint = new Vector2(
+                (float)player.LightningCollisionLine.LastCollisionPoint.X,
+                (float)player.LightningCollisionLine.LastCollisionPoint.Y);
+
+            FlatRedBall.Debugging.Debugger.CommandLineWrite(lastLineCollisionPoint);
+            //TempCollisionCircle.X = lastLineCollisionPoint.Value.X;
+            //TempCollisionCircle.Y = lastLineCollisionPoint.Value.Y;
+        }
+
+        private void DoCollisionActivity()
+        {
+            if(InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Space))
+            {
+                int m = 3;
+            }
+            lastLineCollisionPoint = null;
+
+            PlayerLightningVsSolidCollision.DoCollisions();
+
         }
 
         private void JoinUnjoinActivity()

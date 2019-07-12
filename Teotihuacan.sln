@@ -1,22 +1,41 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teotihuacan", "Teotihuacan\Teotihuacan.csproj", "{399B8D92-858D-4882-95B4-B4003D5603E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlatRedBallDesktopGL", "..\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\FlatRedBallDesktopGL.csproj", "{10BDA06C-7269-4CCE-AE2A-D445F414520A}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\FlatRedBallShared.projitems*{10bda06c-7269-4cce-ae2a-d445f414520a}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{399B8D92-858D-4882-95B4-B4003D5603E2}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{399B8D92-858D-4882-95B4-B4003D5603E2}.Debug|x86.ActiveCfg = Debug|x86
 		{399B8D92-858D-4882-95B4-B4003D5603E2}.Debug|x86.Build.0 = Debug|x86
+		{399B8D92-858D-4882-95B4-B4003D5603E2}.Release|Any CPU.ActiveCfg = Release|x86
 		{399B8D92-858D-4882-95B4-B4003D5603E2}.Release|x86.ActiveCfg = Release|x86
 		{399B8D92-858D-4882-95B4-B4003D5603E2}.Release|x86.Build.0 = Release|x86
+		{10BDA06C-7269-4CCE-AE2A-D445F414520A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10BDA06C-7269-4CCE-AE2A-D445F414520A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10BDA06C-7269-4CCE-AE2A-D445F414520A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{10BDA06C-7269-4CCE-AE2A-D445F414520A}.Debug|x86.Build.0 = Debug|Any CPU
+		{10BDA06C-7269-4CCE-AE2A-D445F414520A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10BDA06C-7269-4CCE-AE2A-D445F414520A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10BDA06C-7269-4CCE-AE2A-D445F414520A}.Release|x86.ActiveCfg = Release|Any CPU
+		{10BDA06C-7269-4CCE-AE2A-D445F414520A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E94D37C-F2B8-4486-876C-D18D45D919F1}
 	EndGlobalSection
 EndGlobal
