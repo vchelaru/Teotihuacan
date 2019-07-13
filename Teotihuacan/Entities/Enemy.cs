@@ -40,7 +40,7 @@ namespace Teotihuacan.Entities
 
         int shotsLeftInClip;
 
-        public int CurrentHP { get; private set; }
+        public float CurrentHP { get; private set; }
 
         Vector3 aimingVector = Vector3.Right;
 
@@ -55,6 +55,11 @@ namespace Teotihuacan.Entities
 
         PositionedObject forcedTarget;
         double timeForcedTargetSet;
+
+        // damage bools
+        bool isTakingLightningDamage;
+        bool isFlashingWhite;
+
         #endregion
 
         #region Initialize
@@ -103,8 +108,12 @@ namespace Teotihuacan.Entities
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
             PositionedObjectList<Player> players, PlayerBase playerBase, TileShapeCollection solidCollisions)
         {
+            
+
             if (CurrentHP > 0)
             {
+                RefreshVisualsFromDamageState();
+
                 DoTargetDecision(players, playerBase);
 
                 if (refreshPath)
@@ -126,6 +135,36 @@ namespace Teotihuacan.Entities
             }
 
             spriteAnimationController.Activity();
+        }
+
+        private void RefreshVisualsFromDamageState()
+        {
+            if(isFlashingWhite)
+            {
+                this.SpriteInstance.ColorOperation =
+                    FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
+                this.SpriteInstance.Red = 1;
+                this.SpriteInstance.Green = 1;
+                this.SpriteInstance.Blue = 1;
+
+            }
+            else if(isTakingLightningDamage)
+            {
+                SpriteInstance.ColorOperation =
+                    FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
+
+                SpriteInstance.Red = 0;
+                SpriteInstance.Green = 1;
+                SpriteInstance.Blue = 1;
+            }
+            else
+            {
+                SpriteInstance.ColorOperation =
+                    FlatRedBall.Graphics.ColorOperation.Texture;
+            }
+
+            // lightning only lasts 1 frame:
+            isTakingLightningDamage = false;
         }
 
         private void DoTargetDecision(PositionedObjectList<Player> players, PlayerBase playerBase)
@@ -334,29 +373,42 @@ namespace Teotihuacan.Entities
                 }
                 else
                 {
-                    FlashWhite();
+                    isFlashingWhite = true;
+                    // We may need to be more careful here if there's other instructions.
+                    this.Instructions.Clear();
+                    this.Call(() => isFlashingWhite = false).After(FlashDuration);
 
-                    forcedTarget = owner;
-                    timeForcedTargetSet = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
+                    SetForcedTarget(owner);
                 }
             }
 
             return tookDamage;
         }
 
-        private void FlashWhite()
+        private void SetForcedTarget(Player owner)
         {
-            this.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
-            this.SpriteInstance.Red = 1;
-            this.SpriteInstance.Green = 1;
-            this.SpriteInstance.Blue = 1;
-
-            this.Call(ReturnFromFlash).After(FlashDuration);
+            forcedTarget = owner;
+            timeForcedTargetSet = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
         }
 
-        private void ReturnFromFlash()
+        public void TakeLightningDamage(float dps, Player owner)
         {
-            this.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
+            if(canTakeDamage)
+            {
+                CurrentHP -= dps * TimeManager.SecondDifference;
+
+                if(CurrentHP < 0)
+                {
+                    PerformDeath();
+                }
+                else
+                {
+                    // todo - flash blue
+                    SetForcedTarget(owner);
+
+                    isTakingLightningDamage = true;
+                }
+            }
         }
 
         private void PerformDeath()

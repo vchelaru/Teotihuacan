@@ -212,9 +212,17 @@ namespace Teotihuacan.Entities
             Bullet.DataCategory bulletData = null;
             if (isPrimaryInputDown)
             {
-                // todo - support different weapons:
-                CurrentSecondaryAction = SecondaryActions.ShootingFire;
-                bulletData = Bullet.DataCategory.PlayerFire;
+                if(EquippedWeapon == SecondaryActions.ShootingFire)
+                {
+                    CurrentSecondaryAction = SecondaryActions.ShootingFire;
+                    bulletData = Bullet.DataCategory.PlayerFire;
+                }
+                else if(EquippedWeapon == SecondaryActions.ShootingLightning)
+                {
+                    CurrentSecondaryAction = SecondaryActions.ShootingLightning;
+                    // not sure what this is:
+                    bulletData = Bullet.DataCategory.PlayerFire;
+                }
             }
             else
             {
@@ -226,18 +234,23 @@ namespace Teotihuacan.Entities
                 1/FireShotsPerSecond
                 )
             {
-                var direction = aimingVector;
-
-                var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
-                bullet.Owner = this;
-                bullet.CurrentDataCategoryState = bulletData;
-                bullet.Velocity = bullet.BulletSpeed * direction;
-                bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections));
-
-                shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.ShootingFire));
-
-                lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
+                DoShootingFireActivity(bulletData);
             }
+        }
+
+        private void DoShootingFireActivity(Bullet.DataCategory bulletData)
+        {
+            var direction = aimingVector;
+
+            var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
+            bullet.Owner = this;
+            bullet.CurrentDataCategoryState = bulletData;
+            bullet.Velocity = bullet.BulletSpeed * direction;
+            bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections));
+
+            shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.ShootingFire));
+
+            lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
         }
 
         private void DoMovementValueUpdate()
@@ -424,6 +437,14 @@ namespace Teotihuacan.Entities
             LightningEndpointSprite.RelativeY = target.Y - Y;
 
             DoLastLightingSpriteResizeActivity();
+        }
+
+        public void ClearLightningSprites()
+        {
+            while(LightningSpriteList.Count > 0)
+            {
+                SpriteManager.RemoveSprite(LightningSpriteList.Last());
+            }
         }
 
         void DoLastLightingSpriteResizeActivity()
