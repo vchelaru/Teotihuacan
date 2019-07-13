@@ -195,6 +195,8 @@ namespace Teotihuacan.Screens
             PlayerLightningVsSolidCollision.CollisionOccurred += HandleLightningVsSolidCollision;
             PlayerLightningVsSolidCollision.IsActive = false;
             PlayerLightningVsSolidCollision.CollisionLimit = FlatRedBall.Math.Collision.CollisionLimit.Closest;
+
+            PlayerVsPitSolidCollision.SetFirstSubCollision(item => item.CircleInstance);
         }
 
         private void AddBorderAroundMap()
@@ -269,7 +271,6 @@ namespace Teotihuacan.Screens
                 (float)player.LightningCollisionLine.LastCollisionPoint.X,
                 (float)player.LightningCollisionLine.LastCollisionPoint.Y);
 
-            FlatRedBall.Debugging.Debugger.CommandLineWrite(lastLineCollisionPoint);
             //TempCollisionCircle.X = lastLineCollisionPoint.Value.X;
             //TempCollisionCircle.Y = lastLineCollisionPoint.Value.Y;
         }
