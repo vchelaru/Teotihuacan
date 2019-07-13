@@ -41,7 +41,11 @@ namespace Teotihuacan.Entities
             if (canTakeDamage)
             {
                 tookDamage = true;
-                CurrentHP -= damageToTake;
+
+                if(!DebuggingVariables.IsBaseInvincible)
+                {
+                    CurrentHP -= damageToTake;
+                }
 
                 if (CurrentHP <= 0)
                 {

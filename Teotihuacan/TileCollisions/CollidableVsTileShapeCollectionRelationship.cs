@@ -14,7 +14,7 @@ namespace FlatRedBall.Math.Collision
         where FirstCollidableT : PositionedObject, ICollidable
     {
         TileShapeCollection tileShapeCollection;
-        public TileShapeCollection TileShapeCollection {  get { return tileShapeCollection; } }
+        public TileShapeCollection TileShapeCollection { get { return tileShapeCollection; } }
 
         public Func<FirstCollidableT, Circle> firstSubCollisionCircle;
         public Func<FirstCollidableT, AxisAlignedRectangle> firstSubCollisionRectangle;
@@ -146,18 +146,18 @@ namespace FlatRedBall.Math.Collision
 
             if (tileShapeCollection.SortAxis == Axis.X)
             {
-                var leftmost = (float) System.Math.Min(line.AbsolutePoint1.X, line.AbsolutePoint2.X);
-                var rightmost = (float) System.Math.Max(line.AbsolutePoint1.X, line.AbsolutePoint2.X);
+                var leftmost = (float)System.Math.Min(line.AbsolutePoint1.X, line.AbsolutePoint2.X);
+                var rightmost = (float)System.Math.Max(line.AbsolutePoint1.X, line.AbsolutePoint2.X);
 
                 float clampedPosition = line.Position.X;
 
                 bool isPositionOnEnd = false;
-                if(clampedPosition <= leftmost)
+                if (clampedPosition <= leftmost)
                 {
                     clampedPosition = leftmost;
                     isPositionOnEnd = true;
                 }
-                else if(clampedPosition >= rightmost)
+                else if (clampedPosition >= rightmost)
                 {
                     clampedPosition = rightmost;
                     isPositionOnEnd = true;
@@ -167,32 +167,32 @@ namespace FlatRedBall.Math.Collision
                 var rectangles = tileShapeCollection.Rectangles;
 
                 var firstIndex = rectangles.GetFirstAfter(leftmost - tileShapeCollection.GridSize, Axis.X, 0, rectangles.Count);
-                var lastIndex = rectangles.GetFirstAfter(rightmost, Axis.X, firstIndex, rectangles.Count);
+                var lastIndex = rectangles.GetFirstAfter(rightmost + tileShapeCollection.GridSize, Axis.X, firstIndex, rectangles.Count);
 
-                if(isPositionOnEnd)
+                if (isPositionOnEnd)
                 {
                     FlatRedBall.Math.Geometry.AxisAlignedRectangle collidedRectangle = null;
                     Point? intersectionPoint = null;
-                    if(clampedPosition < rightmost)
+                    if (clampedPosition < rightmost)
                     {
 
                         // start at the beginning of the list, go up
-                        for(int i = firstIndex; i < lastIndex; i++)
+                        for (int i = firstIndex; i < lastIndex; i++)
                         {
                             var rectangle = tileShapeCollection.Rectangles[i];
 
-                            if(collidedRectangle != null)
+                            if (collidedRectangle != null)
                             {
-                                if(rectangle.X > collidedRectangle.X)
+                                if (rectangle.X > collidedRectangle.X)
                                 {
                                     break;
                                 }
 
-                                if(rectangle.Y > collidedRectangle.Y && collidedRectangle.Y > line.Position.Y)
+                                if (rectangle.Y > collidedRectangle.Y && collidedRectangle.Y > line.Position.Y)
                                 {
                                     break;
                                 }
-                                if(rectangle.Y < collidedRectangle.Y && collidedRectangle.Y < line.Position.Y)
+                                if (rectangle.Y < collidedRectangle.Y && collidedRectangle.Y < line.Position.Y)
                                 {
                                     break;
                                 }
@@ -213,20 +213,20 @@ namespace FlatRedBall.Math.Collision
                                 rectangle.Position.Y - rectangle.ScaleY);
 
                             Point tempPoint;
-                            
+
                             // left gets priority
                             // left
                             var intersects = a.Intersects(new Segment(tl, bl), out tempPoint);
 
-                            if(rectangle.Y > line.Y)
+                            if (rectangle.Y > line.Y)
                             {
                                 // bottom gets priority over top
-                                if(!intersects)
+                                if (!intersects)
                                 {
                                     // bottom
                                     intersects = a.Intersects(new Segment(bl, br), out tempPoint);
                                 }
-                                if(!intersects)
+                                if (!intersects)
                                 {
                                     // top
                                     intersects = a.Intersects(new Segment(tl, tr), out tempPoint);
@@ -246,13 +246,13 @@ namespace FlatRedBall.Math.Collision
                                     intersects = a.Intersects(new Segment(bl, br), out tempPoint);
                                 }
                             }
-                            if(!intersects)
+                            if (!intersects)
                             {
                                 // right
                                 intersects = a.Intersects(new Segment(tr, br), out tempPoint);
                             }
 
-                            if(intersects)
+                            if (intersects)
                             {
                                 intersectionPoint = tempPoint;
                                 collidedRectangle = rectangle;
@@ -268,7 +268,7 @@ namespace FlatRedBall.Math.Collision
 
                             if (collidedRectangle != null)
                             {
-                                if (rectangle.X > collidedRectangle.X)
+                                if (rectangle.X < collidedRectangle.X)
                                 {
                                     break;
                                 }
@@ -346,7 +346,7 @@ namespace FlatRedBall.Math.Collision
                         }
                     }
 
-                    if(collidedRectangle != null)
+                    if (collidedRectangle != null)
                     {
                         line.LastCollisionPoint = intersectionPoint ?? new Point(double.NaN, double.NaN);
 
@@ -358,7 +358,7 @@ namespace FlatRedBall.Math.Collision
                     throw new NotImplementedException("Complain to Vic about this!");
                 }
             }
-            else if(tileShapeCollection.SortAxis == Axis.Y)
+            else if (tileShapeCollection.SortAxis == Axis.Y)
             {
                 throw new NotImplementedException("Bug Vic to do Y. Currently just X is done");
             }
@@ -430,7 +430,7 @@ namespace FlatRedBall.Math.Collision
                         throw new NotImplementedException();
                     }
 
-                    if(didCollide)
+                    if (didCollide)
                     {
                         CollisionOccurred?.Invoke(singleObject, data.TileShapeCollection);
 

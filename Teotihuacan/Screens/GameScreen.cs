@@ -189,9 +189,8 @@ namespace Teotihuacan.Screens
             PlayerLightningVsSolidCollision.SetFirstSubCollision(item => item.LightningCollisionLine);
             PlayerLightningVsSolidCollision.CollisionOccurred += HandleLightningVsSolidCollision;
             PlayerLightningVsSolidCollision.IsActive = false;
+            PlayerLightningVsSolidCollision.CollisionLimit = FlatRedBall.Math.Collision.CollisionLimit.Closest;
         }
-
-
 
         private void AddBorderAroundMap()
         {
@@ -280,6 +279,8 @@ namespace Teotihuacan.Screens
 
             PlayerLightningVsSolidCollision.DoCollisions();
 
+            this.TempCollisionCircle.X = lastLineCollisionPoint?.X ?? 0;
+            this.TempCollisionCircle.Y = lastLineCollisionPoint?.Y ?? 0;
         }
 
         private void JoinUnjoinActivity()

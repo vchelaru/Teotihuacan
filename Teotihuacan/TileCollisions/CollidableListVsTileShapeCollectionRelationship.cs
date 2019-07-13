@@ -44,7 +44,7 @@ namespace FlatRedBall.Math.Collision
             {
                 bool isSupported = CollisionLimit == CollisionLimit.All;
 
-                if(CollisionLimit == CollisionLimit.First)
+                if (CollisionLimit == CollisionLimit.First)
                 {
                     string message = $"{nameof(CollidableVsTileShapeCollectionRelationship<FirstCollidableT>)} does not implement CollisionLimit {CollisionLimit}";
                     throw new NotImplementedException();
@@ -53,7 +53,7 @@ namespace FlatRedBall.Math.Collision
                 if (CollisionLimit == CollisionLimit.Closest)
                 {
                     // we actually only support closest if it's a line subcollision. Otherwise throw an exception
-                    if(data.firstSubCollisionLine != null)
+                    if (data.firstSubCollisionLine != null)
                     {
                         // it's okay
                     }
@@ -66,7 +66,7 @@ namespace FlatRedBall.Math.Collision
 
                 skippedFrames = 0;
 
-                for(int i = list.Count - 1 ; i > -1; i--)
+                for (int i = list.Count - 1; i > -1; i--)
                 {
                     var singleObject = list[i];
 
