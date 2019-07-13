@@ -38,7 +38,7 @@ namespace Teotihuacan.Screens
 
         bool hasGameOverBeenTriggered = false;
 
-        Vector2? lastLineCollisionPoint;
+
 
         #endregion
 
@@ -177,6 +177,11 @@ namespace Teotihuacan.Screens
 
             PlayerVsEnemyRelationship.SetFirstSubCollision(item => item.CircleInstance);
 
+            PlayerLightningVsEnemyRelationship.SetFirstSubCollision(item => item.LightningCollisionLine);
+            PlayerLightningVsEnemyRelationship.CollisionOccurred += HandleLightningVsEnemyCollision;
+            PlayerLightningVsEnemyRelationship.IsActive = false;
+            PlayerLightningVsEnemyRelationship.CollisionLimit = FlatRedBall.Math.Collision.CollisionLimit.Closest;
+
             BulletVsPlayerCollision.SetSecondSubCollision(item => item.CircleInstance);
 
             EnemyVsPlayerBaseSolidCollision.SetSecondSubCollision(item => item.SolidRectangle);
@@ -250,6 +255,7 @@ namespace Teotihuacan.Screens
                 }
 
                 DoCollisionActivity();
+
             }
 
             DoUiActivity();
@@ -267,24 +273,40 @@ namespace Teotihuacan.Screens
 
         private void HandleLightningVsSolidCollision(Player player, TileShapeCollection tileMap)
         {
-            lastLineCollisionPoint = new Vector2(
-                (float)player.LightningCollisionLine.LastCollisionPoint.X,
-                (float)player.LightningCollisionLine.LastCollisionPoint.Y);
+            player.LightningWeaponManager.HandleCollisionVsSolid(player);
+            
+        }
 
+        private void HandleLightningVsEnemyCollision(Player player, Enemy enemy)
+        {
+            player.LightningWeaponManager.HandleCollisionVsEnemy(enemy);
         }
 
         private void DoCollisionActivity()
         {
-            if(InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Space))
+            var areAnyShooting = false;
+            foreach (var player in PlayerList)
             {
-                int m = 3;
+                if(player.CurrentSecondaryAction == Animation.SecondaryActions.ShootingLightning)
+                {
+                    player.LightningWeaponManager.StartCollisionFrameLogic();
+                    areAnyShooting = true;
+                }
             }
-            lastLineCollisionPoint = null;
 
-            PlayerLightningVsSolidCollision.DoCollisions();
+            if(areAnyShooting)
+            {
+                PlayerLightningVsSolidCollision.DoCollisions();
+                PlayerLightningVsEnemyRelationship.DoCollisions();
+            }
 
-            this.TempCollisionCircle.X = lastLineCollisionPoint?.X ?? 0;
-            this.TempCollisionCircle.Y = lastLineCollisionPoint?.Y ?? 0;
+            foreach(var player in PlayerList)
+            {
+                if (player.CurrentSecondaryAction == Animation.SecondaryActions.ShootingLightning)
+                {
+                    player.LightningWeaponManager.EndCollisionFrameLogic(player);
+                }
+            }
         }
 
         private void JoinUnjoinActivity()

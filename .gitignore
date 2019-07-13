@@ -4,3 +4,4 @@ Teotihuacan/obj/
 .vs/
 Teotihuacan/bin/
 Teotihuacan/Content/TiledObjects.Generated.xml
+*.aeproperties

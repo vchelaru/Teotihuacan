@@ -11,6 +11,8 @@ using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
 using FlatRedBall.Gui;
 using Teotihuacan.Animation;
+using System.Linq;
+using Teotihuacan.Managers;
 
 namespace Teotihuacan.Entities
 {
@@ -76,10 +78,15 @@ namespace Teotihuacan.Entities
         }
 
         PrimaryActions currentPrimaryAction = PrimaryActions.idle;
-        SecondaryActions currentSecondaryAction = SecondaryActions.None;
+        public SecondaryActions CurrentSecondaryAction
+        {
+            get; private set;
+        } = SecondaryActions.None;
         AnimationLayer shootingLayer;
         double lastFireShotTime;
         double lastHealingTime;
+
+        public SecondaryActions EquippedWeapon { get; set; }
 
         public float CurrentHP { get; private set; }
 
@@ -88,6 +95,13 @@ namespace Teotihuacan.Entities
         public Action UpdateHud;
 
         public bool PauseInputPressed => InputDevice.DefaultPauseInput.WasJustPressed;
+
+        PositionedObject lightningAttachment;
+
+        public LightningWeaponManager LightningWeaponManager
+        {
+            get; private set;
+        } = new LightningWeaponManager();
 
         #endregion
 
@@ -102,6 +116,9 @@ namespace Teotihuacan.Entities
 		{
             this.PossibleDirections = PossibleDirections.EightWay;
             CurrentHP = MaxHP;
+
+            lightningAttachment = new PositionedObject();
+            lightningAttachment.AttachTo(this);
 
             InitializeAnimationLayers();
 
@@ -131,8 +148,8 @@ namespace Teotihuacan.Entities
         private void InitializeCollision()
         {
             this.LightningCollisionLine.RelativePoint1 = new Point3D();
-
-            this.LightningCollisionLine.RelativePoint2 = new Point3D(500, 0, 0);
+            this.LightningCollisionLine.RelativePoint2 = new Point3D(LightningLength, 0, 0);
+            this.LightningCollisionLine.Visible = false;
 
             LightningCollisionLine.ParentRotationChangesRotation = false;
         }
@@ -149,6 +166,8 @@ namespace Teotihuacan.Entities
             DoMovementValueUpdate();
             spriteAnimationController.Activity();
             UpdateOverlaySprite();
+            LightningEndpointSprite.Visible = 
+                CurrentSecondaryAction == SecondaryActions.ShootingLightning;
 		}
 
         private void DoPrimaryActionActivity()
@@ -194,15 +213,15 @@ namespace Teotihuacan.Entities
             if (isPrimaryInputDown)
             {
                 // todo - support different weapons:
-                currentSecondaryAction = SecondaryActions.ShootingFire;
+                CurrentSecondaryAction = SecondaryActions.ShootingFire;
                 bulletData = Bullet.DataCategory.PlayerFire;
             }
             else
             {
-                currentSecondaryAction = SecondaryActions.None;
+                CurrentSecondaryAction = SecondaryActions.None;
             }
 
-            if(currentSecondaryAction == SecondaryActions.ShootingFire &&
+            if(CurrentSecondaryAction == SecondaryActions.ShootingFire &&
                 FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastFireShotTime) > 
                 1/FireShotsPerSecond
                 )
@@ -223,7 +242,7 @@ namespace Teotihuacan.Entities
 
         private void DoMovementValueUpdate()
         {
-            switch(currentSecondaryAction)
+            switch(CurrentSecondaryAction)
             {
                 case SecondaryActions.None:
                     mCurrentMovement = TopDownValues[DataTypes.TopDownValues.DefaultValues];
@@ -351,6 +370,94 @@ namespace Teotihuacan.Entities
             else
             {
                 BlueOverlay.Visible = false;
+            }
+        }
+
+        public void UpdateLightningSprites()
+        {
+            Vector2 target = LightningWeaponManager.LineEndpoint;
+            var widthPerSprite = Lightning_Stream_Anim[0].Texture.Width * 
+                (Lightning_Stream_Anim[0].RightCoordinate -
+                Lightning_Stream_Anim[0].LeftCoordinate);
+
+            var widthHalf = widthPerSprite / 2.0f;
+
+            var thisVector2 = new Vector2(this.X, this.Y);
+            var thisToTarget = (target - thisVector2);
+            var spriteCountFloat = thisToTarget.Length() / widthPerSprite;
+
+            var spriteCount = 1 + (int)spriteCountFloat;
+
+
+            while(LightningSpriteList.Count < spriteCount)
+            {
+                var sprite = SpriteManager.AddSprite(Lightning_Stream_Anim);
+                // eventually attach to the rotation object.
+                sprite.TextureScale = 1;
+                sprite.AttachTo(lightningAttachment);
+                if(LightningSpriteList.Count > 0)
+                {
+                    sprite.TimeIntoAnimation = LightningSpriteList[0].TimeIntoAnimation;
+                }
+                LightningSpriteList.Add(sprite);
+
+            }
+
+            while(LightningSpriteList.Count > spriteCount)
+            {
+                SpriteManager.RemoveSprite(LightningSpriteList.Last());
+            }
+
+            for(int i = 0; i < LightningSpriteList.Count; i++)
+            {
+                var sprite = LightningSpriteList[i];
+                sprite.UpdateToCurrentAnimationFrame();
+                sprite.RelativeX = widthHalf + widthPerSprite * i;
+            }
+
+
+
+            lightningAttachment.RelativeRotationZ =
+                (float)Math.Atan2(thisToTarget.Y, thisToTarget.X);
+
+            LightningEndpointSprite.RelativeX = target.X - X;
+            LightningEndpointSprite.RelativeY = target.Y - Y;
+
+            DoLastLightingSpriteResizeActivity();
+        }
+
+        void DoLastLightingSpriteResizeActivity()
+        {
+
+            var thisVector2 = new Vector2(this.X, this.Y);
+            var lengthPerSprite = Lightning_Stream_Anim[0].Texture.Width *
+                (Lightning_Stream_Anim[0].RightCoordinate -
+                Lightning_Stream_Anim[0].LeftCoordinate);
+            var thisToTarget = (LightningWeaponManager.LineEndpoint - thisVector2);
+
+            var spriteCountFloat = thisToTarget.Length() / lengthPerSprite;
+            var leftover = spriteCountFloat - (int)spriteCountFloat;
+            if (leftover != 0)
+            {
+                var lastSprite = LightningSpriteList.Last();
+
+                var animationFrameWidth = Lightning_Stream_Anim[0].RightCoordinate -
+                    Lightning_Stream_Anim[0].LeftCoordinate;
+
+                lastSprite.RightTextureCoordinate = lastSprite.LeftTextureCoordinate +
+                    animationFrameWidth * leftover;
+
+
+                var widthPerSprite = Lightning_Stream_Anim[0].Texture.Width *
+                    (Lightning_Stream_Anim[0].RightCoordinate -
+                    Lightning_Stream_Anim[0].LeftCoordinate);
+
+                var widthHalf = widthPerSprite / 2.0f;
+
+                int index = LightningSpriteList.Count - 1;
+                var leftOfPreviousSprite = widthPerSprite * index;
+                lastSprite.RelativeX = leftOfPreviousSprite + widthPerSprite * leftover/2.0f ;
+
             }
         }
 

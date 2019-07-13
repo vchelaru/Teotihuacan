@@ -189,6 +189,7 @@
     <Compile Include="GumRuntimes\UiTestScreenGumRuntime.Generated.cs">
       <DependentUpon>UiTestScreenGumRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\LightningWeaponManager.cs" />
     <Compile Include="Managers\SpawnManager.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />
