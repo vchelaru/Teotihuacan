@@ -237,7 +237,12 @@ namespace Teotihuacan.Screens
 
         private void InitializeUi()
         {
-            ((GameScreenGumRuntime)GameScreenGum).SetNumberOfPlayers(PlayerList.Count);
+            var gameScreenGumRuntime = ((GameScreenGumRuntime)GameScreenGum);
+            gameScreenGumRuntime.SetNumberOfPlayers(PlayerList.Count);
+
+            gameScreenGumRuntime.QuitClicked += (not, used) => FlatRedBallServices.Game.Exit();
+            gameScreenGumRuntime.ResumeClicked += (not, used) =>
+                DoUnpause();
         }
 
         #endregion
@@ -373,8 +378,7 @@ namespace Teotihuacan.Screens
                 {
                     if(IsPaused)
                     {
-                        UnpauseThisScreen();
-                        ((GameScreenGumRuntime)GameScreenGum).SetPauseScreenVisibility(false);
+                        DoUnpause();
                     }
                     else
                     {
@@ -384,6 +388,12 @@ namespace Teotihuacan.Screens
                     
                 }
             }
+        }
+
+        private void DoUnpause()
+        {
+            UnpauseThisScreen();
+            ((GameScreenGumRuntime)GameScreenGum).SetPauseScreenVisibility(false);
         }
 
         private void DoCheckForGameOver()

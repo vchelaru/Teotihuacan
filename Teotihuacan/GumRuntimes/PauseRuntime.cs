@@ -1,13 +1,15 @@
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    
-    namespace Teotihuacan.GumRuntimes
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Teotihuacan.GumRuntimes
+{
+    public partial class PauseRuntime
     {
-        public partial class PauseRuntime
+        
+        partial void CustomInitialize()
         {
-            partial void CustomInitialize () 
-            {
-            }
+
         }
     }
+}

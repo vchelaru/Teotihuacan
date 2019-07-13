@@ -8,12 +8,21 @@ namespace Teotihuacan.GumRuntimes
 {
     public partial class GameScreenGumRuntime
     {
+        #region Fields/Properties
+
         List<PlayerHUDRuntime> playerHuds = new List<PlayerHUDRuntime>();
         List<PlayerHUDJoinRuntime> playerJoinHuds =
             new List<PlayerHUDJoinRuntime>();
 
+        #endregion
+
+        public event EventHandler ResumeClicked;
+        public event EventHandler QuitClicked;
+
         partial void CustomInitialize()
         {
+            PauseMenuInstance.ResumeClicked += (not, used) => ResumeClicked(this, null);
+            PauseMenuInstance.QuitClicked += (not, used) => QuitClicked(this, null);
         }
 
         public void SetNumberOfPlayers(int numberOfPlayers)
@@ -74,7 +83,16 @@ namespace Teotihuacan.GumRuntimes
 
         public void SetPauseScreenVisibility(bool isVisible)
         {
-            this.PauseInstance.Visible = isVisible;
+            if(isVisible)
+            {
+                // no animations?
+                this.PauseMenuInstance.Visible = true;
+                
+            }
+            else
+            {
+                this.PauseMenuInstance.Visible = false;
+            }
         }
     }
 }
