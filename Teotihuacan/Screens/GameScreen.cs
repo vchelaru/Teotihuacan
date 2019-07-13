@@ -115,7 +115,8 @@ namespace Teotihuacan.Screens
 
             var names = Map.TileProperties
                 .Where(item => item.Value.Any(subItem => 
-                    subItem.Name == "Type" && (subItem.Value as string) == "Wall"))
+                    subItem.Name == "Type" && 
+                        ((subItem.Value as string) == "Wall" || (subItem.Value as string) == "Pit")))
                 .Select(item => item.Key)    
                 .ToArray();
 
@@ -161,6 +162,7 @@ namespace Teotihuacan.Screens
         private void InitializeCollisions()
         {
             SolidCollisions.Visible = DebuggingVariables.ShowSolidCollision;
+            PitSolidCollisions.Visible = DebuggingVariables.ShowSolidCollision;
 
             // add border around the tile map
             AddBorderAroundMap();
