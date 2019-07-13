@@ -133,24 +133,24 @@ namespace Teotihuacan.Entities
             orthoZoomVelocity = Math.Min(orthoZoomVelocity, heightDiff);
 
             orthoZoomVelocity = Math.Abs(orthoZoomVelocity);
-            if(orthoZoomVelocity > 0)
+            if (orthoZoomVelocity > 0)
             {
                 orthoZoom += orthoZoomVelocity * TimeManager.SecondDifference;
             }
-            else if(orthoZoom > 1)
+            else if (orthoZoom > 1)
             {
                 widthDiff = (Camera.Main.OrthogonalWidth - zoomInBounds) - currentWidth;
                 heightDiff = (Camera.Main.OrthogonalHeight - zoomInBounds) - currentHeight;
 
                 bool canZoomIn = widthDiff > 0 && heightDiff > 0;
 
-                if(canZoomIn)
+                if (canZoomIn)
                 {
                     orthoZoomVelocity = Math.Min(widthDiff, heightDiff);
                     orthoZoom -= orthoZoomVelocity * TimeManager.SecondDifference;
-                    orthoZoom = 
-            }Math.Max(orthoZoom, 1);
+                    orthoZoom = Math.Max(orthoZoom, 1);
                 }
+            }
         }
 
         private void CalculateZoomFromBounds()
