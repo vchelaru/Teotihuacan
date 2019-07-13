@@ -271,8 +271,6 @@ namespace Teotihuacan.Screens
                 (float)player.LightningCollisionLine.LastCollisionPoint.X,
                 (float)player.LightningCollisionLine.LastCollisionPoint.Y);
 
-            //TempCollisionCircle.X = lastLineCollisionPoint.Value.X;
-            //TempCollisionCircle.Y = lastLineCollisionPoint.Value.Y;
         }
 
         private void DoCollisionActivity()
