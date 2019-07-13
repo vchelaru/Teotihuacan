@@ -5,8 +5,8 @@
   <State>
     <Name>Default</Name>
     <Variable>
-      <Type>AlphaState</Type>
-      <Name>AlphaState</Name>
+      <Type>BlackOverlayAlphaState</Type>
+      <Name>BlackOverlayAlphaState</Name>
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
@@ -235,6 +235,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>VisualsAlphaState</Type>
+      <Name>VisualsAlphaState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>Width</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -248,7 +253,7 @@
     </Variable>
   </State>
   <Category>
-    <Name>Alpha</Name>
+    <Name>BlackOverlayAlpha</Name>
     <State>
       <Name>Transparent</Name>
       <Variable>
@@ -263,6 +268,28 @@
       <Variable>
         <Type>int</Type>
         <Name>DarkRect.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
+  <Category>
+    <Name>VisualsAlpha</Name>
+    <State>
+      <Name>Transparent</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>Text.Alpha</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Opaque</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>Text.Alpha</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>

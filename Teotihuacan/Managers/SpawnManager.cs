@@ -16,28 +16,31 @@ namespace Teotihuacan.Managers
         
         public void DoActivity(PositionedObjectList<Enemy> enemies, PositionedObjectList<SpawnPoint> spawnPoints, LevelSpawnsBase spawns)
         {
-            var hasSpawnsLeft = CurrentSpawnIndex < spawns.MiniWaves.Count;
-
-            var shouldSpawn = DetermineIfShouldSpawn(enemies);
-
-            if(shouldSpawn && hasSpawnsLeft)
+            if (spawns != null)
             {
-                var miniWave = spawns.MiniWaves[CurrentSpawnIndex];
+                var hasSpawnsLeft = CurrentSpawnIndex < spawns.MiniWaves.Count;
 
-                foreach(var data in miniWave.Spawns)
+                var shouldSpawn = DetermineIfShouldSpawn(enemies);
+
+                if (shouldSpawn && hasSpawnsLeft)
                 {
-                    // todo - determine spawn locations...
-                    var x = 100;
-                    var y = -100;
+                    var miniWave = spawns.MiniWaves[CurrentSpawnIndex];
 
-                    var spawnPoint = FlatRedBallServices.Random.In(spawnPoints);
+                    foreach (var data in miniWave.Spawns)
+                    {
+                        // todo - determine spawn locations...
+                        var x = 100;
+                        var y = -100;
 
-                    var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
-                    enemy.CurrentDataCategoryState = data;
+                        var spawnPoint = FlatRedBallServices.Random.In(spawnPoints);
 
+                        var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
+                        enemy.CurrentDataCategoryState = data;
+
+                    }
+
+                    CurrentSpawnIndex++;
                 }
-
-                CurrentSpawnIndex++;
             }
         }
 

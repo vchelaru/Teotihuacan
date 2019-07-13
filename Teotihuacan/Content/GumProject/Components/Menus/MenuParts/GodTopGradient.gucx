@@ -5,6 +5,11 @@
   <State>
     <Name>Default</Name>
     <Variable>
+      <Type>AlphaState</Type>
+      <Name>AlphaState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>Height</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -168,6 +173,41 @@
       <SetsValue>true</SetsValue>
     </Variable>
   </State>
+  <Category>
+    <Name>Alpha</Name>
+    <State>
+      <Name>Transparent</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteGodBodyVanishing.Alpha</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteGodHead.Alpha</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Opaque</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteGodBodyVanishing.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteGodHead.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
   <Instance>
     <Name>SpriteGodHead</Name>
     <BaseType>Sprite</BaseType>
