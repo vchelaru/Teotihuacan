@@ -288,15 +288,24 @@ namespace Teotihuacan.Entities
                     isInRange = (target.Position - this.Position).Length() < MaxShootingDistance;
                 }
 
+                var shouldWalkForward = true;
+
                 if(isInRange)
                 {
                     // line of site
                     CurrentBehavior = Behavior.Shooting;
+
+                    if((this.Position - target.Position).Length() < ClosestShootingDistance)
+                    {
+                        shouldWalkForward = false;
+                    }
                 }
                 else
                 {
                     CurrentBehavior = Behavior.Chasing;
                 }
+
+                ai.IsActive = shouldWalkForward;
             }
         }
 

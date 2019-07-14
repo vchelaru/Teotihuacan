@@ -1678,6 +1678,18 @@
           <DefaultValue xsi:type="xsd:float">6</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ClosestShootingDistance</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">64</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\Enemy</Name>

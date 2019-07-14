@@ -77,7 +77,9 @@ namespace Teotihuacan.Screens
             if(numberOfControllers == 0)
             {
                 var player = new Player();
-                player.EquippedWeapon = Animation.SecondaryActions.ShootingLightning;
+                //player.EquippedWeapon = Animation.SecondaryActions.ShootingLightning;
+                player.EquippedWeapon = Animation.SecondaryActions.ShootingFire;
+
                 player.CurrentColorCategoryState =
                     Player.ColorCategory.Blue;
                 PlayerList.Add(player);
@@ -184,12 +186,14 @@ namespace Teotihuacan.Screens
             PlayerLightningVsEnemyRelationship.CollisionLimit = FlatRedBall.Math.Collision.CollisionLimit.Closest;
 
             BulletVsPlayerCollision.SetSecondSubCollision(item => item.CircleInstance);
+            BulletVsPlayerCollision.CollisionLimit = FlatRedBall.Math.Collision.CollisionLimit.First;
 
             EnemyVsPlayerBaseSolidCollision.SetSecondSubCollision(item => item.SolidRectangle);
 
             PlayerVsPlayerBaseSolidCollision.SetFirstSubCollision(item => item.CircleInstance);
             PlayerVsPlayerBaseSolidCollision.SetSecondSubCollision(item => item.SolidRectangle);
 
+            BulletVsEnemyCollision.CollisionLimit = FlatRedBall.Math.Collision.CollisionLimit.First;
 
             BulletVsPlayerBaseSolidCollision.SetSecondSubCollision(item => item.SolidRectangle);
 
@@ -356,6 +360,7 @@ namespace Teotihuacan.Screens
             var player = new Player();
             player.CurrentColorCategoryState =
                 PlayerList.Count.ToPlayerColorCategory();
+            player.EquippedWeapon = Animation.SecondaryActions.ShootingFire;
 
             PlayerList.Add(player);
             player.InitializeTopDownInput(controller);
