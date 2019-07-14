@@ -420,7 +420,7 @@ namespace Teotihuacan.Screens
             {
                 var enemy = EnemyList[i];
 
-                enemy.DoAiActivity(true, nodeNetwork, PlayerList, PlayerBaseList[0], SolidCollisions);
+                enemy.DoAiActivity(true, nodeNetwork, PlayerList, PlayerBaseList[0], SolidCollisions, PitSolidCollisions);
 
             }
             currentFrameSkipIndex = (currentFrameSkipIndex + 1) % AiFrameSkip;
