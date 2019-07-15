@@ -687,4 +687,34 @@
       <BottomCoordinate>47</BottomCoordinate>
     </Frame>
   </AnimationChain>
+  <AnimationChain>
+    <Name>WeaponPopupIcons</Name>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>1</LeftCoordinate>
+      <RightCoordinate>16</RightCoordinate>
+      <TopCoordinate>61</TopCoordinate>
+      <BottomCoordinate>76</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>18</LeftCoordinate>
+      <RightCoordinate>33</RightCoordinate>
+      <TopCoordinate>61</TopCoordinate>
+      <BottomCoordinate>76</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>35</LeftCoordinate>
+      <RightCoordinate>50</RightCoordinate>
+      <TopCoordinate>61</TopCoordinate>
+      <BottomCoordinate>76</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+  </AnimationChain>
 </AnimationChainArraySave>
