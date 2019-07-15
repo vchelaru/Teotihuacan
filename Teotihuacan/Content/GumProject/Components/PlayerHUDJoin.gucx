@@ -7,7 +7,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Height</Name>
-      <Value xsi:type="xsd:float">85</Value>
+      <Value xsi:type="xsd:float">88</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -15,6 +15,11 @@
       <Name>Height Units</Name>
       <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LeftRightVersionState</Type>
+      <Name>LeftRightVersionState</Name>
+      <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
       <IsFile>true</IsFile>
@@ -32,13 +37,13 @@
     <Variable>
       <Type>int</Type>
       <Name>PanelSprite.Texture Height</Name>
-      <Value xsi:type="xsd:int">85</Value>
+      <Value xsi:type="xsd:int">88</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>PanelSprite.Texture Left</Name>
-      <Value xsi:type="xsd:int">53</Value>
+      <Value xsi:type="xsd:int">223</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -150,30 +155,6 @@
       <Name>Player1</Name>
       <Variable>
         <Type>int</Type>
-        <Name>PanelSprite.Texture Height</Name>
-        <Value xsi:type="xsd:int">85</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">53</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Top</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Width</Name>
-        <Value xsi:type="xsd:int">16</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>PortraitSprite.Texture Height</Name>
         <Value xsi:type="xsd:int">14</Value>
         <SetsValue>true</SetsValue>
@@ -199,30 +180,6 @@
     </State>
     <State>
       <Name>Player2</Name>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Height</Name>
-        <Value xsi:type="xsd:int">85</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">53</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Top</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Width</Name>
-        <Value xsi:type="xsd:int">16</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
       <Variable>
         <Type>int</Type>
         <Name>PortraitSprite.Texture Height</Name>
@@ -252,30 +209,6 @@
       <Name>Player3</Name>
       <Variable>
         <Type>int</Type>
-        <Name>PanelSprite.Texture Height</Name>
-        <Value xsi:type="xsd:int">85</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">53</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Top</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Width</Name>
-        <Value xsi:type="xsd:int">16</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>PortraitSprite.Texture Height</Name>
         <Value xsi:type="xsd:int">14</Value>
         <SetsValue>true</SetsValue>
@@ -303,30 +236,6 @@
       <Name>Player4</Name>
       <Variable>
         <Type>int</Type>
-        <Name>PanelSprite.Texture Height</Name>
-        <Value xsi:type="xsd:int">85</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">53</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Top</Name>
-        <Value xsi:type="xsd:int">1</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>PanelSprite.Texture Width</Name>
-        <Value xsi:type="xsd:int">16</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>PortraitSprite.Texture Height</Name>
         <Value xsi:type="xsd:int">14</Value>
         <SetsValue>true</SetsValue>
@@ -347,6 +256,60 @@
         <Type>int</Type>
         <Name>PortraitSprite.Texture Width</Name>
         <Value xsi:type="xsd:int">14</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
+  <Category>
+    <Name>LeftRightVersion</Name>
+    <State>
+      <Name>Right</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>PanelSprite.Texture Height</Name>
+        <Value xsi:type="xsd:int">88</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PanelSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">241</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PanelSprite.Texture Top</Name>
+        <Value xsi:type="xsd:int">1</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>PanelSprite.Texture Width</Name>
+        <Value xsi:type="xsd:int">16</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>HorizontalAlignment</Type>
+        <Name>PortraitSprite.X Origin</Name>
+        <Value xsi:type="xsd:int">2</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>PositionUnitType</Type>
+        <Name>PortraitSprite.X Units</Name>
+        <Value xsi:type="xsd:int">4</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>HorizontalAlignment</Type>
+        <Name>X Origin</Name>
+        <Value xsi:type="xsd:int">2</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>PositionUnitType</Type>
+        <Name>X Units</Name>
+        <Value xsi:type="xsd:int">4</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

@@ -543,7 +543,7 @@
     <Variable>
       <Type>int</Type>
       <Name>PanelSprite.Texture Left</Name>
-      <Value xsi:type="xsd:int">19</Value>
+      <Value xsi:type="xsd:int">53</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

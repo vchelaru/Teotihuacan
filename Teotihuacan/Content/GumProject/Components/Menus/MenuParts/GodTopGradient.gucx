@@ -49,7 +49,7 @@
     <Variable>
       <Type>int</Type>
       <Name>SpriteGodBodyVanishing.Texture Top</Name>
-      <Value xsi:type="xsd:int">134</Value>
+      <Value xsi:type="xsd:int">150</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
