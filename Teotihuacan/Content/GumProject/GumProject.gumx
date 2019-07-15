@@ -21,6 +21,10 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
+    <Name>RivaTestScreenGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
     <Name>UiTestScreenGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
