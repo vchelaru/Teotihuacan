@@ -717,4 +717,28 @@
       <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
+  <AnimationChain>
+    <Name>EnemyProjectile</Name>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>66</LeftCoordinate>
+      <RightCoordinate>75</RightCoordinate>
+      <TopCoordinate>16</TopCoordinate>
+      <BottomCoordinate>25</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>EnemyProjectile2</Name>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>77</LeftCoordinate>
+      <RightCoordinate>86</RightCoordinate>
+      <TopCoordinate>16</TopCoordinate>
+      <BottomCoordinate>25</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+  </AnimationChain>
 </AnimationChainArraySave>
