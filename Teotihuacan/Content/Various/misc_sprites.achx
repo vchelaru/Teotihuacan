@@ -616,7 +616,7 @@
     <Name>BigExplosion</Name>
     <Frame>
       <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.075</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>47</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -624,7 +624,7 @@
     </Frame>
     <Frame>
       <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.075</FrameLength>
       <LeftCoordinate>47</LeftCoordinate>
       <RightCoordinate>94</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -632,7 +632,7 @@
     </Frame>
     <Frame>
       <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.075</FrameLength>
       <LeftCoordinate>94</LeftCoordinate>
       <RightCoordinate>141</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -640,15 +640,15 @@
     </Frame>
     <Frame>
       <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>141</LeftCoordinate>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>142</LeftCoordinate>
       <RightCoordinate>188</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.2</FrameLength>
       <LeftCoordinate>188</LeftCoordinate>
       <RightCoordinate>235</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -656,7 +656,7 @@
     </Frame>
     <Frame>
       <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.2</FrameLength>
       <LeftCoordinate>235</LeftCoordinate>
       <RightCoordinate>282</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -664,7 +664,7 @@
     </Frame>
     <Frame>
       <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.2</FrameLength>
       <LeftCoordinate>282</LeftCoordinate>
       <RightCoordinate>329</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -672,7 +672,7 @@
     </Frame>
     <Frame>
       <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.2</FrameLength>
       <LeftCoordinate>329</LeftCoordinate>
       <RightCoordinate>376</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -680,11 +680,41 @@
     </Frame>
     <Frame>
       <TextureName>misc_sprites_placeholders_spritesheet.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.2</FrameLength>
       <LeftCoordinate>376</LeftCoordinate>
       <RightCoordinate>423</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
       <BottomCoordinate>47</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>WeaponPopupIcons</Name>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>1</LeftCoordinate>
+      <RightCoordinate>16</RightCoordinate>
+      <TopCoordinate>61</TopCoordinate>
+      <BottomCoordinate>76</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>18</LeftCoordinate>
+      <RightCoordinate>33</RightCoordinate>
+      <TopCoordinate>61</TopCoordinate>
+      <BottomCoordinate>76</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>35</LeftCoordinate>
+      <RightCoordinate>50</RightCoordinate>
+      <TopCoordinate>61</TopCoordinate>
+      <BottomCoordinate>76</BottomCoordinate>
+      <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>

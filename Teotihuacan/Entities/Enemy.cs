@@ -106,7 +106,7 @@ namespace Teotihuacan.Entities
 		}
 
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
-            PositionedObjectList<Player> players, PlayerBase playerBase, TileShapeCollection solidCollisions)
+            PositionedObjectList<Player> players, PlayerBase playerBase, TileShapeCollection solidCollisions, TileShapeCollection pitCollision)
         {
             
 
@@ -119,7 +119,7 @@ namespace Teotihuacan.Entities
                 if (refreshPath)
                 {
                     // enemies always move towards player, but really slowly when shooting
-                    RefreshPath(nodeNetwork, target, solidCollisions);
+                    RefreshPath(nodeNetwork, target, solidCollisions, pitCollision);
                 }
 
                 UpdateAimingBehavior(target);
@@ -309,7 +309,7 @@ namespace Teotihuacan.Entities
             }
         }
 
-        private void RefreshPath(NodeNetwork nodeNetwork, PositionedObject target, TileShapeCollection solidCollisions)
+        private void RefreshPath(NodeNetwork nodeNetwork, PositionedObject target, TileShapeCollection solidCollisions, TileShapeCollection pitCollision)
         {
             var ai = InputDevice as TopDown.TopDownAiInput<Enemy>;
             var path = nodeNetwork.GetPathOrClosest(ref Position, ref target.Position);
@@ -331,7 +331,7 @@ namespace Teotihuacan.Entities
                 var angle = (float)System.Math.Atan2(points[0].Y - Position.Y, points[0].X - Position.X);
                 pathFindingPolygon.RotationZ = angle;
 
-                var hasClearPath = !solidCollisions.CollideAgainst(pathFindingPolygon);
+                var hasClearPath = !solidCollisions.CollideAgainst(pathFindingPolygon) && !pitCollision.CollideAgainst(pathFindingPolygon);
 
                 if (hasClearPath && points.Count > 1)
                 {
