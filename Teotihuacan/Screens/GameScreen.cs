@@ -38,8 +38,6 @@ namespace Teotihuacan.Screens
 
         bool hasGameOverBeenTriggered = false;
 
-
-
         #endregion
 
         #region Initialize
@@ -64,6 +62,7 @@ namespace Teotihuacan.Screens
             CameraControllerInstance.SetStartPositionAndZoom();
 
             Factories.EnemyFactory.EntitySpawned = HandleEnemySpawn;
+            EnemyList.CollectionChanged += (a, b) => HandleEnemyListChanged();
 
             InitializeNodeNetworks();
 
@@ -247,6 +246,9 @@ namespace Teotihuacan.Screens
             gameScreenGumRuntime.QuitClicked += (not, used) => FlatRedBallServices.Game.Exit();
             gameScreenGumRuntime.ResumeClicked += (not, used) =>
                 DoUnpause();
+
+            gameScreenGumRuntime.StartLevel += () =>DoStartLevel();
+            gameScreenGumRuntime.ShowLevelStart();
         }
 
         #endregion
@@ -400,6 +402,11 @@ namespace Teotihuacan.Screens
             ((GameScreenGumRuntime)GameScreenGum).SetPauseScreenVisibility(false);
         }
 
+        private void DoStartLevel()
+        {
+            spawnManager.EnableSpawning();
+        }
+
         private void DoCheckForGameOver()
         {
             if(hasGameOverBeenTriggered == false)
@@ -438,6 +445,44 @@ namespace Teotihuacan.Screens
             input.RemoveTargetOnReaching = true;
             input.StopOnTarget = false;
             enemy.InitializeTopDownInput(input);
+        }
+
+        private void HandleEnemyListChanged()
+        {
+            if(EnemyList.Count <= 0 && !spawnManager.CanSpawn)
+            {
+                var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
+                gameScreenGumRuntime.SetWaveMessageText($"Wave Complete");
+                this.Call(() =>
+                {
+                    if (Spawns.Waves.Count > spawnManager.CurrentWaveIndex + 1)
+                    {
+                        gameScreenGumRuntime.SetWaveMessageText($"Wave {spawnManager.CurrentWaveIndex + 1}");
+                    }
+                    else if(Spawns.Waves.Count > spawnManager.CurrentWaveIndex)
+                    {
+                        gameScreenGumRuntime.SetWaveMessageText($"Final Wave");
+                    }
+                    else
+                    {
+                        gameScreenGumRuntime.SetWaveMessageText($"Level Complete");
+                    }
+                }).After(TimeBetweenWaves * .5);
+
+                this.Call(() =>
+                {
+                    gameScreenGumRuntime.HideWaveStateInstance();
+                    if (Spawns.Waves.Count > spawnManager.CurrentWaveIndex)
+                    {
+                        spawnManager.EnableSpawning();
+                    }
+                    else
+                    {
+                        //ToDo: Next Level logic
+                    }
+                }).After(TimeBetweenWaves);
+
+            }
         }
 
         #endregion

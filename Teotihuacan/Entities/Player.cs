@@ -285,9 +285,14 @@ namespace Teotihuacan.Entities
             {
                 CurrentEnergy += EnergyRecoveryRate * TimeManager.SecondDifference;
             }
-
+            
             CurrentEnergy = System.Math.Min(CurrentEnergy, MaxEnergy);
             CurrentEnergy = System.Math.Max(CurrentEnergy, 0);
+
+            if(DebuggingVariables.PlayersHaveInfiniteEnergy)
+            {
+                CurrentEnergy = MaxEnergy;
+            }
         }
 
         private void DoShootingFireActivity(Bullet.DataCategory bulletData)

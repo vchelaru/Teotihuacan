@@ -399,6 +399,12 @@
       <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>WaveStateInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
   </State>
   <Instance>
     <Name>PlayerHUDInstance</Name>
@@ -458,6 +464,11 @@
   <Instance>
     <Name>PauseMenuInstance</Name>
     <BaseType>Menus/PauseMenu</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>WaveStateInstance</Name>
+    <BaseType>WaveState</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>

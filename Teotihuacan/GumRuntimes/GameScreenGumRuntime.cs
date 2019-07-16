@@ -19,6 +19,8 @@ namespace Teotihuacan.GumRuntimes
         public event EventHandler ResumeClicked;
         public event EventHandler QuitClicked;
 
+        public event Action StartLevel;
+
         partial void CustomInitialize()
         {
             PauseMenuInstance.ResumeClicked += (not, used) => ResumeClicked(this, null);
@@ -101,6 +103,28 @@ namespace Teotihuacan.GumRuntimes
                 };
             };
 
+        }
+
+        public void ShowLevelStart()
+        {
+            LevelStartInstance.Visible = true;
+            LevelStartInstance.FadeInAndCountDownAnimation.EndReached += () =>
+            {
+                LevelStartInstance.Visible = false;
+                StartLevel();
+            };
+            LevelStartInstance.FadeInAndCountDownAnimation.Play();
+        }
+
+        public void SetWaveMessageText(string message)
+        {
+            WaveStateInstance.WaveMessageText = message;
+            WaveStateInstance.Visible = true;
+        }
+
+        public void HideWaveStateInstance()
+        {
+            WaveStateInstance.Visible = false;
         }
 
         public void SetPauseScreenVisibility(bool isVisible)

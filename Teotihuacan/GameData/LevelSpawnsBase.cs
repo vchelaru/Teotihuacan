@@ -11,8 +11,13 @@ namespace Teotihuacan.GameData
         public List<Entities.Enemy.DataCategory> Spawns { get; set; }
     }
 
+    public class Wave
+    {
+        public List<MiniWave> MiniWaves { get; set; }
+    }
+
     public class LevelSpawnsBase
     {
-        public List<MiniWave> MiniWaves { get; private set; } = new List<MiniWave>();
+        public List<Wave> Waves { get; private set; } = new List<Wave>();
     }
 }

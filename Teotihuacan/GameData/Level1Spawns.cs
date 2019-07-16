@@ -10,42 +10,84 @@ namespace Teotihuacan.GameData
     {
         public Level1Spawns()
         {
-            this.MiniWaves.Add(
-                new MiniWave
+            this.Waves.Add(
+            new Wave
+            {
+                MiniWaves = new List<MiniWave>
                 {
-                    Spawns = new List<Entities.Enemy.DataCategory>
+                    new MiniWave
                     {
-                        Entities.Enemy.DataCategory.Shooter,
-                    }
-                });
+                        Spawns = new List<Entities.Enemy.DataCategory>
+                        {
+                            Entities.Enemy.DataCategory.Shooter,
+                        }
+                    },
+                    new MiniWave
+                    {
+                        Spawns = new List<Entities.Enemy.DataCategory>
+                        {
+                            Entities.Enemy.DataCategory.Shooter,
+                        }
+                    },
+                }
+            });
 
-            this.MiniWaves.Add(
-                new MiniWave
+            this.Waves.Add(
+            new Wave
+            {
+                MiniWaves = new List<MiniWave>
                 {
-                    Spawns = new List<Entities.Enemy.DataCategory>
+                    new MiniWave
                     {
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                    }
-                });
+                        Spawns = new List<Entities.Enemy.DataCategory>
+                        {
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                        }
+                    },
+                    new MiniWave
+                    {
+                        Spawns = new List<Entities.Enemy.DataCategory>
+                        {
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                        }
+                    },
+                }
+            });
 
-            this.MiniWaves.Add(
-                new MiniWave
+            this.Waves.Add(
+            new Wave
+            {
+                MiniWaves = new List<MiniWave>
                 {
-                    Spawns = new List<Entities.Enemy.DataCategory>
+                    new MiniWave
                     {
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                        Entities.Enemy.DataCategory.Shooter,
-                    }
-                });
+                        Spawns = new List<Entities.Enemy.DataCategory>
+                        {
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                        }
+                    },
+                    new MiniWave
+                    {
+                        Spawns = new List<Entities.Enemy.DataCategory>
+                        {
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                            Entities.Enemy.DataCategory.Shooter,
+                        }
+                    },
+                }
+            });
         }
     }
 }

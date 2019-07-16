@@ -193,6 +193,8 @@
     <Compile Include="GumRuntimes\UiTestScreenGumRuntime.Generated.cs">
       <DependentUpon>UiTestScreenGumRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\WaveStateRuntime.cs" />
+    <Compile Include="GumRuntimes\WaveStateRuntime.Generated.cs" />
     <Compile Include="Managers\LightningWeaponManager.cs" />
     <Compile Include="Managers\SpawnManager.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
@@ -449,6 +451,10 @@
     <None Include="content\gumproject\components\playerhudjoin.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>playerhudjoin</Name>
+    </None>
+    <None Include="content\gumproject\components\wavestate.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>wavestate</Name>
     </None>
     <None Include="content\gumproject\fontcache\font18arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
