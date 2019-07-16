@@ -3924,6 +3924,11 @@
             was unable to process the request.
             </returns>
         </member>
+        <member name="T:FlatRedBall.Input.IPressableInput">
+            <summary>
+            Provides a common interface for input devices which can have a down/not down state, such as a game pad or mouse button.
+            </summary>
+        </member>
         <member name="P:FlatRedBall.Input.IPressableInput.IsDown">
             <summary>
             Returns whether the input is down (such as if a key is held or a mouse button is down)
@@ -3932,6 +3937,11 @@
         <member name="P:FlatRedBall.Input.IPressableInput.WasJustPressed">
             <summary>
             Returns whether the input was pressed this frame (not down last frame, is down this frame)
+            </summary>
+        </member>
+        <member name="P:FlatRedBall.Input.IPressableInput.WasJustReleased">
+            <summary>
+            Returns whether the input was released this frame(down last frame, not down this frame)
             </summary>
         </member>
         <member name="T:FlatRedBall.Input.MultiplePressableInputs">
@@ -3950,6 +3960,46 @@
             jumpInput.Inputs.Add(InputManager.Keyboard.GetKey(Keys.Space));
             jumpInput.Inputs.Add(InputManager.Keyboard.GetKey(Keys.Enter));
             </example>
+        </member>
+        <member name="T:FlatRedBall.Input.I2DInput">
+            <summary>
+            Provides a common interface for input devices which can return values on the X and Y axis, such as an analog stick.
+            </summary>
+        </member>
+        <member name="P:FlatRedBall.Input.I2DInput.X">
+            <summary>
+            The X value of the input device, typically between 0 and 1.
+            </summary>
+            <example>
+            // Assuming inputDevice is an I2DInput instance
+            this.XVelocity = inputDevice.X * this.MaxSpeed;
+            </example>
+        </member>
+        <member name="P:FlatRedBall.Input.I2DInput.Y">
+            <summary>
+            The Y value of the input device, typically between 0 and 1.
+            </summary>
+            <example>
+            // Assuming inputDevice is an I2DInput instance
+            this.YVelocity = inputDevice.Y * this.MaxSpeed;
+            </example>
+        </member>
+        <member name="P:FlatRedBall.Input.I2DInput.XVelocity">
+            <summary>
+            The rate of change of the input device on the X axis. This measures how fast the user is changing the device. For example,
+            it can be used to tell how fast the user's thumb is moving on an analog stick.
+            </summary>
+        </member>
+        <member name="P:FlatRedBall.Input.I2DInput.YVelocity">
+            <summary>
+            The rate of change of the input device on the Y axis. This measures how fast the user is changing the device. For example,
+            it can be used to tell how fast the user's thumb is moving on an analog stick.
+            </summary>
+        </member>
+        <member name="P:FlatRedBall.Input.I2DInput.Magnitude">
+            <summary>
+            The distance from (0,0) of the input device. It can be used to detect if any input is being applied on this input device.
+            </summary>
         </member>
         <member name="M:FlatRedBall.Input.I2DInputExtensions.GetAngle(FlatRedBall.Input.I2DInput)">
             <summary>
@@ -6449,6 +6499,12 @@
             so relationships can be cleared.
             </summary>
         </member>
+        <member name="P:FlatRedBall.Math.Collision.CollisionRelationship.CollidedThisFrame">
+            <summary>
+            Whether a collision occurred this frame. This is set when the collision performs its collision logic in DoCollisions, which
+            may get called automatically, or may get called manually if IsActive is set to false.
+            </summary>
+        </member>
         <member name="P:FlatRedBall.Math.Collision.CollisionRelationship.IsActive">
             <summary>
             Whether the CollisionManager autoamtically calls DoCollisions on this relationship every frame.
@@ -6463,6 +6519,14 @@
             <remarks>
             A value of 1 will result in 1 frame being skipped after performing collisio logic resulting in collision being performed every other frame.
             </remarks>
+        </member>
+        <member name="M:FlatRedBall.Math.Collision.CollisionRelationship.DoCollisions">
+            <summary>
+            Performs the collision logic and returns whether a collision has occurred. This method
+            does not need to be called if the CollisionRelationship is part of the CollisionManager
+            and if its IsActive is set to true (both of which are the most common setup).
+            </summary>
+            <returns>Whether collisions occurred this frame.</returns>
         </member>
         <member name="M:FlatRedBall.Math.Geometry.AxisAlignedRectangle.CollideAgainst(FlatRedBall.Math.Geometry.Circle)">
             <summary>
