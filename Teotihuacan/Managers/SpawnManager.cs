@@ -26,17 +26,13 @@ namespace Teotihuacan.Managers
                 {
                     var miniWave = spawns.MiniWaves[CurrentSpawnIndex];
 
+                    // make the same spawn point used for all enemies on this subwave
+                    var spawnPoint = FlatRedBallServices.Random.In(spawnPoints);
+
                     foreach (var data in miniWave.Spawns)
                     {
-                        // todo - determine spawn locations...
-                        var x = 100;
-                        var y = -100;
-
-                        var spawnPoint = FlatRedBallServices.Random.In(spawnPoints);
-
                         var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
                         enemy.CurrentDataCategoryState = data;
-
                     }
 
                     CurrentSpawnIndex++;
