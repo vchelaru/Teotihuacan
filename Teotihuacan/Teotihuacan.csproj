@@ -184,7 +184,9 @@
     <Compile Include="GumRuntimes\PolygonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RivaTestScreenGumRuntime.cs" />
-    <Compile Include="GumRuntimes\RivaTestScreenGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\RivaTestScreenGumRuntime.Generated.cs">
+      <DependentUpon>RivaTestScreenGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\UiTestScreenGumRuntime.cs" />

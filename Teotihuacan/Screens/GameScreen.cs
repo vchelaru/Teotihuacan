@@ -364,7 +364,6 @@ namespace Teotihuacan.Screens
 
             PlayerList.Add(player);
             player.InitializeTopDownInput(controller);
-            player.SetTwinStickInput(controller);
 
             return player;
         }

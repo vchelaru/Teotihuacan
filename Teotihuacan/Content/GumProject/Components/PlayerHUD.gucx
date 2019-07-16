@@ -635,8 +635,8 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>WeaponCathegoryState</Type>
-      <Name>WeaponCathegoryState</Name>
+      <Type>WeaponCategoryState</Type>
+      <Name>WeaponCategoryState</Name>
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
@@ -1064,7 +1064,7 @@
     </State>
   </Category>
   <Category>
-    <Name>WeaponCathegory</Name>
+    <Name>WeaponCategory</Name>
     <State>
       <Name>Fireball</Name>
       <Variable>

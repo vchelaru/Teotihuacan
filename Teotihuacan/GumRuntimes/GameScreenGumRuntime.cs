@@ -56,9 +56,23 @@ namespace Teotihuacan.GumRuntimes
             foreach(var player in players)
             {
                 var index = player.CurrentColorCategoryState.ToInt();
+                var hud = playerHuds[index];
 
-                playerHuds[index].Visible = true;
-                playerHuds[index].UpdateHealth(player);
+                hud.Visible = true;
+                switch(player.EquippedWeapon)
+                {
+                    case Animation.SecondaryActions.ShootingFire:
+                        hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Fireball;
+                        break;
+                    case Animation.SecondaryActions.ShootingLightning:
+                        hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Lightning;
+                        break;
+                    case Animation.SecondaryActions.ShootingSkulls:
+                        hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Skull;
+
+                        break;
+                }
+                hud.UpdateHealth(player);
             }
 
             for(int i = 0; i < 4; i++)
@@ -74,11 +88,19 @@ namespace Teotihuacan.GumRuntimes
         public void ShowGameOver(Screens.GameScreen currentScreen)
         {
             this.GameOverInstance.Visible = true;
-            GameOverInstance.FadeToBlackAnimation.Play();
-            GameOverInstance.FadeToBlackAnimation.EndReached += () =>
+
+            this.GameOverInstance.PopupAppearAnimation.SetInitialState();
+            this.GameOverInstance.PopupAppearAnimation.Play();
+            this.GameOverInstance.PopupAppearAnimation.EndReached += () =>
             {
-                currentScreen.RestartScreen(false);
+
+                GameOverInstance.FadeToBlackAnimation.PlayAfter(3);
+                GameOverInstance.FadeToBlackAnimation.EndReached += () =>
+                {
+                    currentScreen.RestartScreen(false);
+                };
             };
+
         }
 
         public void SetPauseScreenVisibility(bool isVisible)

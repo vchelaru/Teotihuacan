@@ -55,6 +55,9 @@ namespace Teotihuacan.Entities
         I2DInput rightStick;
         Vector3 aimingVector;
         AnimationController spriteAnimationController;
+        IPressableInput swapWeaponsBack;
+        IPressableInput swapWeaponsForward;
+
         bool isPrimaryInputDown
         {
             get
@@ -103,6 +106,8 @@ namespace Teotihuacan.Entities
             get; private set;
         } = new LightningWeaponManager();
 
+        public float CurrentEnergy { get; private set; }
+
         #endregion
 
         #region Initialize
@@ -116,6 +121,7 @@ namespace Teotihuacan.Entities
 		{
             this.PossibleDirections = PossibleDirections.EightWay;
             CurrentHP = MaxHP;
+            CurrentEnergy = MaxEnergy;
 
             lightningAttachment = new PositionedObject();
             lightningAttachment.AttachTo(this);
@@ -139,10 +145,19 @@ namespace Teotihuacan.Entities
             spriteAnimationController.Layers.Add(shootingLayer);
         }
 
-        public void SetTwinStickInput(Xbox360GamePad gamePad)
+        partial void CustomInitializeTopDownInput()
         {
-            InitializeTopDownInput(gamePad);
-            rightStick = gamePad.RightStick;
+            if(InputDevice is Xbox360GamePad gamePad)
+            {
+                rightStick = gamePad.RightStick;
+                swapWeaponsBack = gamePad.GetButton(Xbox360GamePad.Button.DPadLeft);
+                swapWeaponsForward = gamePad.GetButton(Xbox360GamePad.Button.DPadRight);
+            }
+            else if(InputDevice is Keyboard keyboard)
+            {
+                swapWeaponsBack = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Q);
+                swapWeaponsForward = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.E);
+            }
         }
 
         private void InitializeCollision()
@@ -164,11 +179,32 @@ namespace Teotihuacan.Entities
             DoAimingActivity();
             DoShootingActivity();
             DoMovementValueUpdate();
+            DoWeaponSwappingLogic();
             spriteAnimationController.Activity();
             UpdateOverlaySprite();
             LightningEndpointSprite.Visible = 
                 CurrentSecondaryAction == SecondaryActions.ShootingLightning;
 		}
+
+        private void DoWeaponSwappingLogic()
+        {
+            if(swapWeaponsBack.WasJustPressed)
+            {
+                switch(EquippedWeapon)
+                {
+                    case SecondaryActions.ShootingFire: EquippedWeapon = SecondaryActions.ShootingLightning; break;
+                    case SecondaryActions.ShootingLightning: EquippedWeapon = SecondaryActions.ShootingFire; break;
+                }
+            }
+            if(swapWeaponsForward.WasJustPressed)
+            {
+                switch (EquippedWeapon)
+                {
+                    case SecondaryActions.ShootingFire: EquippedWeapon = SecondaryActions.ShootingLightning; break;
+                    case SecondaryActions.ShootingLightning: EquippedWeapon = SecondaryActions.ShootingFire; break;
+                }
+            }
+        }
 
         private void DoPrimaryActionActivity()
         {
@@ -217,11 +253,15 @@ namespace Teotihuacan.Entities
                     CurrentSecondaryAction = SecondaryActions.ShootingFire;
                     bulletData = Bullet.DataCategory.PlayerFire;
                 }
-                else if(EquippedWeapon == SecondaryActions.ShootingLightning)
+                else if(EquippedWeapon == SecondaryActions.ShootingLightning && CurrentEnergy > 0)
                 {
                     CurrentSecondaryAction = SecondaryActions.ShootingLightning;
                     // not sure what this is:
                     bulletData = Bullet.DataCategory.PlayerFire;
+                }
+                else
+                {
+                    CurrentSecondaryAction = SecondaryActions.None;
                 }
             }
             else
@@ -231,11 +271,23 @@ namespace Teotihuacan.Entities
 
             if(CurrentSecondaryAction == SecondaryActions.ShootingFire &&
                 FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastFireShotTime) > 
-                1/FireShotsPerSecond
+                1/FireShotsPerSecond && 
+                CurrentEnergy > Bullet.EnergyUsePerShot
                 )
             {
                 DoShootingFireActivity(bulletData);
             }
+            else if(CurrentSecondaryAction == SecondaryActions.ShootingLightning)
+            {
+                CurrentEnergy -= LightningEnergyUsePerSecond * TimeManager.SecondDifference;
+            }
+            else if(isPrimaryInputDown == false)
+            {
+                CurrentEnergy += EnergyRecoveryRate * TimeManager.SecondDifference;
+            }
+
+            CurrentEnergy = System.Math.Min(CurrentEnergy, MaxEnergy);
+            CurrentEnergy = System.Math.Max(CurrentEnergy, 0);
         }
 
         private void DoShootingFireActivity(Bullet.DataCategory bulletData)
@@ -247,6 +299,8 @@ namespace Teotihuacan.Entities
             bullet.CurrentDataCategoryState = bulletData;
             bullet.Velocity = bullet.BulletSpeed * direction;
             bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections));
+
+            CurrentEnergy -= Bullet.EnergyUsePerShot;
 
             shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.ShootingFire));
 

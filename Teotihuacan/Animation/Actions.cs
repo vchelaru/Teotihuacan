@@ -21,7 +21,8 @@ namespace Teotihuacan.Animation
     {
         None = 0,
         ShootingFire = 1,
-        ShootingLightning = 2
+        ShootingLightning = 2,
+        ShootingSkulls = 3,
     }
 
     public static class ActionsExtentions
