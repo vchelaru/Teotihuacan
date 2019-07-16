@@ -27,6 +27,14 @@ namespace Teotihuacan.GameData
                         Entities.Enemy.DataCategory.Shooter,
                         Entities.Enemy.DataCategory.Shooter,
                         Entities.Enemy.DataCategory.Shooter,
+                    }
+                });
+
+            this.MiniWaves.Add(
+                new MiniWave
+                {
+                    Spawns = new List<Entities.Enemy.DataCategory>
+                    {
                         Entities.Enemy.DataCategory.Shooter,
                         Entities.Enemy.DataCategory.Shooter,
                         Entities.Enemy.DataCategory.Shooter,
@@ -38,7 +46,6 @@ namespace Teotihuacan.GameData
                 {
                     Spawns = new List<Entities.Enemy.DataCategory>
                     {
-                        Entities.Enemy.DataCategory.Shooter,
                         Entities.Enemy.DataCategory.Shooter,
                         Entities.Enemy.DataCategory.Shooter,
                         Entities.Enemy.DataCategory.Shooter,
