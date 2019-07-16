@@ -91,7 +91,7 @@ namespace Teotihuacan.GumRuntimes
         {
             this.GameOverInstance.Visible = true;
 
-            this.GameOverInstance.PopupAppearAnimation.SetInitialState();
+            //this.GameOverInstance.CurrentVisualsAlphaState = GameOverRuntime.VisualsAlpha.Transparent;
             this.GameOverInstance.PopupAppearAnimation.Play();
             this.GameOverInstance.PopupAppearAnimation.EndReached += () =>
             {

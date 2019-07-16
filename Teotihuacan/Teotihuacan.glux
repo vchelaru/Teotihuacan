@@ -1487,6 +1487,21 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">File</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/UiTestScreenGum.gusx</SourceFile>
+          <SourceName>GameOverInstance (Teotihuacan.GumRuntimes.GameOverRuntime)</SourceName>
+          <InstanceName>GameOverInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
   </Screens>
@@ -1520,7 +1535,7 @@
                 <InstructionSave>
                   <Type>Int32</Type>
                   <Member>DamageToDeal</Member>
-                  <ValueAsInt>5</ValueAsInt>
+                  <ValueAsInt>6</ValueAsInt>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Single</Type>
@@ -1642,7 +1657,7 @@
           </Properties>
           <Name>EnergyUsePerShot</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">15</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>
@@ -2291,7 +2306,7 @@
           </Properties>
           <Name>FireShotsPerSecond</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">4</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">6</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
