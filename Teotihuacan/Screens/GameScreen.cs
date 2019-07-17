@@ -453,6 +453,11 @@ namespace Teotihuacan.Screens
             {
                 var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
                 gameScreenGumRuntime.SetWaveMessageText($"Wave Complete");
+
+                foreach (var playerBase in PlayerBaseList)
+                {
+                    playerBase.Heal(HealingBetweenWaves);
+                }
                 this.Call(() =>
                 {
                     if (Spawns.Waves.Count > spawnManager.CurrentWaveIndex + 1)
