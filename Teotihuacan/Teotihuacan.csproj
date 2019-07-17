@@ -194,7 +194,9 @@
       <DependentUpon>UiTestScreenGumRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\WaveStateRuntime.cs" />
-    <Compile Include="GumRuntimes\WaveStateRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\WaveStateRuntime.Generated.cs">
+      <DependentUpon>WaveStateRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\LightningWeaponManager.cs" />
     <Compile Include="Managers\SpawnManager.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
