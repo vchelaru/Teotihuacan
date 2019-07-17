@@ -180,6 +180,7 @@
           </Properties>
           <Name>HealingBetweenWaves</Name>
           <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">50</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>

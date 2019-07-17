@@ -35,6 +35,11 @@ namespace Teotihuacan.Entities
 
 		}
 
+        public void Heal(int ammountToHeal)
+        {
+            CurrentHP = Math.Min(CurrentHP + ammountToHeal, MaxHp);
+        }
+
         public bool TakeDamage(int damageToTake)
         {
             bool tookDamage = false;
