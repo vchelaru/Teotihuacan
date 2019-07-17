@@ -413,35 +413,54 @@ namespace Teotihuacan.Entities
 
         private void UpdateOverlaySprite()
         {
-            var show = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastHealingTime) <
+            var isHealing = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastHealingTime) <
                 .25f;
+            var isLowHealth = (CurrentHP / MaxHP) < .25f;
+            var isLowEnergy = (CurrentEnergy / MaxEnergy) < .25;
 
-            if(show)
+            if(isHealing)
             {
-                BlueOverlay.Visible = true;
-                BlueOverlay.RelativePosition = SpriteInstance.RelativePosition;
-                BlueOverlay.LeftTextureCoordinate = SpriteInstance.LeftTextureCoordinate;
-                BlueOverlay.RightTextureCoordinate = SpriteInstance.RightTextureCoordinate;
-                BlueOverlay.TopTextureCoordinate = SpriteInstance.TopTextureCoordinate;
-                BlueOverlay.BottomTextureCoordinate = SpriteInstance.BottomTextureCoordinate;
-                BlueOverlay.FlipHorizontal = SpriteInstance.FlipHorizontal;
-                BlueOverlay.FlipVertical = SpriteInstance.FlipVertical;
-
-                var time = (TimeManager.CurrentTime * 3) % 2;
-
-                if(time < 1)
-                {
-                    BlueOverlay.Alpha = (float)(1 - time / 2.0f);
-                }
-                else
-                {
-                    BlueOverlay.Alpha = (float)time / 2.0f;
-                }
-
+                OverlaySprite.Visible = true;
+                CurrentOverlayColorState = Player.OverlayColor.BeingHealed;
+            }
+            else if(isLowEnergy)
+            {
+                OverlaySprite.Visible = true;
+                CurrentOverlayColorState = Player.OverlayColor.CriticalMp;
+            }
+            else if(isLowHealth)
+            {
+                OverlaySprite.Visible = true;
+                CurrentOverlayColorState = Player.OverlayColor.CriticalHp;
             }
             else
             {
-                BlueOverlay.Visible = false;
+                OverlaySprite.Visible = false;
+            }
+
+            if(OverlaySprite.Visible)
+            {
+                OverlaySprite.RelativePosition = SpriteInstance.RelativePosition;
+                OverlaySprite.LeftTextureCoordinate = SpriteInstance.LeftTextureCoordinate;
+                OverlaySprite.RightTextureCoordinate = SpriteInstance.RightTextureCoordinate;
+                OverlaySprite.TopTextureCoordinate = SpriteInstance.TopTextureCoordinate;
+                OverlaySprite.BottomTextureCoordinate = SpriteInstance.BottomTextureCoordinate;
+                OverlaySprite.FlipHorizontal = SpriteInstance.FlipHorizontal;
+                OverlaySprite.FlipVertical = SpriteInstance.FlipVertical;
+
+                var zeroTo2 = (TimeManager.CurrentTime * 2) % 2;
+
+                if(zeroTo2 < 1)
+                {
+                    OverlaySprite.Alpha = (float)(zeroTo2 * .7f);
+                }
+                else
+                {
+                    var from2 = 2 - zeroTo2;
+
+                    OverlaySprite.Alpha = (float)(.7 * (from2));
+                }
+
             }
         }
 

@@ -2266,6 +2266,87 @@
           <Name>ColorCategory</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
         </StateSaveCategory>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>OverlaySpriteRed</Member>
+                  <ValueAsFloat>1</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>OverlaySpriteGreen</Member>
+                  <ValueAsFloat>0</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>OverlaySpriteBlue</Member>
+                  <ValueAsFloat>0</ValueAsFloat>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>CriticalHp</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>OverlaySpriteRed</Member>
+                  <ValueAsFloat>0.3</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>OverlaySpriteGreen</Member>
+                  <ValueAsFloat>0.7</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>OverlaySpriteBlue</Member>
+                  <ValueAsFloat>1</ValueAsFloat>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>CriticalMp</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>OverlaySpriteRed</Member>
+                  <ValueAsFloat>0.6</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>OverlaySpriteGreen</Member>
+                  <ValueAsFloat>0.8</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>OverlaySpriteBlue</Member>
+                  <ValueAsFloat>0</ValueAsFloat>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>BeingHealed</Name>
+            </StateSave>
+          </States>
+          <ExcludedVariables>
+            <string>X</string>
+            <string>Y</string>
+            <string>Z</string>
+            <string>FireShotsPerSecond</string>
+            <string>MaxHP</string>
+            <string>FlashDuration</string>
+            <string>CurrentColorCategoryState</string>
+            <string>SpriteInstanceAnimationChains</string>
+            <string>LightningLength</string>
+            <string>LightningDps</string>
+            <string>MaxEnergy</string>
+            <string>LightningEnergyUsePerSecond</string>
+            <string>EnergyRecoveryRate</string>
+          </ExcludedVariables>
+          <Name>OverlayColor</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
       </StateCategoryList>
       <CustomVariables>
         <CustomVariable>
@@ -2414,6 +2495,45 @@
           <DefaultValue xsi:type="xsd:float">20</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>OverlaySpriteRed</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <SourceObject>OverlaySprite</SourceObject>
+          <SourceObjectProperty>Red</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>OverlaySpriteGreen</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <SourceObject>OverlaySprite</SourceObject>
+          <SourceObjectProperty>Green</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>OverlaySpriteBlue</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+          <SourceObject>OverlaySprite</SourceObject>
+          <SourceObjectProperty>Blue</SourceObjectProperty>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\Player</Name>
@@ -2473,6 +2593,11 @@
             <Member>BlendOperation</Member>
             <ValueAsInt>1</ValueAsInt>
           </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>6</ValueAsInt>
+          </CustomProperty>
           <Properties>
             <PropertySave>
               <Name>SourceType</Name>
@@ -2481,7 +2606,7 @@
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
-          <InstanceName>BlueOverlay</InstanceName>
+          <InstanceName>OverlaySprite</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
