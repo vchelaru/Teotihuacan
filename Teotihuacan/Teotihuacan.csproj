@@ -610,6 +610,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>tilesheet_main</Name>
     </None>
+    <None Include="content\various\base.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Base</Name>
+    </None>
+    <None Include="content\various\base_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Base_SpriteSheet</Name>
+    </None>
     <None Include="content\various\misc_sprites.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>misc_sprites</Name>

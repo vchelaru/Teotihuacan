@@ -9,6 +9,9 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 
+using StateInterpolationPlugin;
+using FlatRedBall.Glue.StateInterpolation;
+
 namespace Teotihuacan.Entities
 {
 	public partial class PlayerBase
@@ -17,6 +20,7 @@ namespace Teotihuacan.Entities
         public int CurrentHP { get; private set; }
         bool canTakeDamage => CurrentHP > 0;
 
+        Tweener pedestalPulseTweener;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -27,7 +31,18 @@ namespace Teotihuacan.Entities
 		{
             CurrentHP = MaxHp;
 
-		}
+
+            pedestalPulseTweener = this.PedestalPulsingFxSpriteInstance.Tween(
+                "Alpha", 0.8f, 3.6f, 
+                FlatRedBall.Glue.StateInterpolation.InterpolationType.Linear, 
+                FlatRedBall.Glue.StateInterpolation.Easing.Out);
+
+            pedestalPulseTweener.Ended += () => 
+                {
+                    pedestalPulseTweener.Reverse();
+                    pedestalPulseTweener.Start();
+                };
+        }
 
 		private void CustomActivity()
 		{
@@ -67,17 +82,17 @@ namespace Teotihuacan.Entities
 
         private void FlashWhite()
         {
-            this.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
-            this.SpriteInstance.Red = 1;
-            this.SpriteInstance.Green = 1;
-            this.SpriteInstance.Blue = 1;
+            this.StatueSpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.ColorTextureAlpha;
+            this.StatueSpriteInstance.Red = 1;
+            this.StatueSpriteInstance.Green = 1;
+            this.StatueSpriteInstance.Blue = 1;
 
             this.Call(ReturnFromFlash).After(FlashDuration);
         }
 
         private void ReturnFromFlash()
         {
-            this.SpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
+            this.StatueSpriteInstance.ColorOperation = FlatRedBall.Graphics.ColorOperation.Texture;
         }
 
         private void CustomDestroy()
