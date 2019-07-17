@@ -25,9 +25,7 @@ namespace Teotihuacan.Entities
         float defaultOrthoWidth;
 
         float orthoZoom = 1;
-        float orthoZoomVelocity = 0;
-        float zoomOutBounds = 30;
-        float zoomInBounds = 70;
+
         float minXThisFrame = 0;
         float maxXThisFrame = 0;
         float minYThisFrame = 0;
@@ -55,8 +53,8 @@ namespace Teotihuacan.Entities
             this.X = targetX;
             this.Y = targetY;
 
-            float desiredWidth = maxXThisFrame - minXThisFrame + zoomOutBounds;
-            float desiredHeight = maxYThisFrame - minYThisFrame + +zoomOutBounds;
+            float desiredWidth = maxXThisFrame - minXThisFrame + ZoomOutBounds;
+            float desiredHeight = maxYThisFrame - minYThisFrame + +ZoomOutBounds;
 
             float startingZoom = Math.Max(1, desiredWidth / Camera.Main.OrthogonalWidth);
             startingZoom = Math.Max(startingZoom, desiredHeight / Camera.Main.OrthogonalHeight);
@@ -73,23 +71,12 @@ namespace Teotihuacan.Entities
 
                 CalculateTargetPosition(out targetX, out targetY);
 
-                //Commenting out for now.
-                //if (Map != null)
-                //{
-                //    targetX = Math.Max(Map.X + Camera.Main.OrthogonalWidth / 2.0f, targetX);
-                //    targetX = Math.Min(Map.X + Map.Width - Camera.Main.OrthogonalWidth / 2.0f, targetX);
-
-                //    targetY = Math.Max(Map.Y + Camera.Main.OrthogonalHeight / 2.0f, targetY);
-                //    targetY = Math.Min(Map.Y - Camera.Main.OrthogonalHeight / 2.0f, targetY);
-
-                //    X = Map.X + Map.Width / 2.0f;
-                //    Y = Map.Y - Map.Height / 2.0f;
-                //}
-
                 this.XVelocity = targetX - this.X;
                 this.YVelocity = targetY - this.Y;
 
+                CalculateZoomFromDistance();
 
+                SetOrthoZoom();
             }
 
         }
@@ -112,97 +99,33 @@ namespace Teotihuacan.Entities
             Camera.Main.OrthogonalWidth = defaultOrthoWidth * orthoZoom;
         }
 
-        public override void UpdateDependencies(double currentTime)
-        {
-            base.UpdateDependencies(currentTime);
-            CalculateZoomFromBounds();
-            //CalculateZoomFromDistance();
-
-            SetOrthoZoom();
-        }
-
         private void CalculateZoomFromDistance()
         {
             float currentWidth = maxXThisFrame - minXThisFrame;
             float currentHeight = maxYThisFrame - minYThisFrame;
 
-            float widthDiff = (Camera.Main.OrthogonalWidth - zoomOutBounds) - currentWidth;
-            float heightDiff = (Camera.Main.OrthogonalHeight - zoomOutBounds) - currentHeight;
+            float widthDiff = currentWidth / (Camera.Main.OrthogonalWidth - ZoomOutBounds);
+            float heightDiff = currentHeight / (Camera.Main.OrthogonalHeight - ZoomOutBounds);
 
-            orthoZoomVelocity = Math.Min(0, widthDiff);
-            orthoZoomVelocity = Math.Min(orthoZoomVelocity, heightDiff);
+            float orthoZoomIncrement = Math.Max(0, widthDiff - 1);
+            orthoZoomIncrement = Math.Max(orthoZoomIncrement, heightDiff - 1);
 
-            orthoZoomVelocity = Math.Abs(orthoZoomVelocity);
-            if (orthoZoomVelocity > 0)
+            if (orthoZoomIncrement > 0)
             {
-                orthoZoom += orthoZoomVelocity * TimeManager.SecondDifference;
+                orthoZoom += orthoZoomIncrement;
             }
             else if (orthoZoom > 1)
             {
-                widthDiff = (Camera.Main.OrthogonalWidth - zoomInBounds) - currentWidth;
-                heightDiff = (Camera.Main.OrthogonalHeight - zoomInBounds) - currentHeight;
+                widthDiff = (Camera.Main.OrthogonalWidth - ZoomInBounds) / currentWidth;
+                heightDiff = (Camera.Main.OrthogonalHeight - ZoomInBounds) / currentHeight;
 
-                bool canZoomIn = widthDiff > 0 && heightDiff > 0;
-
+                bool canZoomIn = widthDiff > 1 && heightDiff > 1;
+                
                 if (canZoomIn)
                 {
-                    orthoZoomVelocity = Math.Min(widthDiff, heightDiff);
-                    orthoZoom -= orthoZoomVelocity * TimeManager.SecondDifference;
+                    orthoZoomIncrement = Math.Min(widthDiff - 1, heightDiff - 1);
+                    orthoZoom -= orthoZoomIncrement;
                     orthoZoom = Math.Max(orthoZoom, 1);
-                }
-            }
-        }
-
-        private void CalculateZoomFromBounds()
-        {
-            float cameraHalfWidth = Camera.Main.OrthogonalWidth * .5f;
-            float cameraHalfHeight = Camera.Main.OrthogonalHeight * .5f;
-
-            float leftBound = (X - cameraHalfWidth);
-            float rightBound = (X + cameraHalfWidth);
-            float bottomBound = (Y - cameraHalfHeight);
-            float topBound = (Y + cameraHalfHeight);
-
-            float leftDifference = minXThisFrame - (leftBound + zoomOutBounds);
-            float rightDifference = (rightBound - zoomOutBounds) - maxXThisFrame;
-            float bottomDifference = minYThisFrame - (bottomBound + zoomOutBounds);
-            float topDifference = (topBound - zoomOutBounds) - maxYThisFrame;
-
-            orthoZoomVelocity = Math.Min(0, leftDifference);
-            orthoZoomVelocity = Math.Min(orthoZoomVelocity, rightDifference);
-            orthoZoomVelocity = Math.Min(orthoZoomVelocity, bottomDifference);
-            orthoZoomVelocity = Math.Min(orthoZoomVelocity, topDifference);
-
-            orthoZoomVelocity = Math.Abs(orthoZoomVelocity);
-            if (orthoZoomVelocity > 0)
-            {
-                orthoZoom += orthoZoomVelocity * TimeManager.SecondDifference;
-            }
-            else if (orthoZoom > 1)
-            {
-                leftDifference = minXThisFrame - (leftBound + zoomInBounds);
-                rightDifference = (rightBound - zoomInBounds) - maxXThisFrame;
-                bottomDifference = minYThisFrame - (bottomBound + zoomInBounds);
-                topDifference = (topBound - zoomInBounds) - maxYThisFrame;
-
-                bool shouldZoom = leftDifference > 0 &&
-                                  rightDifference > 0 &&
-                                  bottomDifference > 0 &&
-                                  topDifference > 0;
-
-                if (shouldZoom)
-                {
-                    orthoZoomVelocity = Math.Min(rightDifference, leftDifference);
-                    orthoZoomVelocity = Math.Min(orthoZoomVelocity, rightDifference);
-                    orthoZoomVelocity = Math.Min(orthoZoomVelocity, bottomDifference);
-                    orthoZoomVelocity = Math.Min(orthoZoomVelocity, topDifference);
-
-                    orthoZoomVelocity = Math.Abs(orthoZoomVelocity);
-                    if (orthoZoom > 0)
-                    {
-                        orthoZoom -= orthoZoomVelocity * TimeManager.SecondDifference;
-                        orthoZoom = Math.Max(orthoZoom, 1);
-                    }
                 }
             }
         }
