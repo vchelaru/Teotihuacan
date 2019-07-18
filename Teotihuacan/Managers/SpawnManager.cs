@@ -1,4 +1,5 @@
 ﻿using FlatRedBall;
+using FlatRedBall.Instructions;
 using FlatRedBall.Math;
 using System;
 using System.Collections.Generic;
@@ -42,10 +43,23 @@ namespace Teotihuacan.Managers
                     // make the same spawn point used for all enemies on this subwave
                     var spawnPoint = FlatRedBallServices.Random.In(spawnPoints);
 
-                    foreach (var data in miniWave.Spawns)
+                    for(int i = 0; i < miniWave.Spawns.Count; i++)
                     {
-                        var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
-                        enemy.CurrentDataCategoryState = data;
+                        var data = miniWave.Spawns[i];
+                        if(i == 0)
+                        {
+                            // do it now!
+                            var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
+                            enemy.CurrentDataCategoryState = data;
+                        }
+                        else
+                        {
+                            spawnPoint.Call(() =>
+                            {
+                                var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
+                                enemy.CurrentDataCategoryState = data;
+                            }).After(i * SpawnPoint.SecondsBetweenEachEnemyInMiniWave);
+                        }
                     }
 
                     CurrentSpawnIndex++;

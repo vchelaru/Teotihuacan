@@ -2900,6 +2900,11 @@
             <Member>CurrentFrameIndex</Member>
             <ValueAsInt>1</ValueAsInt>
           </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
           <Properties>
             <PropertySave>
               <Name>SourceType</Name>
@@ -2973,6 +2978,16 @@
             <Type>float</Type>
             <Member>Alpha</Member>
             <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Animate</Member>
+            <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -3149,6 +3164,18 @@
           </Properties>
           <Name>Z</Name>
           <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsBetweenEachEnemyInMiniWave</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.4</DefaultValue>
+          <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
