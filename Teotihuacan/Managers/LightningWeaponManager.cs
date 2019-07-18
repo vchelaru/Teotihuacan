@@ -55,7 +55,8 @@ namespace Teotihuacan.Managers
 
         public void EndCollisionFrameLogic(Player player)
         {
-            if(player.CurrentSecondaryAction == Animation.SecondaryActions.ShootingLightning)
+            if(player.CurrentSecondaryAction == Animation.SecondaryActions.Shooting &&
+                player.EquippedWeapon == Animation.Weapon.ShootingLightning)
             {
                 if (lastLineCollisionPoint == null && lastEnemyLineCollisionPoint == null)
                 {

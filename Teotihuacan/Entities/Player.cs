@@ -89,7 +89,7 @@ namespace Teotihuacan.Entities
         double lastFireShotTime;
         double lastHealingTime;
 
-        public SecondaryActions EquippedWeapon { get; set; }
+        public Weapon EquippedWeapon { get; set; }
 
         public float CurrentHP { get; private set; }
 
@@ -183,7 +183,7 @@ namespace Teotihuacan.Entities
             spriteAnimationController.Activity();
             UpdateOverlaySprite();
             LightningEndpointSprite.Visible = 
-                CurrentSecondaryAction == SecondaryActions.ShootingLightning;
+                CurrentSecondaryAction == SecondaryActions.Shooting && EquippedWeapon == Weapon.ShootingLightning;
 		}
 
         private void DoWeaponSwappingLogic()
@@ -192,16 +192,18 @@ namespace Teotihuacan.Entities
             {
                 switch(EquippedWeapon)
                 {
-                    case SecondaryActions.ShootingFire: EquippedWeapon = SecondaryActions.ShootingLightning; break;
-                    case SecondaryActions.ShootingLightning: EquippedWeapon = SecondaryActions.ShootingFire; break;
+                    case Weapon.ShootingFire: EquippedWeapon = Weapon.ShootingLightning; break;
+                    case Weapon.ShootingLightning: EquippedWeapon = Weapon.ShootingSkulls; break;
+                    case Weapon.ShootingSkulls: EquippedWeapon = Weapon.ShootingFire; break;
                 }
             }
             if(swapWeaponsForward.WasJustPressed)
             {
                 switch (EquippedWeapon)
                 {
-                    case SecondaryActions.ShootingFire: EquippedWeapon = SecondaryActions.ShootingLightning; break;
-                    case SecondaryActions.ShootingLightning: EquippedWeapon = SecondaryActions.ShootingFire; break;
+                    case Weapon.ShootingFire: EquippedWeapon = Weapon.ShootingSkulls; break;
+                    case Weapon.ShootingSkulls: EquippedWeapon = Weapon.ShootingLightning; break;
+                    case Weapon.ShootingLightning: EquippedWeapon = Weapon.ShootingFire; break;
                 }
             }
         }
@@ -248,16 +250,19 @@ namespace Teotihuacan.Entities
             Bullet.DataCategory bulletData = null;
             if (isPrimaryInputDown)
             {
-                if(EquippedWeapon == SecondaryActions.ShootingFire)
+                if(EquippedWeapon == Weapon.ShootingFire)
                 {
-                    CurrentSecondaryAction = SecondaryActions.ShootingFire;
+                    CurrentSecondaryAction = SecondaryActions.Shooting;
                     bulletData = Bullet.DataCategory.PlayerFire;
                 }
-                else if(EquippedWeapon == SecondaryActions.ShootingLightning && CurrentEnergy > 0)
+                else if(EquippedWeapon == Weapon.ShootingLightning && CurrentEnergy > 0)
                 {
-                    CurrentSecondaryAction = SecondaryActions.ShootingLightning;
-                    // not sure what this is:
-                    bulletData = Bullet.DataCategory.PlayerFire;
+                    CurrentSecondaryAction = SecondaryActions.Shooting;
+                }
+                else if(EquippedWeapon == Weapon.ShootingSkulls)
+                {
+                    CurrentSecondaryAction = SecondaryActions.Shooting;
+                    bulletData = Bullet.DataCategory.PlayerSkull;
                 }
                 else
                 {
@@ -269,15 +274,16 @@ namespace Teotihuacan.Entities
                 CurrentSecondaryAction = SecondaryActions.None;
             }
 
-            if(CurrentSecondaryAction == SecondaryActions.ShootingFire &&
+            if(CurrentSecondaryAction == SecondaryActions.Shooting &&
+                bulletData != null &&
                 FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastFireShotTime) > 
-                1/FireShotsPerSecond && 
-                CurrentEnergy > Bullet.EnergyUsePerShot
+                1/ bulletData.ShotsPerSecond && 
+                CurrentEnergy > bulletData.EnergyUsePerShot
                 )
             {
                 DoShootingFireActivity(bulletData);
             }
-            else if(CurrentSecondaryAction == SecondaryActions.ShootingLightning)
+            else if(CurrentSecondaryAction == SecondaryActions.Shooting && EquippedWeapon == Weapon.ShootingLightning)
             {
                 CurrentEnergy -= LightningEnergyUsePerSecond * TimeManager.SecondDifference;
             }
@@ -303,11 +309,11 @@ namespace Teotihuacan.Entities
             bullet.Owner = this;
             bullet.CurrentDataCategoryState = bulletData;
             bullet.Velocity = bullet.BulletSpeed * direction;
-            bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections));
+            bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections), EquippedWeapon);
 
-            CurrentEnergy -= Bullet.EnergyUsePerShot;
+            CurrentEnergy -= bulletData.EnergyUsePerShot;
 
-            shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.ShootingFire));
+            shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.Shooting));
 
             lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
         }
@@ -319,8 +325,7 @@ namespace Teotihuacan.Entities
                 case SecondaryActions.None:
                     mCurrentMovement = TopDownValues[DataTypes.TopDownValues.DefaultValues];
                     break;
-                case SecondaryActions.ShootingFire:
-                case SecondaryActions.ShootingLightning:
+                case SecondaryActions.Shooting:
                     mCurrentMovement = TopDownValues[DataTypes.TopDownValues.WhileShooting];
                     break;
             }
@@ -328,15 +333,21 @@ namespace Teotihuacan.Entities
 
         private string GetChainName(PrimaryActions primaryAction, SecondaryActions secondaryAction = SecondaryActions.None)
         {
+            Weapon? weapon = null;
+
+            if(secondaryAction == SecondaryActions.Shooting)
+            {
+                weapon = EquippedWeapon;
+            }
             if(aimingVector.X != 0 || aimingVector.Y != 0)
             {
                 var direction = TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
 
-                return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, direction);
+                return ChainNameHelperMethods.GenerateChainName(primaryAction, weapon, direction);
             }
             else
             {
-                return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, TopDownDirection.Right);
+                return ChainNameHelperMethods.GenerateChainName(primaryAction, weapon, TopDownDirection.Right);
             }
         }
 

@@ -77,7 +77,7 @@ namespace Teotihuacan.Screens
             {
                 var player = new Player();
                 //player.EquippedWeapon = Animation.SecondaryActions.ShootingLightning;
-                player.EquippedWeapon = Animation.SecondaryActions.ShootingFire;
+                player.EquippedWeapon = Animation.Weapon.ShootingFire;
 
                 player.CurrentColorCategoryState =
                     Player.ColorCategory.Blue;
@@ -300,7 +300,8 @@ namespace Teotihuacan.Screens
             foreach (var player in PlayerList)
             {
                 player.LightningWeaponManager.StartCollisionFrameLogic();
-                if(player.CurrentSecondaryAction == Animation.SecondaryActions.ShootingLightning)
+                if(player.CurrentSecondaryAction == Animation.SecondaryActions.Shooting &&
+                    player.EquippedWeapon == Animation.Weapon.ShootingLightning)
                 {
                     areAnyShooting = true;
                 }
@@ -362,7 +363,7 @@ namespace Teotihuacan.Screens
             var player = new Player();
             player.CurrentColorCategoryState =
                 PlayerList.Count.ToPlayerColorCategory();
-            player.EquippedWeapon = Animation.SecondaryActions.ShootingFire;
+            player.EquippedWeapon = Animation.Weapon.ShootingFire;
 
             PlayerList.Add(player);
             player.InitializeTopDownInput(controller);

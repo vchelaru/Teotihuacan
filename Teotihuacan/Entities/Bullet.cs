@@ -14,7 +14,11 @@ namespace Teotihuacan.Entities
 {
 	public partial class Bullet
 	{
+        #region Fields/Properties
+
         public Player Owner { get; set; }
+
+        #endregion
 
 
         /// <summary>
@@ -22,7 +26,7 @@ namespace Teotihuacan.Entities
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
         /// added to managers will not have this method called.
         /// </summary>
-		private void CustomInitialize()
+        private void CustomInitialize()
 		{
 
 
@@ -34,9 +38,15 @@ namespace Teotihuacan.Entities
 
 		}
 
-        public void SetAnimationChainFromVelocity(TopDownDirection aimingDirection)
+        public void SetAnimationChainFromVelocity(TopDownDirection aimingDirection, Weapon weapon)
         {
-            SpriteInstance.CurrentChainName = ChainNameHelperMethods.GenerateChainName(PrimaryActions.Fireball, aimingDirection);
+            string weaponAnimationName = null;
+            switch(weapon)
+            {
+                case Weapon.ShootingFire: weaponAnimationName = "Fireball"; break;
+                case Weapon.ShootingSkulls: weaponAnimationName = "Skull"; break;
+            }
+            SpriteInstance.CurrentChainName = weaponAnimationName + "_" + aimingDirection.ToFriendlyString();
             var positionOffset = TopDownDirectionExtensions.ToVector(aimingDirection);
 
             Position += positionOffset * OffsetRadius;

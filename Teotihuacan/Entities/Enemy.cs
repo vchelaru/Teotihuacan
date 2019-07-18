@@ -88,7 +88,7 @@ namespace Teotihuacan.Entities
             AnimationLayer walkingLayer = new AnimationLayer();
             walkingLayer.EveryFrameAction = () =>
             {
-                return GetChainName(currentPrimaryAction);
+                return GetChainName(currentPrimaryAction, SecondaryActions.None);
             };
             spriteAnimationController.Layers.Add(walkingLayer);
 
@@ -359,8 +359,8 @@ namespace Teotihuacan.Entities
                 bullet.Z = this.Z - 1;
                 bullet.CurrentDataCategoryState = Bullet.DataCategory.EnemyBullet;
                 bullet.Velocity = bullet.BulletSpeed * aimingVector;
-                bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections));
-                shootingAnimationLayer.PlayOnce(GetChainName(PrimaryActions.shoot));
+                bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections), Weapon.ShootingFire);
+                shootingAnimationLayer.PlayOnce(GetChainName(PrimaryActions.shoot, SecondaryActions.Shooting ));
 
                 lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
 
@@ -433,17 +433,18 @@ namespace Teotihuacan.Entities
         }
 
 
-        private string GetChainName(PrimaryActions primaryAction, SecondaryActions secondaryAction = SecondaryActions.None)
+        private string GetChainName(PrimaryActions primaryAction, SecondaryActions secondaryActions)
         {
             if (aimingVector.X != 0 || aimingVector.Y != 0)
             {
                 var direction = TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
 
-                return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, direction);
+
+                return ChainNameHelperMethods.GenerateChainName(primaryAction, null, direction);
             }
             else
             {
-                return ChainNameHelperMethods.GenerateChainName(primaryAction, secondaryAction, TopDownDirection.Right);
+                return ChainNameHelperMethods.GenerateChainName(primaryAction, null, TopDownDirection.Right);
             }
         }
 

@@ -20,9 +20,14 @@ namespace Teotihuacan.Animation
     public enum SecondaryActions
     {
         None = 0,
+        Shooting = 4
+    }
+
+    public enum Weapon
+    {
         ShootingFire = 1,
         ShootingLightning = 2,
-        ShootingSkulls = 3,
+        ShootingSkulls = 3
     }
 
     public static class ActionsExtentions
@@ -48,14 +53,14 @@ namespace Teotihuacan.Animation
             return $"{nameof(PrimaryActions.idle)}_";
         }
 
-        public static string ToFriendlyString(this SecondaryActions action)
+        public static string ToFriendlyString(this Weapon? weapon)
         {
-            switch(action)
+            switch(weapon)
             {
-                case SecondaryActions.ShootingFire:
-                    return $"{nameof(SecondaryActions.ShootingFire)}_";
-                case SecondaryActions.ShootingLightning:
-                    return $"{nameof(SecondaryActions.ShootingLightning)}_";
+                case Weapon.ShootingFire:
+                    return $"{nameof(Weapon.ShootingFire)}_";
+                case Weapon.ShootingLightning:
+                    return $"{nameof(Weapon.ShootingLightning)}_";
             }
 
             return string.Empty;

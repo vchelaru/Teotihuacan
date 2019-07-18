@@ -63,13 +63,13 @@ namespace Teotihuacan.GumRuntimes
                 hud.Visible = true;
                 switch(player.EquippedWeapon)
                 {
-                    case Animation.SecondaryActions.ShootingFire:
+                    case Animation.Weapon.ShootingFire:
                         hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Fireball;
                         break;
-                    case Animation.SecondaryActions.ShootingLightning:
+                    case Animation.Weapon.ShootingLightning:
                         hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Lightning;
                         break;
-                    case Animation.SecondaryActions.ShootingSkulls:
+                    case Animation.Weapon.ShootingSkulls:
                         hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Skull;
 
                         break;

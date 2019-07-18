@@ -1708,7 +1708,6 @@
           <Name>EnergyUsePerShot</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">5</DefaultValue>
-          <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1926,7 +1925,7 @@
           </Properties>
           <Name>ArePlayersInvincible</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -1938,7 +1937,7 @@
           </Properties>
           <Name>IsBaseInvincible</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>

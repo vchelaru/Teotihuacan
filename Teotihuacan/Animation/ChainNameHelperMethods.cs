@@ -9,9 +9,9 @@ namespace Teotihuacan.Animation
 {
     public static class ChainNameHelperMethods
     {
-        public static string GenerateChainName(PrimaryActions primaryAction, SecondaryActions secondaryAction, TopDownDirection direction)
+        public static string GenerateChainName(PrimaryActions primaryAction, Weapon? weapon, TopDownDirection direction)
         {
-            return $"{primaryAction.ToFriendlyString()}{secondaryAction.ToFriendlyString()}{direction.ToFriendlyString()}";
+            return $"{primaryAction.ToFriendlyString()}{weapon.ToFriendlyString()}{direction.ToFriendlyString()}";
         }
 
         public static string GenerateChainName(PrimaryActions primaryAction, TopDownDirection direction)
