@@ -1543,6 +1543,16 @@
                   <Member>OffsetRadius</Member>
                   <ValueAsFloat>5</ValueAsFloat>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>EnergyUsePerShot</Member>
+                  <ValueAsFloat>5</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ShotsPerSecond</Member>
+                  <ValueAsFloat>6</ValueAsFloat>
+                </InstructionSave>
               </InstructionSaves>
               <Name>PlayerFire</Name>
             </StateSave>
@@ -1571,8 +1581,47 @@
               </InstructionSaves>
               <Name>EnemyBullet</Name>
             </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>TeamIndex</Member>
+                  <ValueAsInt>0</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>BulletSpeed</Member>
+                  <ValueAsFloat>300</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>DamageToDeal</Member>
+                  <ValueAsInt>14</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>OffsetRadius</Member>
+                  <ValueAsFloat>5</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>EnergyUsePerShot</Member>
+                  <ValueAsFloat>12</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ShotsPerSecond</Member>
+                  <ValueAsFloat>1</ValueAsFloat>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>PlayerSkull</Name>
+            </StateSave>
           </States>
-          <ExcludedVariables />
+          <ExcludedVariables>
+            <string>X</string>
+            <string>Y</string>
+            <string>Z</string>
+          </ExcludedVariables>
           <Name>DataCategory</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
         </StateSaveCategory>
@@ -1660,6 +1709,16 @@
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">5</DefaultValue>
           <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ShotsPerSecond</Name>
+          <Type>float</Type>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -2405,18 +2464,6 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>FireShotsPerSecond</Name>
-          <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">6</DefaultValue>
-          <IsShared>true</IsShared>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
               <ValueAsString>int</ValueAsString>
             </PropertySave>
           </Properties>
@@ -2932,7 +2979,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Z</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>0.1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>Microsoft.Xna.Framework.Graphics.Texture2D</Type>
@@ -2965,6 +3012,16 @@
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
+            <Type>bool</Type>
+            <Member>Animate</Member>
+            <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
             <Type>FlatRedBall.Graphics.ColorOperation</Type>
             <Member>ColorOperation</Member>
             <ValueAsInt>0</ValueAsInt>
@@ -2978,16 +3035,6 @@
             <Type>float</Type>
             <Member>Alpha</Member>
             <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>Animate</Member>
-            <ValueAsBool>true</ValueAsBool>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>Visible</Member>
-            <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -3008,7 +3055,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Z</Member>
-            <ValueAsFloat>2</ValueAsFloat>
+            <ValueAsFloat>0.2</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>Microsoft.Xna.Framework.Graphics.Texture2D</Type>
@@ -3034,6 +3081,11 @@
             <Type>string</Type>
             <Member>CurrentChainName</Member>
             <ValueAsString>DamageStates</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>int</Type>
+            <Member>CurrentFrameIndex</Member>
+            <ValueAsInt>0</ValueAsInt>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -3105,6 +3157,21 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">File</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>File</SourceType>
+          <SourceFile>Various/misc_sprites.achx</SourceFile>
+          <SourceName>BigExplosionBase (AnimationChain)</SourceName>
+          <InstanceName>BigExplosionBase</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -3121,6 +3188,12 @@
         </ReferencedFileSave>
         <ReferencedFileSave>
           <Name>Various/Base.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Various/misc_sprites.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />

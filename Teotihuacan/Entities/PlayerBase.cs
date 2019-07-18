@@ -16,18 +16,23 @@ namespace Teotihuacan.Entities
 {
 	public partial class PlayerBase
 	{
+        #region Fields/Properties
 
         public int CurrentHP { get; private set; }
         bool canTakeDamage => CurrentHP > 0;
 
         Tweener pedestalPulseTweener;
 
+        #endregion
+
+        #region Initialize
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
         /// added to managers will not have this method called.
         /// </summary>
-		private void CustomInitialize()
+        private void CustomInitialize()
 		{
             CurrentHP = MaxHp;
 
@@ -44,7 +49,9 @@ namespace Teotihuacan.Entities
                 };
         }
 
-		private void CustomActivity()
+        #endregion
+
+        private void CustomActivity()
 		{
 
 
@@ -65,11 +72,13 @@ namespace Teotihuacan.Entities
                 if(!DebuggingVariables.IsBaseInvincible)
                 {
                     CurrentHP -= damageToTake;
+                    UpdateVisualsToCurrentHealth();
                 }
 
                 if (CurrentHP <= 0)
                 {
-                    //PerformDeath();
+                    PerformDeath();
+
                 }
                 else
                 {
@@ -78,6 +87,54 @@ namespace Teotihuacan.Entities
             }
 
             return tookDamage;
+        }
+
+        private void PerformDeath()
+        {
+            int numberOfExplosions = 13;
+
+            void PlayExplosions()
+            {
+                var maxExplosionDistance = 32;
+
+                var sprite = SpriteManager.AddSprite(BigExplosionBase);
+                sprite.TextureScale = 1;
+                sprite.X = FlatRedBallServices.Random.Between(X - maxExplosionDistance, X + maxExplosionDistance); ;
+                sprite.Y = FlatRedBallServices.Random.Between(Y - maxExplosionDistance, Y + maxExplosionDistance); ;
+                sprite.Z = this.Z + 1f;
+
+                this.Call(() => SpriteManager.RemoveSprite(sprite)).After(BigExplosionBase.TotalLength - TimeManager.SecondDifference);
+            }
+
+            for(int i = 0; i < numberOfExplosions; i++)
+            {
+                if(i == 0)
+                {
+                    PlayExplosions();
+                }
+                else
+                {
+                    this.Call(PlayExplosions).After(i * .13);
+                }
+            }
+        }
+
+        private void UpdateVisualsToCurrentHealth()
+        {
+            var ratio = (float)CurrentHP / MaxHp;
+
+            if(ratio > .5)
+            {
+                StatueSpriteInstance.CurrentFrameIndex = 0;
+            }
+            else if(ratio > .25)
+            {
+                StatueSpriteInstance.CurrentFrameIndex = 1;
+            }
+            else // ratio <= .25
+            {
+                StatueSpriteInstance.CurrentFrameIndex = 2;
+            }
         }
 
         private void FlashWhite()
