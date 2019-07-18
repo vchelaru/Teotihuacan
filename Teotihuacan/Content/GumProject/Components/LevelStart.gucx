@@ -106,12 +106,6 @@
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>GodTopGradientInstance.Y</Name>
-      <Value xsi:type="xsd:float">28</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
       <Name>Height</Name>
       <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
@@ -765,11 +759,6 @@
       </Variable>
     </State>
   </Category>
-  <Instance>
-    <Name>GodTopGradientInstance</Name>
-    <BaseType>Menus/MenuParts/GodTopGradient</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
   <Instance>
     <Name>TextOne</Name>
     <BaseType>Text</BaseType>
