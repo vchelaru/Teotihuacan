@@ -9,6 +9,7 @@ using FlatRedBall.Screens;
 using Teotihuacan.Entities;
 using Teotihuacan.Screens;
 using FlatRedBall.TileCollisions;
+using Microsoft.Xna.Framework;
 
 namespace Teotihuacan.Screens
 {
@@ -64,6 +65,16 @@ namespace Teotihuacan.Screens
         {
             enemy.TakeDamage(bulletExplosion.DamageToDeal, bulletExplosion.Owner);
             // don't destroy the explosion, it's aoe and may hit multiple enemies.
+
+            var direction = Vector3.Right;
+
+            if(bulletExplosion.X != enemy.X || bulletExplosion.Y != enemy.Y)
+            {
+                var enemyToBullet = enemy.Position - bulletExplosion.Position;
+                enemyToBullet.Normalize();
+
+                enemy.Velocity += enemyToBullet * bulletExplosion.ExplosionForce;
+            }
 
         }
 
