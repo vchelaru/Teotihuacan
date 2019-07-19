@@ -16,8 +16,13 @@ namespace Teotihuacan.GameData
         public List<MiniWave> MiniWaves { get; set; }
         public void AddMiniWave(params Entities.Enemy.DataCategory[] categories)
         {
-            var miniWave = new MiniWave;
-            miniWave.Spawns.AddRange(categories);
+            var miniWave = new MiniWave();
+            miniWave.Spawns = categories.ToList();
+            if(this.MiniWaves == null)
+            {
+                this.MiniWaves = new List<MiniWave>();
+            }
+            this.MiniWaves.Add(miniWave);
         }
     }
 

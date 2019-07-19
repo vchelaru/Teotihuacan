@@ -89,6 +89,7 @@
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameData\Level1Spawns.cs" />
+    <Compile Include="GameData\Level2Spawns.cs" />
     <Compile Include="GameData\LevelSpawnsBase.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumRuntimes\BaseHUDRuntime.cs" />
@@ -158,7 +159,9 @@
       <DependentUpon>Level1GumRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\Level2GumRuntime.cs" />
-    <Compile Include="GumRuntimes\Level2GumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\Level2GumRuntime.Generated.cs">
+      <DependentUpon>Level2GumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\LevelStartRuntime.cs" />
     <Compile Include="GumRuntimes\LevelStartRuntime.Generated.cs">
       <DependentUpon>LevelStartRuntime.cs</DependentUpon>

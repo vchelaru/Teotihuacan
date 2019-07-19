@@ -11,8 +11,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
-
-
+using Teotihuacan.GameData;
 
 namespace Teotihuacan.Screens
 {
@@ -22,10 +21,11 @@ namespace Teotihuacan.Screens
 		void CustomInitialize()
 		{
 
+            Spawns = new Level2Spawns();
 
-		}
+        }
 
-		void CustomActivity(bool firstTimeCalled)
+        void CustomActivity(bool firstTimeCalled)
 		{
 
 
