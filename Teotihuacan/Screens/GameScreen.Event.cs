@@ -49,7 +49,6 @@ namespace Teotihuacan.Screens
         {
             if(bullet.TeamIndex == 1)
             {
-
                 playerBase.TakeDamage(bullet.DamageToDeal);
                 bullet.PlayerDestroyVfx();
                 bullet.TryExplode();
@@ -63,19 +62,60 @@ namespace Teotihuacan.Screens
         }
         void OnEnemyVsBulletExplosionCollisionCollisionOccurred (Entities.Enemy enemy, Entities.BulletExplosion bulletExplosion) 
         {
-            enemy.TakeDamage(bulletExplosion.DamageToDeal, bulletExplosion.Owner);
-            // don't destroy the explosion, it's aoe and may hit multiple enemies.
-
-            var direction = Vector3.Right;
-
-            if(bulletExplosion.X != enemy.X || bulletExplosion.Y != enemy.Y)
+            if (bulletExplosion.TeamIndex != 1)
             {
-                var enemyToBullet = enemy.Position - bulletExplosion.Position;
-                enemyToBullet.Normalize();
+                enemy.TakeDamage(bulletExplosion.DamageToDeal, bulletExplosion.Owner);
+                // don't destroy the explosion, it's aoe and may hit multiple enemies.
 
-                enemy.Velocity += enemyToBullet * bulletExplosion.ExplosionForce;
+                var direction = Vector3.Right;
+
+                if (bulletExplosion.X != enemy.X || bulletExplosion.Y != enemy.Y)
+                {
+                    var enemyToBullet = enemy.Position - bulletExplosion.Position;
+                    enemyToBullet.Normalize();
+
+                    enemy.Velocity += enemyToBullet * bulletExplosion.ExplosionForce;
+                }
             }
+        }
+        void OnPlayerVsEnemyRelationshipCollisionOccurred (Entities.Player player, Entities.Enemy enemy) 
+        {
+            if(enemy.CurrentTarget == player)
+            {
+                enemy.PerformExplode();
+            }
+        }
+        void OnEnemyVsPlayerBaseSolidCollisionCollisionOccurred (Entities.Enemy enemy, Entities.PlayerBase playerBase) 
+        {
+            if (enemy.CurrentTarget == playerBase)
+            {
+                enemy.PerformExplode();
+            }
+        }
 
+        void OnPlayerBaseVsBulletExplosionCollisionCollisionOccurred (Entities.PlayerBase playerBase, Entities.BulletExplosion bulletExplosion) 
+        {
+            if (bulletExplosion.TeamIndex != 0)
+            {
+                playerBase.TakeDamage(bulletExplosion.DamageToDeal);
+            }
+        }
+        void OnPlayerVsBulletExplosionCollisionCollisionOccurred (Entities.Player player, Entities.BulletExplosion bulletExplosion) 
+        {
+            if (bulletExplosion.TeamIndex != 0)
+            {
+                player.TakeDamage(bulletExplosion.DamageToDeal);
+
+                var direction = Vector3.Right;
+
+                if (bulletExplosion.X != player.X || bulletExplosion.Y != player.Y)
+                {
+                    var enemyToBullet = player.Position - bulletExplosion.Position;
+                    enemyToBullet.Normalize();
+
+                    player.Velocity += enemyToBullet * bulletExplosion.ExplosionForce;
+                }
+            }
         }
 
     }

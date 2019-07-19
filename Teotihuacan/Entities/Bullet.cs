@@ -86,6 +86,7 @@ namespace Teotihuacan.Entities
                 bulletExplosion.Owner = this.Owner;
                 bulletExplosion.DamageToDeal = this.AoeDamage;
                 bulletExplosion.CircleInstance.Radius = this.AoeRadius;
+                bulletExplosion.TeamIndex = this.TeamIndex;
                 bulletExplosion.Call(bulletExplosion.Destroy).After(0); // next frame
 
 

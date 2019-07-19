@@ -52,6 +52,9 @@ namespace Teotihuacan.Entities
         PrimaryActions currentPrimaryAction;
 
         PositionedObject target;
+        public PositionedObject CurrentTarget => target;
+
+        Player playerThatDealtKillingBlow;
 
         PositionedObject forcedTarget;
         double timeForcedTargetSet;
@@ -289,8 +292,8 @@ namespace Teotihuacan.Entities
                 }
 
                 var shouldWalkForward = true;
-
-                if(isInRange)
+                
+                if(isInRange && CurrentDataCategoryState != DataCategory.Suicider)
                 {
                     // line of site
                     CurrentBehavior = Behavior.Shooting;
@@ -380,6 +383,7 @@ namespace Teotihuacan.Entities
                 {
                     System.Diagnostics.Debug.WriteLine(
                         $"Took {damageToTake} damage and died");
+                    playerThatDealtKillingBlow = owner;
                     PerformDeath();
                 }
                 else
@@ -426,14 +430,49 @@ namespace Teotihuacan.Entities
 
         private void PerformDeath()
         {
-            var death = SpriteManager.AddParticleSprite(Death_1_SpriteSheet);
-            death.AnimationChains = Death_1;
-            death.CurrentChainName = nameof(PrimaryActions.Death);
-            death.Position = SpriteInstance.Position;
-            death.TextureScale = 1;
-            death.Animate = true;
-            SpriteManager.RemoveSpriteAtTime(death, death.CurrentChain.TotalLength);
-            Destroy();
+            if (CurrentDataCategoryState != DataCategory.Suicider)
+            {
+                var death = SpriteManager.AddParticleSprite(Death_1_SpriteSheet);
+                death.AnimationChains = Death_1;
+                death.CurrentChainName = nameof(PrimaryActions.Death);
+                death.Position = SpriteInstance.Position;
+                death.TextureScale = 1;
+                death.Animate = true;
+                SpriteManager.RemoveSpriteAtTime(death, death.CurrentChain.TotalLength);
+                Destroy();
+            }
+            else
+            {
+                PerformExplode();
+            }
+        }
+
+        public void PerformExplode()
+        {
+            if (CurrentDataCategoryState == DataCategory.Suicider)
+            {
+                var bulletExplosion = Factories.BulletExplosionFactory.CreateNew(X, Y);
+                bulletExplosion.DamageToDeal = this.AoeDamage;
+                bulletExplosion.Owner = playerThatDealtKillingBlow;
+                bulletExplosion.CircleInstance.Radius = this.AoeRadius;
+                bulletExplosion.TeamIndex = playerThatDealtKillingBlow != null ? 3 : 1;
+                bulletExplosion.Call(bulletExplosion.Destroy).After(0); // next frame
+
+                ExplodeVfx();
+
+                Destroy();
+            }
+        }
+
+        public void ExplodeVfx()
+        {
+            var explode = SpriteManager.AddParticleSprite(misc_sprites_SpriteSheet);
+            explode.AnimationChains = misc_sprites;
+            explode.CurrentChainName = nameof(BigExplosion);
+            explode.Position = SpriteInstance.Position;
+            explode.TextureScale = 1;
+            explode.Animate = true;
+            SpriteManager.RemoveSpriteAtTime(explode, explode.CurrentChain.TotalLength);
         }
 
 
