@@ -30,13 +30,18 @@ namespace Teotihuacan.Screens
             {
                 if(enemy.TakeDamage(bullet.DamageToDeal, bullet.Owner))
                 {
+                    bullet.PlayerDestroyVfx();
+
+                    bullet.TryExplode();
                     bullet.Destroy();
                 }
             }
         }
         void OnBulletVsSolidCollisionOccurred (Bullet bullet, TileShapeCollection solid) 
         {
-            bullet.SpawnVFX();
+            bullet.PlayerDestroyVfx();
+            bullet.TryExplode();
+
             bullet.Destroy();
         }
         void OnBulletVsPlayerBaseSolidCollisionOccurred (Entities.Bullet bullet, Entities.PlayerBase playerBase) 
@@ -45,13 +50,21 @@ namespace Teotihuacan.Screens
             {
 
                 playerBase.TakeDamage(bullet.DamageToDeal);
-                bullet.SpawnVFX();
+                bullet.PlayerDestroyVfx();
+                bullet.TryExplode();
+
                 bullet.Destroy();
             }
         }
         void OnPlayerVsPlayerBaseHealingCollisionOccurred (Entities.Player player, Entities.PlayerBase playerBase) 
         {
             player.Heal(playerBase.HealingRatePerSecond);
+        }
+        void OnEnemyVsBulletExplosionCollisionCollisionOccurred (Entities.Enemy enemy, Entities.BulletExplosion bulletExplosion) 
+        {
+            enemy.TakeDamage(bulletExplosion.DamageToDeal, bulletExplosion.Owner);
+            // don't destroy the explosion, it's aoe and may hit multiple enemies.
+
         }
 
     }

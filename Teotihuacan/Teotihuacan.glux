@@ -157,6 +157,13 @@
           <BeforeOrAfter>Before</BeforeOrAfter>
           <DelegateType />
         </EventResponseSave>
+        <EventResponseSave>
+          <EventName>EnemyVsBulletExplosionCollisionCollisionOccurred</EventName>
+          <SourceObject>EnemyVsBulletExplosionCollision</SourceObject>
+          <SourceObjectEvent>CollisionOccurred</SourceObjectEvent>
+          <BeforeOrAfter>Before</BeforeOrAfter>
+          <DelegateType />
+        </EventResponseSave>
       </Events>
       <CustomVariables>
         <CustomVariable>
@@ -324,6 +331,21 @@
           <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
           <SourceClassGenericType>Entities\Bullet</SourceClassGenericType>
           <InstanceName>BulletList</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\BulletExplosion</SourceClassGenericType>
+          <InstanceName>BulletExplosionList</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -979,6 +1001,42 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionMass</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>SecondCollisionMass</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionElasticity</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionName</Name>
+              <ValueAsString>EnemyList</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>SecondCollisionName</Name>
+              <ValueAsString>BulletExplosionList</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>FlatRedBall.Math.Collision.ListVsListRelationship&lt;Entities.Enemy, Entities.BulletExplosion&gt;</SourceClassType>
+          <InstanceName>EnemyVsBulletExplosionCollision</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
             <Member>X</Member>
@@ -1553,6 +1611,16 @@
                   <Member>ShotsPerSecond</Member>
                   <ValueAsFloat>6</ValueAsFloat>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>AoeRadius</Member>
+                  <ValueAsFloat>0</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>AoeDamage</Member>
+                  <ValueAsInt>0</ValueAsInt>
+                </InstructionSave>
               </InstructionSaves>
               <Name>PlayerFire</Name>
             </StateSave>
@@ -1578,6 +1646,16 @@
                   <Member>OffsetRadius</Member>
                   <ValueAsFloat>5</ValueAsFloat>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>AoeRadius</Member>
+                  <ValueAsFloat>0</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>AoeDamage</Member>
+                  <ValueAsInt>0</ValueAsInt>
+                </InstructionSave>
               </InstructionSaves>
               <Name>EnemyBullet</Name>
             </StateSave>
@@ -1596,7 +1674,7 @@
                 <InstructionSave>
                   <Type>Int32</Type>
                   <Member>DamageToDeal</Member>
-                  <ValueAsInt>14</ValueAsInt>
+                  <ValueAsInt>15</ValueAsInt>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Single</Type>
@@ -1606,12 +1684,22 @@
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>EnergyUsePerShot</Member>
-                  <ValueAsFloat>12</ValueAsFloat>
+                  <ValueAsFloat>33</ValueAsFloat>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>ShotsPerSecond</Member>
-                  <ValueAsFloat>1</ValueAsFloat>
+                  <ValueAsFloat>0.7</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>AoeRadius</Member>
+                  <ValueAsFloat>40</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>AoeDamage</Member>
+                  <ValueAsInt>29</ValueAsInt>
                 </InstructionSave>
               </InstructionSaves>
               <Name>PlayerSkull</Name>
@@ -1719,6 +1807,27 @@
           <Name>ShotsPerSecond</Name>
           <Type>float</Type>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>AoeRadius</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>AoeDamage</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\Bullet</Name>
@@ -1761,7 +1870,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>3</ValueAsFloat>
+            <ValueAsFloat>2</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -1787,6 +1896,21 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">File</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>File</SourceType>
+          <SourceFile>Various/misc_sprites.achx</SourceFile>
+          <SourceName>BigExplosionSkull (AnimationChain)</SourceName>
+          <InstanceName>BigExplosionSkull</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -1802,6 +1926,87 @@
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DamageToDeal</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">40</DefaultValue>
+        </CustomVariable>
+      </CustomVariables>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\BulletExplosion</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>16</ValueAsFloat>
+          </CustomProperty>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
       <Is2D>true</Is2D>
     </EntitySave>

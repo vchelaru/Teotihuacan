@@ -46,6 +46,10 @@
     <Compile Include="Entities\Bullet.Generated.cs">
       <DependentUpon>Bullet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BulletExplosion.cs" />
+    <Compile Include="Entities\BulletExplosion.Generated.cs">
+      <DependentUpon>BulletExplosion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\CameraController.cs" />
     <Compile Include="Entities\CameraController.Generated.cs">
       <DependentUpon>CameraController.cs</DependentUpon>
@@ -76,6 +80,7 @@
     <Compile Include="Entities\SpawnPoint.Generated.cs">
       <DependentUpon>SpawnPoint.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factories\BulletExplosionFactory.Generated.cs" />
     <Compile Include="Factories\BulletFactory.Generated.cs" />
     <Compile Include="Factories\EnemyFactory.Generated.cs" />
     <Compile Include="Factories\PlayerBaseFactory.Generated.cs" />

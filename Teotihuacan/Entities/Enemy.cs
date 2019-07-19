@@ -378,10 +378,14 @@ namespace Teotihuacan.Entities
 
                 if(CurrentHP <= 0)
                 {
+                    System.Diagnostics.Debug.WriteLine(
+                        $"Took {damageToTake} damage and died");
                     PerformDeath();
                 }
                 else
                 {
+                    System.Diagnostics.Debug.WriteLine(
+                        $"Took {damageToTake} damage and has {CurrentHP} left");
                     isFlashingWhite = true;
                     // We may need to be more careful here if there's other instructions.
                     this.Instructions.Clear();

@@ -20,6 +20,7 @@ namespace Teotihuacan.Entities
 
         #endregion
 
+        #region Initialize
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -32,7 +33,9 @@ namespace Teotihuacan.Entities
 
 		}
 
-		private void CustomActivity()
+        #endregion
+
+        private void CustomActivity()
 		{
 
 
@@ -52,21 +55,47 @@ namespace Teotihuacan.Entities
             Position += positionOffset * OffsetRadius;
         }
 
-        public void SpawnVFX()
+        public void PlayerDestroyVfx()
         {
             var explosion = SpriteManager.AddParticleSprite(misc_sprites_SpriteSheet);
             explosion.AnimationChains = misc_sprites;
-            explosion.CurrentChainName = nameof(PrimaryActions.ProjectileExplosion);
+
+            if(CurrentDataCategoryState == Bullet.DataCategory.EnemyBullet ||
+                CurrentDataCategoryState == Bullet.DataCategory.PlayerFire)
+            {
+                explosion.CurrentChainName = nameof(PrimaryActions.ProjectileExplosion);
+            }
+            else if(CurrentDataCategoryState == Bullet.DataCategory.PlayerSkull)
+            {
+                explosion.CurrentChainName = BigExplosionSkull.Name;
+            }
             explosion.Position = SpriteInstance.Position;
             explosion.TextureScale = 1;
             explosion.Animate = true;
 
+#pragma warning disable CS0618 // Type or member is obsolete - can't do call.after because the bullet will be destroyed so its instructions will be removed
             SpriteManager.RemoveSpriteAtTime(explosion, explosion.CurrentChain.TotalLength);
+#pragma warning restore CS0618 // Type or member is obsolete
+        }
+
+        public void TryExplode()
+        {
+            if(AoeRadius > 0)
+            {
+                var bulletExplosion = Factories.BulletExplosionFactory.CreateNew(this.X, this.Y);
+                bulletExplosion.Owner = this.Owner;
+                bulletExplosion.DamageToDeal = this.AoeDamage;
+                bulletExplosion.CircleInstance.Radius = this.AoeRadius;
+                bulletExplosion.Call(bulletExplosion.Destroy).After(0); // next frame
+
+
+
+            }
         }
 
 		private void CustomDestroy()
 		{
-            
+
 
 		}
 
