@@ -14,10 +14,22 @@ namespace Teotihuacan.GameData
     public class Wave
     {
         public List<MiniWave> MiniWaves { get; set; }
+        public void AddMiniWave(params Entities.Enemy.DataCategory[] categories)
+        {
+            var miniWave = new MiniWave;
+            miniWave.Spawns.AddRange(categories);
+        }
     }
 
     public class LevelSpawnsBase
     {
         public List<Wave> Waves { get; private set; } = new List<Wave>();
+
+        public Wave AddWave()
+        {
+            var wave = new Wave();
+            Waves.Add(wave);
+            return wave;
+        }
     }
 }

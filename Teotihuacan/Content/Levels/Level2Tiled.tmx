@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="34" height="19" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="13">
+ <tileset firstgid="1" source="TileSet_Main.tsx"/>
+ <layer id="1" name="Ground" width="34" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DAQ0AAAzDoLqbf0cXckhYNVVV3z+iZnZ2GAoAAA==
+  </data>
+ </layer>
+ <layer id="2" name="Shadows" width="34" height="19" visible="0" opacity="0.5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWDCTQzDoy9R4H2sjJBMAgcGiB3HEOylwXoFjYm6pmNL2zR5Y4x4pcnxy4WaPgeYsQUY8Uihw2QGi/UiEd0N7KSES/o4TlQgFruoCSfUpquWeiYT9uINJ9W8ctCQnqjdnkxCkbBSAUA+h+T7hgKAAA=
+  </data>
+ </layer>
+ <layer id="3" name="Objects" width="34" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgIB0wMpKhiQZg2LpDgDxtpLjjIHlWEAVIcQct49BxkLiDFECKO0yBas2A2ByILajsflLcUQpUWwbE5UBcMRDugOaXrUC124B4OxDvGMDw+ApU+w2IvwPxjwF0By0BLd1BStlES3cMlnJsKLqDqLKXDvUcLcFwdgcApAS1pBgKAAA=
+  </data>
+ </layer>
+</map>
