@@ -21,6 +21,10 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
+    <Name>Level2Gum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
     <Name>RivaTestScreenGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>

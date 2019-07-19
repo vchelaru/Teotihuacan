@@ -157,6 +157,8 @@
     <Compile Include="GumRuntimes\Level1GumRuntime.Generated.cs">
       <DependentUpon>Level1GumRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\Level2GumRuntime.cs" />
+    <Compile Include="GumRuntimes\Level2GumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LevelStartRuntime.cs" />
     <Compile Include="GumRuntimes\LevelStartRuntime.Generated.cs">
       <DependentUpon>LevelStartRuntime.cs</DependentUpon>
@@ -225,6 +227,10 @@
     <Compile Include="Screens\Level1.cs" />
     <Compile Include="Screens\Level1.Generated.cs">
       <DependentUpon>Level1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Level2.cs" />
+    <Compile Include="Screens\Level2.Generated.cs">
+      <DependentUpon>Level2.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\RivaTestScreen.cs" />
     <Compile Include="Screens\RivaTestScreen.Generated.cs">
@@ -515,6 +521,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level1Gum</Name>
     </None>
+    <None Include="content\gumproject\screens\level2gum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level2Gum</Name>
+    </None>
     <None Include="content\gumproject\screens\rivatestscreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>RivaTestScreenGum</Name>
@@ -602,6 +612,10 @@
     <None Include="content\levels\camera_test.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Camera_test</Name>
+    </None>
+    <None Include="content\levels\level2tiled.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level2Tiled</Name>
     </None>
     <None Include="content\levels\steppe_test_02.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
