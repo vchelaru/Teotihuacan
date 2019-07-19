@@ -206,6 +206,8 @@ namespace Teotihuacan.Screens
             PlayerLightningVsSolidCollision.CollisionLimit = FlatRedBall.Math.Collision.CollisionLimit.Closest;
 
             PlayerVsPitSolidCollision.SetFirstSubCollision(item => item.CircleInstance);
+
+            PlayerVsBulletExplosionCollision.SetFirstSubCollision(item => item.CircleInstance);
         }
 
         private void AddBorderAroundMap()

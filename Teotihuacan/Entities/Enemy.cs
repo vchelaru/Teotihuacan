@@ -430,7 +430,11 @@ namespace Teotihuacan.Entities
 
         private void PerformDeath()
         {
-            if (CurrentDataCategoryState != DataCategory.Suicider)
+            if (CurrentDataCategoryState == DataCategory.Suicider)
+            {
+                PerformExplode();
+            }
+            else
             {
                 var death = SpriteManager.AddParticleSprite(Death_1_SpriteSheet);
                 death.AnimationChains = Death_1;
@@ -440,10 +444,6 @@ namespace Teotihuacan.Entities
                 death.Animate = true;
                 SpriteManager.RemoveSpriteAtTime(death, death.CurrentChain.TotalLength);
                 Destroy();
-            }
-            else
-            {
-                PerformExplode();
             }
         }
 
@@ -461,6 +461,8 @@ namespace Teotihuacan.Entities
                 ExplodeVfx();
 
                 Destroy();
+
+                bulletExplosion.ForceUpdateDependenciesDeep();
             }
         }
 

@@ -19,7 +19,9 @@ namespace Teotihuacan.GameData
             );
             wave.AddMiniWave
             (
-                Shooter
+                DataCategory.Suicider,
+                DataCategory.Suicider,
+                DataCategory.Suicider
             );
 
             wave = AddWave();
@@ -46,8 +48,9 @@ namespace Teotihuacan.GameData
             );
             wave.AddMiniWave
             (
-                Shooter,
-                Shooter
+                DataCategory.Suicider,
+                DataCategory.Suicider,
+                DataCategory.Suicider
             );
             wave.AddMiniWave
             (
