@@ -15,6 +15,19 @@
       </Tags>
       <Source>GLUE</Source>
       <BaseScreen>Screens\GameScreen</BaseScreen>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>LevelName</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
       <Name>Screens\CameraTestScreen</Name>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -217,6 +230,18 @@
           <Type>int</Type>
           <DefaultValue xsi:type="xsd:int">50</DefaultValue>
           <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>LevelName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Change Me</DefaultValue>
+          <SetByDerived>true</SetByDerived>
         </CustomVariable>
       </CustomVariables>
       <Name>Screens\GameScreen</Name>
@@ -1190,6 +1215,20 @@
       </Tags>
       <Source>GLUE</Source>
       <BaseScreen>Screens\GameScreen</BaseScreen>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>LevelName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">1</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
       <Name>Screens\Level1</Name>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -1282,6 +1321,20 @@
       </Tags>
       <Source>GLUE</Source>
       <BaseScreen>Screens\GameScreen</BaseScreen>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>LevelName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">2</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
       <Name>Screens\Level2</Name>
       <ReferencedFiles>
         <ReferencedFileSave>

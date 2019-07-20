@@ -242,6 +242,7 @@ namespace Teotihuacan.Screens
 
         private void InitializeUi()
         {
+            
             var gameScreenGumRuntime = ((GameScreenGumRuntime)GameScreenGum);
             gameScreenGumRuntime.SetNumberOfPlayers(PlayerList.Count);
 
@@ -250,7 +251,7 @@ namespace Teotihuacan.Screens
                 DoUnpause();
 
             gameScreenGumRuntime.StartLevel += () =>DoStartLevel();
-            gameScreenGumRuntime.ShowLevelStart();
+            gameScreenGumRuntime.ShowLevelStart($"Level {LevelName}");
         }
 
         #endregion
@@ -452,7 +453,7 @@ namespace Teotihuacan.Screens
 
         private void HandleEnemyListChanged()
         {
-            if(EnemyList.Count <= 0 && !spawnManager.CanSpawn)
+            if(EnemyList.Count <= 0 && !spawnManager.CanSpawn && PlayerList.Count > 0 && PlayerBaseList.Count > 0)
             {
                 var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
                 gameScreenGumRuntime.SetWaveMessageText($"Wave Complete");
