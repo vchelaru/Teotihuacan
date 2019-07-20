@@ -108,9 +108,10 @@ namespace Teotihuacan.GumRuntimes
             };
         }
 
-        public void ShowLevelStart()
+        public void ShowLevelStart(string levelName)
         {
             LevelStartInstance.Visible = true;
+            LevelStartInstance.LevelNameText = levelName;
             LevelStartInstance.FadeInAndCountDownAnimation.EndReached += () =>
             {
                 LevelStartInstance.Visible = false;
