@@ -40,36 +40,41 @@ namespace Teotihuacan.Managers
                 {
                     var miniWave = spawns.Waves[CurrentWaveIndex].MiniWaves[CurrentSpawnIndex];
 
-                    // make the same spawn point used for all enemies on this subwave
-                    var spawnPoint = FlatRedBallServices.Random.In(spawnPoints);
-
-                    for(int i = 0; i < miniWave.Spawns.Count; i++)
-                    {
-                        var data = miniWave.Spawns[i];
-                        if(i == 0)
-                        {
-                            // do it now!
-                            var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
-                            enemy.CurrentDataCategoryState = data;
-                        }
-                        else
-                        {
-                            spawnPoint.Call(() =>
-                            {
-                                var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
-                                enemy.CurrentDataCategoryState = data;
-                            }).After(i * SpawnPoint.SecondsBetweenEachEnemyInMiniWave);
-                        }
-                    }
+                    SpawnMiniWave(spawnPoints, miniWave);
 
                     CurrentSpawnIndex++;
 
-                    if(CurrentSpawnIndex >= spawns.Waves[CurrentWaveIndex].MiniWaves.Count)
+                    if (CurrentSpawnIndex >= spawns.Waves[CurrentWaveIndex].MiniWaves.Count)
                     {
                         CurrentWaveIndex++;
                         CanSpawn = false;
                         CurrentSpawnIndex = 0;
                     }
+                }
+            }
+        }
+
+        private static void SpawnMiniWave(PositionedObjectList<SpawnPoint> spawnPoints, MiniWave miniWave)
+        {
+            // make the same spawn point used for all enemies on this subwave
+            var spawnPoint = FlatRedBallServices.Random.In(spawnPoints);
+
+            for (int i = 0; i < miniWave.Spawns.Count; i++)
+            {
+                var data = miniWave.Spawns[i];
+                if (i == 0)
+                {
+                    // do it now!
+                    var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
+                    enemy.CurrentDataCategoryState = data;
+                }
+                else
+                {
+                    spawnPoint.Call(() =>
+                    {
+                        var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
+                        enemy.CurrentDataCategoryState = data;
+                    }).After(i * SpawnPoint.SecondsBetweenEachEnemyInMiniWave);
                 }
             }
         }

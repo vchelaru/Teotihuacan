@@ -457,40 +457,67 @@ namespace Teotihuacan.Screens
                 var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
                 gameScreenGumRuntime.SetWaveMessageText($"Wave Complete");
 
-                foreach (var playerBase in PlayerBaseList)
+                var isLevelComplete = spawnManager.CurrentWaveIndex >= Spawns.Waves.Count;
+
+                if(isLevelComplete)
                 {
-                    playerBase.Heal(HealingBetweenWaves);
+                    DoLevelCompleteLogic();
                 }
-                this.Call(() =>
+                else
                 {
-                    if (Spawns.Waves.Count > spawnManager.CurrentWaveIndex + 1)
-                    {
-                        gameScreenGumRuntime.SetWaveMessageText($"Wave {spawnManager.CurrentWaveIndex + 1}");
-                    }
-                    else if(Spawns.Waves.Count > spawnManager.CurrentWaveIndex)
-                    {
-                        gameScreenGumRuntime.SetWaveMessageText($"Final Wave");
-                    }
-                    else
-                    {
-                        gameScreenGumRuntime.SetWaveMessageText($"Level Complete");
-                    }
-                }).After(TimeBetweenWaves * .5);
-
-                this.Call(() =>
-                {
-                    gameScreenGumRuntime.HideWaveStateInstance();
-                    if (Spawns.Waves.Count > spawnManager.CurrentWaveIndex)
-                    {
-                        spawnManager.EnableSpawning();
-                    }
-                    else
-                    {
-                        //ToDo: Next Level logic
-                    }
-                }).After(TimeBetweenWaves);
-
+                    DoWaveCompleteLogic();
+                }
             }
+        }
+
+        private void DoLevelCompleteLogic()
+        {
+            var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
+
+            foreach (var playerBase in PlayerBaseList)
+            {
+                playerBase.Heal(HealingBetweenWaves);
+            }
+            this.Call(() =>
+            {
+                if (Spawns.Waves.Count > spawnManager.CurrentWaveIndex + 1)
+                {
+                    gameScreenGumRuntime.SetWaveMessageText($"Wave {spawnManager.CurrentWaveIndex + 1}");
+                }
+                else 
+                {
+                    gameScreenGumRuntime.SetWaveMessageText($"Final Wave");
+                }
+            }).After(TimeBetweenWaves * .5);
+
+            this.Call(() =>
+            {
+                gameScreenGumRuntime.HideWaveStateInstance();
+                if (Spawns.Waves.Count > spawnManager.CurrentWaveIndex)
+                {
+                    spawnManager.EnableSpawning();
+                }
+            }).After(TimeBetweenWaves);
+        }
+
+        private void DoWaveCompleteLogic()
+        {
+            var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
+
+            foreach (var playerBase in PlayerBaseList)
+            {
+                playerBase.Heal(HealingBetweenWaves);
+            }
+            this.Call(() =>
+            {
+                gameScreenGumRuntime.SetWaveMessageText($"Level Complete");
+            }).After(TimeBetweenWaves * .5);
+
+            this.Call(() =>
+            {
+                gameScreenGumRuntime.HideWaveStateInstance();
+                IsActivityFinished = true;
+            }).After(TimeBetweenWaves);
         }
 
         #endregion

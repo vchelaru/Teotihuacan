@@ -16,10 +16,14 @@ namespace Teotihuacan.GumRuntimes
 
         #endregion
 
+        #region Events/Actions
+
         public event EventHandler ResumeClicked;
         public event EventHandler QuitClicked;
 
         public event Action StartLevel;
+
+        #endregion
 
         partial void CustomInitialize()
         {
@@ -102,7 +106,6 @@ namespace Teotihuacan.GumRuntimes
                     currentScreen.RestartScreen(false);
                 };
             };
-
         }
 
         public void ShowLevelStart()
