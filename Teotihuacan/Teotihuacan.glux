@@ -3084,7 +3084,7 @@
           </Properties>
           <Name>LightningDps</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">25</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">22</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -3159,6 +3159,18 @@
           <DefaultValue xsi:type="xsd:float">1</DefaultValue>
           <SourceObject>OverlaySprite</SourceObject>
           <SourceObjectProperty>Blue</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>LightningHitAcceleration</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">250</DefaultValue>
+          <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>

@@ -299,18 +299,18 @@ namespace Teotihuacan.Screens
 
         private void DoCollisionActivity()
         {
-            var areAnyShooting = false;
+            var areAnyShootingLightning = false;
             foreach (var player in PlayerList)
             {
                 player.LightningWeaponManager.StartCollisionFrameLogic();
                 if(player.CurrentSecondaryAction == Animation.SecondaryActions.Shooting &&
                     player.EquippedWeapon == Animation.Weapon.ShootingLightning)
                 {
-                    areAnyShooting = true;
+                    areAnyShootingLightning = true;
                 }
             }
 
-            if(areAnyShooting)
+            if(areAnyShootingLightning)
             {
                 PlayerLightningVsSolidCollision.DoCollisions();
                 PlayerLightningVsEnemyRelationship.DoCollisions();
@@ -320,10 +320,19 @@ namespace Teotihuacan.Screens
             {
                 player.LightningWeaponManager.EndCollisionFrameLogic(player);
 
-                if(player.LightningWeaponManager.EnemyHitThisFrame != null)
+                var enemyHit = player.LightningWeaponManager.EnemyHitThisFrame;
+                if (enemyHit != null)
                 {
-                    player.LightningWeaponManager.EnemyHitThisFrame
-                        .TakeLightningDamage(Player.LightningDps, player);
+                    var playerToEnemy = enemyHit.Position -
+                        player.Position;
+
+                    enemyHit.TakeLightningDamage(Player.LightningDps, player);
+
+                    if(playerToEnemy.LengthSquared() != 0)
+                    {
+                        playerToEnemy.Normalize();
+                        enemyHit.Velocity += playerToEnemy * Player.LightningHitAcceleration * TimeManager.SecondDifference;
+                    }
                 }
             }
         }
