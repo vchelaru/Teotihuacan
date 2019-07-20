@@ -474,20 +474,20 @@ namespace Teotihuacan.Screens
         {
             var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
 
-            foreach (var playerBase in PlayerBaseList)
-            {
-                playerBase.Heal(HealingBetweenWaves);
-            }
             this.Call(() =>
             {
                 gameScreenGumRuntime.SetWaveMessageText($"Level Complete");
-            }).After(TimeBetweenWaves * .5);
+            }).After(1);
+
+            ((GameScreenGumRuntime)gameScreenGumRuntime).FadeOutAnimation.PlayAfter(3);
+
+            var animationDuration = ((GameScreenGumRuntime)gameScreenGumRuntime).FadeOutAnimation.Length;
 
             this.Call(() =>
             {
                 gameScreenGumRuntime.HideWaveStateInstance();
                 IsActivityFinished = true;
-            }).After(TimeBetweenWaves);
+            }).After(3 + animationDuration);
         }
 
         private void DoWaveCompleteLogic()
