@@ -480,6 +480,26 @@ namespace Teotihuacan.Screens
             }
             this.Call(() =>
             {
+                gameScreenGumRuntime.SetWaveMessageText($"Level Complete");
+            }).After(TimeBetweenWaves * .5);
+
+            this.Call(() =>
+            {
+                gameScreenGumRuntime.HideWaveStateInstance();
+                IsActivityFinished = true;
+            }).After(TimeBetweenWaves);
+        }
+
+        private void DoWaveCompleteLogic()
+        {
+            var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
+
+            foreach (var playerBase in PlayerBaseList)
+            {
+                playerBase.Heal(HealingBetweenWaves);
+            }
+            this.Call(() =>
+            {
                 if (Spawns.Waves.Count > spawnManager.CurrentWaveIndex + 1)
                 {
                     gameScreenGumRuntime.SetWaveMessageText($"Wave {spawnManager.CurrentWaveIndex + 1}");
@@ -497,26 +517,6 @@ namespace Teotihuacan.Screens
                 {
                     spawnManager.EnableSpawning();
                 }
-            }).After(TimeBetweenWaves);
-        }
-
-        private void DoWaveCompleteLogic()
-        {
-            var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
-
-            foreach (var playerBase in PlayerBaseList)
-            {
-                playerBase.Heal(HealingBetweenWaves);
-            }
-            this.Call(() =>
-            {
-                gameScreenGumRuntime.SetWaveMessageText($"Level Complete");
-            }).After(TimeBetweenWaves * .5);
-
-            this.Call(() =>
-            {
-                gameScreenGumRuntime.HideWaveStateInstance();
-                IsActivityFinished = true;
             }).After(TimeBetweenWaves);
         }
 
