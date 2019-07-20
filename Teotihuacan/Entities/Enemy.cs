@@ -32,7 +32,7 @@ namespace Teotihuacan.Entities
 	{
         #region Fields/Properties
 
-        Polygon pathFindingPolygon;
+        Polygon lineOfSightPathFindingPolygon;
 
         Behavior CurrentBehavior;
 
@@ -63,6 +63,17 @@ namespace Teotihuacan.Entities
         bool isTakingLightningDamage;
         bool isFlashingWhite;
 
+        /// <summary>
+        /// The ratio used to multiply the perpendicular vector by. This can be
+        /// viewed as the enemy "personality" which controls whether the enemy likes to attack from the left or right.
+        /// </summary>
+        float perpendicularLengthRatio;
+
+
+        // ai visualization:
+        Line thisToPerpendicularTarget;
+
+
         #endregion
 
         #region Initialize
@@ -73,16 +84,28 @@ namespace Teotihuacan.Entities
         /// added to managers will not have this method called.
         /// </summary>
         private void CustomInitialize()
-		{
-            if(pathFindingPolygon == null)
-            {
-                pathFindingPolygon = Polygon.CreateRectangle(7, 7);
-            }
-
+        {
+            InitializeAi();
 
             shotsLeftInClip = ClipSize;
             InitializeAnimations();
-		}
+        }
+
+        private void InitializeAi()
+        {
+            if (lineOfSightPathFindingPolygon == null)
+            {
+                lineOfSightPathFindingPolygon = Polygon.CreateRectangle(7, 7);
+            }
+
+            perpendicularLengthRatio = FlatRedBallServices.Random.Between(-1, 1);
+
+            if(DebuggingVariables.ShowEnemyAiShapes)
+            {
+                thisToPerpendicularTarget = new Line();
+                thisToPerpendicularTarget.Visible = true;
+            }
+        }
 
         private void InitializeAnimations()
         {
@@ -315,26 +338,52 @@ namespace Teotihuacan.Entities
         private void RefreshPath(NodeNetwork nodeNetwork, PositionedObject target, TileShapeCollection solidCollisions, TileShapeCollection pitCollision)
         {
             var ai = InputDevice as TopDown.TopDownAiInput<Enemy>;
-            var path = nodeNetwork.GetPathOrClosest(ref Position, ref target.Position);
+
+            // We are going to pathfind to a location
+            // that is not exactly on the target but on
+            // a point on a line perpendicular to the enemy.
+            // This is a quicky way to add some randomness and 
+            // spread out the enemies so they come from different directions
+
+            var pathfindingTarget = target.Position;
+
+            var lineToTarget = target.Position - this.Position;
+            var perpendicular = new Vector3(-lineToTarget.Y, lineToTarget.X, 0);
+            if(perpendicular.Length() != 0)
+            {
+                perpendicular.Normalize();
+                var distanceFromTarget = lineToTarget.Length();
+
+                const float distanceToPerpendicularLengthRatio = 1 / 2f;
+
+                pathfindingTarget = target.Position + perpendicular * perpendicularLengthRatio * distanceToPerpendicularLengthRatio * distanceFromTarget;
+
+            }
+            if(DebuggingVariables.ShowEnemyAiShapes)
+            {
+                thisToPerpendicularTarget.SetFromAbsoluteEndpoints(this.Position, pathfindingTarget);
+            }
+
+            var path = nodeNetwork.GetPathOrClosest(ref Position, ref pathfindingTarget);
             ai.Path.Clear();
             var points = path.Select(item => item.Position).ToList();
 
             while (points.Count > 0)
             {
                 var length = (points[0] - Position).Length();
-                pathFindingPolygon.SetPoint(0, length / 2.0f, CircleInstance.Radius);
-                pathFindingPolygon.SetPoint(1, length / 2.0f, -CircleInstance.Radius);
-                pathFindingPolygon.SetPoint(2, -length / 2.0f, -CircleInstance.Radius);
-                pathFindingPolygon.SetPoint(3, -length / 2.0f, CircleInstance.Radius);
-                pathFindingPolygon.SetPoint(4, length / 2.0f, CircleInstance.Radius);
+                lineOfSightPathFindingPolygon.SetPoint(0, length / 2.0f, CircleInstance.Radius);
+                lineOfSightPathFindingPolygon.SetPoint(1, length / 2.0f, -CircleInstance.Radius);
+                lineOfSightPathFindingPolygon.SetPoint(2, -length / 2.0f, -CircleInstance.Radius);
+                lineOfSightPathFindingPolygon.SetPoint(3, -length / 2.0f, CircleInstance.Radius);
+                lineOfSightPathFindingPolygon.SetPoint(4, length / 2.0f, CircleInstance.Radius);
 
-                pathFindingPolygon.X = (points[0].X + Position.X) / 2.0f;
-                pathFindingPolygon.Y = (points[0].Y + Position.Y) / 2.0f;
+                lineOfSightPathFindingPolygon.X = (points[0].X + Position.X) / 2.0f;
+                lineOfSightPathFindingPolygon.Y = (points[0].Y + Position.Y) / 2.0f;
 
                 var angle = (float)System.Math.Atan2(points[0].Y - Position.Y, points[0].X - Position.X);
-                pathFindingPolygon.RotationZ = angle;
+                lineOfSightPathFindingPolygon.RotationZ = angle;
 
-                var hasClearPath = !solidCollisions.CollideAgainst(pathFindingPolygon) && !pitCollision.CollideAgainst(pathFindingPolygon);
+                var hasClearPath = !solidCollisions.CollideAgainst(lineOfSightPathFindingPolygon) && !pitCollision.CollideAgainst(lineOfSightPathFindingPolygon);
 
                 if (hasClearPath && points.Count > 1)
                 {
@@ -497,9 +546,12 @@ namespace Teotihuacan.Entities
 
         private void CustomDestroy()
 		{
+            if (DebuggingVariables.ShowEnemyAiShapes)
+            {
+                ShapeManager.Remove(thisToPerpendicularTarget);
+            }
 
-
-		}
+        }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {
