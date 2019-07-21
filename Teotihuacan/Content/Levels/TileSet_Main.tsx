@@ -10,7 +10,8 @@
   <terrain name="Shadow small" tile="386"/>
   <terrain name="Shadow big" tile="389"/>
   <terrain name="Pit" tile="26"/>
-  <terrain name="Fire pit" tile="0"/>
+  <terrain name="Fire pit" tile="268"/>
+  <terrain name="Mud" tile="283"/>
  </terraintypes>
  <tile id="0" type="Ground" terrain="0,0,0,1"/>
  <tile id="1" type="Ground" terrain="0,0,1,1"/>
@@ -256,11 +257,33 @@
  <tile id="215" type="Pit"/>
  <tile id="216" type="Pit"/>
  <tile id="217" type="Pit"/>
- <tile id="218" type="Pit"/>
- <tile id="219" type="Pit"/>
- <tile id="220" type="Pit"/>
- <tile id="221" type="Pit"/>
- <tile id="222" type="Pit"/>
+ <tile id="218" type="Pit" terrain="0,0,0,9">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="8" y="8" width="8" height="8"/>
+  </objectgroup>
+ </tile>
+ <tile id="219" type="Pit" terrain="0,0,9,9">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="0" y="8" width="16" height="8"/>
+  </objectgroup>
+ </tile>
+ <tile id="220" type="Pit" terrain="0,0,9,0">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="0" y="8" width="8" height="8"/>
+  </objectgroup>
+ </tile>
+ <tile id="221" type="Pit" terrain="9,9,9,0">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="0" y="8" width="8" height="8"/>
+   <object id="2" type="Mud" x="0" y="0" width="16" height="8"/>
+  </objectgroup>
+ </tile>
+ <tile id="222" type="Pit" terrain="9,9,0,9">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="8" y="8" width="8" height="8"/>
+   <object id="2" type="Mud" x="0" y="0" width="16" height="8"/>
+  </objectgroup>
+ </tile>
  <tile id="223" type="Pit"/>
  <tile id="224" type="Pit"/>
  <tile id="225" type="Pit"/>
@@ -302,11 +325,29 @@
  <tile id="278" type="Pit"/>
  <tile id="279" type="Pit"/>
  <tile id="281" type="Pit"/>
- <tile id="282" type="Pit"/>
- <tile id="283" type="Pit"/>
- <tile id="284" type="Pit"/>
- <tile id="285" type="Pit"/>
- <tile id="286" type="Pit"/>
+ <tile id="282" type="Pit" terrain="0,9,0,9">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="8" y="0" width="8" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="283" type="Pit" terrain="9,9,9,9"/>
+ <tile id="284" type="Pit" terrain="9,0,9,0">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="0" y="0" width="8" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="285" type="Pit" terrain="9,0,9,9">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="0" y="0" width="8" height="8"/>
+   <object id="2" type="Mud" x="0" y="8" width="16" height="8"/>
+  </objectgroup>
+ </tile>
+ <tile id="286" type="Pit" terrain="0,9,9,9">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="8" y="0" width="8" height="8"/>
+   <object id="2" type="Mud" x="0" y="8" width="16" height="8"/>
+  </objectgroup>
+ </tile>
  <tile id="287" type="Pit"/>
  <tile id="288" type="Pit"/>
  <tile id="289" type="Pit"/>
@@ -342,9 +383,21 @@
  <tile id="343" type="Pit"/>
  <tile id="344" type="Pit"/>
  <tile id="345" type="Pit"/>
- <tile id="346" type="Pit"/>
- <tile id="347" type="Pit"/>
- <tile id="348" type="Pit"/>
+ <tile id="346" type="Pit" terrain="0,9,0,0">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="8" y="0" width="8" height="8"/>
+  </objectgroup>
+ </tile>
+ <tile id="347" type="Pit" terrain="9,9,0,0">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="0" y="0" width="16" height="8"/>
+  </objectgroup>
+ </tile>
+ <tile id="348" type="Pit" terrain="9,0,0,0">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="0" y="0" width="8" height="8"/>
+  </objectgroup>
+ </tile>
  <tile id="349" type="Pit"/>
  <tile id="350" type="Pit"/>
  <tile id="351" type="Pit"/>
