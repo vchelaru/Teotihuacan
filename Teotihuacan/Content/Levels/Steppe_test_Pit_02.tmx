@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="34" height="19" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="13">
+ <tileset firstgid="1" source="TileSet_Main.tsx"/>
+ <layer id="2" name="Ground" width="34" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC62W204CQQyGB02QgwJXiqf4NqgE8A4U0XdRE/QC0Ss0Ud4IfSb/Jm22qZ2d9XDxZZeZ2enfzt9l+yGEfkEG4JipggdQB1NQ47F7RuZidECvYNx9cAAOlY5qJA7te5KIbdfPQKuAjkswAVfgiXXEYv1Uh9RQ18TmLbyBI9bRBHNwCiqRfVNnEavJo5O3VxMaPwNboGHy3gY7oM33bRNL5jWyZspnXFOxRgkd2qtax5BzuABjvrbN/IiZMOdOLf+qYwFeDK/O/B7YdeYF8cE7WEZ0XIfMP6Qj5pE8hk4drI4Yz0qj+JV8Yj3y3zqkbwTdP3I+qf7V/rQ+ydNB/Uh901K5C0uOK2e3DFn/pnRQXPKs9MjY/NZ9Uw/Zu1r6WJD3XNOMz3l9yiPWv9qnnp9lX8vMxPUgLRtMyrepc6H9VuADfKoYMmbRazR0TuUcPYvg92udn6M9Nkt4V4JGKdtXxix6zUrpotp0f1gj0dDN0dHDfd9hYLTKM7iENWa9oIfkP8bmbnNNnYXWcQNumbvw/RslVQud+yBSDz0e0yHfJbWIBs87HWfP39BjjfbbTH8nldkr4p1K8GvxBUIUVBMYCgAA
+  </data>
+ </layer>
+ <layer id="5" name="Shadows" width="34" height="19" opacity="0.5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGDmgmXFg7WdhYmBgBeJDFLiDGD/Qw5/4/EANfxILjg1wnMLAYHAHKNzZmMjXPxzyxygYBaNgFIwCygAA5hrdwRgKAAA=
+  </data>
+ </layer>
+ <layer id="3" name="Objects" width="34" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2MQYBh4QGM3HALiI7S1gi7gIAF5evmTkZEOlhABBos7HAeJO8gFwyV/jIJRMApGwZAGg6Q9BgC0uKS0GAoAAA==
+  </data>
+ </layer>
+</map>
