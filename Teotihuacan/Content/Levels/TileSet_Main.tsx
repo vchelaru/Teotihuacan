@@ -51,14 +51,16 @@
  </tile>
  <tile id="24" terrain="7,7,7,2">
   <objectgroup draworder="index">
-   <object id="1" type="Pit" x="0" y="8" width="8" height="8"/>
-   <object id="2" type="Pit" x="0" y="0" width="16" height="8"/>
+   <object id="3" type="Pit" x="0" y="0">
+    <polygon points="0,0 0,16 8,16 8,8 16,8 16,0"/>
+   </object>
   </objectgroup>
  </tile>
  <tile id="25" terrain="7,7,2,7">
   <objectgroup draworder="index">
-   <object id="1" type="Pit" x="8" y="8" width="8" height="8"/>
-   <object id="2" type="Pit" x="0" y="0" width="16" height="8"/>
+   <object id="1" type="Pit" x="0" y="0">
+    <polygon points="0,0 0,8 8,8 8,16 16,16 16,0"/>
+   </object>
   </objectgroup>
  </tile>
  <tile id="26" terrain="3,3,3,7">
@@ -78,14 +80,16 @@
  </tile>
  <tile id="29" terrain="7,7,7,3">
   <objectgroup draworder="index">
-   <object id="1" type="Pit" x="0" y="0" width="16" height="8"/>
-   <object id="2" type="Pit" x="0" y="8" width="8" height="8"/>
+   <object id="3" type="Pit" x="0" y="0">
+    <polygon points="0,0 0,16 8,16 8,8 16,8 16,0"/>
+   </object>
   </objectgroup>
  </tile>
  <tile id="30" terrain="7,7,3,7">
   <objectgroup draworder="index">
-   <object id="1" type="Pit" x="0" y="0" width="16" height="8"/>
-   <object id="2" type="Pit" x="8" y="8" width="8" height="8"/>
+   <object id="3" type="Pit" x="0" y="0">
+    <polygon points="0,0 0,8 8,8 8,16 16,16 16,0"/>
+   </object>
   </objectgroup>
  </tile>
  <tile id="52" type="RemoveMe"/>
@@ -117,7 +121,11 @@
    <object id="1" type="Pit" x="8" y="0" width="8" height="16"/>
   </objectgroup>
  </tile>
- <tile id="86" terrain="7,7,7,7"/>
+ <tile id="86" terrain="7,7,7,7">
+  <objectgroup draworder="index">
+   <object id="1" type="Pit" x="0" y="0" width="16" height="16"/>
+  </objectgroup>
+ </tile>
  <tile id="87" terrain="7,2,7,2">
   <objectgroup draworder="index">
    <object id="1" type="Pit" x="0" y="0" width="8" height="16"/>
@@ -125,14 +133,16 @@
  </tile>
  <tile id="88" terrain="7,2,7,7">
   <objectgroup draworder="index">
-   <object id="1" type="Pit" x="0" y="0" width="8" height="8"/>
-   <object id="2" type="Pit" x="0" y="8" width="16" height="8"/>
+   <object id="3" type="Pit" x="0" y="0">
+    <polygon points="0,0 8,0 8,8 16,8 16,16 0,16"/>
+   </object>
   </objectgroup>
  </tile>
  <tile id="89" terrain="2,7,7,7">
   <objectgroup draworder="index">
-   <object id="1" type="Pit" x="8" y="0" width="8" height="8"/>
-   <object id="2" type="Pit" x="0" y="8" width="16" height="8"/>
+   <object id="3" type="Pit" x="0" y="8">
+    <polygon points="0,0 8,0 8,-8 16,-8 16,8 0,8"/>
+   </object>
   </objectgroup>
  </tile>
  <tile id="90" terrain="3,7,3,7">
@@ -140,7 +150,6 @@
    <object id="1" type="Pit" x="8" y="0" width="8" height="16"/>
   </objectgroup>
  </tile>
- <tile id="91" terrain="7,7,7,7"/>
  <tile id="92" terrain="7,3,7,3">
   <objectgroup draworder="index">
    <object id="1" type="Pit" x="0" y="0" width="8" height="16"/>
@@ -148,14 +157,16 @@
  </tile>
  <tile id="93" terrain="7,3,7,7">
   <objectgroup draworder="index">
-   <object id="1" type="Pit" x="0" y="0" width="8" height="8"/>
-   <object id="2" type="Pit" x="0" y="8" width="16" height="8"/>
+   <object id="3" type="Pit" x="0" y="0">
+    <polygon points="0,0 8,0 8,8 16,8 16,16 0,16"/>
+   </object>
   </objectgroup>
  </tile>
  <tile id="94" terrain="3,7,7,7">
   <objectgroup draworder="index">
-   <object id="1" type="Pit" x="8" y="0" width="8" height="8"/>
-   <object id="2" type="Pit" x="0" y="8" width="16" height="8"/>
+   <object id="3" type="Pit" x="0" y="8">
+    <polygon points="0,0 8,0 8,-8 16,-8 16,8 0,8"/>
+   </object>
   </objectgroup>
  </tile>
  <tile id="116" type="RemoveMe"/>
@@ -221,6 +232,9 @@
  <tile id="193" type="Wall"/>
  <tile id="194" type="Wall"/>
  <tile id="195" type="Wall"/>
+ <tile id="196" type="Wall"/>
+ <tile id="197" type="Wall"/>
+ <tile id="198" type="Wall"/>
  <tile id="203" terrain="0,0,0,8">
   <objectgroup draworder="index">
    <object id="1" type="FirePit" x="8" y="8" width="8" height="8"/>
@@ -231,134 +245,134 @@
    <object id="1" type="FirePit" x="0" y="8" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="205" type="Pit" terrain="0,0,8,0">
+ <tile id="205" terrain="0,0,8,0">
   <objectgroup draworder="index">
    <object id="1" type="FirePit" x="0" y="8" width="8" height="8"/>
   </objectgroup>
  </tile>
- <tile id="206" type="Pit" terrain="8,8,8,0">
+ <tile id="206" terrain="8,8,8,0">
   <objectgroup draworder="index">
-   <object id="1" type="FirePit" x="0" y="8" width="8" height="8"/>
-   <object id="2" type="FirePit" x="0" y="0" width="16" height="8"/>
+   <object id="3" type="FirePit" x="0" y="0">
+    <polygon points="0,0 16,0 16,8 12,8 8,12 8,16 0,16"/>
+   </object>
   </objectgroup>
  </tile>
- <tile id="207" type="Pit" terrain="8,8,0,8">
+ <tile id="207" terrain="8,8,0,8">
   <objectgroup draworder="index">
-   <object id="1" type="FirePit" x="8" y="8" width="8" height="8"/>
-   <object id="2" type="FirePit" x="0" y="0" width="16" height="8"/>
+   <object id="3" type="FirePit" x="0" y="0">
+    <polygon points="0,0 0,8 8,16 16,16 16,0"/>
+   </object>
   </objectgroup>
  </tile>
- <tile id="208" type="Pit"/>
- <tile id="209" type="Pit"/>
- <tile id="210" type="Pit"/>
- <tile id="212" type="Pit"/>
- <tile id="213" type="Pit"/>
- <tile id="214" type="Pit"/>
- <tile id="215" type="Pit"/>
- <tile id="216" type="Pit"/>
- <tile id="217" type="Pit"/>
- <tile id="218" type="Pit" terrain="0,0,0,9">
+ <tile id="218" terrain="0,0,0,9">
   <objectgroup draworder="index">
    <object id="1" type="Mud" x="8" y="8" width="8" height="8"/>
   </objectgroup>
  </tile>
- <tile id="219" type="Pit" terrain="0,0,9,9">
+ <tile id="219" terrain="0,0,9,9">
   <objectgroup draworder="index">
    <object id="1" type="Mud" x="0" y="8" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="220" type="Pit" terrain="0,0,9,0">
+ <tile id="220" terrain="0,0,9,0">
   <objectgroup draworder="index">
    <object id="1" type="Mud" x="0" y="8" width="8" height="8"/>
   </objectgroup>
  </tile>
- <tile id="221" type="Pit" terrain="9,9,9,0">
+ <tile id="221" terrain="9,9,9,0">
   <objectgroup draworder="index">
-   <object id="1" type="Mud" x="0" y="8" width="8" height="8"/>
-   <object id="2" type="Mud" x="0" y="0" width="16" height="8"/>
+   <object id="1" type="Mud" x="0" y="0">
+    <polygon points="0,0 0,16 8,16 8,8 16,8 16,0"/>
+   </object>
   </objectgroup>
  </tile>
- <tile id="222" type="Pit" terrain="9,9,0,9">
+ <tile id="222" terrain="9,9,0,9">
   <objectgroup draworder="index">
-   <object id="1" type="Mud" x="8" y="8" width="8" height="8"/>
-   <object id="2" type="Mud" x="0" y="0" width="16" height="8"/>
+   <object id="1" type="Mud" x="0" y="0">
+    <polygon points="0,0 0,8 8,8 8,16 16,16 16,0"/>
+   </object>
   </objectgroup>
  </tile>
- <tile id="223" type="Pit"/>
- <tile id="224" type="Pit"/>
- <tile id="225" type="Pit"/>
  <tile id="244" type="RemoveMe"/>
  <tile id="245" type="RemoveMe"/>
  <tile id="246" type="RemoveMe"/>
  <tile id="247" type="RemoveMe"/>
  <tile id="256" type="Wall"/>
+ <tile id="260" type="Wall"/>
+ <tile id="261" type="Wall"/>
+ <tile id="262" type="Wall"/>
+ <tile id="263" type="Wall"/>
  <tile id="265" type="Pit"/>
  <tile id="266" type="Pit"/>
- <tile id="267" type="Pit" terrain="0,8,0,8">
+ <tile id="267" terrain="0,8,0,8">
   <objectgroup draworder="index">
    <object id="1" type="FirePit" x="8" y="0" width="8" height="16"/>
   </objectgroup>
  </tile>
- <tile id="268" terrain="8,8,8,8"/>
- <tile id="269" type="Pit" terrain="8,0,8,0">
+ <tile id="268" terrain="8,8,8,8">
+  <objectgroup draworder="index">
+   <object id="1" type="FirePit" x="0" y="0" width="16" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="269" terrain="8,0,8,0">
   <objectgroup draworder="index">
    <object id="1" type="FirePit" x="0" y="0" width="8" height="16"/>
   </objectgroup>
  </tile>
  <tile id="270" terrain="8,0,8,8">
   <objectgroup draworder="index">
-   <object id="1" type="FirePit" x="0" y="0" width="8" height="8"/>
-   <object id="2" type="FirePit" x="0" y="8" width="16" height="8"/>
+   <object id="3" type="FirePit" x="0" y="0">
+    <polygon points="0,0 8,0 8,8 16,8 16,16 0,16"/>
+   </object>
   </objectgroup>
  </tile>
  <tile id="271" terrain="0,8,8,8">
   <objectgroup draworder="index">
-   <object id="1" type="FirePit" x="0" y="8" width="16" height="8"/>
-   <object id="2" type="FirePit" x="8" y="0" width="8" height="8"/>
+   <object id="3" type="FirePit" x="0" y="8">
+    <polygon points="0,0 4,0 8,-4 8,-8 16,-8 16,8 0,8"/>
+   </object>
   </objectgroup>
  </tile>
- <tile id="272" type="Pit"/>
- <tile id="273" type="Pit"/>
- <tile id="274" type="Pit"/>
- <tile id="275" type="Pit"/>
- <tile id="276" type="Pit"/>
- <tile id="278" type="Pit"/>
- <tile id="279" type="Pit"/>
- <tile id="281" type="Pit"/>
- <tile id="282" type="Pit" terrain="0,9,0,9">
+ <tile id="282" terrain="0,9,0,9">
   <objectgroup draworder="index">
    <object id="1" type="Mud" x="8" y="0" width="8" height="16"/>
   </objectgroup>
  </tile>
- <tile id="283" type="Pit" terrain="9,9,9,9"/>
- <tile id="284" type="Pit" terrain="9,0,9,0">
+ <tile id="283" terrain="9,9,9,9">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="0" y="0" width="16" height="16"/>
+  </objectgroup>
+ </tile>
+ <tile id="284" terrain="9,0,9,0">
   <objectgroup draworder="index">
    <object id="1" type="Mud" x="0" y="0" width="8" height="16"/>
   </objectgroup>
  </tile>
- <tile id="285" type="Pit" terrain="9,0,9,9">
+ <tile id="285" terrain="9,0,9,9">
   <objectgroup draworder="index">
-   <object id="1" type="Mud" x="0" y="0" width="8" height="8"/>
-   <object id="2" type="Mud" x="0" y="8" width="16" height="8"/>
+   <object id="1" type="Mud" x="0" y="0">
+    <polygon points="0,0 8,0 8,8 16,8 16,16 0,16"/>
+   </object>
   </objectgroup>
  </tile>
- <tile id="286" type="Pit" terrain="0,9,9,9">
+ <tile id="286" terrain="0,9,9,9">
   <objectgroup draworder="index">
-   <object id="1" type="Mud" x="8" y="0" width="8" height="8"/>
-   <object id="2" type="Mud" x="0" y="8" width="16" height="8"/>
+   <object id="1" type="Mud" x="0" y="8">
+    <polygon points="0,0 8,0 8,-8 16,-8 16,8 0,8"/>
+   </object>
   </objectgroup>
  </tile>
- <tile id="287" type="Pit"/>
- <tile id="288" type="Pit"/>
- <tile id="289" type="Pit"/>
  <tile id="308" type="RemoveMe"/>
  <tile id="309" type="RemoveMe"/>
  <tile id="310" type="RemoveMe"/>
  <tile id="311" type="RemoveMe"/>
  <tile id="320" type="Wall"/>
+ <tile id="324" type="Wall"/>
+ <tile id="326" type="Wall"/>
+ <tile id="327" type="Wall"/>
  <tile id="329" type="Pit"/>
  <tile id="330" type="Pit"/>
- <tile id="331" type="Pit" terrain="0,8,0,0">
+ <tile id="331" terrain="0,8,0,0">
   <objectgroup draworder="index">
    <object id="1" type="FirePit" x="8" y="0" width="8" height="8"/>
   </objectgroup>
@@ -368,41 +382,39 @@
    <object id="1" type="FirePit" x="0" y="0" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="333" type="Pit" terrain="8,0,0,0">
+ <tile id="333" terrain="8,0,0,0">
   <objectgroup draworder="index">
    <object id="1" type="FirePit" x="0" y="0" width="8" height="8"/>
   </objectgroup>
  </tile>
- <tile id="336" type="Pit"/>
- <tile id="337" type="Pit"/>
- <tile id="338" type="Pit"/>
- <tile id="339" type="Pit"/>
- <tile id="340" type="Pit"/>
- <tile id="341" type="Pit"/>
- <tile id="342" type="Pit"/>
- <tile id="343" type="Pit"/>
- <tile id="344" type="Pit"/>
- <tile id="345" type="Pit"/>
- <tile id="346" type="Pit" terrain="0,9,0,0">
+ <tile id="339" terrain="9,9,9,9" probability="0.1">
+  <objectgroup draworder="index">
+   <object id="1" type="Mud" x="0" y="0" width="16" height="16"/>
+  </objectgroup>
+  <animation>
+   <frame tileid="340" duration="200"/>
+   <frame tileid="344" duration="200"/>
+   <frame tileid="345" duration="200"/>
+   <frame tileid="349" duration="200"/>
+   <frame tileid="350" duration="200"/>
+   <frame tileid="339" duration="2000"/>
+  </animation>
+ </tile>
+ <tile id="346" terrain="0,9,0,0">
   <objectgroup draworder="index">
    <object id="1" type="Mud" x="8" y="0" width="8" height="8"/>
   </objectgroup>
  </tile>
- <tile id="347" type="Pit" terrain="9,9,0,0">
+ <tile id="347" terrain="9,9,0,0">
   <objectgroup draworder="index">
    <object id="1" type="Mud" x="0" y="0" width="16" height="8"/>
   </objectgroup>
  </tile>
- <tile id="348" type="Pit" terrain="9,0,0,0">
+ <tile id="348" terrain="9,0,0,0">
   <objectgroup draworder="index">
    <object id="1" type="Mud" x="0" y="0" width="8" height="8"/>
   </objectgroup>
  </tile>
- <tile id="349" type="Pit"/>
- <tile id="350" type="Pit"/>
- <tile id="351" type="Pit"/>
- <tile id="352" type="Pit"/>
- <tile id="353" type="Pit"/>
  <tile id="372" type="RemoveMe"/>
  <tile id="373" type="PlayerBase">
   <properties>
@@ -416,16 +428,6 @@
  <tile id="389" terrain=",,6,"/>
  <tile id="393" type="Pit"/>
  <tile id="394" type="Pit"/>
- <tile id="395" type="Pit"/>
- <tile id="397" type="Pit"/>
- <tile id="398" type="Pit"/>
- <tile id="399" type="Pit"/>
- <tile id="400" type="Pit"/>
- <tile id="401" type="Pit"/>
- <tile id="402" type="Pit"/>
- <tile id="404" type="Pit"/>
- <tile id="405" type="Pit"/>
- <tile id="406" type="Pit"/>
  <tile id="436" type="RemoveMe"/>
  <tile id="437" type="RemoveMe"/>
  <tile id="438" type="RemoveMe"/>
@@ -433,15 +435,6 @@
  <tile id="450" terrain="5,,5,"/>
  <tile id="452" terrain="6,6,6,6"/>
  <tile id="453" terrain="6,,6,"/>
- <tile id="461" type="Pit"/>
- <tile id="462" type="Pit"/>
- <tile id="463" type="Pit"/>
- <tile id="465" type="Pit"/>
- <tile id="466" type="Pit"/>
- <tile id="467" type="Pit"/>
- <tile id="468" type="Pit"/>
- <tile id="469" type="Pit"/>
- <tile id="470" type="Pit"/>
  <tile id="500" type="RemoveMe"/>
  <tile id="501" type="RemoveMe"/>
  <tile id="502" type="RemoveMe"/>
