@@ -2490,6 +2490,11 @@
                   <Member>MaxHp</Member>
                   <ValueAsInt>30</ValueAsInt>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>MaxShootingDistance</Member>
+                  <ValueAsFloat>120</ValueAsFloat>
+                </InstructionSave>
               </InstructionSaves>
               <Name>Shooter</Name>
             </StateSave>
