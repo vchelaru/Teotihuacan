@@ -111,7 +111,7 @@ namespace Teotihuacan.Screens
         private void InitializeNodeNetworks()
         {
             nodeNetwork = TileNodeNetworkCreator.CreateFromTypes(
-                Map, DirectionalType.Four, new string[] { "Ground" });
+                Map, DirectionalType.Four, new string[] { "Ground", "Mud" });
             // todo - add ground:
             //nodeNetwork = new TileNodeNetwork(Map.X, Map.Y - Map.Height, Map.WidthPerTile.Value,
             //    Map.NumberTilesWide.Value, Map.NumberTilesTall.Value, DirectionalType.Eight);
