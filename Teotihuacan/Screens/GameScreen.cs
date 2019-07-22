@@ -208,6 +208,8 @@ namespace Teotihuacan.Screens
             PlayerVsPitSolidCollision.SetFirstSubCollision(item => item.CircleInstance);
 
             PlayerVsBulletExplosionCollision.SetFirstSubCollision(item => item.CircleInstance);
+
+            MudCollision.Visible = true;
         }
 
         private void AddBorderAroundMap()

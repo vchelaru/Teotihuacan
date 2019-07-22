@@ -3,7 +3,7 @@
  <tileset firstgid="1" source="TileSet_Main.tsx"/>
  <layer id="1" name="Ground" width="34" height="19">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC3NnYGBwJxM7ArETDuxMgbmj7hh1x6g7Rt0x6o5Rd4y6Y9Qdo+6gvzsAXDjHSBgKAAA=
+   H4sIAAAAAAAAC3NnYGBwJxNLMzIwyODAsozkmzvqjlF3jLpj1B2j7hh1x6g7Rt0x6g76uwMAseUBwRgKAAA=
   </data>
  </layer>
  <layer id="2" name="Shadows" width="34" height="19" visible="0" opacity="0.5">

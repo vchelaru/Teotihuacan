@@ -349,6 +349,50 @@
               <Name>SourceType</Name>
               <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
             </PropertySave>
+            <PropertySave>
+              <Name>CollisionCreationOptions</Name>
+              <ValueAsInt>5</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionTileSize</Name>
+              <ValueAsFloat>16</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionFillWidth</Name>
+              <ValueAsInt>32</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionFillHeight</Name>
+              <ValueAsInt>1</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>SourceTmxName</Name>
+              <ValueAsString>Map</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionLayerName</Name>
+              <ValueAsString>Ground</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionLayerTileType</Name>
+              <ValueAsString>Mud</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>TileShapeCollection</SourceClassType>
+          <InstanceName>MudCollision</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
@@ -3896,7 +3940,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\Level1</StartUpScreen>
+  <StartUpScreen>Screens\Level2</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>
