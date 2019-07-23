@@ -2460,7 +2460,7 @@
           </Properties>
           <Name>ArePlayersInvincible</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -2472,7 +2472,7 @@
           </Properties>
           <Name>IsBaseInvincible</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -2484,7 +2484,7 @@
           </Properties>
           <Name>PlayersHaveInfiniteEnergy</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -2576,6 +2576,41 @@
                 </InstructionSave>
               </InstructionSaves>
               <Name>Rocket</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteAnimations</Member>
+                  <ValueAsString>Enemy_Shooter_Animations</ValueAsString>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>MaxHp</Member>
+                  <ValueAsInt>300</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>MaxShootingDistance</Member>
+                  <ValueAsFloat>120</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>BulletsToFire</Member>
+                  <ValueAsInt>5</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>BulletSpreadHalfAngle</Member>
+                  <ValueAsFloat>45</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ShieldHalfAngle</Member>
+                  <ValueAsFloat>90</ValueAsFloat>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Boss</Name>
             </StateSave>
           </States>
           <ExcludedVariables>
@@ -2753,6 +2788,39 @@
           <Name>AoeRadius</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">40</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BulletsToFire</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">1</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BulletSpreadHalfAngle</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ShieldHalfAngle</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>

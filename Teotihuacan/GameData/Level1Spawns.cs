@@ -15,7 +15,7 @@ namespace Teotihuacan.GameData
             var wave = AddWave();
             wave.AddMiniWave
             (
-                Shooter
+                Boss
             );
             wave.AddMiniWave
             (

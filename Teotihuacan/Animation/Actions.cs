@@ -14,7 +14,8 @@ namespace Teotihuacan.Animation
         Fireball = 4,
         Skull = 5,
         Death = 6,
-        ProjectileExplosion = 7
+        ProjectileExplosion = 7,
+        reload = 8
     }
 
     public enum SecondaryActions

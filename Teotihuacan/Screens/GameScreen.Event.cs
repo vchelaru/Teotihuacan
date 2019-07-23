@@ -29,7 +29,7 @@ namespace Teotihuacan.Screens
         {
             if(bullet.TeamIndex == 0)
             {
-                if(enemy.TakeDamage(bullet.DamageToDeal, bullet.Owner))
+                if(enemy.TakeDamage(bullet, bullet.DamageToDeal, bullet.Owner))
                 {
                     bullet.PlayerDestroyVfx();
 
@@ -64,7 +64,7 @@ namespace Teotihuacan.Screens
         {
             if (bulletExplosion.TeamIndex != 1)
             {
-                enemy.TakeDamage(bulletExplosion.DamageToDeal, bulletExplosion.Owner);
+                enemy.TakeDamage(bulletExplosion, bulletExplosion.DamageToDeal, bulletExplosion.Owner);
                 // don't destroy the explosion, it's aoe and may hit multiple enemies.
 
                 var direction = Vector3.Right;

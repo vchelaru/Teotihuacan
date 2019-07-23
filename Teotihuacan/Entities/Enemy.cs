@@ -260,10 +260,14 @@ namespace Teotihuacan.Entities
 
         private void UpdateAimingBehavior(PositionedObject target)
         {
-            if (X - target.X != 0 || Y - target.Y != 0)
+            if (CurrentDataCategoryState != DataCategory.Boss || 
+                (CurrentDataCategoryState == DataCategory.Boss && CurrentBehavior != Behavior.Reloading))
             {
-                aimingVector = new Vector3(target.X, target.Y, 0) - new Vector3(X, Y, 0);
-                aimingVector.Normalize();
+                if (X - target.X != 0 || Y - target.Y != 0)
+                {
+                    aimingVector = new Vector3(target.X, target.Y, 0) - new Vector3(X, Y, 0);
+                    aimingVector.Normalize();
+                }
             }
         }
 
@@ -275,7 +279,14 @@ namespace Teotihuacan.Entities
             }
             else if(CurrentBehavior == Behavior.Reloading)
             {
-                mCurrentMovement = TopDownValues[DataTypes.TopDownValues.WhileReloading];
+                if (CurrentDataCategoryState == DataCategory.Boss)
+                {
+                    mCurrentMovement = TopDownValues[DataTypes.TopDownValues.BossReloading];
+                }
+                else
+                {
+                    mCurrentMovement = TopDownValues[DataTypes.TopDownValues.WhileReloading];
+                }
             }
             else 
             {
@@ -407,38 +418,68 @@ namespace Teotihuacan.Entities
                 1 / FireShotsPerSecond
                 )
             {
-                var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
-                bullet.Z = this.Z - 1;
-                bullet.CurrentDataCategoryState = Bullet.DataCategory.EnemyBullet;
-                bullet.Velocity = bullet.BulletSpeed * aimingVector;
-                bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections), Weapon.ShootingFire);
-                shootingAnimationLayer.PlayOnce(GetChainName(PrimaryActions.shoot, SecondaryActions.Shooting ));
+                // Rotate the aiming vector to the farthest angle counterclockwise. (Positive)
+                // For each increment rotate clockwise. (Negative)
+                Vector3 currentAimingVector = RotateVector(aimingVector, BulletSpreadHalfAngle);
+                float spreadIncremet = -(BulletSpreadHalfAngle * 2) / Math.Max((BulletsToFire -1), 1);
 
+                for (int i = 0; i < BulletsToFire; i++)
+                {
+
+                    var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
+                    bullet.Z = this.Z - 1;
+                    bullet.CurrentDataCategoryState = Bullet.DataCategory.EnemyBullet;
+                    bullet.Velocity = bullet.BulletSpeed * currentAimingVector;
+                    bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(currentAimingVector, PossibleDirections), Weapon.ShootingFire);
+                    shootingAnimationLayer.PlayOnce(GetChainName(PrimaryActions.shoot, SecondaryActions.Shooting));
+
+                    currentAimingVector = RotateVector(currentAimingVector, spreadIncremet);
+                }
                 lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
 
                 shotsLeftInClip--;
             }
         }
+        private Vector3 RotateVector(Vector3 vector, float angleDegrees)
+        {
+            /// **************************
+            /// EARLY OUT
+            ///***************************
+            if(angleDegrees == 0)
+            {
+                return vector;
+            }
+            /// **************************
+            /// END EARLY OUT
+            ///***************************
 
-        public bool TakeDamage(int damageToTake, Player owner)
+            var angleRadians = angleDegrees * (Math.PI / 180);
+            float cos = (float)Math.Cos(angleRadians);
+            float sin = (float)Math.Sin(angleRadians);
+            
+            return new Vector3(vector.X * cos - vector.Y * sin, vector.X * sin + vector.Y * cos, 0);
+        }
+
+        public bool TakeDamage(PositionedObject damageDealer, int damageToTake, Player owner)
         {
             bool tookDamage = false;
             if(canTakeDamage)
             {
                 tookDamage = true;
-                CurrentHP -= damageToTake;
+                var modifedDamage = ModifyDamageToTake(damageDealer, damageToTake);
+                CurrentHP -= modifedDamage;
 
                 if(CurrentHP <= 0)
                 {
                     System.Diagnostics.Debug.WriteLine(
-                        $"Took {damageToTake} damage and died");
+                        $"Took {modifedDamage} damage and died");
                     playerThatDealtKillingBlow = owner;
                     PerformDeath();
                 }
                 else
                 {
                     System.Diagnostics.Debug.WriteLine(
-                        $"Took {damageToTake} damage and has {CurrentHP} left");
+                        $"Took {modifedDamage} damage and has {CurrentHP} left");
                     isFlashingWhite = true;
                     // We may need to be more careful here if there's other instructions.
                     this.Instructions.Clear();
@@ -449,6 +490,38 @@ namespace Teotihuacan.Entities
             }
 
             return tookDamage;
+        }
+
+        private int ModifyDamageToTake(PositionedObject damageDealer, int baseDamage)
+        {
+            /// **************************
+            /// EARLY OUT
+            ///***************************
+            if (ShieldHalfAngle == 0)
+            {
+                return baseDamage;
+            }
+            /// **************************
+            /// END EARLY OUT
+            ///***************************
+            Vector3 directionOfDamage = damageDealer.Position - Position;
+            directionOfDamage.Normalize();
+            var directionFacing = TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
+            Vector3 forwardVector = directionFacing.ToVector();
+
+            var dotProd = directionOfDamage.X * forwardVector.X + directionOfDamage.Y * forwardVector.Y;
+
+            var angleDegrees = Math.Acos(dotProd) * (180/Math.PI);
+
+            int toReturn = baseDamage;
+
+            if (angleDegrees < ShieldHalfAngle)
+            {
+                toReturn /= 2;
+            }
+
+            return toReturn;
+            
         }
 
         private void SetForcedTarget(Player owner)
