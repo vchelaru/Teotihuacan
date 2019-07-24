@@ -108,6 +108,8 @@ namespace Teotihuacan.Entities
 
         public float CurrentEnergy { get; private set; }
 
+        public bool IsOnMud { get; set; }
+
         #endregion
 
         #region Initialize
@@ -323,10 +325,24 @@ namespace Teotihuacan.Entities
             switch(CurrentSecondaryAction)
             {
                 case SecondaryActions.None:
-                    mCurrentMovement = TopDownValues[DataTypes.TopDownValues.DefaultValues];
+                    if(IsOnMud)
+                    {
+                        mCurrentMovement = TopDownValues[DataTypes.TopDownValues.OnMud];
+                    }
+                    else
+                    {
+                        mCurrentMovement = TopDownValues[DataTypes.TopDownValues.DefaultValues];
+                    }
                     break;
                 case SecondaryActions.Shooting:
-                    mCurrentMovement = TopDownValues[DataTypes.TopDownValues.WhileShooting];
+                    if(IsOnMud)
+                    {
+                        mCurrentMovement = TopDownValues[DataTypes.TopDownValues.WhileShootingMud];
+                    }
+                    else
+                    {
+                        mCurrentMovement = TopDownValues[DataTypes.TopDownValues.WhileShooting];
+                    }
                     break;
             }
         }

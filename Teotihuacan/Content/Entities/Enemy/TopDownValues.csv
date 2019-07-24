@@ -2,4 +2,5 @@
 DefaultValues,40,.35,.175,True
 WhileShooting,20,.25,.125,True
 WhileReloading,17,.25,.125,True
+EnemyMud,15,.2,.1,True
 BossReloading,0,0,0,False

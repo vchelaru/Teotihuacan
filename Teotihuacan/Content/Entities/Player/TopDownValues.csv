@@ -1,3 +1,5 @@
 "Name (System.String, required)",MaxSpeed (System.Single),AccelerationTime (System.Single),DecelerationTime (System.Single),UpdateDirectionFromVelocity (System.Boolean)
 DefaultValues,100,.35,.175,True
 WhileShooting,20,.2,.1,False
+OnMud,60,.3,.15,True
+WhileShootingMud,12,.1,.06,False

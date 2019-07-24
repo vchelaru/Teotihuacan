@@ -73,6 +73,8 @@ namespace Teotihuacan.Entities
         // ai visualization:
         Line thisToPerpendicularTarget;
 
+        public bool IsOnMud { get; set; }
+
 
         #endregion
 
@@ -273,6 +275,7 @@ namespace Teotihuacan.Entities
 
         private void UpdateCurrentMovementValues()
         {
+            bool isBossReloading = false;
             if (CurrentBehavior == Behavior.Shooting)
             {
                 mCurrentMovement = TopDownValues[DataTypes.TopDownValues.WhileShooting];
@@ -282,6 +285,7 @@ namespace Teotihuacan.Entities
                 if (CurrentDataCategoryState == DataCategory.Boss)
                 {
                     mCurrentMovement = TopDownValues[DataTypes.TopDownValues.BossReloading];
+                    isBossReloading = true;
                 }
                 else
                 {
@@ -291,6 +295,11 @@ namespace Teotihuacan.Entities
             else 
             {
                 mCurrentMovement = TopDownValues[DataTypes.TopDownValues.DefaultValues];
+            }
+
+            if(IsOnMud && !isBossReloading)
+            {
+                mCurrentMovement = TopDownValues[DataTypes.TopDownValues.EnemyMud];
             }
         }
 

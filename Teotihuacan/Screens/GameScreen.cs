@@ -166,8 +166,15 @@ namespace Teotihuacan.Screens
 
         private void InitializeCollisions()
         {
-            SolidCollisions.Visible = DebuggingVariables.ShowSolidCollision;
-            PitSolidCollisions.Visible = DebuggingVariables.ShowSolidCollision;
+            if(DebuggingVariables.ShowSolidCollision)
+            {
+                SolidCollisions.Visible = true;
+                PitSolidCollisions.Visible = true;
+                MudCollision.Visible = true;
+
+                PitSolidCollisions.SetColor(Color.Gray);
+                MudCollision.SetColor(Color.Orange);
+            }
 
             // add border around the tile map
             AddBorderAroundMap();
@@ -209,7 +216,12 @@ namespace Teotihuacan.Screens
 
             PlayerVsBulletExplosionCollision.SetFirstSubCollision(item => item.CircleInstance);
 
-            MudCollision.Visible = true;
+            PlayerVsMudCollision.IsActive = false;
+            PlayerVsMudCollision.SetFirstSubCollision(item => item.CircleInstance);
+            PlayerVsMudCollision.CollisionOccurred += (player, tileShapeCollection) => player.IsOnMud = true;
+
+            EnemyVsMudCollision.IsActive = false;
+            EnemyVsMudCollision.CollisionOccurred += (enemy, tileShapeCollection) => enemy.IsOnMud = true;
         }
 
         private void AddBorderAroundMap()
@@ -337,6 +349,21 @@ namespace Teotihuacan.Screens
                     }
                 }
             }
+
+
+            // reset mud before doing collision
+            foreach(var player in PlayerList)
+            {
+                player.IsOnMud = false;
+            }
+
+            foreach(var enemy in EnemyList)
+            {
+                enemy.IsOnMud = false;
+            }
+
+            PlayerVsMudCollision.DoCollisions();
+            EnemyVsMudCollision.DoCollisions();
         }
 
         private void JoinUnjoinActivity()
