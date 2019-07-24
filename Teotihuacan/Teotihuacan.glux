@@ -205,6 +205,13 @@
           <BeforeOrAfter>Before</BeforeOrAfter>
           <DelegateType />
         </EventResponseSave>
+        <EventResponseSave>
+          <EventName>WeaponDropVsPlayerCollisionOccurred</EventName>
+          <SourceObject>WeaponDropVsPlayer</SourceObject>
+          <SourceObjectEvent>CollisionOccurred</SourceObjectEvent>
+          <BeforeOrAfter>Before</BeforeOrAfter>
+          <DelegateType />
+        </EventResponseSave>
       </Events>
       <CustomVariables>
         <CustomVariable>
@@ -428,6 +435,21 @@
           <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
           <SourceClassGenericType>Entities\Bullet</SourceClassGenericType>
           <InstanceName>BulletList</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\WeaponDrop</SourceClassGenericType>
+          <InstanceName>WeaponDropList</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -1281,6 +1303,162 @@
           <SourceName />
           <SourceClassType>FlatRedBall.Math.Collision.ListVsListRelationship&lt;Entities.Player, Entities.BulletExplosion&gt;</SourceClassType>
           <InstanceName>PlayerVsBulletExplosionCollision</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionMass</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>SecondCollisionMass</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionElasticity</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionName</Name>
+              <ValueAsString>WeaponDropList</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>SecondCollisionName</Name>
+              <ValueAsString>WeaponDropList</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionType</Name>
+              <ValueAsInt>1</ValueAsInt>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>FlatRedBall.Math.Collision.ListVsListRelationship&lt;Entities.WeaponDrop, Entities.WeaponDrop&gt;</SourceClassType>
+          <InstanceName>WeaponDropVsWeaponDrop</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionMass</Name>
+              <ValueAsFloat>0</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>SecondCollisionMass</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionElasticity</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionName</Name>
+              <ValueAsString>WeaponDropList</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>SecondCollisionName</Name>
+              <ValueAsString>SolidCollisions</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionType</Name>
+              <ValueAsInt>1</ValueAsInt>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>FlatRedBall.Math.Collision.CollidableListVsTileShapeCollectionRelationship&lt;Entities.WeaponDrop&gt;</SourceClassType>
+          <InstanceName>WeaponDropVsSolidCollision</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionMass</Name>
+              <ValueAsFloat>0</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>SecondCollisionMass</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionElasticity</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionName</Name>
+              <ValueAsString>WeaponDropList</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>SecondCollisionName</Name>
+              <ValueAsString>PitSolidCollisions</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionType</Name>
+              <ValueAsInt>1</ValueAsInt>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>FlatRedBall.Math.Collision.CollidableListVsTileShapeCollectionRelationship&lt;Entities.WeaponDrop&gt;</SourceClassType>
+          <InstanceName>WeaponDropVsPitCollision</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionMass</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>SecondCollisionMass</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionElasticity</Name>
+              <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstCollisionName</Name>
+              <ValueAsString>WeaponDropList</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>SecondCollisionName</Name>
+              <ValueAsString>PlayerList</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>FlatRedBall.Math.Collision.ListVsListRelationship&lt;Entities.WeaponDrop, Entities.Player&gt;</SourceClassType>
+          <InstanceName>WeaponDropVsPlayer</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -2619,6 +2797,11 @@
                   <Member>MaxShootingDistance</Member>
                   <ValueAsFloat>120</ValueAsFloat>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChanceForWeaponDrop</Member>
+                  <ValueAsFloat>0.5</ValueAsFloat>
+                </InstructionSave>
               </InstructionSaves>
               <Name>Shooter</Name>
             </StateSave>
@@ -2638,6 +2821,11 @@
                   <Type>Int32</Type>
                   <Member>ClipSize</Member>
                   <ValueAsInt>0</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChanceForWeaponDrop</Member>
+                  <ValueAsFloat>0.5</ValueAsFloat>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Suicider</Name>
@@ -2688,6 +2876,11 @@
                   <Type>Single</Type>
                   <Member>ShieldHalfAngle</Member>
                   <ValueAsFloat>90</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChanceForWeaponDrop</Member>
+                  <ValueAsFloat>0.25</ValueAsFloat>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Boss</Name>
@@ -2901,6 +3094,17 @@
           <Name>ShieldHalfAngle</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ChanceForWeaponDrop</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -4046,6 +4250,193 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <StateCategoryList>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>WeaponDropFireBall</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>FireBallDrop</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>WeaponDropLightning</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>LightningDrop</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>WeaponDropSkull</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>SkullDrop</Name>
+            </StateSave>
+          </States>
+          <ExcludedVariables />
+          <Name>DataCategory</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
+      </StateCategoryList>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">WeaponDropFireBall</DefaultValue>
+          <SourceObject>SpriteInstance</SourceObject>
+          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>LifeTime</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BlinkFrequency</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.2</DefaultValue>
+        </CustomVariable>
+      </CustomVariables>
+      <ImplementsIVisible>true</ImplementsIVisible>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\WeaponDrop</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>7</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>misc_sprites</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>WeaponDropFireBall</ValueAsString>
+          </CustomProperty>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>8</ValueAsFloat>
+          </CustomProperty>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Various/misc_sprites.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
       <Is2D>true</Is2D>
     </EntitySave>

@@ -64,8 +64,7 @@ namespace Teotihuacan.Entities
             {
                 if(InputDevice == InputManager.Keyboard)
                 {
-                    return InputDevice.DefaultPrimaryActionInput.IsDown || 
-                        InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton);
+                    return InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton);
 
                 }
                 else if(InputDevice is Xbox360GamePad gamePad)
@@ -181,7 +180,7 @@ namespace Teotihuacan.Entities
             DoAimingActivity();
             DoShootingActivity();
             DoMovementValueUpdate();
-            DoWeaponSwappingLogic();
+            //DoWeaponSwappingLogic();
             spriteAnimationController.Activity();
             UpdateOverlaySprite();
             LightningEndpointSprite.Visible = 
@@ -585,6 +584,12 @@ namespace Teotihuacan.Entities
                 lastSprite.RelativeX = leftOfPreviousSprite + widthPerSprite * leftover/2.0f ;
 
             }
+        }
+
+        public void ConsumeWeaponDrop(Weapon weaponType)
+        {
+            //ToDo: Apply weapon level if the same weapon type or start over from 0;
+            EquippedWeapon = weaponType;
         }
 
         #endregion
