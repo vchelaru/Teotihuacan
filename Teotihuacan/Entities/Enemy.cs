@@ -567,6 +567,16 @@ namespace Teotihuacan.Entities
                 SpriteManager.RemoveSpriteAtTime(death, death.CurrentChain.TotalLength);
                 Destroy();
             }
+
+            PerformWeaponDrop();
+        }
+
+        private void PerformWeaponDrop()
+        {
+            if(FlatRedBallServices.Random.NextDouble() <= ChanceForWeaponDrop)
+            {
+                Factories.WeaponDropFactory.CreateNew(X, Y);
+            }
         }
 
         public void PerformExplode()

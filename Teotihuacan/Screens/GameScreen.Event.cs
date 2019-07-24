@@ -116,7 +116,15 @@ namespace Teotihuacan.Screens
                     player.Velocity += enemyToBullet * bulletExplosion.ExplosionForce;
                 }
             }
-        }
+        }        
 
+        void OnWeaponDropVsPlayerCollisionOccurred (Entities.WeaponDrop weaponDrop, Entities.Player player) 
+        {
+            if(player.InputDevice.DefaultPrimaryActionInput.WasJustPressed)
+            {
+                player.ConsumeWeaponDrop(weaponDrop.WeaponType);
+                weaponDrop.Destroy();
+            }
+        }
     }
 }
