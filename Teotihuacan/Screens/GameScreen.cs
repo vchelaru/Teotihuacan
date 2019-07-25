@@ -215,6 +215,7 @@ namespace Teotihuacan.Screens
             PlayerVsPitSolidCollision.SetFirstSubCollision(item => item.CircleInstance);
 
             PlayerVsBulletExplosionCollision.SetFirstSubCollision(item => item.CircleInstance);
+            PlayerVsWeaponCollision.SetFirstSubCollision(item => item.CircleInstance);
 
             PlayerVsMudCollision.IsActive = false;
             PlayerVsMudCollision.SetFirstSubCollision(item => item.CircleInstance);

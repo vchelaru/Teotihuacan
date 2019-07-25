@@ -206,8 +206,8 @@
           <DelegateType />
         </EventResponseSave>
         <EventResponseSave>
-          <EventName>WeaponDropVsPlayerCollisionOccurred</EventName>
-          <SourceObject>WeaponDropVsPlayer</SourceObject>
+          <EventName>PlayerVsWeaponCollisionCollisionOccurred</EventName>
+          <SourceObject>PlayerVsWeaponCollision</SourceObject>
           <SourceObjectEvent>CollisionOccurred</SourceObjectEvent>
           <BeforeOrAfter>Before</BeforeOrAfter>
           <DelegateType />
@@ -1447,18 +1447,18 @@
             </PropertySave>
             <PropertySave>
               <Name>FirstCollisionName</Name>
-              <ValueAsString>WeaponDropList</ValueAsString>
+              <ValueAsString>PlayerList</ValueAsString>
             </PropertySave>
             <PropertySave>
               <Name>SecondCollisionName</Name>
-              <ValueAsString>PlayerList</ValueAsString>
+              <ValueAsString>WeaponDropList</ValueAsString>
             </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
-          <SourceClassType>FlatRedBall.Math.Collision.ListVsListRelationship&lt;Entities.WeaponDrop, Entities.Player&gt;</SourceClassType>
-          <InstanceName>WeaponDropVsPlayer</InstanceName>
+          <SourceClassType>FlatRedBall.Math.Collision.ListVsListRelationship&lt;Entities.Player, Entities.WeaponDrop&gt;</SourceClassType>
+          <InstanceName>PlayerVsWeaponCollision</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -3573,7 +3573,7 @@
           <DefaultValue xsi:type="xsd:float">250</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
-        <CustomVariable>
+		<CustomVariable>
           <Properties>
             <PropertySave>
               <Name>Type</Name>
@@ -3596,7 +3596,7 @@
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0.02</DefaultValue>
           <IsShared>true</IsShared>
-        </CustomVariable>
+      </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\Player</Name>

@@ -48,10 +48,6 @@ namespace Teotihuacan.Entities
             currentScreen = ScreenManager.CurrentScreen;
             spawnTime = currentScreen.PauseAdjustedCurrentTime;
             this.Call(Destroy).After(LifeTime);
-            //Debug remove this
-            CurrentDataCategoryState = DataCategory.FireBallDrop;
-            WeaponType = Weapon.ShootingFire;
-
         }
 
 		private void CustomActivity()
