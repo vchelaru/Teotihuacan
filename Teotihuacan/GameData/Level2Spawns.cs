@@ -41,6 +41,345 @@ namespace Teotihuacan.GameData
                 Shooter,
                 Shooter
             );
+
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+
+
+
+            );
         }
     }
 }
