@@ -13,6 +13,7 @@ using FlatRedBall.Gui;
 using Teotihuacan.Animation;
 using System.Linq;
 using Teotihuacan.Managers;
+using Teotihuacan.GameData;
 
 namespace Teotihuacan.Entities
 {
@@ -109,6 +110,8 @@ namespace Teotihuacan.Entities
 
         public bool IsOnMud { get; set; }
 
+        private WeaponLevelBase weaponLevel = new WeaponLevelBase();
+        public float WeaponDamageModifier => weaponLevel.CurrentWeaponLevel * WeaponLevelDamageIncrement + 1;
         #endregion
 
         #region Initialize
@@ -123,6 +126,8 @@ namespace Teotihuacan.Entities
             this.PossibleDirections = PossibleDirections.EightWay;
             CurrentHP = MaxHP;
             CurrentEnergy = MaxEnergy;
+
+            weaponLevel.ChangeWeaponType(EquippedWeapon);
 
             lightningAttachment = new PositionedObject();
             lightningAttachment.AttachTo(this);
@@ -185,6 +190,12 @@ namespace Teotihuacan.Entities
             UpdateOverlaySprite();
             LightningEndpointSprite.Visible = 
                 CurrentSecondaryAction == SecondaryActions.Shooting && EquippedWeapon == Weapon.ShootingLightning;
+
+            string debugString = $@"Current Level: {weaponLevel.CurrentWeaponLevel}
+Weapon Modifier: {WeaponDamageModifier}
+Weapon Drain: {1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrement}";
+            
+            FlatRedBall.Debugging.Debugger.Write(debugString);
 		}
 
         private void DoWeaponSwappingLogic()
@@ -279,14 +290,14 @@ namespace Teotihuacan.Entities
                 bulletData != null &&
                 FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastFireShotTime) > 
                 1/ bulletData.ShotsPerSecond && 
-                CurrentEnergy > bulletData.EnergyUsePerShot
+                CurrentEnergy > ModifyEnergyDrain(bulletData.EnergyUsePerShot)
                 )
             {
                 DoShootingFireActivity(bulletData);
             }
             else if(CurrentSecondaryAction == SecondaryActions.Shooting && EquippedWeapon == Weapon.ShootingLightning)
             {
-                CurrentEnergy -= LightningEnergyUsePerSecond * TimeManager.SecondDifference;
+                CurrentEnergy -= ModifyEnergyDrain(LightningEnergyUsePerSecond) * TimeManager.SecondDifference;
             }
             else if(isPrimaryInputDown == false)
             {
@@ -302,6 +313,11 @@ namespace Teotihuacan.Entities
             }
         }
 
+        private float ModifyEnergyDrain(float baseEnergyDrain)
+        {
+            return baseEnergyDrain * (1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrement);
+        }
+
         private void DoShootingFireActivity(Bullet.DataCategory bulletData)
         {
             var direction = aimingVector;
@@ -312,7 +328,7 @@ namespace Teotihuacan.Entities
             bullet.Velocity = bullet.BulletSpeed * direction;
             bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections), EquippedWeapon);
 
-            CurrentEnergy -= bulletData.EnergyUsePerShot;
+            CurrentEnergy -= ModifyEnergyDrain(bulletData.EnergyUsePerShot);
 
             shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.Shooting));
 
@@ -588,8 +604,16 @@ namespace Teotihuacan.Entities
 
         public void ConsumeWeaponDrop(Weapon weaponType)
         {
-            //ToDo: Apply weapon level if the same weapon type or start over from 0;
-            EquippedWeapon = weaponType;
+            if (EquippedWeapon == weaponType)
+            {
+                //For now only add 1 experience to the weapon.
+                weaponLevel.AddWeaponExperience();
+            }
+            else
+            {
+                EquippedWeapon = weaponType;
+                weaponLevel.ChangeWeaponType(EquippedWeapon);
+            }
         }
 
         #endregion
