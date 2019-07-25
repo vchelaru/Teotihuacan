@@ -3573,30 +3573,6 @@
           <DefaultValue xsi:type="xsd:float">250</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>WeaponLevelDamageIncrement</Name>
-          <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
-          <IsShared>true</IsShared>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>WeaponLevelEnergyDrainDecrement</Name>
-          <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.02</DefaultValue>
-          <IsShared>true</IsShared>
-        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\Player</Name>

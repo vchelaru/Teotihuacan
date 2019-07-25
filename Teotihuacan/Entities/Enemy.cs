@@ -469,13 +469,13 @@ namespace Teotihuacan.Entities
             return new Vector3(vector.X * cos - vector.Y * sin, vector.X * sin + vector.Y * cos, 0);
         }
 
-        public bool TakeDamage(PositionedObject damageDealer, float damageToTake, Player owner)
+        public bool TakeDamage(PositionedObject damageDealer, int damageToTake, Player owner)
         {
             bool tookDamage = false;
             if(canTakeDamage)
             {
                 tookDamage = true;
-                var modifedDamage = ModifyDamageToTake(damageDealer, owner.WeaponDamageModifier, damageToTake);
+                var modifedDamage = ModifyDamageToTake(damageDealer, damageToTake);
                 CurrentHP -= modifedDamage;
 
                 if(CurrentHP <= 0)
@@ -501,29 +501,33 @@ namespace Teotihuacan.Entities
             return tookDamage;
         }
 
-        private float ModifyDamageToTake(PositionedObject damageDealer, float weaponLevelModifier, float baseDamage)
+        private int ModifyDamageToTake(PositionedObject damageDealer, int baseDamage)
         {
-            float toReturn = baseDamage;
-            if (ShieldHalfAngle != 0)
+            /// **************************
+            /// EARLY OUT
+            ///***************************
+            if (ShieldHalfAngle == 0)
             {
-                Vector3 directionOfDamage = damageDealer.Position - Position;
-                directionOfDamage.Normalize();
-                var directionFacing = TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
-                Vector3 forwardVector = directionFacing.ToVector();
-
-                var dotProd = directionOfDamage.X * forwardVector.X + directionOfDamage.Y * forwardVector.Y;
-
-                var angleDegrees = Math.Acos(dotProd) * (180 / Math.PI);
-
-                toReturn = baseDamage;
-
-                if (angleDegrees < ShieldHalfAngle)
-                {
-                    toReturn /= 2;
-                }
+                return baseDamage;
             }
+            /// **************************
+            /// END EARLY OUT
+            ///***************************
+            Vector3 directionOfDamage = damageDealer.Position - Position;
+            directionOfDamage.Normalize();
+            var directionFacing = TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
+            Vector3 forwardVector = directionFacing.ToVector();
 
-            toReturn = toReturn * weaponLevelModifier;
+            var dotProd = directionOfDamage.X * forwardVector.X + directionOfDamage.Y * forwardVector.Y;
+
+            var angleDegrees = Math.Acos(dotProd) * (180/Math.PI);
+
+            int toReturn = baseDamage;
+
+            if (angleDegrees < ShieldHalfAngle)
+            {
+                toReturn /= 2;
+            }
 
             return toReturn;
             
@@ -539,9 +543,7 @@ namespace Teotihuacan.Entities
         {
             if(canTakeDamage)
             {
-                //For the lightning weapon use the player as the position to calculate rear hits.
-                float modifiedDps = ModifyDamageToTake(owner, owner.WeaponDamageModifier, dps);
-                CurrentHP -= modifiedDps * TimeManager.SecondDifference;
+                CurrentHP -= dps * TimeManager.SecondDifference;
 
                 if(CurrentHP < 0)
                 {

@@ -13,7 +13,6 @@ using FlatRedBall.Gui;
 using Teotihuacan.Animation;
 using System.Linq;
 using Teotihuacan.Managers;
-using Teotihuacan.GameData;
 
 namespace Teotihuacan.Entities
 {
@@ -110,8 +109,6 @@ namespace Teotihuacan.Entities
 
         public bool IsOnMud { get; set; }
 
-        private WeaponLevelBase weaponLevel = new WeaponLevelBase();
-        public float WeaponDamageModifier => weaponLevel.CurrentWeaponLevel * WeaponLevelDamageIncrement + 1;
         #endregion
 
         #region Initialize
@@ -126,8 +123,6 @@ namespace Teotihuacan.Entities
             this.PossibleDirections = PossibleDirections.EightWay;
             CurrentHP = MaxHP;
             CurrentEnergy = MaxEnergy;
-
-            weaponLevel.ChangeWeaponType(EquippedWeapon);
 
             lightningAttachment = new PositionedObject();
             lightningAttachment.AttachTo(this);
@@ -190,12 +185,6 @@ namespace Teotihuacan.Entities
             UpdateOverlaySprite();
             LightningEndpointSprite.Visible = 
                 CurrentSecondaryAction == SecondaryActions.Shooting && EquippedWeapon == Weapon.ShootingLightning;
-
-            string debugString = $@"Current Level: {weaponLevel.CurrentWeaponLevel}
-Weapon Modifier: {WeaponDamageModifier}
-Weapon Drain: {1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrement}";
-            
-            FlatRedBall.Debugging.Debugger.Write(debugString);
 		}
 
         private void DoWeaponSwappingLogic()
@@ -290,14 +279,14 @@ Weapon Drain: {1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrem
                 bulletData != null &&
                 FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastFireShotTime) > 
                 1/ bulletData.ShotsPerSecond && 
-                CurrentEnergy > ModifyEnergyDrain(bulletData.EnergyUsePerShot)
+                CurrentEnergy > bulletData.EnergyUsePerShot
                 )
             {
                 DoShootingFireActivity(bulletData);
             }
             else if(CurrentSecondaryAction == SecondaryActions.Shooting && EquippedWeapon == Weapon.ShootingLightning)
             {
-                CurrentEnergy -= ModifyEnergyDrain(LightningEnergyUsePerSecond) * TimeManager.SecondDifference;
+                CurrentEnergy -= LightningEnergyUsePerSecond * TimeManager.SecondDifference;
             }
             else if(isPrimaryInputDown == false)
             {
@@ -313,11 +302,6 @@ Weapon Drain: {1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrem
             }
         }
 
-        private float ModifyEnergyDrain(float baseEnergyDrain)
-        {
-            return baseEnergyDrain * (1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrement);
-        }
-
         private void DoShootingFireActivity(Bullet.DataCategory bulletData)
         {
             var direction = aimingVector;
@@ -328,7 +312,7 @@ Weapon Drain: {1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrem
             bullet.Velocity = bullet.BulletSpeed * direction;
             bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections), EquippedWeapon);
 
-            CurrentEnergy -= ModifyEnergyDrain(bulletData.EnergyUsePerShot);
+            CurrentEnergy -= bulletData.EnergyUsePerShot;
 
             shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.Shooting));
 
@@ -604,16 +588,8 @@ Weapon Drain: {1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrem
 
         public void ConsumeWeaponDrop(Weapon weaponType)
         {
-            if (EquippedWeapon == weaponType)
-            {
-                //For now only add 1 experience to the weapon.
-                weaponLevel.AddWeaponExperience();
-            }
-            else
-            {
-                EquippedWeapon = weaponType;
-                weaponLevel.ChangeWeaponType(EquippedWeapon);
-            }
+            //ToDo: Apply weapon level if the same weapon type or start over from 0;
+            EquippedWeapon = weaponType;
         }
 
         #endregion
