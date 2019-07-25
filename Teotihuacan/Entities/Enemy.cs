@@ -14,6 +14,7 @@ using FlatRedBall.TileCollisions;
 using Microsoft.Xna.Framework;
 using Teotihuacan.Animation;
 using FlatRedBall.Math;
+using Teotihuacan.Screens;
 
 namespace Teotihuacan.Entities
 {
@@ -31,6 +32,8 @@ namespace Teotihuacan.Entities
     public partial class Enemy : ITopDownEntity
 	{
         #region Fields/Properties
+
+        public GameScreen.StatMultipliers StatMultipliers;
 
         Polygon lineOfSightPathFindingPolygon;
 
@@ -331,7 +334,7 @@ namespace Teotihuacan.Entities
 
                 if(isLineOfSight)
                 {
-                    isInRange = (target.Position - this.Position).Length() < MaxShootingDistance;
+                    isInRange = (target.Position - this.Position).Length() < MaxShootingDistance * StatMultipliers.RangeMultiplier;
                 }
 
                 var shouldWalkForward = true;

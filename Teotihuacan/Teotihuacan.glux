@@ -3573,7 +3573,7 @@
           <DefaultValue xsi:type="xsd:float">250</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
-		<CustomVariable>
+        <CustomVariable>
           <Properties>
             <PropertySave>
               <Name>Type</Name>
@@ -3596,7 +3596,7 @@
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0.02</DefaultValue>
           <IsShared>true</IsShared>
-      </CustomVariable>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\Player</Name>
@@ -4259,6 +4259,11 @@
             <Member>Color</Member>
             <ValueAsString>SkyBlue</ValueAsString>
           </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
           <Properties>
             <PropertySave>
               <Name>SourceType</Name>
@@ -4438,6 +4443,11 @@
             <Member>Radius</Member>
             <ValueAsFloat>8</ValueAsFloat>
           </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
           <Properties>
             <PropertySave>
               <Name>SourceType</Name>
@@ -4508,7 +4518,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\Level2</StartUpScreen>
+  <StartUpScreen>Screens\Level1</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

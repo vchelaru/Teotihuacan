@@ -13,9 +13,15 @@ namespace Teotihuacan.Managers
 {
     public class SpawnManager
     {
+        #region Fields/Properties
+
         int CurrentSpawnIndex;
+
         public int CurrentWaveIndex { get; private set; }
+
         public bool CanSpawn { get; private set; }
+
+        #endregion
 
         public void EnableSpawning()
         {

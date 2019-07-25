@@ -15,13 +15,30 @@ namespace Teotihuacan.GameData
             var wave = AddWave();
             wave.AddMiniWave
             (
-                Boss
+                Shooter,
+                Shooter
+
             );
             wave.AddMiniWave
             (
-                DataCategory.Suicider,
-                DataCategory.Suicider,
-                DataCategory.Suicider
+                Shooter,
+                Shooter
+            );
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter,
+                Suicider,
+                Shooter,
+                Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
             );
 
             wave = AddWave();
@@ -33,21 +50,6 @@ namespace Teotihuacan.GameData
             );
             wave.AddMiniWave
             (
-                Shooter,
-                Shooter,
-                Shooter,
-                Shooter
-            );
-
-            wave = AddWave();
-            wave.AddMiniWave
-            (
-                Shooter,
-                Shooter,
-                Shooter
-            );
-            wave.AddMiniWave
-            (
                 DataCategory.Suicider,
                 DataCategory.Suicider,
                 DataCategory.Suicider
@@ -56,6 +58,7 @@ namespace Teotihuacan.GameData
             (
                 Shooter,
                 Shooter,
+                Shooter,
                 Shooter
             );
             wave.AddMiniWave
@@ -65,7 +68,13 @@ namespace Teotihuacan.GameData
                 Shooter,
                 Shooter
             );
-
+            wave.AddMiniWave
+            (
+                Shooter,
+                Shooter,
+                Shooter,
+                Shooter
+            );
         }
     }
 }

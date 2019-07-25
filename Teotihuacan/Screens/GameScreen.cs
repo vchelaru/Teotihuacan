@@ -24,7 +24,16 @@ namespace Teotihuacan.Screens
 {
 	public partial class GameScreen
 	{
+        public class StatMultipliers
+        {
+            public float HealthMultiplier = 1;
+            public float DamageMultiplier = 1;
+            public float SpeedMultiplier = 1;
+            public float RangeMultiplier = 1;
+        }
         #region Fields/Properties
+
+        protected StatMultipliers CurrentMultipliers= new StatMultipliers ();
 
         protected LevelSpawnsBase Spawns;
 
@@ -488,6 +497,9 @@ namespace Teotihuacan.Screens
             input.RemoveTargetOnReaching = true;
             input.StopOnTarget = false;
             enemy.InitializeTopDownInput(input);
+
+            enemy.StatMultipliers = CurrentMultipliers;
+            enemy.TopDownSpeedMultiplier = CurrentMultipliers.SpeedMultiplier;
         }
 
         private void HandleEnemyListChanged()

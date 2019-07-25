@@ -382,7 +382,7 @@ Weapon Drain: {1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrem
             }
         }
 
-        public bool TakeDamage(int damageToTake)
+        public bool TakeDamage(float damageToTake)
         {
             bool didTakeDamage = false;
 

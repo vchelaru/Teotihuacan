@@ -19,7 +19,7 @@ namespace Teotihuacan.Screens
         {
             if(bullet.TeamIndex == 1)
             {
-                if (player.TakeDamage(bullet.DamageToDeal))
+                if (player.TakeDamage(bullet.DamageToDeal * CurrentMultipliers.DamageMultiplier))
                 {
                     bullet.Destroy();
                 }
@@ -104,7 +104,7 @@ namespace Teotihuacan.Screens
         {
             if (bulletExplosion.TeamIndex != 0)
             {
-                player.TakeDamage(bulletExplosion.DamageToDeal);
+                player.TakeDamage(bulletExplosion.DamageToDeal * CurrentMultipliers.DamageMultiplier);
 
                 var direction = Vector3.Right;
 
