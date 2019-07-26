@@ -9,15 +9,17 @@ namespace Teotihuacan.GumRuntimes
     {
         float healthGageMax;
         float energyGaugeMax;
+        float xpGaugeMax;
 
         partial void CustomInitialize () 
         {
             healthGageMax = HealthGauge.Height;
             energyGaugeMax = EnergyGauge.Height;
+            xpGaugeMax = XPGauge.Height;
         }
 
 
-        public void UpdateHealth(Player owningPlayer)
+        public void UpdateStatusBars(Player owningPlayer)
         {
             HealthGauge.Height = healthGageMax * ((float)(owningPlayer.CurrentHP) / (float)(owningPlayer.MaxHP));
             // below 1 and things overlap. We could use clipping but...this works
@@ -26,6 +28,9 @@ namespace Teotihuacan.GumRuntimes
             // below 1 and things overlap. We could use clipping but...this works
             EnergyGauge.Visible = EnergyGauge.Height > 1;
 
+            XPGauge.Height = xpGaugeMax * owningPlayer.ProgressToNextLevel;
+            XPGauge.Visible = XPGauge.Height > 1;
+            WeaponLevelText = $"{owningPlayer.CurrentWeaponLevel}";
         }
     }
 }

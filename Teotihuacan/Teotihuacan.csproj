@@ -213,7 +213,6 @@
     <Compile Include="GumRuntimes\WaveStateRuntime.Generated.cs">
       <DependentUpon>WaveStateRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="Managers\IInputManager.cs" />
     <Compile Include="Managers\LightningWeaponManager.cs" />
     <Compile Include="Managers\PlayerWeaponLevelManager.cs" />
     <Compile Include="Managers\SpawnManager.cs" />
@@ -495,6 +494,14 @@
     <None Include="content\gumproject\fontcache\font18arial_black_o1_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial_Black_o1_0</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font18arial_o1_nosmooth.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font18arial_o1_nosmooth</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font18arial_o1_nosmooth_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font18Arial_o1_noSmooth_0</Name>
     </None>
     <None Include="content\gumproject\fontcache\font22arial_black_o1.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
