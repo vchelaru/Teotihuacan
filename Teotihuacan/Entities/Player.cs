@@ -112,6 +112,8 @@ namespace Teotihuacan.Entities
 
         private WeaponLevelBase weaponLevel;
         public float WeaponDamageModifier => weaponLevel.CurrentWeaponLevel * WeaponLevelDamageIncrement + 1;
+        public int CurrentWeaponLevel => weaponLevel.CurrentWeaponLevel;
+        public float ProgressToNextLevel => weaponLevel.ProgressToNextLevel();
         #endregion
 
         #region Initialize

@@ -48,6 +48,7 @@ namespace Teotihuacan.Entities
             currentScreen = ScreenManager.CurrentScreen;
             spawnTime = currentScreen.PauseAdjustedCurrentTime;
             this.Call(Destroy).After(LifeTime);
+            this.Z = -1;
         }
 
 		private void CustomActivity()

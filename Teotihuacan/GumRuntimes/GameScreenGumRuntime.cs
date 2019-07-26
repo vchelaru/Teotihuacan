@@ -78,7 +78,8 @@ namespace Teotihuacan.GumRuntimes
 
                         break;
                 }
-                hud.UpdateHealth(player);
+                hud.UpdateStatusBars(player);
+
             }
 
             for(int i = 0; i < 4; i++)
