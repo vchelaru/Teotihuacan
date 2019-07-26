@@ -703,13 +703,13 @@
     <Variable>
       <Type>float</Type>
       <Name>WeaponLevel.Width</Name>
-      <Value xsi:type="xsd:float">2</Value>
+      <Value xsi:type="xsd:float">16</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>WeaponLevel.X</Name>
-      <Value xsi:type="xsd:float">14</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
