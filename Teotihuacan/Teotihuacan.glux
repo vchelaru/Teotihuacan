@@ -2757,6 +2757,17 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DisplayWeaponLevelInfo</Name>
+          <Type>bool</Type>
+          <IsShared>true</IsShared>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\DebuggingVariables</Name>
@@ -4255,14 +4266,14 @@
             <ValueAsFloat>8</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>Microsoft.Xna.Framework.Color</Type>
-            <Member>Color</Member>
-            <ValueAsString>SkyBlue</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>bool</Type>
             <Member>Visible</Member>
             <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Microsoft.Xna.Framework.Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>SkyBlue</ValueAsString>
           </CustomProperty>
           <Properties>
             <PropertySave>

@@ -110,7 +110,7 @@ namespace Teotihuacan.Entities
 
         public bool IsOnMud { get; set; }
 
-        private WeaponLevelBase weaponLevel = new WeaponLevelBase();
+        private WeaponLevelBase weaponLevel;
         public float WeaponDamageModifier => weaponLevel.CurrentWeaponLevel * WeaponLevelDamageIncrement + 1;
         #endregion
 
@@ -126,8 +126,6 @@ namespace Teotihuacan.Entities
             this.PossibleDirections = PossibleDirections.EightWay;
             CurrentHP = MaxHP;
             CurrentEnergy = MaxEnergy;
-
-            weaponLevel.ChangeWeaponType(EquippedWeapon);
 
             lightningAttachment = new PositionedObject();
             lightningAttachment.AttachTo(this);
@@ -164,6 +162,19 @@ namespace Teotihuacan.Entities
                 swapWeaponsBack = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Q);
                 swapWeaponsForward = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.E);
             }
+
+            InitializeWeaponLevel();
+        }
+
+        private void InitializeWeaponLevel()
+        {
+            if(!PlayerWeaponLevelManager.PlayerWeaponLevels.ContainsKey(InputDevice))
+            {
+                PlayerWeaponLevelManager.CreateNewWeaponLevelFromInputDevice(InputDevice);
+            }
+            
+            weaponLevel = PlayerWeaponLevelManager.PlayerWeaponLevels[InputDevice];
+            EquippedWeapon = weaponLevel.WeaponType;
         }
 
         private void InitializeCollision()
@@ -191,11 +202,16 @@ namespace Teotihuacan.Entities
             LightningEndpointSprite.Visible = 
                 CurrentSecondaryAction == SecondaryActions.Shooting && EquippedWeapon == Weapon.ShootingLightning;
 
-            string debugString = $@"Current Level: {weaponLevel.CurrentWeaponLevel}
+#if DEBUG
+            if (DebuggingVariables.DisplayWeaponLevelInfo)
+            {
+                string debugString = $@"Current Level: {weaponLevel.CurrentWeaponLevel}
 Weapon Modifier: {WeaponDamageModifier}
 Weapon Drain: {1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrement}";
-            
-            FlatRedBall.Debugging.Debugger.Write(debugString);
+
+                FlatRedBall.Debugging.Debugger.Write(debugString);
+#endif
+            }
 		}
 
         private void DoWeaponSwappingLogic()
