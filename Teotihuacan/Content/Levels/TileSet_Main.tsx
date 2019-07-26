@@ -235,6 +235,8 @@
  <tile id="196" type="Wall"/>
  <tile id="197" type="Wall"/>
  <tile id="198" type="Wall"/>
+ <tile id="200" type="Wall"/>
+ <tile id="201" type="Wall"/>
  <tile id="203" type="FirePit" terrain="0,0,0,8">
   <objectgroup draworder="index">
    <object id="1" type="FirePit" x="8" y="8" width="8" height="8"/>
@@ -302,7 +304,7 @@
  <tile id="261" type="Wall"/>
  <tile id="262" type="Wall"/>
  <tile id="263" type="Wall"/>
- <tile id="265" type="Pit"/>
+ <tile id="265" type="Wall"/>
  <tile id="266" type="Pit"/>
  <tile id="267" type="FirePit" terrain="0,8,0,8">
   <objectgroup draworder="index">
@@ -370,8 +372,9 @@
  <tile id="324" type="Wall"/>
  <tile id="326" type="Wall"/>
  <tile id="327" type="Wall"/>
- <tile id="329" type="Pit"/>
- <tile id="330" type="Pit"/>
+ <tile id="328" type="Wall"/>
+ <tile id="329" type="Wall"/>
+ <tile id="330" type="Wall"/>
  <tile id="331" type="FirePit" terrain="0,8,0,0">
   <objectgroup draworder="index">
    <object id="1" type="FirePit" x="8" y="0" width="8" height="8"/>
@@ -431,8 +434,11 @@
  <tile id="375" type="RemoveMe"/>
  <tile id="386" terrain=",,5,"/>
  <tile id="389" terrain=",,6,"/>
+ <tile id="390" type="Wall"/>
+ <tile id="391" type="Wall"/>
+ <tile id="392" type="Wall"/>
  <tile id="393" type="Pit"/>
- <tile id="394" type="Pit"/>
+ <tile id="394" type="Wall"/>
  <tile id="436" type="RemoveMe"/>
  <tile id="437" type="RemoveMe"/>
  <tile id="438" type="RemoveMe"/>
@@ -440,6 +446,10 @@
  <tile id="450" terrain="5,,5,"/>
  <tile id="452" terrain="6,6,6,6"/>
  <tile id="453" terrain="6,,6,"/>
+ <tile id="454" type="Wall"/>
+ <tile id="455" type="Wall"/>
+ <tile id="457" type="Wall"/>
+ <tile id="458" type="Wall"/>
  <tile id="500" type="RemoveMe"/>
  <tile id="501" type="RemoveMe"/>
  <tile id="502" type="RemoveMe"/>
