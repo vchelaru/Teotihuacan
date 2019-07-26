@@ -8,13 +8,14 @@ namespace Teotihuacan.GameData
 {
     public class MiniWave
     {
+        public bool CanSpawnAtMultipleSpots { get; set; } = false;
         public List<Entities.Enemy.DataCategory> Spawns { get; set; }
     }
 
     public class Wave
     {
         public List<MiniWave> MiniWaves { get; set; }
-        public void AddMiniWave(params Entities.Enemy.DataCategory[] categories)
+        public MiniWave AddMiniWave(params Entities.Enemy.DataCategory[] categories)
         {
             var miniWave = new MiniWave();
             miniWave.Spawns = categories.ToList();
@@ -23,6 +24,8 @@ namespace Teotihuacan.GameData
                 this.MiniWaves = new List<MiniWave>();
             }
             this.MiniWaves.Add(miniWave);
+
+            return miniWave;
         }
     }
 

@@ -213,7 +213,6 @@
     <Compile Include="GumRuntimes\WaveStateRuntime.Generated.cs">
       <DependentUpon>WaveStateRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="Managers\IInputManager.cs" />
     <Compile Include="Managers\LightningWeaponManager.cs" />
     <Compile Include="Managers\PlayerWeaponLevelManager.cs" />
     <Compile Include="Managers\SpawnManager.cs" />

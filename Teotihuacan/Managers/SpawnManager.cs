@@ -62,12 +62,17 @@ namespace Teotihuacan.Managers
 
         private static void SpawnMiniWave(PositionedObjectList<SpawnPoint> spawnPoints, MiniWave miniWave)
         {
-            // make the same spawn point used for all enemies on this subwave
+            // make the same spawn point used for all enemies on this subwave...
             var spawnPoint = FlatRedBallServices.Random.In(spawnPoints);
 
             for (int i = 0; i < miniWave.Spawns.Count; i++)
             {
                 var data = miniWave.Spawns[i];
+                //... unles sit's a multispawn
+                if(miniWave.CanSpawnAtMultipleSpots)
+                {
+                    spawnPoint = FlatRedBallServices.Random.In(spawnPoints);
+                }
                 if (i == 0)
                 {
                     // do it now!

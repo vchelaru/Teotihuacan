@@ -14,33 +14,79 @@ namespace Teotihuacan.GameData
             var wave = AddWave();
             wave.AddMiniWave
             (
-                Shooter,
-                Shooter,
-                Shooter,
-                Shooter
+                Shooter, Shooter
             );
             wave.AddMiniWave
             (
-                Shooter,
-                Shooter,
-                Shooter,
-                Shooter
+                Shooter, Shooter
             );
 
             wave = AddWave();
             wave.AddMiniWave
             (
-                Shooter,
-                Shooter,
-                Shooter
-            );
+                Shooter, Shooter
+            )
+            .CanSpawnAtMultipleSpots = true;
             wave.AddMiniWave
             (
-                Shooter,
-                Shooter,
-                Shooter,
+                Shooter, Shooter, Shooter
+            )
+            .CanSpawnAtMultipleSpots=true;
+
+            ///////////////////////////////////
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter, Suicider, Shooter,
+                Suicider, Shooter, Suicider
+            )
+            .CanSpawnAtMultipleSpots = true;
+
+            ///////////////////////////////////
+
+            wave = AddWave();
+
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
                 Shooter
             );
+
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
+                Shooter
+            );
+
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
+                Shooter
+            ).CanSpawnAtMultipleSpots = true;
+
+
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
+                Suicider, Shooter
+            ).CanSpawnAtMultipleSpots = true;
+
+            ///////////////////////////////////
+
+            wave = AddWave();
+
+            wave.AddMiniWave
+            (
+                Suicider, Suicider, Suicider,
+                Suicider, Suicider, Suicider
+            );
+
+            wave.AddMiniWave
+            (
+                Suicider, Suicider, Suicider,
+                Suicider, Suicider, Suicider
+            ).CanSpawnAtMultipleSpots = true;
         }
     }
 }

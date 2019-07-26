@@ -15,66 +15,96 @@ namespace Teotihuacan.GameData
             var wave = AddWave();
             wave.AddMiniWave
             (
-                Shooter,
                 Shooter
-
             );
             wave.AddMiniWave
             (
-                Shooter,
-                Shooter
+                Shooter, Shooter
             );
 
             wave = AddWave();
             wave.AddMiniWave
             (
-                Shooter,
-                Suicider,
-                Shooter,
-                Shooter
+                Shooter, Shooter
             );
             wave.AddMiniWave
             (
-                Shooter,
-                Shooter,
-                Shooter,
-                Shooter
+                Shooter, Shooter, Shooter
+            );
+
+            ///////////////////////////////////
+
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter, Shooter
+            );
+            wave.AddMiniWave
+            (
+                Shooter, Shooter
             );
 
             wave = AddWave();
             wave.AddMiniWave
             (
-                Shooter,
-                Shooter,
+                Shooter, Shooter, Shooter,
+                Suicider
+            );
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
+                Shooter
+            );
+
+            ///////////////////////////////////
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter
+            );
+            wave.AddMiniWave
+            (
+                Suicider, Suicider, Suicider
+            );
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
+                Shooter
+
+            );
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
                 Shooter
             );
             wave.AddMiniWave
             (
-                DataCategory.Suicider,
-                DataCategory.Suicider,
-                DataCategory.Suicider
-            );
-            wave.AddMiniWave
-            (
-                Shooter,
-                Shooter,
-                Shooter,
+                Shooter, Shooter, Shooter,
                 Shooter
             );
             wave.AddMiniWave
             (
-                Shooter,
-                Shooter,
-                Shooter,
-                Shooter
+                Shooter, Shooter
             );
             wave.AddMiniWave
             (
-                Shooter,
-                Shooter,
-                Shooter,
-                Shooter
+                Shooter, Shooter, Shooter,
+                Shooter, Shooter
             );
+
+            ///////////////////////////////////
+
+            wave = AddWave();
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
+                Shooter, Shooter, Shooter,
+                Shooter, Shooter
+
+            );
+
         }
     }
 }
