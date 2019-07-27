@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="22" height="35" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="13">
+ <tileset firstgid="1" source="TileSet_Main.tsx"/>
+ <layer id="4" name="Ground" width="22" height="35">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+WW3Q6CMAyFyz0/vhU34+fBVHgwUR/JLXJM03RjG5oYvfgSSNpDWU/atURUFkQVo7a0FM/FclByjX3uGH2iLuq6UXpuCJNZz7fizv+ambcEct35N8UzJhTn65vmI+4VzW+yJrwvpHtMfpPjar96atLiY3U1HbzDW3cKe1fGabrILV2MpU7wrhHavD5ojpbZMqzasb4plXrB0fXJ0q0Ma+0g9B0+L9Qzs0xMG7h/6DP8z2s+eTjv0P0H4M2Y/qZgRI/39FfTdT5q3thf7qFf9Mwn+owZxPu8NYvKiO+jxzNtewh6YyDG50muy3eW/K8tn0ndmenyGYvZGutdHj+JPOxH1A3/xnpXzkzk+fZvLtj/2m5PuZNITdwlsG98ezhHs1LuwNCP0dXuPFL35d+Een13GccDyog0ZwgMAAA=
+  </data>
+ </layer>
+ <layer id="5" name="Shadows" width="22" height="35" visible="0" opacity="0.5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAUjFTQzUlcvCxMDAysQH2LEFCMWHKLATfjAsSFkLijM2EgIM2qCNir7Bxb/A+WfUTAKRsEoGAWjYBTgBgCwZsvlCAwAAA==
+  </data>
+ </layer>
+ <layer id="6" name="Objects" width="22" height="35">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGH7AlJGBwQyIzYHYgpF65pYCzSoD4nIgrqCiuVuBZm0D4u1AvIOK5n4FmvUNiL8D8Q8qmjsKRgE9wEEcbEoBIyN2NqXAkRE7m1hwCIgPY8FHSFRDcyBAW7PoHQ5DLZ2NmktbcynNx6NgFJAEqFmekgkAj9l9/AgMAAA=
+  </data>
+ </layer>
+</map>

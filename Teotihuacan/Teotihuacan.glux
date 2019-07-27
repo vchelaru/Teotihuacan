@@ -123,8 +123,6 @@
           <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
-          <DefinedByBase>true</DefinedByBase>
-          <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -305,7 +303,6 @@
           <SourceName />
           <SourceClassType>TileShapeCollection</SourceClassType>
           <InstanceName>SolidCollisions</InstanceName>
-          <ExposedInDerived>true</ExposedInDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -1564,57 +1561,6 @@
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
-        <NamedObjectSave>
-          <Properties>
-            <PropertySave>
-              <Name>SourceType</Name>
-              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionCreationOptions</Name>
-              <ValueAsInt>4</ValueAsInt>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionTileSize</Name>
-              <ValueAsFloat>16</ValueAsFloat>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionFillWidth</Name>
-              <ValueAsInt>32</ValueAsInt>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionFillHeight</Name>
-              <ValueAsInt>32</ValueAsInt>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionFillLeft</Name>
-              <ValueAsFloat>-256</ValueAsFloat>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionFillTop</Name>
-              <ValueAsFloat>256</ValueAsFloat>
-            </PropertySave>
-            <PropertySave>
-              <Name>SourceTmxName</Name>
-              <ValueAsString>Map</ValueAsString>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionTileTypeName</Name>
-              <ValueAsString>Wall</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceFile />
-          <SourceName />
-          <SourceClassType>TileShapeCollection</SourceClassType>
-          <InstanceName>SolidCollisions</InstanceName>
-          <ExposedInDerived>true</ExposedInDerived>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <DefinedByBase>true</DefinedByBase>
-          <InstantiatedByBase>true</InstantiatedByBase>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
     <ScreenSave>
@@ -1685,55 +1631,74 @@
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+      </NamedObjects>
+    </ScreenSave>
+    <ScreenSave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <BaseScreen>Screens\GameScreen</BaseScreen>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>LevelName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Change Me</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
+      <Name>Screens\Level3</Name>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>gumproject/Screens/Level3Gum.gusx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Gum.Wireframe.GraphicalUiElement</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Levels/Level3Tiled.tmx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.TileGraphics.LayeredTileMap</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <NamedObjects>
         <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-3</ValueAsFloat>
+          </CustomProperty>
           <Properties>
             <PropertySave>
               <Name>SourceType</Name>
-              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionCreationOptions</Name>
-              <ValueAsInt>4</ValueAsInt>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionTileSize</Name>
-              <ValueAsFloat>16</ValueAsFloat>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionFillWidth</Name>
-              <ValueAsInt>32</ValueAsInt>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionFillHeight</Name>
-              <ValueAsInt>32</ValueAsInt>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionFillLeft</Name>
-              <ValueAsFloat>-256</ValueAsFloat>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionFillTop</Name>
-              <ValueAsFloat>256</ValueAsFloat>
-            </PropertySave>
-            <PropertySave>
-              <Name>SourceTmxName</Name>
-              <ValueAsString>Map</ValueAsString>
-            </PropertySave>
-            <PropertySave>
-              <Name>CollisionTileTypeName</Name>
-              <ValueAsString>Wall</ValueAsString>
+              <ValueAsObject xsi:type="SourceType">File</ValueAsObject>
             </PropertySave>
           </Properties>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceFile />
-          <SourceName />
-          <SourceClassType>TileShapeCollection</SourceClassType>
-          <InstanceName>SolidCollisions</InstanceName>
-          <ExposedInDerived>true</ExposedInDerived>
+          <SourceType>File</SourceType>
+          <SourceFile>Levels/Level3Tiled.tmx</SourceFile>
+          <SourceName>Entire File (LayeredTileMap)</SourceName>
+          <SourceClassType>LayeredTileMap</SourceClassType>
+          <InstanceName>Map</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <DefinedByBase>true</DefinedByBase>
-          <InstantiatedByBase>true</InstantiatedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -2246,7 +2211,7 @@
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>EnergyUsePerShot</Member>
-                  <ValueAsFloat>33</ValueAsFloat>
+                  <ValueAsFloat>85</ValueAsFloat>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Single</Type>

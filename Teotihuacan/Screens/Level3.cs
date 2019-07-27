@@ -11,21 +11,21 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
-using Teotihuacan.GameData;
+
+
 
 namespace Teotihuacan.Screens
 {
-	public partial class Level2
+	public partial class Level3
 	{
 
 		void CustomInitialize()
 		{
 
-            Spawns = new Level2Spawns();
-            NextScreen = nameof(Level3);
-        }
 
-        void CustomActivity(bool firstTimeCalled)
+		}
+
+		void CustomActivity(bool firstTimeCalled)
 		{
 
 
