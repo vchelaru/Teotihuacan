@@ -87,6 +87,15 @@ namespace Teotihuacan.GameData
                 Suicider, Suicider, Suicider,
                 Suicider, Suicider, Suicider
             ).CanSpawnAtMultipleSpots = true;
+
+            ///////////////////////////////////
+
+            wave = AddWave();
+
+            wave.AddMiniWave
+            (
+                Boss
+            );
         }
     }
 }

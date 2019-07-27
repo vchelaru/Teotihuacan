@@ -13,10 +13,12 @@ namespace Teotihuacan.GameData
         public Level1Spawns()
         {
             var wave = AddWave();
+
             wave.AddMiniWave
             (
                 Shooter
             );
+
             wave.AddMiniWave
             (
                 Shooter, Shooter

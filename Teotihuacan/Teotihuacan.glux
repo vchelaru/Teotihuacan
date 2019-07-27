@@ -2813,6 +2813,11 @@
                   <Member>ChanceForWeaponDrop</Member>
                   <ValueAsFloat>0.5</ValueAsFloat>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>ExplodesOnDeath</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
               </InstructionSaves>
               <Name>Shooter</Name>
             </StateSave>
@@ -2829,6 +2834,11 @@
                   <ValueAsInt>20</ValueAsInt>
                 </InstructionSave>
                 <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>MaxShootingDistance</Member>
+                  <ValueAsFloat>0</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
                   <Type>Int32</Type>
                   <Member>ClipSize</Member>
                   <ValueAsInt>0</ValueAsInt>
@@ -2837,6 +2847,11 @@
                   <Type>Single</Type>
                   <Member>ChanceForWeaponDrop</Member>
                   <ValueAsFloat>0.5</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>ExplodesOnDeath</Member>
+                  <ValueAsBool>true</ValueAsBool>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Suicider</Name>
@@ -2852,6 +2867,16 @@
                   <Type>Int32</Type>
                   <Member>MaxHp</Member>
                   <ValueAsInt>100</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>MaxShootingDistance</Member>
+                  <ValueAsFloat>0</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>ExplodesOnDeath</Member>
+                  <ValueAsBool>false</ValueAsBool>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Rocket</Name>
@@ -2891,16 +2916,58 @@
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>ChanceForWeaponDrop</Member>
-                  <ValueAsFloat>0.25</ValueAsFloat>
+                  <ValueAsFloat>1</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>ExplodesOnDeath</Member>
+                  <ValueAsBool>false</ValueAsBool>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Boss</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteAnimations</Member>
+                  <ValueAsString>Enemy_Suicider_Fast_Animations</ValueAsString>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>MaxHp</Member>
+                  <ValueAsInt>5</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>MaxShootingDistance</Member>
+                  <ValueAsFloat>0</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChanceForWeaponDrop</Member>
+                  <ValueAsFloat>0.25</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>ExplodesOnDeath</Member>
+                  <ValueAsBool>true</ValueAsBool>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>SuiciderFast</Name>
             </StateSave>
           </States>
           <ExcludedVariables>
             <string>X</string>
             <string>Y</string>
             <string>Z</string>
+            <string>CurrentDataCategoryState</string>
+            <string>AggroDuration</string>
+            <string>SecondsForReload</string>
+            <string>FlashDuration</string>
+            <string>ClosestShootingDistance</string>
+            <string>AoeDamage</string>
+            <string>AoeRadius</string>
           </ExcludedVariables>
           <Name>DataCategory</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
@@ -3117,6 +3184,16 @@
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ExplodesOnDeath</Name>
+          <Type>bool</Type>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\Enemy</Name>
@@ -3233,6 +3310,12 @@
           <Name>Various/misc_sprites_SpriteSheet.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Characters/Enemy_Suicider_Fast_Animations.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>

@@ -339,6 +339,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Enemy_Suicider_Animations</Name>
     </None>
+    <None Include="content\characters\enemy_suicider_fast_animations.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Enemy_Suicider_Fast_Animations</Name>
+    </None>
+    <None Include="content\characters\enemy_suicider_fast_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Enemy_Suicider_Fast_SpriteSheet</Name>
+    </None>
     <None Include="content\characters\enemy_suicider_spritesheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Enemy_Suicider_SpriteSheet</Name>

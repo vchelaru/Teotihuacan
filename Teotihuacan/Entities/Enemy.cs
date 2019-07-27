@@ -297,12 +297,26 @@ namespace Teotihuacan.Entities
             }
             else 
             {
-                mCurrentMovement = TopDownValues[DataTypes.TopDownValues.DefaultValues];
+                if(this.CurrentDataCategoryState == DataCategory.SuiciderFast)
+                {
+                    mCurrentMovement = TopDownValues[DataTypes.TopDownValues.SuiciderFast];
+                }
+                else
+                {
+                    mCurrentMovement = TopDownValues[DataTypes.TopDownValues.DefaultValues];
+                }
             }
 
             if(IsOnMud && !isBossReloading)
             {
-                mCurrentMovement = TopDownValues[DataTypes.TopDownValues.EnemyMud];
+                if (this.CurrentDataCategoryState == DataCategory.SuiciderFast)
+                {
+                    mCurrentMovement = TopDownValues[DataTypes.TopDownValues.SuiciderFastMud];
+                }
+                else
+                {
+                    mCurrentMovement = TopDownValues[DataTypes.TopDownValues.EnemyMud];
+                }
             }
         }
 
@@ -339,7 +353,7 @@ namespace Teotihuacan.Entities
 
                 var shouldWalkForward = true;
                 
-                if(isInRange && CurrentDataCategoryState != DataCategory.Suicider)
+                if(isInRange && MaxShootingDistance > 0)
                 {
                     // line of site
                     CurrentBehavior = Behavior.Shooting;
@@ -562,7 +576,7 @@ namespace Teotihuacan.Entities
 
         private void PerformDeath()
         {
-            if (CurrentDataCategoryState == DataCategory.Suicider)
+            if (ExplodesOnDeath)
             {
                 PerformExplode();
             }
@@ -591,21 +605,18 @@ namespace Teotihuacan.Entities
 
         public void PerformExplode()
         {
-            if (CurrentDataCategoryState == DataCategory.Suicider)
-            {
-                var bulletExplosion = Factories.BulletExplosionFactory.CreateNew(X, Y);
-                bulletExplosion.DamageToDeal = this.AoeDamage;
-                bulletExplosion.Owner = playerThatDealtKillingBlow;
-                bulletExplosion.CircleInstance.Radius = this.AoeRadius;
-                bulletExplosion.TeamIndex = playerThatDealtKillingBlow != null ? 3 : 1;
-                bulletExplosion.Call(bulletExplosion.Destroy).After(0); // next frame
+            var bulletExplosion = Factories.BulletExplosionFactory.CreateNew(X, Y);
+            bulletExplosion.DamageToDeal = this.AoeDamage;
+            bulletExplosion.Owner = playerThatDealtKillingBlow;
+            bulletExplosion.CircleInstance.Radius = this.AoeRadius;
+            bulletExplosion.TeamIndex = playerThatDealtKillingBlow != null ? 3 : 1;
+            bulletExplosion.Call(bulletExplosion.Destroy).After(0); // next frame
 
-                ExplodeVfx();
+            ExplodeVfx();
 
-                Destroy();
+            Destroy();
 
-                bulletExplosion.ForceUpdateDependenciesDeep();
-            }
+            bulletExplosion.ForceUpdateDependenciesDeep();
         }
 
         public void ExplodeVfx()

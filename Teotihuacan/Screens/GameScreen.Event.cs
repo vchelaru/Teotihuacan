@@ -80,14 +80,14 @@ namespace Teotihuacan.Screens
         }
         void OnPlayerVsEnemyRelationshipCollisionOccurred (Entities.Player player, Entities.Enemy enemy) 
         {
-            if(enemy.CurrentTarget == player)
+            if(enemy.CurrentTarget == player && enemy.ExplodesOnDeath)
             {
                 enemy.PerformExplode();
             }
         }
         void OnEnemyVsPlayerBaseSolidCollisionCollisionOccurred (Entities.Enemy enemy, Entities.PlayerBase playerBase) 
         {
-            if (enemy.CurrentTarget == playerBase)
+            if (enemy.CurrentTarget == playerBase && enemy.ExplodesOnDeath)
             {
                 enemy.PerformExplode();
             }
