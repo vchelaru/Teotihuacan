@@ -1798,7 +1798,7 @@
           </Properties>
           <Name>LevelName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Change Me</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Level 3</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
