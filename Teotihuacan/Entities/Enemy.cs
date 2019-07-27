@@ -486,6 +486,19 @@ namespace Teotihuacan.Entities
             return new Vector3(vector.X * cos - vector.Y * sin, vector.X * sin + vector.Y * cos, 0);
         }
 
+        public void TakeNonLethalDamage(float damageToTake)
+        {
+            if(canTakeDamage)
+            {
+                if(CurrentHP - damageToTake > 0)
+                {
+                    CurrentHP -= damageToTake;
+                    FlashWhite();
+
+                }
+            }
+        }
+
         public bool TakeDamage(PositionedObject damageDealer, float damageToTake, Player owner)
         {
             bool tookDamage = false;
@@ -506,16 +519,21 @@ namespace Teotihuacan.Entities
                 {
                     System.Diagnostics.Debug.WriteLine(
                         $"Took {modifedDamage} damage and has {CurrentHP} left");
-                    isFlashingWhite = true;
-                    // We may need to be more careful here if there's other instructions.
-                    this.Instructions.Clear();
-                    this.Call(() => isFlashingWhite = false).After(FlashDuration);
+                    FlashWhite();
 
                     SetForcedTarget(owner);
                 }
             }
 
             return tookDamage;
+        }
+
+        private void FlashWhite()
+        {
+            isFlashingWhite = true;
+            // We may need to be more careful here if there's other instructions.
+            this.Instructions.Clear();
+            this.Call(() => isFlashingWhite = false).After(FlashDuration);
         }
 
         private float ModifyDamageToTake(PositionedObject damageDealer, float weaponLevelModifier, float baseDamage)

@@ -4,5 +4,5 @@ WhileShooting,20,.25,.125,True
 WhileReloading,17,.25,.125,True
 EnemyMud,15,.2,.1,True
 BossReloading,0,0,0,False
-SuiciderFast,90,.15,.05,True
+SuiciderFast,85,.15,.05,True
 SuiciderFastMud,25,.1,.02,True

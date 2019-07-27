@@ -180,9 +180,11 @@ namespace Teotihuacan.Screens
                 SolidCollisions.Visible = true;
                 PitSolidCollisions.Visible = true;
                 MudCollision.Visible = true;
+                FirePitCollision.Visible = true;
 
                 PitSolidCollisions.SetColor(Color.Gray);
                 MudCollision.SetColor(Color.Orange);
+                FirePitCollision.SetColor(Color.Yellow);
             }
 
             // add border around the tile map
@@ -229,6 +231,8 @@ namespace Teotihuacan.Screens
             PlayerVsMudCollision.IsActive = false;
             PlayerVsMudCollision.SetFirstSubCollision(item => item.CircleInstance);
             PlayerVsMudCollision.CollisionOccurred += (player, tileShapeCollection) => player.IsOnMud = true;
+
+            PlayerVsFirePitCollision.SetFirstSubCollision(item => item.CircleInstance);
 
             EnemyVsMudCollision.IsActive = false;
             EnemyVsMudCollision.CollisionOccurred += (enemy, tileShapeCollection) => enemy.IsOnMud = true;

@@ -126,5 +126,16 @@ namespace Teotihuacan.Screens
                 weaponDrop.Destroy();
             }
         }
+        void OnPlayerVsFirePitCollisionCollisionOccurred (Entities.Player player, FlatRedBall.TileCollisions.TileShapeCollection second) 
+        {
+            player.TakeDamage(FirePitDps * TimeManager.SecondDifference);
+        }
+
+        void OnEnemyVsFirePitCollisionCollisionOccurred (Entities.Enemy enemy, FlatRedBall.TileCollisions.TileShapeCollection second) 
+        {
+            enemy.TakeNonLethalDamage(FirePitDps * TimeManager.SecondDifference);
+
+        }
+
     }
 }
