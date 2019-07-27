@@ -26,9 +26,9 @@ namespace Teotihuacan.Animation
 
     public enum Weapon
     {
-        ShootingFire = 1,
-        ShootingLightning = 2,
-        ShootingSkulls = 3
+        ShootingFire,
+        ShootingLightning,
+        ShootingSkulls
     }
 
     public static class ActionsExtentions

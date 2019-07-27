@@ -86,12 +86,13 @@ namespace Teotihuacan.Screens
             {
                 var player = new Player();
                 //player.EquippedWeapon = Animation.SecondaryActions.ShootingLightning;
-                player.EquippedWeapon = Animation.Weapon.ShootingFire;
 
                 player.CurrentColorCategoryState =
                     Player.ColorCategory.Blue;
                 PlayerList.Add(player);
                 player.InitializeTopDownInput(InputManager.Keyboard);
+
+                AssignPlayerData(player);
             }
             else
             {
@@ -110,6 +111,7 @@ namespace Teotihuacan.Screens
                 SetInitialPlayerPosition(player);
             }
         }
+
 
         private void SetInitialPlayerPosition(Player player)
         {
@@ -282,6 +284,30 @@ namespace Teotihuacan.Screens
             gameScreenGumRuntime.ShowLevelStart($"Level {LevelName}");
         }
 
+        private void AssignPlayerData(Player player)
+        {
+            // see if it's cached
+            var inputDevice = player.InputDevice;
+
+            if(PlayerWeaponLevelManager.PlayerWeaponLevels.ContainsKey(inputDevice))
+            {
+                player.PlayerData =
+                    PlayerWeaponLevelManager.PlayerWeaponLevels[inputDevice];
+            }
+            else
+            {
+                // try to load or create:
+                player.PlayerData =
+                    PlayerWeaponLevelManager.LoadForInputDevice(inputDevice);
+
+                if(player.PlayerData == null)
+                {
+                    player.PlayerData = new Models.PlayerData();
+                    player.PlayerData.InitializeAllWeapons();
+                }
+            }
+        }
+
         #endregion
 
         #region Activity
@@ -418,10 +444,11 @@ namespace Teotihuacan.Screens
             var player = new Player();
             player.CurrentColorCategoryState =
                 PlayerList.Count.ToPlayerColorCategory();
-            player.EquippedWeapon = Animation.Weapon.ShootingFire;
 
             PlayerList.Add(player);
             player.InitializeTopDownInput(controller);
+
+            AssignPlayerData(player);
 
             return player;
         }

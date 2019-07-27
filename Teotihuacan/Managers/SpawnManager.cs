@@ -73,17 +73,21 @@ namespace Teotihuacan.Managers
                 {
                     spawnPoint = FlatRedBallServices.Random.In(spawnPoints);
                 }
+
+                float x = spawnPoint.X;
+                float y = spawnPoint.Y;
+
                 if (i == 0)
                 {
                     // do it now!
-                    var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
+                    var enemy = Factories.EnemyFactory.CreateNew(x, y);
                     enemy.CurrentDataCategoryState = data;
                 }
                 else
                 {
                     spawnPoint.Call(() =>
                     {
-                        var enemy = Factories.EnemyFactory.CreateNew(spawnPoint.X, spawnPoint.Y);
+                        var enemy = Factories.EnemyFactory.CreateNew(x, y);
                         enemy.CurrentDataCategoryState = data;
                     }).After(i * SpawnPoint.SecondsBetweenEachEnemyInMiniWave);
                 }

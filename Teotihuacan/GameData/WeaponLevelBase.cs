@@ -10,13 +10,13 @@ namespace Teotihuacan.GameData
 {
     public class WeaponLevelBase
     {
-        public static readonly int LevelCap = 5;
+        public static readonly int LevelCap = 99;
         public static readonly float ExperienceCurveRoot = .6f;
 
         public int CurrentWeaponLevel { get; private set; }
         public int WeaponExperience { get; private set; }
-        public int toNextLevel;
-        public int previousLevel;
+        private int toNextLevel => (int)(Math.Pow(CurrentWeaponLevel + 1, 1 / ExperienceCurveRoot));
+        private int previousLevel => (int)(Math.Pow(CurrentWeaponLevel, 1 / ExperienceCurveRoot));
         public Weapon WeaponType { get; private set; }
 
         public void ChangeWeaponType(Weapon newType)
@@ -24,8 +24,6 @@ namespace Teotihuacan.GameData
             WeaponType = newType;
             CurrentWeaponLevel = 0;
             WeaponExperience = 0;
-            toNextLevel = (int)(Math.Pow(CurrentWeaponLevel + 1, 1 / ExperienceCurveRoot));
-            previousLevel = 0;
         }
 
         public void AddWeaponExperience( int experienceToAdd = 1)
@@ -36,11 +34,9 @@ namespace Teotihuacan.GameData
 
         private void TryToUpgradeLevel()
         {
-            if(WeaponExperience >= toNextLevel)
+            while(WeaponExperience >= toNextLevel)
             {
                 CurrentWeaponLevel++;
-                toNextLevel = (int)(Math.Pow(CurrentWeaponLevel + 1, 1 / ExperienceCurveRoot));
-                previousLevel = (int)(Math.Pow(CurrentWeaponLevel, 1 / ExperienceCurveRoot));
             }
         }
 

@@ -14,6 +14,7 @@ using Teotihuacan.Animation;
 using System.Linq;
 using Teotihuacan.Managers;
 using Teotihuacan.GameData;
+using Teotihuacan.Models;
 
 namespace Teotihuacan.Entities
 {
@@ -89,7 +90,7 @@ namespace Teotihuacan.Entities
         double lastFireShotTime;
         double lastHealingTime;
 
-        public Weapon EquippedWeapon { get; set; }
+        public Weapon EquippedWeapon => PlayerData.EquippedWeapon;
 
         public float CurrentHP { get; private set; }
 
@@ -110,10 +111,21 @@ namespace Teotihuacan.Entities
 
         public bool IsOnMud { get; set; }
 
-        private WeaponLevelBase weaponLevel;
-        public float WeaponDamageModifier => weaponLevel.CurrentWeaponLevel * WeaponLevelDamageIncrement + 1;
-        public int CurrentWeaponLevel => weaponLevel.CurrentWeaponLevel;
-        public float ProgressToNextLevel => weaponLevel.ProgressToNextLevel();
+        public PlayerData PlayerData { get; set; }
+
+        WeaponLevelBase CurrentWeaponLevelData
+        {
+            get
+            {
+                var found = PlayerData.WeaponLevels.FirstOrDefault(item => item.WeaponType == EquippedWeapon);
+
+                return found;
+            }
+        }
+
+        public float WeaponDamageModifier => CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelDamageIncrement + 1;
+        public int CurrentWeaponLevel => CurrentWeaponLevelData.CurrentWeaponLevel;
+        public float ProgressToNextLevel => CurrentWeaponLevelData.ProgressToNextLevel();
         #endregion
 
         #region Initialize
@@ -125,6 +137,8 @@ namespace Teotihuacan.Entities
         /// </summary>
         private void CustomInitialize()
 		{
+            PlayerData = new PlayerData();
+
             this.PossibleDirections = PossibleDirections.EightWay;
             CurrentHP = MaxHP;
             CurrentEnergy = MaxEnergy;
@@ -164,20 +178,8 @@ namespace Teotihuacan.Entities
                 swapWeaponsBack = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Q);
                 swapWeaponsForward = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.E);
             }
-
-            InitializeWeaponLevel();
         }
 
-        private void InitializeWeaponLevel()
-        {
-            if(!PlayerWeaponLevelManager.PlayerWeaponLevels.ContainsKey(InputDevice))
-            {
-                PlayerWeaponLevelManager.CreateNewWeaponLevelFromInputDevice(InputDevice);
-            }
-            
-            weaponLevel = PlayerWeaponLevelManager.PlayerWeaponLevels[InputDevice];
-            EquippedWeapon = weaponLevel.WeaponType;
-        }
 
         private void InitializeCollision()
         {
@@ -207,9 +209,9 @@ namespace Teotihuacan.Entities
 #if DEBUG
             if (DebuggingVariables.DisplayWeaponLevelInfo)
             {
-                string debugString = $@"Current Level: {weaponLevel.CurrentWeaponLevel}
+                string debugString = $@"Current Level: {CurrentWeaponLevelData.CurrentWeaponLevel}
 Weapon Modifier: {WeaponDamageModifier}
-Weapon Drain: {1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrement}";
+Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrement}";
 
                 FlatRedBall.Debugging.Debugger.Write(debugString);
 #endif
@@ -222,18 +224,18 @@ Weapon Drain: {1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrem
             {
                 switch(EquippedWeapon)
                 {
-                    case Weapon.ShootingFire: EquippedWeapon = Weapon.ShootingLightning; break;
-                    case Weapon.ShootingLightning: EquippedWeapon = Weapon.ShootingSkulls; break;
-                    case Weapon.ShootingSkulls: EquippedWeapon = Weapon.ShootingFire; break;
+                    case Weapon.ShootingFire: PlayerData.EquippedWeapon = Weapon.ShootingLightning; break;
+                    case Weapon.ShootingLightning: PlayerData.EquippedWeapon = Weapon.ShootingSkulls; break;
+                    case Weapon.ShootingSkulls: PlayerData.EquippedWeapon = Weapon.ShootingFire; break;
                 }
             }
             if(swapWeaponsForward.WasJustPressed)
             {
                 switch (EquippedWeapon)
                 {
-                    case Weapon.ShootingFire: EquippedWeapon = Weapon.ShootingSkulls; break;
-                    case Weapon.ShootingSkulls: EquippedWeapon = Weapon.ShootingLightning; break;
-                    case Weapon.ShootingLightning: EquippedWeapon = Weapon.ShootingFire; break;
+                    case Weapon.ShootingFire: PlayerData.EquippedWeapon = Weapon.ShootingSkulls; break;
+                    case Weapon.ShootingSkulls: PlayerData.EquippedWeapon = Weapon.ShootingLightning; break;
+                    case Weapon.ShootingLightning: PlayerData.EquippedWeapon = Weapon.ShootingFire; break;
                 }
             }
         }
@@ -333,7 +335,7 @@ Weapon Drain: {1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrem
 
         private float ModifyEnergyDrain(float baseEnergyDrain)
         {
-            return baseEnergyDrain * (1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrement);
+            return baseEnergyDrain * (1 - CurrentWeaponLevel * WeaponLevelEnergyDrainDecrement);
         }
 
         private void DoShootingFireActivity(Bullet.DataCategory bulletData)
@@ -622,16 +624,9 @@ Weapon Drain: {1 - weaponLevel.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrem
 
         public void ConsumeWeaponDrop(Weapon weaponType)
         {
-            if (EquippedWeapon == weaponType)
-            {
-                //For now only add 1 experience to the weapon.
-                weaponLevel.AddWeaponExperience();
-            }
-            else
-            {
-                EquippedWeapon = weaponType;
-                weaponLevel.ChangeWeaponType(EquippedWeapon);
-            }
+            PlayerData.EquippedWeapon = weaponType;
+
+            PlayerData.AddWeaponExperience(weaponType);
         }
 
         #endregion

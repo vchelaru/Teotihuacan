@@ -173,6 +173,10 @@
     <Compile Include="GumRuntimes\Level3GumRuntime.Generated.cs">
       <DependentUpon>Level3GumRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\Level4GumRuntime.cs" />
+    <Compile Include="GumRuntimes\Level4GumRuntime.Generated.cs">
+      <DependentUpon>Level4GumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\LevelStartRuntime.cs" />
     <Compile Include="GumRuntimes\LevelStartRuntime.Generated.cs">
       <DependentUpon>LevelStartRuntime.cs</DependentUpon>
@@ -221,6 +225,8 @@
     <Compile Include="Managers\LightningWeaponManager.cs" />
     <Compile Include="Managers\PlayerWeaponLevelManager.cs" />
     <Compile Include="Managers\SpawnManager.cs" />
+    <Compile Include="Models\DataLoader.cs" />
+    <Compile Include="Models\PlayerData.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
@@ -250,6 +256,10 @@
     <Compile Include="Screens\Level3.cs" />
     <Compile Include="Screens\Level3.Generated.cs">
       <DependentUpon>Level3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Level4.cs" />
+    <Compile Include="Screens\Level4.Generated.cs">
+      <DependentUpon>Level4.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\RivaTestScreen.cs" />
     <Compile Include="Screens\RivaTestScreen.Generated.cs">
@@ -308,6 +318,9 @@
     <Reference Include="MonoGame.Framework, Version=3.5.1.1679, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\DesktopGl\Debug\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NVorbis, Version=0.8.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -564,6 +577,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level3Gum</Name>
     </None>
+    <None Include="content\gumproject\screens\level4gum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level4Gum</Name>
+    </None>
     <None Include="content\gumproject\screens\rivatestscreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>RivaTestScreenGum</Name>
@@ -707,6 +724,7 @@
     <Content Include="libSDL2-2.0.0.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="packages.config" />
     <None Include="x64\SDL2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
