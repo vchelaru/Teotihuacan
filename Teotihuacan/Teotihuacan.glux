@@ -4865,7 +4865,7 @@
     <AspectRatioHeight>9</AspectRatioHeight>
     <SupportLandscape>true</SupportLandscape>
     <SupportPortrait>false</SupportPortrait>
-    <RunInFullScreen>true</RunInFullScreen>
+    <RunInFullScreen>false</RunInFullScreen>
     <AllowWindowResizing>false</AllowWindowResizing>
     <Scale>300</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
