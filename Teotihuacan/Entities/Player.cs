@@ -126,6 +126,8 @@ namespace Teotihuacan.Entities
         public float WeaponDamageModifier => CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelDamageIncrement + 1;
         public int CurrentWeaponLevel => CurrentWeaponLevelData.CurrentWeaponLevel;
         public float ProgressToNextLevel => CurrentWeaponLevelData.ProgressToNextLevel();
+
+        public Action<Player> OnPlayerDeath;
         #endregion
 
         #region Initialize
@@ -455,6 +457,8 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             death.TextureScale = 1;
             death.Animate = true;
             SpriteManager.RemoveSpriteAtTime(death, death.CurrentChain.TotalLength);
+
+            OnPlayerDeath?.Invoke(this);
             Destroy();
         }
 

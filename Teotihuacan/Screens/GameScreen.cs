@@ -75,6 +75,7 @@ namespace Teotihuacan.Screens
 
         bool hasGameOverBeenTriggered = false;
 
+        List<IInputDevice> deadPlayerInputDevices = new List<IInputDevice>();
         #endregion
 
         #region Initialize
@@ -348,6 +349,11 @@ namespace Teotihuacan.Screens
                 PlayerWeaponLevelManager.PlayerWeaponLevels[player.InputDevice] =
                     player.PlayerData;
             }
+
+            player.OnPlayerDeath += (deadPlayer) =>
+            {
+                deadPlayerInputDevices.Add(deadPlayer.InputDevice);
+            };
         }
 
         #endregion
@@ -455,9 +461,11 @@ namespace Teotihuacan.Screens
                 if(gamePad.ButtonPushed(Xbox360GamePad.Button.Start))
                 {
                     // See if this is connected with no player:
-                    var alreadyUsed = PlayerList.Any(item => item.InputDevice == gamePad);
+                    // Or if input device did not die this level
+                    var canJoin = PlayerList.Any(item => item.InputDevice == gamePad) == false &&
+                                    deadPlayerInputDevices.Contains(gamePad) == false;
 
-                    if(alreadyUsed == false)
+                    if(canJoin)
                     {
                         var newPlayer = JoinWith(gamePad);
                         SetInitialPlayerPosition(newPlayer);
