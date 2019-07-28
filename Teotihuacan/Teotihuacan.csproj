@@ -350,6 +350,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Death_1_SpriteSheet</Name>
     </None>
+    <None Include="content\characters\enemy_hugoboss.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Enemy_HugoBoss</Name>
+    </None>
+    <None Include="content\characters\enemy_hugoboss_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>enemy_hugoboss_spritesheet</Name>
+    </None>
     <None Include="content\characters\enemy_shooter_animations.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Enemy_Shooter_Animations</Name>

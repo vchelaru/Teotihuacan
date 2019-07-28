@@ -3064,7 +3064,7 @@
                 <InstructionSave>
                   <Type>String</Type>
                   <Member>SpriteAnimations</Member>
-                  <ValueAsString>Enemy_Shooter_Animations</ValueAsString>
+                  <ValueAsString>Enemy_HugoBoss</ValueAsString>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Int32</Type>
@@ -3100,6 +3100,11 @@
                   <Type>Boolean</Type>
                   <Member>ExplodesOnDeath</Member>
                   <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>DeathChainName</Member>
+                  <ValueAsString>DeathBig</ValueAsString>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Boss</Name>
@@ -3372,6 +3377,17 @@
           <Name>ExplodesOnDeath</Name>
           <Type>bool</Type>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DeathChainName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Death</DefaultValue>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\Enemy</Name>
@@ -3492,6 +3508,12 @@
         </ReferencedFileSave>
         <ReferencedFileSave>
           <Name>Characters/Enemy_Suicider_Fast_Animations.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Characters/Enemy_HugoBoss.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />

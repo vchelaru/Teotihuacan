@@ -603,7 +603,7 @@ namespace Teotihuacan.Entities
             {
                 var death = SpriteManager.AddParticleSprite(Death_1_SpriteSheet);
                 death.AnimationChains = Death_1;
-                death.CurrentChainName = nameof(PrimaryActions.Death);
+                death.CurrentChainName = DeathChainName;
                 death.Position = SpriteInstance.Position;
                 death.TextureScale = 1;
                 death.Animate = true;
