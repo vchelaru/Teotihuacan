@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using FlatRedBall.IO;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,19 @@ namespace Teotihuacan.Models
         {
             var serialized = JsonConvert.SerializeObject(playerData);
 
-            System.IO.File.WriteAllText(playerName + ".data", serialized);
+            var path = PathFromName(playerName);
+
+            var directory = FileManager.GetDirectory(path);
+            System.IO.Directory.CreateDirectory(directory);
+
+            System.IO.File.WriteAllText(path, serialized);
         }
 
         public static PlayerData LoadData(string playerName)
         {
             PlayerData playerData = null;
 
-            var path = playerName + ".data";
+            var path = PathFromName(playerName);
 
             if (System.IO.File.Exists(path))
             {
@@ -29,6 +35,11 @@ namespace Teotihuacan.Models
                 playerData = JsonConvert.DeserializeObject<PlayerData>(serialized);
             }
             return playerData;
+        }
+
+        static string PathFromName(string playerName)
+        {
+            return "Data/" + playerName + ".data";
         }
     }
 }

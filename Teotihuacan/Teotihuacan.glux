@@ -3550,7 +3550,7 @@
                 <InstructionSave>
                   <Type>String</Type>
                   <Member>SpriteInstanceAnimationChains</Member>
-                  <ValueAsString>Hero_1_Animations</ValueAsString>
+                  <ValueAsString>hero_3_animations</ValueAsString>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Yellow</Name>
@@ -3560,7 +3560,7 @@
                 <InstructionSave>
                   <Type>String</Type>
                   <Member>SpriteInstanceAnimationChains</Member>
-                  <ValueAsString>Hero_2_Animations</ValueAsString>
+                  <ValueAsString>hero_4_animations</ValueAsString>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Green</Name>
@@ -4095,6 +4095,18 @@
         </ReferencedFileSave>
         <ReferencedFileSave>
           <Name>Various/misc_sprites.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Characters/hero_3_animations.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Characters/hero_4_animations.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -4853,9 +4865,9 @@
     <AspectRatioHeight>9</AspectRatioHeight>
     <SupportLandscape>true</SupportLandscape>
     <SupportPortrait>false</SupportPortrait>
-    <RunInFullScreen>false</RunInFullScreen>
+    <RunInFullScreen>true</RunInFullScreen>
     <AllowWindowResizing>false</AllowWindowResizing>
-    <Scale>200</Scale>
+    <Scale>300</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
     <ResizeBehaviorGum>StretchVisibleArea</ResizeBehaviorGum>
     <DominantInternalCoordinates>Height</DominantInternalCoordinates>

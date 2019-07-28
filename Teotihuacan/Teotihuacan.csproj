@@ -389,6 +389,22 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Hero_2_SpriteSheet</Name>
     </None>
+    <None Include="content\characters\hero_3_animations.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hero_3_animations</Name>
+    </None>
+    <None Include="content\characters\hero_3_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Hero_3_SpriteSheet</Name>
+    </None>
+    <None Include="content\characters\hero_4_animations.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>hero_4_animations</Name>
+    </None>
+    <None Include="content\characters\hero_4_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Hero_4_SpriteSheet</Name>
+    </None>
     <None Include="content\entities\enemy\topdownvalues.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TopDownValues</Name>
