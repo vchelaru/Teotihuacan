@@ -20,14 +20,12 @@ namespace Teotihuacan.Screens
 
 		void CustomInitialize()
         {
-            this.GameOverInstance.Visible = false;
+            //this.GameOverInstance.Visible = false;
 
-            this.GameOverInstance.PopupAppearAnimation.EndReached += () =>
-            {
-
-                GameOverInstance.FadeToBlackAnimation.PlayAfter(3);
-
-        };
+            //this.GameOverInstance.PopupAppearAnimation.EndReached += () =>
+            //{
+            //    GameOverInstance.FadeToBlackAnimation.PlayAfter(3);
+            //};
 
 		}
 

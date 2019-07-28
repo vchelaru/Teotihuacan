@@ -301,6 +301,7 @@
     <Compile Include="TopDown\Enums.cs" />
     <Compile Include="TopDown\Interfaces.cs" />
     <Compile Include="TopDown\TopDownAiInput.cs" />
+    <Compile Include="UiControllers\BarController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FlatRedBall.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

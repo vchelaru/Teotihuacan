@@ -26,14 +26,42 @@ namespace Teotihuacan.Screens
 	{
         public class StatMultipliers
         {
-            public float HealthMultiplier = 1;
-            public float DamageMultiplier = 1;
-            public float SpeedMultiplier = 1;
-            public float RangeMultiplier = 1;
+            GameScreen gameScreen;
+
+            public float LevelHealthMultiplier = 1;
+            public float LevelDamageMultiplier = 1;
+            public float LevelSpeedMultiplier = 1;
+            public float LevelRangeMultiplier = 1;
+
+            public float EffectiveHealthMultiplier
+            {
+                get
+                {
+                    var playerMultiplier = 1f;
+                    switch(gameScreen.PlayerList.Count)
+                    {
+                        case 2: playerMultiplier = 1.50f;
+                            break;
+                        case 3: playerMultiplier = 1.75f;
+                            break;
+                        case 4: playerMultiplier = 2f;
+                            break;
+                    }
+                    return LevelHealthMultiplier * playerMultiplier;
+                }
+            }
+            public float EffectiveDamageMultiplier => LevelDamageMultiplier;
+            public float EffectiveSpeedMultiplier => LevelSpeedMultiplier;
+            public float EffectiveRangeMultiplier => LevelRangeMultiplier;
+
+            public StatMultipliers(GameScreen gameScreen)
+            {
+                this.gameScreen = gameScreen;
+            }
         }
         #region Fields/Properties
 
-        protected StatMultipliers CurrentMultipliers= new StatMultipliers ();
+        protected StatMultipliers CurrentMultipliers;
 
         protected LevelSpawnsBase Spawns;
 
@@ -52,8 +80,8 @@ namespace Teotihuacan.Screens
         #region Initialize
 
         void CustomInitialize()
-		{
-
+        {
+            CurrentMultipliers = new StatMultipliers(this);
             TileEntityInstantiator.CreateEntitiesFrom(Map);
             Map.RemoveTiles(t => t.Any(item => item.Name == "Type" && (item.Value as string) == "RemoveMe"), Map.TileProperties);
 
@@ -64,11 +92,7 @@ namespace Teotihuacan.Screens
 
             InitializeCollisions();
 
-            CameraControllerInstance.Targets.AddRange(PlayerList);
-            CameraControllerInstance.Targets.AddRange(PlayerBaseList);
-            CameraControllerInstance.Map = Map;
-
-            CameraControllerInstance.SetStartPositionAndZoom();
+            InitializeCameraController();
 
             Factories.EnemyFactory.EntitySpawned = HandleEnemySpawn;
             EnemyList.CollectionChanged += (a, b) => HandleEnemyListChanged();
@@ -76,6 +100,15 @@ namespace Teotihuacan.Screens
             InitializeNodeNetworks();
 
             InitializeUi();
+        }
+
+        private void InitializeCameraController()
+        {
+            CameraControllerInstance.Targets.AddRange(PlayerList);
+            CameraControllerInstance.Targets.AddRange(PlayerBaseList);
+            CameraControllerInstance.Map = Map;
+
+            CameraControllerInstance.SetStartPositionAndZoom();
         }
 
         private void CreatePlayers()
@@ -282,6 +315,11 @@ namespace Teotihuacan.Screens
 
             gameScreenGumRuntime.StartLevel += () =>DoStartLevel();
             gameScreenGumRuntime.ShowLevelStart($"Level {LevelName}");
+
+            foreach(var player in PlayerList)
+            {
+                ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(player, UpdateType.Instant);
+            }
         }
 
         private void AssignPlayerData(Player player)
@@ -533,7 +571,7 @@ namespace Teotihuacan.Screens
             enemy.InitializeTopDownInput(input);
 
             enemy.StatMultipliers = CurrentMultipliers;
-            enemy.TopDownSpeedMultiplier = CurrentMultipliers.SpeedMultiplier;
+            enemy.TopDownSpeedMultiplier = CurrentMultipliers.EffectiveSpeedMultiplier;
         }
 
         private void HandleEnemyListChanged()

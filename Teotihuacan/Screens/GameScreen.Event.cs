@@ -10,6 +10,7 @@ using Teotihuacan.Entities;
 using Teotihuacan.Screens;
 using FlatRedBall.TileCollisions;
 using Microsoft.Xna.Framework;
+using Teotihuacan.GumRuntimes;
 
 namespace Teotihuacan.Screens
 {
@@ -19,7 +20,7 @@ namespace Teotihuacan.Screens
         {
             if(bullet.TeamIndex == 1)
             {
-                if (player.TakeDamage(bullet.DamageToDeal * CurrentMultipliers.DamageMultiplier))
+                if (player.TakeDamage(bullet.DamageToDeal * CurrentMultipliers.EffectiveDamageMultiplier))
                 {
                     bullet.Destroy();
                 }
@@ -104,7 +105,7 @@ namespace Teotihuacan.Screens
         {
             if (bulletExplosion.TeamIndex != 0)
             {
-                player.TakeDamage(bulletExplosion.DamageToDeal * CurrentMultipliers.DamageMultiplier);
+                player.TakeDamage(bulletExplosion.DamageToDeal * CurrentMultipliers.EffectiveDamageMultiplier);
 
                 var direction = Vector3.Right;
 
@@ -124,6 +125,8 @@ namespace Teotihuacan.Screens
             {
                 player.ConsumeWeaponDrop(weaponDrop.WeaponType);
                 weaponDrop.Destroy();
+
+                ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(player, UpdateType.Interpolate);
             }
         }
         void OnPlayerVsFirePitCollisionCollisionOccurred (Entities.Player player, FlatRedBall.TileCollisions.TileShapeCollection second) 

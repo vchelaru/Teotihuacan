@@ -348,7 +348,7 @@ namespace Teotihuacan.Entities
 
                 if(isLineOfSight)
                 {
-                    isInRange = (target.Position - this.Position).Length() < MaxShootingDistance * StatMultipliers.RangeMultiplier;
+                    isInRange = (target.Position - this.Position).Length() < MaxShootingDistance * StatMultipliers.EffectiveRangeMultiplier;
                 }
 
                 var shouldWalkForward = true;

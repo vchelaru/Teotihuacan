@@ -6,8 +6,14 @@ using Teotihuacan.Entities;
 
 namespace Teotihuacan.GumRuntimes
 {
+    public enum UpdateType
+    {
+        Interpolate,
+        Instant
+    }
     public partial class GameScreenGumRuntime
     {
+
         #region Fields/Properties
 
         List<PlayerHUDRuntime> playerHuds = new List<PlayerHUDRuntime>();
@@ -144,6 +150,14 @@ namespace Teotihuacan.GumRuntimes
             {
                 this.PauseMenuInstance.Visible = false;
             }
+        }
+
+        public void RefreshExperienceBar(Player player, UpdateType updateType)
+        {
+            var index = player.CurrentColorCategoryState.ToInt();
+            var hud = playerHuds[index];
+
+            hud.RefreshExperienceBar(player, updateType);
         }
     }
 }

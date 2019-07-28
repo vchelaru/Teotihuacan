@@ -3,10 +3,22 @@
   <Name>UiTestScreenGum</Name>
   <State>
     <Name>Default</Name>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDInstance.X</Name>
+      <Value xsi:type="xsd:float">206</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDInstance.Y</Name>
+      <Value xsi:type="xsd:float">65</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
   </State>
   <Instance>
-    <Name>GameOverInstance</Name>
-    <BaseType>GameOver</BaseType>
+    <Name>PlayerHUDInstance</Name>
+    <BaseType>PlayerHUD</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>

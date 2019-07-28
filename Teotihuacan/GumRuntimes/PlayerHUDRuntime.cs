@@ -2,6 +2,7 @@
     using System.Collections.Generic;
     using System.Linq;
 using Teotihuacan.Entities;
+using Teotihuacan.UiControllers;
 
 namespace Teotihuacan.GumRuntimes
 {
@@ -11,8 +12,14 @@ namespace Teotihuacan.GumRuntimes
         float energyGaugeMax;
         float xpGaugeMax;
 
+        BarController BarController;
+
         partial void CustomInitialize () 
         {
+            BarController = new BarController();
+            BarController.MaxHeight = XPGauge.Height;
+            BarController.Bar = XPGauge;
+
             healthGageMax = HealthGauge.Height;
             energyGaugeMax = EnergyGauge.Height;
             xpGaugeMax = XPGauge.Height;
@@ -28,9 +35,22 @@ namespace Teotihuacan.GumRuntimes
             // below 1 and things overlap. We could use clipping but...this works
             EnergyGauge.Visible = EnergyGauge.Height > 1;
 
-            XPGauge.Height = xpGaugeMax * owningPlayer.ProgressToNextLevel;
+
+            //XPGauge.Height = xpGaugeMax * owningPlayer.ProgressToNextLevel;
             XPGauge.Visible = XPGauge.Height > 1;
             WeaponLevelText = $"{owningPlayer.CurrentWeaponLevel}";
+        }
+
+        public void RefreshExperienceBar(Player owningPlayer, UpdateType updateType)
+        {
+            if(updateType == UpdateType.Instant)
+            {
+                XPGauge.Height = xpGaugeMax * owningPlayer.ProgressToNextLevel;
+            }
+            else
+            {
+                BarController.InterpolateToRatio(owningPlayer.ProgressToNextLevel);
+            }
         }
     }
 }
