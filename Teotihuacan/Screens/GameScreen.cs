@@ -305,6 +305,9 @@ namespace Teotihuacan.Screens
                     player.PlayerData = new Models.PlayerData();
                     player.PlayerData.InitializeAllWeapons();
                 }
+
+                PlayerWeaponLevelManager.PlayerWeaponLevels[player.InputDevice] =
+                    player.PlayerData;
             }
         }
 
@@ -607,6 +610,8 @@ namespace Teotihuacan.Screens
 
         void CustomDestroy()
 		{
+            PlayerWeaponLevelManager.SaveAll();
+
             Camera.Main.Detach();
 
 		}
