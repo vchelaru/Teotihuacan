@@ -580,6 +580,7 @@ namespace Teotihuacan.Entities
 
                 if(CurrentHP < 0)
                 {
+                    playerThatDealtKillingBlow = owner;
                     PerformDeath();
                 }
                 else
