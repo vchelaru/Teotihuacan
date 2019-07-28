@@ -2896,7 +2896,7 @@
           </Properties>
           <Name>ArePlayersInvincible</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -2908,7 +2908,7 @@
           </Properties>
           <Name>IsBaseInvincible</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -2920,7 +2920,7 @@
           </Properties>
           <Name>PlayersHaveInfiniteEnergy</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -3105,6 +3105,11 @@
                   <Type>String</Type>
                   <Member>DeathChainName</Member>
                   <ValueAsString>DeathBig</ValueAsString>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>CircleInstanceRadius</Member>
+                  <ValueAsFloat>12</ValueAsFloat>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Boss</Name>
@@ -3387,6 +3392,19 @@
           <Name>DeathChainName</Name>
           <Type>string</Type>
           <DefaultValue xsi:type="xsd:string">Death</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CircleInstanceRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
+          <SourceObject>CircleInstance</SourceObject>
+          <SourceObjectProperty>Radius</SourceObjectProperty>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
