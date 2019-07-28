@@ -1,4 +1,5 @@
-    using System;
+using FlatRedBall.Instructions;
+using System;
     using System.Collections.Generic;
     using System.Linq;
 using Teotihuacan.Entities;
@@ -13,6 +14,9 @@ namespace Teotihuacan.GumRuntimes
         float xpGaugeMax;
 
         BarController BarController;
+
+        FlatRedBall.Screens.Screen CurrentScreen => FlatRedBall.Screens.ScreenManager.CurrentScreen;
+
 
         partial void CustomInitialize () 
         {
@@ -38,18 +42,30 @@ namespace Teotihuacan.GumRuntimes
 
             //XPGauge.Height = xpGaugeMax * owningPlayer.ProgressToNextLevel;
             XPGauge.Visible = XPGauge.Height > 1;
-            WeaponLevelText = $"{owningPlayer.CurrentWeaponLevel}";
         }
 
-        public void RefreshExperienceBar(Player owningPlayer, UpdateType updateType)
+        public void RefreshExperienceBar(Player owningPlayer, UpdateType updateType, bool isLevelUp)
         {
             if(updateType == UpdateType.Instant)
             {
                 XPGauge.Height = xpGaugeMax * owningPlayer.ProgressToNextLevel;
+                WeaponLevelText = $"{owningPlayer.CurrentWeaponLevel + 1}";
             }
             else
             {
-                BarController.InterpolateToRatio(owningPlayer.ProgressToNextLevel);
+                // in case we switched weapons
+                if(isLevelUp)
+                {
+                    // go back toi 0
+                    WeaponLevelText = $"{owningPlayer.CurrentWeaponLevel}";
+                }
+
+                BarController.InterpolateToRatio(owningPlayer.ProgressToNextLevel, isLevelUp);
+
+                CurrentScreen.Call(() =>
+                {
+                    WeaponLevelText = $"{owningPlayer.CurrentWeaponLevel + 1}";
+                }).After(1);
             }
         }
     }

@@ -11,6 +11,7 @@ using Teotihuacan.Screens;
 using FlatRedBall.TileCollisions;
 using Microsoft.Xna.Framework;
 using Teotihuacan.GumRuntimes;
+using System.Linq;
 
 namespace Teotihuacan.Screens
 {
@@ -123,10 +124,19 @@ namespace Teotihuacan.Screens
         {
             if (player.InputDevice.DefaultPrimaryActionInput.WasJustPressed)
             {
+                int levelBefore = player.PlayerData.WeaponLevels.Single(
+                    item => item.WeaponType == weaponDrop.WeaponType).CurrentWeaponLevel;
+
                 player.ConsumeWeaponDrop(weaponDrop.WeaponType);
+
+                int levelAfter = player.PlayerData.WeaponLevels.Single(
+                    item => item.WeaponType == weaponDrop.WeaponType).CurrentWeaponLevel;
+
                 weaponDrop.Destroy();
 
-                ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(player, UpdateType.Interpolate);
+                var isLevelUp = levelBefore != levelAfter;
+
+                ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(player, UpdateType.Interpolate, isLevelUp);
             }
         }
         void OnPlayerVsFirePitCollisionCollisionOccurred (Entities.Player player, FlatRedBall.TileCollisions.TileShapeCollection second) 

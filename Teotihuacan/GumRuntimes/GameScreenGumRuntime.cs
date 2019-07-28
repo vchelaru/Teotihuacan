@@ -152,12 +152,12 @@ namespace Teotihuacan.GumRuntimes
             }
         }
 
-        public void RefreshExperienceBar(Player player, UpdateType updateType)
+        public void RefreshExperienceBar(Player player, UpdateType updateType, bool isLevelUp)
         {
             var index = player.CurrentColorCategoryState.ToInt();
             var hud = playerHuds[index];
 
-            hud.RefreshExperienceBar(player, updateType);
+            hud.RefreshExperienceBar(player, updateType, isLevelUp);
         }
     }
 }

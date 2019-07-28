@@ -318,7 +318,8 @@ namespace Teotihuacan.Screens
 
             foreach(var player in PlayerList)
             {
-                ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(player, UpdateType.Instant);
+                ((GameScreenGumRuntime)GameScreenGum)
+                    .RefreshExperienceBar(player, UpdateType.Instant, false);
             }
         }
 

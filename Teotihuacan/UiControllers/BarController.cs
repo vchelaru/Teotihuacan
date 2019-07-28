@@ -17,7 +17,7 @@ namespace Teotihuacan.UiControllers
 
         FlatRedBall.Screens.Screen CurrentScreen => FlatRedBall.Screens.ScreenManager.CurrentScreen;
 
-        public void InterpolateToRatio(float ratio)
+        public void InterpolateToRatio(float ratio, bool isLevelUp)
         {
             var currentRatio = Bar.Height / MaxHeight;
 
@@ -26,7 +26,7 @@ namespace Teotihuacan.UiControllers
 
             float newHeight;
 
-            if(ratio > currentRatio)
+            if(!isLevelUp)
             {
                 newHeight = ratio * MaxHeight;
             }
@@ -40,14 +40,14 @@ namespace Teotihuacan.UiControllers
 
             Bar.InterpolateTo(currentState, newState, 1, FlatRedBall.Glue.StateInterpolation.InterpolationType.Exponential, FlatRedBall.Glue.StateInterpolation.Easing.Out);
 
-            if(ratio <= currentRatio)
+            if(isLevelUp)
             {
                 CurrentScreen.Call(() =>
                 {
                     Bar.Height = 0;
                     if(ratio > 0)
                     {
-                        InterpolateToRatio(ratio);
+                        InterpolateToRatio(ratio, false);
                     }
                 })
                     .After(1);
