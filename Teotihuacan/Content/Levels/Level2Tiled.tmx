@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="39" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="13">
  <tileset firstgid="1" source="TileSet_Main.tsx"/>
- <layer id="7" name="Ground" width="39" height="23">
+ <layer id="7" name="Ground" width="39" height="23" locked="1">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC7VXSU4DMRB0WMPOfQK8hS2BEdshN8JjAClwCMv/2L5Ct+ISpUp7AAVGKnnssT2Vqu72JKXxtTIFuoaqlVLH8G73A2s/rN2y9miKfXH9FTfn82L9ndb/cFswLBra+b5NYxjnuTVx226NeYHnsewVrY/2LXFzHXppvG9NbY/GsZ+PQ6dORp+49WSvaD3PYX6Rn0PDMq0BlgrjUaxBw7eGddE4xwBzY31rWev396QpP6tEp4o0hK91muQWjat2HDeltfChDp5xrL2Kv+yrw7ppNuDJWt6nOMZWDevUlvaIPO18E3OOa8PtL3hBM+dzYTindk04ety7Nm/U3wm4If6uWnFsuX4zoqH6qbw2DA+GTcNp7j8GGrF//UCvpjx17Br2DAfCj3MBOXlieDac5Tnon4tuVcAhQp/yVL1zzQ4ztznxmLWDbqOsFXN7ytoxv0uqET/h6Nqpnx5z8wEv1Q66cayt5Xt4+iC+Or8BgblG3PxdXXl/U06wr13S7ZT00lgr5W4V6Md5WqpvP8lVaDdKX3kAXsznJIi/Ug0BP+RD6WzQZ9G3AZ9TI9JL7+FvdC5w7YDP4Ka+cg3RGo9cSOKtv/Ou4TdGNUG5OR89x3g+5+l+sDe0Y27D7HV0fjV5onVFv5N0vtc2z9GbNJkPHG+4ovOL+UTxjOdNNS+qcaUc1TxQXtDvLk1+d6jX4Ks1r5QPJR+W6H36bdn0XTyUdegzWDvVD2cquDAP3fu//y9wjmqeIp6n+b8wDTfOA+X2230/AZP1tjAEDgAA
   </data>
  </layer>
  <layer id="8" name="Shadows" width="39" height="23" opacity="0.5">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC81VWw7DIAxjKNvFK+1gk9pzTXxEqmiAxEm2WuKPYMd5UEou9kcygVLD6ETzPOv8MCfzv6r8FtW5bikHKR/WNOKRODV3taAu7zMOwP9PUj/1+hBtlphNeZfqtcZIfSzaUI8Rz6xxCAfqGSnnhpHdMx5YeLjf7qbtPAujmHew5siaRvsZoY33c+TOl3g08PzH2n3agMxCA9pbln2KzIIlDuXzcDQg3v1KW+betv4hKI83ZgUScuD+s9Q2WpukS8JKo7dO/Vv/AMr7BcD9NV0EDgAA
+   H4sIAAAAAAAAC82VXQoDMQiEt8H24oUerNCeq/gQKsFEnUx/BsK+ROdbV93j4Ohxmh+WvLwzvxVPdFZ5I6ZzW5/x/qX5ecW5m2Uf2dR35uN5Zu5mJea9R7Yn0Bt3Yj9ZFsuHslVirsm7YmoX9QyLrVrjzoXUTFWJQzzQmklybrqybNLeXGjNqsr62Fn4NzY7C7OYG5mZuQfY9azm8/qt72fmzlehc4oqu09VyCzoE+2tyj5FZqESh/rteKiQ2n2D7dP/+uo/BPXZjYkkzjv0/qt8Wzabx+UpYtz9TmOuXwj1fQGR9SOfBA4AAA==
   </data>
  </layer>
- <layer id="9" name="Objects" width="39" height="23">
+ <layer id="9" name="Objects" width="39" height="23" locked="1">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC8VXS47CMAxNFkiobLgMn+3sgJ6HgRtQ1PMMsGVVCudhZpa4EKvGpBCbVFh6qitI/PpiO8nRGHN0KAFTa0xCcDK1XxIf/1/5a8CsAbn1j6fz0jnpk49J2Ny9hpiU0wHQZEXDeN+8Pq4V6LeHWPGCk8bwO1Km3VQRpxuZG1puH/NGap3Y3Pq3R+G0Q8006yPhthfOjbqtld8v4WaFMVJXa9qcnrTEbeV6j6YGNPYliJN71nMA/hAwAowjc5bkG9YC1W0O/jdgAVhG5ha0pv3aze29bj/gbwBbwO4T3IjxnnsG/xfwB/j/MLfU6vuH1CS1QOs0U/KT7FmaWkje0K7N3ot9RKtd2/sCnt80PVjCLSjfWA+h5zepRT+HOFt5zm+ZcG3b4FbxOrHzG+on4SjZ60M4IS/kw+8KpanzLwtEaNxnoFol9l4vCnqP4O/8tysC4vI7FM0nOjdqU+ECkrPCOgQOAAA=
   </data>
