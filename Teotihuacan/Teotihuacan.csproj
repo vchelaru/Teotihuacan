@@ -96,6 +96,7 @@
     <Compile Include="GameData\Level1Spawns.cs" />
     <Compile Include="GameData\Level2Spawns.cs" />
     <Compile Include="GameData\Level3Spawns.cs" />
+    <Compile Include="GameData\Level4Spawns.cs" />
     <Compile Include="GameData\LevelSpawnsBase.cs" />
     <Compile Include="GameData\WeaponLevelBase.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
@@ -701,6 +702,10 @@
     <None Include="content\levels\level3tiled.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level3Tiled</Name>
+    </None>
+    <None Include="content\levels\level4tiled.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level4Tiled</Name>
     </None>
     <None Include="content\levels\steppe_test_02.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

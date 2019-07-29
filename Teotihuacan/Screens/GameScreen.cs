@@ -24,6 +24,8 @@ namespace Teotihuacan.Screens
 {
 	public partial class GameScreen
 	{
+        #region StatMultipliers
+
         public class StatMultipliers
         {
             GameScreen gameScreen;
@@ -59,9 +61,15 @@ namespace Teotihuacan.Screens
                 this.gameScreen = gameScreen;
             }
         }
+
+        #endregion
+
         #region Fields/Properties
 
-        protected StatMultipliers CurrentMultipliers;
+        protected StatMultipliers CurrentMultipliers
+        {
+            get; private set;
+        }
 
         protected LevelSpawnsBase Spawns;
 
