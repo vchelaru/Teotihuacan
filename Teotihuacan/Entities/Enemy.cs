@@ -133,7 +133,7 @@ namespace Teotihuacan.Entities
 
         private void CustomActivity()
 		{
-
+            FlatRedBall.Debugging.Debugger.Write(currentPrimaryAction.ToFriendlyString());
 		}
 
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
@@ -261,6 +261,7 @@ namespace Teotihuacan.Entities
         {
             const float movementThreashHold = 0.01f;
             currentPrimaryAction = Velocity.LengthSquared() > movementThreashHold ? PrimaryActions.walk : PrimaryActions.idle;
+            
         }
 
         private void UpdateAimingBehavior(PositionedObject target)
@@ -288,6 +289,7 @@ namespace Teotihuacan.Entities
                 if (CurrentDataCategoryState == DataCategory.Boss)
                 {
                     mCurrentMovement = TopDownValues[DataTypes.TopDownValues.BossReloading];
+                    currentPrimaryAction = PrimaryActions.reloading;
                     isBossReloading = true;
                 }
                 else
