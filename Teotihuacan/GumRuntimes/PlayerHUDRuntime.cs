@@ -64,6 +64,11 @@ namespace Teotihuacan.GumRuntimes
 
                 CurrentScreen.Call(() =>
                 {
+                    if (isLevelUp)
+                    {
+                        this.TextGrowAndShrinkAnimation.Play();
+                    }
+
                     WeaponLevelText = $"{owningPlayer.CurrentWeaponLevel + 1}";
                 }).After(1);
             }

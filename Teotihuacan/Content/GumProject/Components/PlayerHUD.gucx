@@ -635,6 +635,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>TextSizeState</Type>
+      <Name>TextSizeState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>WeaponCategoryState</Type>
       <Name>WeaponCategoryState</Name>
       <SetsValue>false</SetsValue>
@@ -1366,6 +1371,39 @@
         <Type>PositionUnitType</Type>
         <Name>X Units</Name>
         <Value xsi:type="xsd:int">4</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
+  <Category>
+    <Name>TextSize</Name>
+    <State>
+      <Name>BigState</Name>
+      <Variable>
+        <Type>float</Type>
+        <Name>WeaponLevel.Font Scale</Name>
+        <Value xsi:type="xsd:float">1</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>WeaponLevel.Y</Name>
+        <Value xsi:type="xsd:float">-1</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>NormalState</Name>
+      <Variable>
+        <Type>float</Type>
+        <Name>WeaponLevel.Font Scale</Name>
+        <Value xsi:type="xsd:float">0.45</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>WeaponLevel.Y</Name>
+        <Value xsi:type="xsd:float">-7</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
