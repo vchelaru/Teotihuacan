@@ -456,7 +456,7 @@ namespace Teotihuacan.Entities
                     bullet.Z = this.Z - 1;
                     bullet.CurrentDataCategoryState = Bullet.DataCategory.EnemyBullet;
                     bullet.Velocity = bullet.BulletSpeed * currentAimingVector;
-                    bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(currentAimingVector, PossibleDirections), Weapon.ShootingFire);
+                    //bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(currentAimingVector, PossibleDirections), Weapon.ShootingFire);
                     shootingAnimationLayer.PlayOnce(GetChainName(PrimaryActions.shoot, SecondaryActions.Shooting));
 
                     currentAimingVector = RotateVector(currentAimingVector, spreadIncremet);

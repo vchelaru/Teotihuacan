@@ -2396,6 +2396,11 @@
                   <Member>AoeDamage</Member>
                   <ValueAsInt>0</ValueAsInt>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>EnemyProjectile</ValueAsString>
+                </InstructionSave>
               </InstructionSaves>
               <Name>EnemyBullet</Name>
             </StateSave>
@@ -2567,6 +2572,18 @@
           <Name>AoeDamage</Name>
           <Type>int</Type>
           <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <SourceObject>SpriteInstance</SourceObject>
+          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
