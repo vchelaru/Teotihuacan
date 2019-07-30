@@ -19,17 +19,35 @@ namespace Teotihuacan.Entities
 	{
         public List<PositionedObject> Targets { get; private set; } = new List<PositionedObject>();
 
-        public LayeredTileMap Map { get; set; }
+        private LayeredTileMap mapButUseProperty;
+        public LayeredTileMap Map
+        {
+            get => mapButUseProperty;
+            set
+            {
+                mapButUseProperty = value;
+                if(mapButUseProperty != null)
+                {
+                    InitializeCameraMaxBounds();
+                }
+            }
+        }
 
         float defaultOrthoHeight;
         float defaultOrthoWidth;
 
         float orthoZoom = 1;
+        float maxOrthoZoom = 0;
 
         float minXThisFrame = 0;
         float maxXThisFrame = 0;
         float minYThisFrame = 0;
         float maxYThisFrame = 0;
+
+        float mapMinXBounds = 0;
+        float mapMaxXBounds = 0;
+        float mapMinYBounds = 0;
+        float mapMaxYBounds = 0;
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -42,6 +60,21 @@ namespace Teotihuacan.Entities
 
             defaultOrthoHeight = Camera.Main.OrthogonalHeight;
             defaultOrthoWidth = Camera.Main.OrthogonalWidth;
+        }
+
+        private void InitializeCameraMaxBounds()
+        {
+
+            mapMinXBounds = Map.X;
+            mapMaxXBounds = Map.X + Map.Width;
+
+            mapMaxYBounds = Map.Y;
+            mapMinYBounds = Map.Y - Map.Height;
+
+            float widthRatio = Map.Width / Camera.Main.OrthogonalWidth;
+            float heightRatio = Map.Height / Camera.Main.OrthogonalHeight;
+
+            maxOrthoZoom = Math.Min(widthRatio, heightRatio);
         }
 
         public void SetStartPositionAndZoom()
@@ -77,8 +110,44 @@ namespace Teotihuacan.Entities
                 CalculateZoomFromDistance();
 
                 SetOrthoZoom();
+
+                ClampCameraToBounds();
             }
 
+        }
+
+        private void ClampCameraToBounds()
+        {
+            float halfOrthoWidth = Camera.Main.OrthogonalWidth * .5f;
+            float halfOrthoHeight = Camera.Main.OrthogonalHeight * .5f;
+
+            float currentMinX = mapMinXBounds + halfOrthoWidth ;
+            float currentMaxX = mapMaxXBounds - halfOrthoWidth;
+
+            float currentMinY = mapMinYBounds + halfOrthoHeight;
+            float currentMaxY = mapMaxYBounds - halfOrthoHeight;
+
+            if (X < currentMinX)
+            {
+                X = currentMinX;
+                XVelocity = 0;
+            }
+            else if (currentMaxX < X)
+            {
+                X = currentMaxX;
+                XVelocity = 0;
+            }
+
+            if (Y < currentMinY)
+            {
+                Y = currentMinY;
+                YVelocity = 0;
+            }
+            else if (currentMaxY < Y)
+            {
+                Y = currentMaxY;
+                YVelocity = 0;
+            }
         }
 
         private void CalculateTargetPosition(out float targetX, out float targetY)
@@ -113,6 +182,7 @@ namespace Teotihuacan.Entities
             if (orthoZoomIncrement > 0)
             {
                 orthoZoom += orthoZoomIncrement;
+                orthoZoom = Math.Min(orthoZoom, maxOrthoZoom);
             }
             else if (orthoZoom > 1)
             {
