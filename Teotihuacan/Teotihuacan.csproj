@@ -351,6 +351,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Death_1_SpriteSheet</Name>
     </None>
+    <None Include="content\characters\enemyspreadshootersheet.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemySpreadShooterSheet</Name>
+    </None>
+    <None Include="content\characters\enemyspreadshootersheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemySpreadShooterSheet</Name>
+    </None>
     <None Include="content\characters\enemy_hugoboss.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Enemy_HugoBoss</Name>

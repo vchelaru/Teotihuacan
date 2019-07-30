@@ -3167,6 +3167,51 @@
               </InstructionSaves>
               <Name>SuiciderFast</Name>
             </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteAnimations</Member>
+                  <ValueAsString>EnemySpreadShooterSheet</ValueAsString>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>MaxHp</Member>
+                  <ValueAsInt>50</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>FireShotsPerSecond</Member>
+                  <ValueAsFloat>1</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>MaxShootingDistance</Member>
+                  <ValueAsFloat>80</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>BulletsToFire</Member>
+                  <ValueAsInt>4</ValueAsInt>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>BulletSpreadHalfAngle</Member>
+                  <ValueAsFloat>25</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChanceForWeaponDrop</Member>
+                  <ValueAsFloat>0.75</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Boolean</Type>
+                  <Member>ExplodesOnDeath</Member>
+                  <ValueAsBool>false</ValueAsBool>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>ShooterSpread</Name>
+            </StateSave>
           </States>
           <ExcludedVariables>
             <string>X</string>
@@ -3555,6 +3600,12 @@
         </ReferencedFileSave>
         <ReferencedFileSave>
           <Name>Characters/Enemy_HugoBoss.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Characters/EnemySpreadShooterSheet.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -4865,7 +4916,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\Level1</StartUpScreen>
+  <StartUpScreen>Screens\Level4</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>
