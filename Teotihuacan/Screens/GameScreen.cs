@@ -270,7 +270,9 @@ namespace Teotihuacan.Screens
             PlayerVsPitSolidCollision.SetFirstSubCollision(item => item.CircleInstance);
 
             PlayerVsBulletExplosionCollision.SetFirstSubCollision(item => item.CircleInstance);
+            PlayerVsWeaponCollision.IsActive = false;
             PlayerVsWeaponCollision.SetFirstSubCollision(item => item.CircleInstance);
+            PlayerVsWeaponCollision.CollisionLimit = FlatRedBall.Math.Collision.CollisionLimit.Closest;
 
             PlayerVsMudCollision.IsActive = false;
             PlayerVsMudCollision.SetFirstSubCollision(item => item.CircleInstance);
@@ -451,6 +453,7 @@ namespace Teotihuacan.Screens
             foreach(var player in PlayerList)
             {
                 player.IsOnMud = false;
+                player.SetActionIconVisibility(false);
             }
 
             foreach(var enemy in EnemyList)
@@ -458,6 +461,7 @@ namespace Teotihuacan.Screens
                 enemy.IsOnMud = false;
             }
 
+            PlayerVsWeaponCollision.DoCollisions();
             PlayerVsMudCollision.DoCollisions();
             EnemyVsMudCollision.DoCollisions();
         }

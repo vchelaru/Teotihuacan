@@ -633,6 +633,11 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             PlayerData.AddWeaponExperience(weaponType);
         }
 
+        public void SetActionIconVisibility(bool isVisible)
+        {
+            ActionIcon.Visible = isVisible;
+        }
+
         #endregion
 
         private void CustomDestroy()

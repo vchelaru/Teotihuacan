@@ -138,6 +138,10 @@ namespace Teotihuacan.Screens
 
                 ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(player, UpdateType.Interpolate, isLevelUp);
             }
+            else
+            {
+                player.SetActionIconVisibility(true);
+            }
         }
         void OnPlayerVsFirePitCollisionCollisionOccurred (Entities.Player player, FlatRedBall.TileCollisions.TileShapeCollection second) 
         {
