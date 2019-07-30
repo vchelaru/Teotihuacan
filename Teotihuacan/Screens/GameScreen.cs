@@ -114,7 +114,7 @@ namespace Teotihuacan.Screens
         private void InitializeCameraController()
         {
             CameraControllerInstance.Targets.AddRange(PlayerList);
-            CameraControllerInstance.Targets.AddRange(PlayerBaseList);
+            //CameraControllerInstance.Targets.AddRange(PlayerBaseList);
             CameraControllerInstance.Map = Map;
 
             CameraControllerInstance.SetStartPositionAndZoom();
