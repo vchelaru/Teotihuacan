@@ -133,7 +133,6 @@ namespace Teotihuacan.Entities
 
         private void CustomActivity()
 		{
-            FlatRedBall.Debugging.Debugger.Write(currentPrimaryAction.ToFriendlyString());
 		}
 
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
