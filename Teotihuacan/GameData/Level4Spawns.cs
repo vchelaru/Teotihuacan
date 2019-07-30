@@ -134,7 +134,7 @@ namespace Teotihuacan.GameData
             wave.AddMiniWave
             (
                 ShooterSpread, ShooterSpread,
-                Suicider, Suicider, Suicider, Suicider
+                Suicider, Suicider,      Suicider, Suicider
             )
             .CanSpawnAtMultipleSpots = true;
 
