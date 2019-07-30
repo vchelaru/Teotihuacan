@@ -938,5 +938,50 @@
       <BottomCoordinate>76</BottomCoordinate>
       <RelativeY>6</RelativeY>
     </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>69</LeftCoordinate>
+      <RightCoordinate>84</RightCoordinate>
+      <TopCoordinate>61</TopCoordinate>
+      <BottomCoordinate>76</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>86</LeftCoordinate>
+      <RightCoordinate>101</RightCoordinate>
+      <TopCoordinate>61</TopCoordinate>
+      <BottomCoordinate>76</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>52</LeftCoordinate>
+      <RightCoordinate>67</RightCoordinate>
+      <TopCoordinate>78</TopCoordinate>
+      <BottomCoordinate>93</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>69</LeftCoordinate>
+      <RightCoordinate>84</RightCoordinate>
+      <TopCoordinate>78</TopCoordinate>
+      <BottomCoordinate>93</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>86</LeftCoordinate>
+      <RightCoordinate>101</RightCoordinate>
+      <TopCoordinate>78</TopCoordinate>
+      <BottomCoordinate>93</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
   </AnimationChain>
 </AnimationChainArraySave>
