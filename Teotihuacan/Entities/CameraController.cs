@@ -127,26 +127,52 @@ namespace Teotihuacan.Entities
             float currentMinY = mapMinYBounds + halfOrthoHeight;
             float currentMaxY = mapMaxYBounds - halfOrthoHeight;
 
+            // On these we don't want to do if/else, because
+            // if we do, only one will apply per frame. If the camera
+            // is zoomed out too far, then it will alternate back and forth
+            // quickly, causing a weird jittering effect.
+
+            bool lessThanX = false;
+            bool greaterThanX = false;
             if (X < currentMinX)
             {
                 X = currentMinX;
                 XVelocity = 0;
+                lessThanX = true;
             }
-            else if (currentMaxX < X)
+            //else if (currentMaxX < X)
+            if (currentMaxX < X)
             {
                 X = currentMaxX;
                 XVelocity = 0;
+                greaterThanX = true;
             }
 
+            if(lessThanX && greaterThanX)
+            {
+                // not enough room, so just make the camera average the position:
+                X = (currentMinX + currentMaxX) * .5f;
+            }
+
+            bool lessThanY = false;
+            bool greaterThanY = false;
             if (Y < currentMinY)
             {
                 Y = currentMinY;
                 YVelocity = 0;
+                lessThanY = true;
             }
-            else if (currentMaxY < Y)
+            //else if (currentMaxY < Y)
+            if (currentMaxY < Y)
             {
                 Y = currentMaxY;
                 YVelocity = 0;
+                greaterThanY = true;
+            }
+
+            if(lessThanY && greaterThanY)
+            {
+                Y = (currentMinY + currentMaxY) / 2.0f;
             }
         }
 
@@ -165,7 +191,8 @@ namespace Teotihuacan.Entities
         private void SetOrthoZoom()
         {
             Camera.Main.OrthogonalHeight = defaultOrthoHeight * orthoZoom;
-            Camera.Main.OrthogonalWidth = defaultOrthoWidth * orthoZoom;
+            Camera.Main.FixAspectRatioYConstant();
+            //Camera.Main.OrthogonalWidth = defaultOrthoWidth * orthoZoom;
         }
 
         private void CalculateZoomFromDistance()

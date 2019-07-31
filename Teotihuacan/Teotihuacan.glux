@@ -4962,7 +4962,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\Level3</StartUpScreen>
+  <StartUpScreen>Screens\Level4</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>
@@ -5026,7 +5026,7 @@
     <SupportLandscape>true</SupportLandscape>
     <SupportPortrait>false</SupportPortrait>
     <RunInFullScreen>false</RunInFullScreen>
-    <AllowWindowResizing>false</AllowWindowResizing>
+    <AllowWindowResizing>true</AllowWindowResizing>
     <Scale>300</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
     <ResizeBehaviorGum>StretchVisibleArea</ResizeBehaviorGum>

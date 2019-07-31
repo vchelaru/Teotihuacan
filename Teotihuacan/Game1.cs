@@ -11,6 +11,7 @@ using System.Linq;
 
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using FlatRedBall.Input;
 
 namespace Teotihuacan
 {
@@ -59,7 +60,7 @@ namespace Teotihuacan
 
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
-			FlatRedBall.Screens.ScreenManager.Start(typeof(Teotihuacan.Screens.Level3));
+			FlatRedBall.Screens.ScreenManager.Start(typeof(Teotihuacan.Screens.Level4));
 
             base.Initialize();
         }
@@ -71,7 +72,18 @@ namespace Teotihuacan
 
             FlatRedBall.Screens.ScreenManager.Activity();
 
+            GlobalActivity();
+
             base.Update(gameTime);
+        }
+
+        private void GlobalActivity()
+        {
+            if(InputManager.Keyboard.IsAltDown && InputManager.Keyboard.KeyPushed(Keys.Enter))
+            {
+                CameraSetup.Data.IsFullScreen = !CameraSetup.Data.IsFullScreen;
+                CameraSetup.ResetWindow();
+            }
         }
 
         protected override void Draw(GameTime gameTime)
