@@ -4888,7 +4888,7 @@
           </Properties>
           <Name>SpriteInstanceCurrentChainName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">WeaponDropFireBall</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">WeaponDropStar</DefaultValue>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
         </CustomVariable>
@@ -4901,7 +4901,7 @@
           </Properties>
           <Name>LifeTime</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">15</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -4938,7 +4938,7 @@
           <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>WeaponDropFireBall</ValueAsString>
+            <ValueAsString>WeaponDropStar</ValueAsString>
           </CustomProperty>
           <Properties>
             <PropertySave>

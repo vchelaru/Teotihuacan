@@ -60,6 +60,8 @@ namespace Teotihuacan.Entities
         IPressableInput swapWeaponsBack;
         IPressableInput swapWeaponsForward;
 
+        public Action SwappedWeapon;
+
         bool isPrimaryInputDown
         {
             get
@@ -217,7 +219,7 @@ namespace Teotihuacan.Entities
             DoAimingActivity();
             DoShootingActivity();
             DoMovementValueUpdate();
-            //DoWeaponSwappingLogic();
+            DoWeaponSwappingLogic();
             spriteAnimationController.Activity();
             UpdateOverlaySprite();
             LightningEndpointSprite.Visible = 
@@ -245,6 +247,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                     case Weapon.ShootingLightning: PlayerData.EquippedWeapon = Weapon.ShootingSkulls; break;
                     case Weapon.ShootingSkulls: PlayerData.EquippedWeapon = Weapon.ShootingFire; break;
                 }
+                SwappedWeapon();
             }
             if(swapWeaponsForward.WasJustPressed)
             {
@@ -254,6 +257,8 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                     case Weapon.ShootingSkulls: PlayerData.EquippedWeapon = Weapon.ShootingLightning; break;
                     case Weapon.ShootingLightning: PlayerData.EquippedWeapon = Weapon.ShootingFire; break;
                 }
+                SwappedWeapon();
+
             }
         }
 
@@ -642,7 +647,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
         public void ConsumeWeaponDrop(Weapon weaponType)
         {
-            PlayerData.EquippedWeapon = weaponType;
+            //PlayerData.EquippedWeapon = weaponType;
 
             PlayerData.AddWeaponExperience(weaponType);
         }

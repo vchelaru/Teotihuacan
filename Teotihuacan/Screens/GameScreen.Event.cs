@@ -124,13 +124,15 @@ namespace Teotihuacan.Screens
         {
             if (player.InputDevice.DefaultPrimaryActionInput.WasJustPressed)
             {
-                int levelBefore = player.PlayerData.WeaponLevels.Single(
-                    item => item.WeaponType == weaponDrop.WeaponType).CurrentWeaponLevel;
+                var weaponType = player.EquippedWeapon;
 
-                player.ConsumeWeaponDrop(weaponDrop.WeaponType);
+                int levelBefore = player.PlayerData.WeaponLevels.Single(
+                    item => item.WeaponType == weaponType).CurrentWeaponLevel;
+
+                player.ConsumeWeaponDrop(player.EquippedWeapon);
 
                 int levelAfter = player.PlayerData.WeaponLevels.Single(
-                    item => item.WeaponType == weaponDrop.WeaponType).CurrentWeaponLevel;
+                    item => item.WeaponType == weaponType).CurrentWeaponLevel;
 
                 weaponDrop.Destroy();
 

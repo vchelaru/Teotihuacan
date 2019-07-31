@@ -50,7 +50,7 @@ namespace Teotihuacan.UiControllers
                         InterpolateToRatio(ratio, false);
                     }
                 })
-                    .After(1);
+                    .After(1.1f);
             }
 
         }

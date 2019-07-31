@@ -134,6 +134,9 @@ namespace Teotihuacan.Screens
                 PlayerList.Add(player);
                 player.InitializeTopDownInput(InputManager.Keyboard);
 
+                player.SwappedWeapon += () => HandlePlayerSwappedWeapon(player);
+
+
                 AssignPlayerData(player);
             }
             else
@@ -154,6 +157,13 @@ namespace Teotihuacan.Screens
             }
         }
 
+        private void HandlePlayerSwappedWeapon(Player player)
+        {
+            ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(
+                player, 
+                UpdateType.Instant, false);
+
+        }
 
         private void SetInitialPlayerPosition(Player player)
         {
@@ -516,6 +526,8 @@ namespace Teotihuacan.Screens
 
             PlayerList.Add(player);
             player.InitializeTopDownInput(controller);
+
+            player.SwappedWeapon += () => HandlePlayerSwappedWeapon(player);
 
             AssignPlayerData(player);
 
