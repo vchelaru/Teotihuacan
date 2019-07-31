@@ -1686,7 +1686,7 @@
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Name>Levels/Steppe_test_02.tmx</Name>
+          <Name>Levels/Level1Tiled.tmx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.TileGraphics.LayeredTileMap</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -1701,7 +1701,7 @@
             </PropertySave>
           </Properties>
           <SourceType>File</SourceType>
-          <SourceFile>Levels/Steppe_test_02.tmx</SourceFile>
+          <SourceFile>Levels/Level1Tiled.tmx</SourceFile>
           <SourceName>Entire File (LayeredTileMap)</SourceName>
           <SourceClassType>LayeredTileMap</SourceClassType>
           <InstanceName>Map</InstanceName>
