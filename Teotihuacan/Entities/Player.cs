@@ -69,7 +69,6 @@ namespace Teotihuacan.Entities
                 if(InputDevice == InputManager.Keyboard)
                 {
                     return InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton);
-
                 }
                 else if(InputDevice is Xbox360GamePad gamePad)
                 {
@@ -194,6 +193,7 @@ namespace Teotihuacan.Entities
             }
             else if(InputDevice is Keyboard keyboard)
             {
+                rightStick = null; // Fixes bug when KB player joins game and GamePad is connected.
                 swapWeaponsBack = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Q);
                 swapWeaponsForward = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.E);
             }
