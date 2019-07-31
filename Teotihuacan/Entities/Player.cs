@@ -189,8 +189,8 @@ namespace Teotihuacan.Entities
             if(InputDevice is Xbox360GamePad gamePad)
             {
                 rightStick = gamePad.RightStick;
-                swapWeaponsBack = gamePad.GetButton(Xbox360GamePad.Button.DPadLeft);
-                swapWeaponsForward = gamePad.GetButton(Xbox360GamePad.Button.DPadRight);
+                swapWeaponsBack = gamePad.GetButton(Xbox360GamePad.Button.LeftShoulder);
+                swapWeaponsForward = gamePad.GetButton(Xbox360GamePad.Button.RightShoulder);
             }
             else if(InputDevice is Keyboard keyboard)
             {
