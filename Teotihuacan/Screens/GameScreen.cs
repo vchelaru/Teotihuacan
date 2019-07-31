@@ -282,6 +282,9 @@ namespace Teotihuacan.Screens
 
             EnemyVsMudCollision.IsActive = false;
             EnemyVsMudCollision.CollisionOccurred += (enemy, tileShapeCollection) => enemy.IsOnMud = true;
+
+            EnemyVsSolidCollision.SetFirstSubCollision(item => item.NavigationCollider);
+            EnemyVsPitSolidCollision.SetFirstSubCollision(item => item.NavigationCollider);
         }
 
         private void AddBorderAroundMap()

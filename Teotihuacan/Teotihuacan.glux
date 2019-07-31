@@ -2919,7 +2919,7 @@
           </Properties>
           <Name>ArePlayersInvincible</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -2931,7 +2931,7 @@
           </Properties>
           <Name>IsBaseInvincible</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -2943,7 +2943,7 @@
           </Properties>
           <Name>PlayersHaveInfiniteEnergy</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -3544,6 +3544,28 @@
           <SourceName />
           <SourceClassType>AnimationChain</SourceClassType>
           <InstanceName>BigExplosion</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>5</ValueAsFloat>
+          </CustomProperty>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>NavigationCollider</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -5012,7 +5034,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\Level1</StartUpScreen>
+  <StartUpScreen>Screens\Level3</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

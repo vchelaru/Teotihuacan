@@ -409,11 +409,11 @@ namespace Teotihuacan.Entities
             while (points.Count > 0)
             {
                 var length = (points[0] - Position).Length();
-                lineOfSightPathFindingPolygon.SetPoint(0, length / 2.0f, CircleInstance.Radius);
-                lineOfSightPathFindingPolygon.SetPoint(1, length / 2.0f, -CircleInstance.Radius);
-                lineOfSightPathFindingPolygon.SetPoint(2, -length / 2.0f, -CircleInstance.Radius);
-                lineOfSightPathFindingPolygon.SetPoint(3, -length / 2.0f, CircleInstance.Radius);
-                lineOfSightPathFindingPolygon.SetPoint(4, length / 2.0f, CircleInstance.Radius);
+                lineOfSightPathFindingPolygon.SetPoint(0, length / 2.0f, NavigationCollider.Radius);
+                lineOfSightPathFindingPolygon.SetPoint(1, length / 2.0f, -NavigationCollider.Radius);
+                lineOfSightPathFindingPolygon.SetPoint(2, -length / 2.0f, -NavigationCollider.Radius);
+                lineOfSightPathFindingPolygon.SetPoint(3, -length / 2.0f, NavigationCollider.Radius);
+                lineOfSightPathFindingPolygon.SetPoint(4, length / 2.0f, NavigationCollider.Radius);
 
                 lineOfSightPathFindingPolygon.X = (points[0].X + Position.X) / 2.0f;
                 lineOfSightPathFindingPolygon.Y = (points[0].Y + Position.Y) / 2.0f;
