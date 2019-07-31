@@ -363,6 +363,10 @@ namespace Teotihuacan.Screens
             player.OnPlayerDeath += (deadPlayer) =>
             {
                 deadPlayerInputDevices.Add(deadPlayer.InputDevice);
+                foreach(var enemy in EnemyList)
+                {
+                    enemy.ReactToPlayerDeath(deadPlayer);
+                }
             };
         }
 

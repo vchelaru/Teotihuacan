@@ -571,6 +571,15 @@ namespace Teotihuacan.Entities
             timeForcedTargetSet = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
         }
 
+        public void ReactToPlayerDeath(PositionedObject killedPlayer)
+        {
+            if(target == killedPlayer)
+            {
+                // Null out the target if the player is destroyed.
+                target = null;
+            }
+        }
+
         public void TakeLightningDamage(float dps, Player owner)
         {
             if(canTakeDamage)
