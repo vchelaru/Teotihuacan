@@ -703,6 +703,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Camera_test</Name>
     </None>
+    <None Include="content\levels\level1tiled.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level1Tiled</Name>
+    </None>
     <None Include="content\levels\level2tiled.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level2Tiled</Name>
@@ -714,10 +718,6 @@
     <None Include="content\levels\level4tiled.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level4Tiled</Name>
-    </None>
-    <None Include="content\levels\steppe_test_02.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Steppe_test_02</Name>
     </None>
     <None Include="content\levels\tileset_main.tsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
