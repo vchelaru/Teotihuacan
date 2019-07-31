@@ -719,6 +719,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level4Tiled</Name>
     </None>
+    <None Include="content\levels\riva_test_bg_clean.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Riva_test_BG_clean</Name>
+    </None>
     <None Include="content\levels\tileset_main.tsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>tileset_main</Name>

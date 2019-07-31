@@ -28,8 +28,8 @@ namespace Teotihuacan.Screens
 
         void CustomInitialize()
 		{
-            Steppe_test_02.X = -266f; // 533f;
-            Steppe_test_02.Y = 150f; // 300f;
+            Riva_test_BG_clean.X = -266f; // 533f;
+            Riva_test_BG_clean.Y = 150f; // 300f;
 
             CriticalHP_ColorSpriteInstance.Alpha = 0f;
             CriticalMP_ColorSpriteInstance.Alpha = 0f;
