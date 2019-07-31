@@ -3012,7 +3012,7 @@
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>ChanceForWeaponDrop</Member>
-                  <ValueAsFloat>0.5</ValueAsFloat>
+                  <ValueAsFloat>0.25</ValueAsFloat>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Boolean</Type>
@@ -3047,7 +3047,7 @@
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>ChanceForWeaponDrop</Member>
-                  <ValueAsFloat>0.5</ValueAsFloat>
+                  <ValueAsFloat>0.2</ValueAsFloat>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Boolean</Type>
@@ -3157,7 +3157,7 @@
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>ChanceForWeaponDrop</Member>
-                  <ValueAsFloat>0.25</ValueAsFloat>
+                  <ValueAsFloat>0.15</ValueAsFloat>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Boolean</Type>
@@ -3202,7 +3202,7 @@
                 <InstructionSave>
                   <Type>Single</Type>
                   <Member>ChanceForWeaponDrop</Member>
-                  <ValueAsFloat>0.75</ValueAsFloat>
+                  <ValueAsFloat>0.6</ValueAsFloat>
                 </InstructionSave>
                 <InstructionSave>
                   <Type>Boolean</Type>
