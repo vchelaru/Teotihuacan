@@ -928,34 +928,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>PlayerAction_WeaponPickup</Name>
-    <Frame>
-      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
-      <FrameLength>1</FrameLength>
-      <LeftCoordinate>52</LeftCoordinate>
-      <RightCoordinate>67</RightCoordinate>
-      <TopCoordinate>61</TopCoordinate>
-      <BottomCoordinate>76</BottomCoordinate>
-      <RelativeY>6</RelativeY>
-    </Frame>
-    <Frame>
-      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
-      <FrameLength>1</FrameLength>
-      <LeftCoordinate>69</LeftCoordinate>
-      <RightCoordinate>84</RightCoordinate>
-      <TopCoordinate>61</TopCoordinate>
-      <BottomCoordinate>76</BottomCoordinate>
-      <RelativeY>6</RelativeY>
-    </Frame>
-    <Frame>
-      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
-      <FrameLength>1</FrameLength>
-      <LeftCoordinate>86</LeftCoordinate>
-      <RightCoordinate>101</RightCoordinate>
-      <TopCoordinate>61</TopCoordinate>
-      <BottomCoordinate>76</BottomCoordinate>
-      <RelativeY>6</RelativeY>
-    </Frame>
+    <Name>PlayerAction_WeaponPickup_GamePad</Name>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>1</FrameLength>
@@ -965,6 +938,9 @@
       <BottomCoordinate>93</BottomCoordinate>
       <RelativeY>6</RelativeY>
     </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>PlayerAction_WeaponPickup_Generic</Name>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>1</FrameLength>
@@ -974,6 +950,9 @@
       <BottomCoordinate>93</BottomCoordinate>
       <RelativeY>6</RelativeY>
     </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>PlayerAction_WeaponPickup_Keyboard</Name>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
       <FrameLength>1</FrameLength>

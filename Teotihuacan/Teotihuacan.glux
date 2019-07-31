@@ -3772,6 +3772,43 @@
           <Name>OverlayColor</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
         </StateSaveCategory>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>ActionIconCurrentChainName</Member>
+                  <ValueAsString>PlayerAction_WeaponPickup_Keyboard</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Keyboard</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>ActionIconCurrentChainName</Member>
+                  <ValueAsString>PlayerAction_WeaponPickup_GamePad</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>GamePad</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>ActionIconCurrentChainName</Member>
+                  <ValueAsString>PlayerAction_WeaponPickup_Generic</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Generic</Name>
+            </StateSave>
+          </States>
+          <ExcludedVariables />
+          <Name>InputDeviceType</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
       </StateCategoryList>
       <CustomVariables>
         <CustomVariable>
@@ -3983,6 +4020,19 @@
           <DefaultValue xsi:type="xsd:float">0.02</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ActionIconCurrentChainName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">PlayerAction_WeaponPickup_Generic</DefaultValue>
+          <SourceObject>ActionIcon</SourceObject>
+          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\Player</Name>
@@ -4178,8 +4228,23 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>25</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>UseAnimationRelativePosition</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
@@ -4189,22 +4254,7 @@
           <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
-            <ValueAsString>PlayerAction_WeaponPickup</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Y</Member>
-            <ValueAsFloat>25</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>UseAnimationRelativePosition</Member>
-            <ValueAsBool>false</ValueAsBool>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsString>PlayerAction_WeaponPickup_Generic</ValueAsString>
           </CustomProperty>
           <Properties>
             <PropertySave>
@@ -4962,7 +5012,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\Level4</StartUpScreen>
+  <StartUpScreen>Screens\Level1</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

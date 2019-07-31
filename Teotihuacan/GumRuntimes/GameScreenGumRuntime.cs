@@ -1,3 +1,4 @@
+using FlatRedBall.Input;
 using FlatRedBall.Math;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace Teotihuacan.GumRuntimes
 
 
 
-        public void CustomActivity(PositionedObjectList<Player> players, PlayerBase playerBase)
+        public void CustomActivity(PositionedObjectList<Player> players, PlayerBase playerBase, List<IInputDevice> deadPlayerInputDevices)
         {
             // make all huds invisible, will be made visible below:
             foreach(var hud in playerHuds)
@@ -90,8 +91,23 @@ namespace Teotihuacan.GumRuntimes
 
             for(int i = 0; i < 4; i++)
             {
-                playerJoinHuds[i].Visible = !playerHuds[i].Visible && 
-                    FlatRedBall.Input.InputManager.Xbox360GamePads[i].IsConnected;
+                if (!deadPlayerInputDevices.Contains(InputManager.Xbox360GamePads[i]))
+                {
+                    playerJoinHuds[i].Visible = !playerHuds[i].Visible &&
+                        FlatRedBall.Input.InputManager.Xbox360GamePads[i].IsConnected;
+                }
+                else
+                {
+                    playerJoinHuds[i].Visible = false;
+                    playerHuds[i].Visible = false;
+                }
+            }
+
+            if(deadPlayerInputDevices.Contains(InputManager.Keyboard))
+            {
+                //Assume the keyboad player is in slot 0;
+                playerJoinHuds[0].Visible = false;
+                playerHuds[0].Visible = false;
             }
 
             BaseHUDInstance.UpdateHealth(playerBase);

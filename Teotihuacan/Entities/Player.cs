@@ -151,7 +151,22 @@ namespace Teotihuacan.Entities
             InitializeAnimationLayers();
 
             InitializeCollision();
+
+            InitializeActionIcon();
 		}
+
+        private void InitializeActionIcon()
+        {
+            
+            if(InputDevice is Xbox360GamePad)
+            {
+                CurrentInputDeviceTypeState = InputDeviceType.GamePad;
+            }
+            else if(InputDevice is Keyboard)
+            {
+                CurrentInputDeviceTypeState = InputDeviceType.Keyboard;
+            }
+        }
 
         private void InitializeAnimationLayers()
         {
@@ -433,7 +448,6 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
                 }
             }
-
             return didTakeDamage;
         }
 

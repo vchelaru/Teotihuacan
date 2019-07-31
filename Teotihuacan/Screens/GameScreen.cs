@@ -518,7 +518,7 @@ namespace Teotihuacan.Screens
         private void DoUiActivity()
         {
             (GameScreenGum as GameScreenGumRuntime).CustomActivity(
-                PlayerList, PlayerBaseList[0]);
+                PlayerList, PlayerBaseList[0], deadPlayerInputDevices);
         }
 
         private void DoCheckPauseInput()
