@@ -337,6 +337,12 @@ namespace Teotihuacan.Screens
             gameScreenGumRuntime.ResumeClicked += (not, used) =>
                 DoUnpause();
 
+            gameScreenGumRuntime.ClearDataClicked += (not, used) =>
+            {
+                PlayerWeaponLevelManager.ClearAll();
+                this.MoveToScreen(nameof(Level1));
+            };
+
             gameScreenGumRuntime.StartLevel += () =>DoStartLevel();
             gameScreenGumRuntime.ShowLevelStart($"Level {LevelName}");
 

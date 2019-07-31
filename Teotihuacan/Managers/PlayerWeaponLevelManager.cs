@@ -31,6 +31,17 @@ namespace Teotihuacan.Managers
             }
         }
 
+        public static void ClearAll()
+        {
+            DataLoader.Delete("Keyboard");
+            DataLoader.Delete("Gamepad0");
+            DataLoader.Delete("Gamepad1");
+            DataLoader.Delete("Gamepad2");
+            DataLoader.Delete("Gamepad3");
+
+            PlayerWeaponLevels.Clear();
+        }
+
         private static string GetNameFromInputDevice(IInputDevice inputDevice)
         {
             string name = null;

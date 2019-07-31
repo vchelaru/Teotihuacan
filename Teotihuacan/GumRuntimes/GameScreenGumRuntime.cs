@@ -27,6 +27,7 @@ namespace Teotihuacan.GumRuntimes
 
         public event EventHandler ResumeClicked;
         public event EventHandler QuitClicked;
+        public event EventHandler ClearDataClicked;
 
         public event Action StartLevel;
 
@@ -36,6 +37,7 @@ namespace Teotihuacan.GumRuntimes
         {
             PauseMenuInstance.ResumeClicked += (not, used) => ResumeClicked(this, null);
             PauseMenuInstance.QuitClicked += (not, used) => QuitClicked(this, null);
+            PauseMenuInstance.ClearDataClicked += (not, used) => ClearDataClicked(this, null);
         }
 
         public void SetNumberOfPlayers(int numberOfPlayers)

@@ -21,7 +21,7 @@ namespace Teotihuacan.Screens
 		void CustomInitialize()
 		{
             this.Spawns = new Level4Spawns();
-            CurrentMultipliers.LevelHealthMultiplier = 1.45f;
+            CurrentMultipliers.LevelHealthMultiplier = 1.65f;
             CurrentMultipliers.LevelDamageMultiplier = 1.2f;
             CurrentMultipliers.LevelRangeMultiplier = 1.3f;
 

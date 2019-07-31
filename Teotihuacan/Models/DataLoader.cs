@@ -37,6 +37,17 @@ namespace Teotihuacan.Models
             return playerData;
         }
 
+        public static void Delete(string playerName)
+        {
+            var path = PathFromName(playerName);
+
+            if(System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+        }
+
+
         static string PathFromName(string playerName)
         {
             return "Data/" + playerName + ".data";

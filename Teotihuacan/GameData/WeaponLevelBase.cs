@@ -11,7 +11,10 @@ namespace Teotihuacan.GameData
     public class WeaponLevelBase
     {
         public static readonly int LevelCap = 99;
-        public static readonly float ExperienceCurveRoot = .6f;
+
+        // .6 was a little too steep, weapon level ups didn't do a ton, so we're upping it
+        //public static readonly float ExperienceCurveRoot = .6f;
+        public static readonly float ExperienceCurveRoot = .7f;
 
         public int CurrentWeaponLevel { get; set; }
         public int WeaponExperience { get; set; }
