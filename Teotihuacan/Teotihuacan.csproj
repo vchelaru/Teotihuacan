@@ -179,7 +179,9 @@
       <DependentUpon>Level4GumRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\Level5GumRuntime.cs" />
-    <Compile Include="GumRuntimes\Level5GumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\Level5GumRuntime.Generated.cs">
+      <DependentUpon>Level5GumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\LevelStartRuntime.cs" />
     <Compile Include="GumRuntimes\LevelStartRuntime.Generated.cs">
       <DependentUpon>LevelStartRuntime.cs</DependentUpon>
