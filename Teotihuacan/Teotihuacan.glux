@@ -1950,6 +1950,12 @@
           <RuntimeType>Gum.Wireframe.GraphicalUiElement</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Levels/Level5Tiled.tmx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.TileGraphics.LayeredTileMap</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <NamedObjects>
         <NamedObjectSave>
@@ -1971,12 +1977,12 @@
           <Properties>
             <PropertySave>
               <Name>SourceType</Name>
-              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+              <ValueAsObject xsi:type="SourceType">File</ValueAsObject>
             </PropertySave>
           </Properties>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceFile />
-          <SourceName />
+          <SourceType>File</SourceType>
+          <SourceFile>Levels/Level5Tiled.tmx</SourceFile>
+          <SourceName>Entire File (LayeredTileMap)</SourceName>
           <SourceClassType>LayeredTileMap</SourceClassType>
           <InstanceName>Map</InstanceName>
           <AttachToContainer>true</AttachToContainer>
@@ -5103,7 +5109,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\Level1</StartUpScreen>
+  <StartUpScreen>Screens\Level5</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

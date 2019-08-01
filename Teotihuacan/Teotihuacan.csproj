@@ -732,6 +732,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level4Tiled</Name>
     </None>
+    <None Include="content\levels\level5tiled.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level5Tiled</Name>
+    </None>
     <None Include="content\levels\riva_test_bg_clean.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Riva_test_BG_clean</Name>

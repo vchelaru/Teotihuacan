@@ -55,7 +55,8 @@ namespace Teotihuacan.GameData
             (
                 ShooterSpread, ShooterSpread, ShooterSpread,
                 Suicider, Suicider, Suicider
-            );
+            )
+            .CanSpawnAtMultipleSpots = true;
 
             wave.AddMiniWave
             (
@@ -63,6 +64,100 @@ namespace Teotihuacan.GameData
                 SuiciderFast, SuiciderFast, SuiciderFast
             );
 
+
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
+                ShooterSpread, ShooterSpread, ShooterSpread
+            );
+
+            wave.AddMiniWave
+            (
+                Boss,
+                ShooterSpread, ShooterSpread, ShooterSpread
+            );
+
+
+            ////////////////////////////////////////
+
+            wave = AddWave();
+
+
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter
+            );
+
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
+                Shooter, Shooter, Shooter
+            );
+
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
+                Shooter, Shooter, Shooter,
+                Shooter, Shooter, Shooter
+
+            )
+            .CanSpawnAtMultipleSpots = true;
+
+
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
+                Suicider, Suicider, Suicider,
+                Suicider, Suicider, Suicider
+
+            )
+            .CanSpawnAtMultipleSpots = true;
+
+            ////////////////////////////////////////
+
+            wave = AddWave();
+
+            wave.AddMiniWave
+            (
+                ShooterSpread, ShooterSpread, ShooterSpread
+            )
+            .CanSpawnAtMultipleSpots = true;
+
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter,
+                Suicider, Suicider
+            )
+            .CanSpawnAtMultipleSpots = true;
+
+            wave.AddMiniWave
+            (
+                SuiciderFast, SuiciderFast, SuiciderFast, SuiciderFast,
+                ShooterSpread, ShooterSpread, ShooterSpread,
+                Shooter, Shooter
+            )
+            .CanSpawnAtMultipleSpots = true;
+
+            wave.AddMiniWave
+            (
+                Shooter, Shooter, Shooter, Shooter, Shooter, 
+                SuiciderFast, SuiciderFast, SuiciderFast, SuiciderFast,
+                ShooterSpread, ShooterSpread, ShooterSpread,
+                Suicider, Suicider
+            )
+            .CanSpawnAtMultipleSpots = true;
+
+            ////////////////////////////////////////
+
+            wave = AddWave();
+
+
+            wave.AddMiniWave
+            (
+                ShooterSpread, ShooterSpread, ShooterSpread, ShooterSpread,
+                Boss, Boss
+            )
+            .CanSpawnAtMultipleSpots = true;
 
         }
     }

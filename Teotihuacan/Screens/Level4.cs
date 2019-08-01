@@ -25,7 +25,7 @@ namespace Teotihuacan.Screens
             CurrentMultipliers.LevelDamageMultiplier = 1.2f;
             CurrentMultipliers.LevelRangeMultiplier = 1.3f;
 
-            //this.NextScreen = nameof(Level5);
+            this.NextScreen = nameof(Level5);
 
         }
 
