@@ -164,7 +164,9 @@
     </Compile>
     <Compile Include="GumRuntimes\GumIdb.Generated.cs" />
     <Compile Include="GumRuntimes\Level10GumRuntime.cs" />
-    <Compile Include="GumRuntimes\Level10GumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\Level10GumRuntime.Generated.cs">
+      <DependentUpon>Level10GumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\Level1GumRuntime.cs" />
     <Compile Include="GumRuntimes\Level1GumRuntime.Generated.cs">
       <DependentUpon>Level1GumRuntime.cs</DependentUpon>
@@ -186,13 +188,21 @@
       <DependentUpon>Level5GumRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\Level6GumRuntime.cs" />
-    <Compile Include="GumRuntimes\Level6GumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\Level6GumRuntime.Generated.cs">
+      <DependentUpon>Level6GumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\Level7GumRuntime.cs" />
-    <Compile Include="GumRuntimes\Level7GumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\Level7GumRuntime.Generated.cs">
+      <DependentUpon>Level7GumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\Level8GumRuntime.cs" />
-    <Compile Include="GumRuntimes\Level8GumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\Level8GumRuntime.Generated.cs">
+      <DependentUpon>Level8GumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\Level9GumRuntime.cs" />
-    <Compile Include="GumRuntimes\Level9GumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\Level9GumRuntime.Generated.cs">
+      <DependentUpon>Level9GumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\LevelStartRuntime.cs" />
     <Compile Include="GumRuntimes\LevelStartRuntime.Generated.cs">
       <DependentUpon>LevelStartRuntime.cs</DependentUpon>
@@ -239,7 +249,9 @@
       <DependentUpon>WaveStateRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\WinScreenGumRuntime.cs" />
-    <Compile Include="GumRuntimes\WinScreenGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\WinScreenGumRuntime.Generated.cs">
+      <DependentUpon>WinScreenGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\LightningWeaponManager.cs" />
     <Compile Include="Managers\PlayerWeaponLevelManager.cs" />
     <Compile Include="Managers\SpawnManager.cs" />
@@ -799,6 +811,14 @@
     <None Include="content\levels\level6tiled.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level6Tiled</Name>
+    </None>
+    <None Include="content\levels\level7tiled.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level7Tiled</Name>
+    </None>
+    <None Include="content\levels\level9tiled.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level9Tiled</Name>
     </None>
     <None Include="content\levels\riva_test_bg_clean.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
