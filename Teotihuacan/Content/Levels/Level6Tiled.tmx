@@ -8,7 +8,7 @@
  </layer>
  <layer id="5" name="Shadows" width="42" height="25" opacity="0.5">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC92WUQ7CIBBEC6IXN3oxo+dSPhq3E3YZttCgk2zSUDq8FsqwLFs9Q7n2SPNsHaP0zDl+i/FmOKQnFsOMPpe4vZ9IZosFPVGlMUqcNR/0y/1TIwurpLC+dq6/EVpZpWbkzPp3zqvRT7uH7ZYHCtcoy/kQ/cJn/URRp2i3lzxqwv/Jw+lVq4f8n2bmzGrNwxk48/W94nE0p5ZJtflnx7Del/WwsrMHZ82H5dSyswdnInLesy9Jxp7zPspj5aydd2bgZPZQaww2N72c7JwHyEBPbqKHh7XXGXeU2DmfQb/CqeV8cqwFzzMe3Q7+ttp7IccbW8JiXWgQAAA=
+   H4sIAAAAAAAAC92WDQ6CMAyFcTGRa4H4cy4TuJmcyy3aUOtW3spMpi9Z+Buv3+hY1zTvuu/ibYtSnrkxUu+N7tkQb5Ql+E3u84gwS5+Db61bng/+/AQwayzSU4picOYUo+Yj/Vq3fO8RZEE1RFjp+lzAv6SIlVQrZ9C/c/ZKn9QzeV/zkOJzNIdzZuPrfP8ba0en3495rIn/T1ZOq3I9JGutnEE8/7/CGY4Xz3pVeJEYa/9JDmesfiL5R2No40U9UnW+FCf5pPqinLHaWYqTar9W5y3rkmQslXdNWzw4o7bfqYnTGgOtm1ZONOedqIGWuik9rKwl9rjfUs37Oqn5xToZ507OXs3Sn5T6pnvQj48ReYf6W/amtJ6OBdYeVDKH/FpyPABoyeugaBAAAA==
   </data>
  </layer>
  <layer id="6" name="Objects" width="42" height="25" locked="1">
