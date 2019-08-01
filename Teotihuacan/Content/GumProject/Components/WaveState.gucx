@@ -5,13 +5,6 @@
   <State>
     <Name>Default</Name>
     <Variable>
-      <Type>ChildrenLayout</Type>
-      <Name>Children Layout</Name>
-      <Value xsi:type="xsd:int">0</Value>
-      <Category>Children</Category>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>bool</Type>
       <Name>Clips Children</Name>
       <Value xsi:type="xsd:boolean">false</Value>
@@ -56,6 +49,13 @@
       <Name>Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
       <Category>Dimensions</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ChildrenLayout</Type>
+      <Name>Children Layout</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <Category>Children</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
