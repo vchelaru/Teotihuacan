@@ -146,7 +146,6 @@ namespace Teotihuacan.GameData
             .CanSpawnAtMultipleSpots = true;
 
 
-            wave = AddWave();
 
         }
     }

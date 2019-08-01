@@ -17,7 +17,8 @@ namespace Teotihuacan.Entities
 {
 	public partial class CameraController
 	{
-        public List<PositionedObject> Targets { get; private set; } = new List<PositionedObject>();
+        public PositionedObjectList<Player> Targets { get; set; }
+
 
         private LayeredTileMap mapButUseProperty;
         public LayeredTileMap Map
