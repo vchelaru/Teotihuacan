@@ -788,6 +788,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Camera_test</Name>
     </None>
+    <None Include="content\levels\level10tiled.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level10Tiled</Name>
+    </None>
     <None Include="content\levels\level1tiled.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level1Tiled</Name>

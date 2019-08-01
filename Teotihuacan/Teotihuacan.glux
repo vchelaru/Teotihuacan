@@ -1918,7 +1918,7 @@
           </Properties>
           <Name>LevelName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Change Me</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Level 10 - The Ambush (Evening)</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -1928,6 +1928,12 @@
           <Name>GumProject/Screens/Level10Gum.gusx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Gum.Wireframe.GraphicalUiElement</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Levels/Level10Tiled.tmx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.TileGraphics.LayeredTileMap</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -1951,12 +1957,12 @@
           <Properties>
             <PropertySave>
               <Name>SourceType</Name>
-              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+              <ValueAsObject xsi:type="SourceType">File</ValueAsObject>
             </PropertySave>
           </Properties>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceFile />
-          <SourceName />
+          <SourceType>File</SourceType>
+          <SourceFile>Levels/Level10Tiled.tmx</SourceFile>
+          <SourceName>Entire File (LayeredTileMap)</SourceName>
           <SourceClassType>LayeredTileMap</SourceClassType>
           <InstanceName>Map</InstanceName>
           <AttachToContainer>true</AttachToContainer>
@@ -2448,7 +2454,7 @@
           </Properties>
           <Name>LevelName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Change Me</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Level 5 - The Ambush (Day)</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -2582,7 +2588,7 @@
           </Properties>
           <Name>LevelName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Change Me</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Level 6 - Walled Base (Evening)</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -2716,7 +2722,7 @@
           </Properties>
           <Name>LevelName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Change Me</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Level 7 - Mud River (Evening)</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -2850,7 +2856,7 @@
           </Properties>
           <Name>LevelName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Change Me</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Level 8 - Fire Pits (Evening)</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -2984,7 +2990,7 @@
           </Properties>
           <Name>LevelName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Change Me</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Level 9 - The Pyramid (Evening)</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -4114,7 +4120,7 @@
           </Properties>
           <Name>ArePlayersInvincible</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -4126,7 +4132,7 @@
           </Properties>
           <Name>IsBaseInvincible</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -4138,7 +4144,7 @@
           </Properties>
           <Name>PlayersHaveInfiniteEnergy</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -6234,7 +6240,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\Level6</StartUpScreen>
+  <StartUpScreen>Screens\Level1</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

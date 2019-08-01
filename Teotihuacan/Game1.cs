@@ -60,7 +60,7 @@ namespace Teotihuacan
 
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
-			FlatRedBall.Screens.ScreenManager.Start(typeof(Teotihuacan.Screens.Level6));
+			FlatRedBall.Screens.ScreenManager.Start(typeof(Teotihuacan.Screens.Level1));
 
             base.Initialize();
         }
