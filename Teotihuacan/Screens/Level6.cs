@@ -15,21 +15,22 @@ using Teotihuacan.GameData;
 
 namespace Teotihuacan.Screens
 {
-	public partial class Level5
+	public partial class Level6
 	{
 
 		void CustomInitialize()
 		{
-            this.Spawns = new Level5Spawns();
-            CurrentMultipliers.LevelHealthMultiplier = 1.8f;
-            CurrentMultipliers.LevelDamageMultiplier = 1.25f;
-            CurrentMultipliers.LevelRangeMultiplier = 1.35f;
 
-            this.NextScreen = nameof(Level6);
+            this.Spawns = new Level1Spawns();
+            CurrentMultipliers.LevelHealthMultiplier = 2.2f;
+            CurrentMultipliers.LevelDamageMultiplier = 1.15f;
+            CurrentMultipliers.LevelRangeMultiplier = 1.15f;
+
+            //this.NextScreen = nameof(Level7);
 
         }
 
-		void CustomActivity(bool firstTimeCalled)
+        void CustomActivity(bool firstTimeCalled)
 		{
 
 
