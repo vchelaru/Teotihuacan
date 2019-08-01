@@ -528,6 +528,9 @@ namespace Teotihuacan.Screens
         {
             var newPlayer = JoinWith(inputDevice);
             SetInitialPlayerPosition(newPlayer);
+            ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(
+                newPlayer,
+                UpdateType.Instant, false);
         }
 
         private void DropPlayer(Player player)
