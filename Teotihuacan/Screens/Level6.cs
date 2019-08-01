@@ -24,9 +24,9 @@ namespace Teotihuacan.Screens
             this.Spawns = new Level1Spawns();
             CurrentMultipliers.LevelHealthMultiplier = 2.2f;
             CurrentMultipliers.LevelDamageMultiplier = 1.15f;
-            CurrentMultipliers.LevelRangeMultiplier = 1.15f;
+            CurrentMultipliers.LevelRangeMultiplier = 1.35f;
 
-            //this.NextScreen = nameof(Level7);
+            this.NextScreen = nameof(Level7);
 
         }
 

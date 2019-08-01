@@ -17,6 +17,10 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
+    <Name>Level10Gum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
     <Name>Level1Gum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
@@ -41,11 +45,27 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
+    <Name>Level7Gum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
+    <Name>Level8Gum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
+    <Name>Level9Gum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
     <Name>RivaTestScreenGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
     <Name>UiTestScreenGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
+    <Name>WinScreenGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ComponentReference>
@@ -57,15 +77,15 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>DefaultForms/CheckBox</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>DefaultForms/ColoredFrame</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/ComboBox</Name>
-    <ElementType>Component</ElementType>
-  </ComponentReference>
-  <ComponentReference>
-    <Name>DefaultForms/CheckBox</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
@@ -200,10 +220,10 @@
     <Name>ButtonBehavior</Name>
   </BehaviorReference>
   <BehaviorReference>
-    <Name>ComboBoxBehavior</Name>
+    <Name>CheckBoxBehavior</Name>
   </BehaviorReference>
   <BehaviorReference>
-    <Name>CheckBoxBehavior</Name>
+    <Name>ComboBoxBehavior</Name>
   </BehaviorReference>
   <BehaviorReference>
     <Name>ListBoxBehavior</Name>

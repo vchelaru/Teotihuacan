@@ -163,6 +163,8 @@
       <DependentUpon>GameScreenGumRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\GumIdb.Generated.cs" />
+    <Compile Include="GumRuntimes\Level10GumRuntime.cs" />
+    <Compile Include="GumRuntimes\Level10GumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\Level1GumRuntime.cs" />
     <Compile Include="GumRuntimes\Level1GumRuntime.Generated.cs">
       <DependentUpon>Level1GumRuntime.cs</DependentUpon>
@@ -185,6 +187,12 @@
     </Compile>
     <Compile Include="GumRuntimes\Level6GumRuntime.cs" />
     <Compile Include="GumRuntimes\Level6GumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\Level7GumRuntime.cs" />
+    <Compile Include="GumRuntimes\Level7GumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\Level8GumRuntime.cs" />
+    <Compile Include="GumRuntimes\Level8GumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\Level9GumRuntime.cs" />
+    <Compile Include="GumRuntimes\Level9GumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LevelStartRuntime.cs" />
     <Compile Include="GumRuntimes\LevelStartRuntime.Generated.cs">
       <DependentUpon>LevelStartRuntime.cs</DependentUpon>
@@ -230,6 +238,8 @@
     <Compile Include="GumRuntimes\WaveStateRuntime.Generated.cs">
       <DependentUpon>WaveStateRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\WinScreenGumRuntime.cs" />
+    <Compile Include="GumRuntimes\WinScreenGumRuntime.Generated.cs" />
     <Compile Include="Managers\LightningWeaponManager.cs" />
     <Compile Include="Managers\PlayerWeaponLevelManager.cs" />
     <Compile Include="Managers\SpawnManager.cs" />
@@ -257,6 +267,10 @@
     <Compile Include="Screens\Level1.Generated.cs">
       <DependentUpon>Level1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Level10.cs" />
+    <Compile Include="Screens\Level10.Generated.cs">
+      <DependentUpon>Level10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Level2.cs" />
     <Compile Include="Screens\Level2.Generated.cs">
       <DependentUpon>Level2.cs</DependentUpon>
@@ -277,6 +291,18 @@
     <Compile Include="Screens\Level6.Generated.cs">
       <DependentUpon>Level6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Level7.cs" />
+    <Compile Include="Screens\Level7.Generated.cs">
+      <DependentUpon>Level7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Level8.cs" />
+    <Compile Include="Screens\Level8.Generated.cs">
+      <DependentUpon>Level8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Level9.cs" />
+    <Compile Include="Screens\Level9.Generated.cs">
+      <DependentUpon>Level9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\RivaTestScreen.cs" />
     <Compile Include="Screens\RivaTestScreen.Generated.cs">
       <DependentUpon>RivaTestScreen.cs</DependentUpon>
@@ -284,6 +310,10 @@
     <Compile Include="Screens\UiTestScreen.cs" />
     <Compile Include="Screens\UiTestScreen.Generated.cs">
       <DependentUpon>UiTestScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\WinScreen.cs" />
+    <Compile Include="Screens\WinScreen.Generated.cs">
+      <DependentUpon>WinScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\CameraSetup.cs" />
     <Compile Include="TileCollisions\CollidableListVsTileShapeCollectionRelationship.cs" />
@@ -614,6 +644,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GameScreenGum</Name>
     </None>
+    <None Include="content\gumproject\screens\level10gum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level10Gum</Name>
+    </None>
     <None Include="content\gumproject\screens\level1gum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level1Gum</Name>
@@ -638,6 +672,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level6Gum</Name>
     </None>
+    <None Include="content\gumproject\screens\level7gum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level7Gum</Name>
+    </None>
+    <None Include="content\gumproject\screens\level8gum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level8Gum</Name>
+    </None>
+    <None Include="content\gumproject\screens\level9gum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level9Gum</Name>
+    </None>
     <None Include="content\gumproject\screens\rivatestscreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>RivaTestScreenGum</Name>
@@ -645,6 +691,10 @@
     <None Include="content\gumproject\screens\uitestscreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>UiTestScreenGum</Name>
+    </None>
+    <None Include="content\gumproject\screens\winscreengum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WinScreenGum</Name>
     </None>
     <None Include="content\gumproject\standards\circle.gutx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
