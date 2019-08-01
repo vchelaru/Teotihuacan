@@ -11,23 +11,19 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
-using Teotihuacan.GameData;
+
+
 
 namespace Teotihuacan.Screens
 {
-	public partial class Level4
+	public partial class Level5
 	{
 
 		void CustomInitialize()
 		{
-            this.Spawns = new Level4Spawns();
-            CurrentMultipliers.LevelHealthMultiplier = 1.65f;
-            CurrentMultipliers.LevelDamageMultiplier = 1.2f;
-            CurrentMultipliers.LevelRangeMultiplier = 1.3f;
 
-            //this.NextScreen = nameof(Level5);
 
-        }
+		}
 
 		void CustomActivity(bool firstTimeCalled)
 		{

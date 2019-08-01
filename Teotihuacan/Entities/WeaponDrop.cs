@@ -16,7 +16,7 @@ namespace Teotihuacan.Entities
 	public partial class WeaponDrop
 	{
 
-        public Weapon WeaponType { get; private set; }
+        //public Weapon WeaponType { get; private set; }
         double spawnTime = 0;
 
         double currentBlinkFrequency => BlinkFrequency * (1 - ((currentScreen.PauseAdjustedSecondsSince(spawnTime) / LifeTime) - .5));
@@ -30,21 +30,21 @@ namespace Teotihuacan.Entities
         /// </summary>
 		private void CustomInitialize()
 		{
-            switch(FlatRedBallServices.Random.Next(3))
-            {
-                case 0:
-                    CurrentDataCategoryState = DataCategory.FireBallDrop;
-                    WeaponType = Weapon.ShootingFire;
-                    break;
-                case 1:
-                    CurrentDataCategoryState = DataCategory.LightningDrop;
-                    WeaponType = Weapon.ShootingLightning;
-                    break;
-                case 2:
-                    CurrentDataCategoryState = DataCategory.SkullDrop;
-                    WeaponType = Weapon.ShootingSkulls;
-                    break;
-            }
+            //switch(FlatRedBallServices.Random.Next(3))
+            //{
+            //    case 0:
+            //        CurrentDataCategoryState = DataCategory.FireBallDrop;
+            //        WeaponType = Weapon.ShootingFire;
+            //        break;
+            //    case 1:
+            //        CurrentDataCategoryState = DataCategory.LightningDrop;
+            //        WeaponType = Weapon.ShootingLightning;
+            //        break;
+            //    case 2:
+            //        CurrentDataCategoryState = DataCategory.SkullDrop;
+            //        WeaponType = Weapon.ShootingSkulls;
+            //        break;
+            //}
             currentScreen = ScreenManager.CurrentScreen;
             spawnTime = currentScreen.PauseAdjustedCurrentTime;
             this.Call(Destroy).After(LifeTime);

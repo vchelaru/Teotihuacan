@@ -60,6 +60,8 @@ namespace Teotihuacan.Entities
         IPressableInput swapWeaponsBack;
         IPressableInput swapWeaponsForward;
 
+        public Action SwappedWeapon;
+
         bool isPrimaryInputDown
         {
             get
@@ -67,7 +69,6 @@ namespace Teotihuacan.Entities
                 if(InputDevice == InputManager.Keyboard)
                 {
                     return InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton);
-
                 }
                 else if(InputDevice is Xbox360GamePad gamePad)
                 {
@@ -187,11 +188,12 @@ namespace Teotihuacan.Entities
             if(InputDevice is Xbox360GamePad gamePad)
             {
                 rightStick = gamePad.RightStick;
-                swapWeaponsBack = gamePad.GetButton(Xbox360GamePad.Button.DPadLeft);
-                swapWeaponsForward = gamePad.GetButton(Xbox360GamePad.Button.DPadRight);
+                swapWeaponsBack = gamePad.GetButton(Xbox360GamePad.Button.LeftShoulder);
+                swapWeaponsForward = gamePad.GetButton(Xbox360GamePad.Button.RightShoulder);
             }
             else if(InputDevice is Keyboard keyboard)
             {
+                rightStick = null; // Fixes bug when KB player joins game and GamePad is connected.
                 swapWeaponsBack = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Q);
                 swapWeaponsForward = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.E);
             }
@@ -217,7 +219,7 @@ namespace Teotihuacan.Entities
             DoAimingActivity();
             DoShootingActivity();
             DoMovementValueUpdate();
-            //DoWeaponSwappingLogic();
+            DoWeaponSwappingLogic();
             spriteAnimationController.Activity();
             UpdateOverlaySprite();
             LightningEndpointSprite.Visible = 
@@ -245,6 +247,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                     case Weapon.ShootingLightning: PlayerData.EquippedWeapon = Weapon.ShootingSkulls; break;
                     case Weapon.ShootingSkulls: PlayerData.EquippedWeapon = Weapon.ShootingFire; break;
                 }
+                SwappedWeapon();
             }
             if(swapWeaponsForward.WasJustPressed)
             {
@@ -254,6 +257,8 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                     case Weapon.ShootingSkulls: PlayerData.EquippedWeapon = Weapon.ShootingLightning; break;
                     case Weapon.ShootingLightning: PlayerData.EquippedWeapon = Weapon.ShootingFire; break;
                 }
+                SwappedWeapon();
+
             }
         }
 
@@ -642,7 +647,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
         public void ConsumeWeaponDrop(Weapon weaponType)
         {
-            PlayerData.EquippedWeapon = weaponType;
+            //PlayerData.EquippedWeapon = weaponType;
 
             PlayerData.AddWeaponExperience(weaponType);
         }
