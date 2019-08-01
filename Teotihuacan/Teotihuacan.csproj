@@ -97,6 +97,7 @@
     <Compile Include="GameData\Level2Spawns.cs" />
     <Compile Include="GameData\Level3Spawns.cs" />
     <Compile Include="GameData\Level4Spawns.cs" />
+    <Compile Include="GameData\Level5Spawns.cs" />
     <Compile Include="GameData\LevelSpawnsBase.cs" />
     <Compile Include="GameData\WeaponLevelBase.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
