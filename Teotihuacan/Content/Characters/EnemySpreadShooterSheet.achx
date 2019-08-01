@@ -439,7 +439,7 @@
     </Frame>
     <Frame>
       <TextureName>EnemySpreadShooterSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>234</LeftCoordinate>
       <RightCoordinate>260</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -460,7 +460,7 @@
     </Frame>
     <Frame>
       <TextureName>EnemySpreadShooterSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>78</LeftCoordinate>
       <RightCoordinate>104</RightCoordinate>
       <TopCoordinate>27</TopCoordinate>
@@ -481,7 +481,7 @@
     </Frame>
     <Frame>
       <TextureName>EnemySpreadShooterSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>182</LeftCoordinate>
       <RightCoordinate>208</RightCoordinate>
       <TopCoordinate>27</TopCoordinate>
@@ -504,7 +504,7 @@
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>EnemySpreadShooterSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>78</LeftCoordinate>
       <RightCoordinate>104</RightCoordinate>
       <TopCoordinate>27</TopCoordinate>
@@ -527,7 +527,7 @@
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>EnemySpreadShooterSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>234</LeftCoordinate>
       <RightCoordinate>260</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -550,7 +550,7 @@
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>EnemySpreadShooterSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>130</LeftCoordinate>
       <RightCoordinate>156</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -571,7 +571,7 @@
     </Frame>
     <Frame>
       <TextureName>EnemySpreadShooterSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>26</LeftCoordinate>
       <RightCoordinate>52</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -592,7 +592,7 @@
     </Frame>
     <Frame>
       <TextureName>EnemySpreadShooterSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>130</LeftCoordinate>
       <RightCoordinate>156</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>

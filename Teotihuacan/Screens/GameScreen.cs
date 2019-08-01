@@ -125,27 +125,23 @@ namespace Teotihuacan.Screens
         private void CreatePlayers()
         {
             var numberOfControllers = InputManager.NumberOfConnectedGamePads;
-
-            if(numberOfControllers == 0)
+            if (numberOfControllers == 0)
             {
                 JoinWith(InputManager.Keyboard);
             }
             else
             {
-                foreach(var controller in InputManager.Xbox360GamePads)
+                for(int i = 0; i < InputManager.Xbox360GamePads.Length; i++)
                 {
-                    if(controller.IsConnected)
+                    var controller = InputManager.Xbox360GamePads[i];
+                    if (i == 0 || PlayerWeaponLevelManager.ConnectedDevices.Contains(controller))
                     {
-                        JoinWith(controller);
-                        break;
+                        if (controller.IsConnected)
+                        {
+                            JoinWith(controller);
+                        }
                     }
                 }
-            }
-
-            for(int i = 0; i < PlayerList.Count; i++)
-            {
-                var player = PlayerList[i];
-                SetInitialPlayerPosition(player);
             }
         }
 
@@ -542,6 +538,7 @@ namespace Teotihuacan.Screens
         private Player JoinWith(IInputDevice inputDevice)
         {
             var player = new Player();
+            PlayerWeaponLevelManager.AddUniqueInputDevice(inputDevice);
             
             player.CurrentColorCategoryState =
                 PlayerList.Count.ToPlayerColorCategory();
@@ -553,6 +550,7 @@ namespace Teotihuacan.Screens
 
             AssignPlayerData(player);
 
+            SetInitialPlayerPosition(player);
             return player;
         }
 
@@ -622,6 +620,11 @@ namespace Teotihuacan.Screens
                 var ai = enemy.InputDevice as TopDown.TopDownAiInput<Enemy>;
 
                 ai.Activity();
+            }
+
+            for (int i = EnemyList.Count -1; i >= 0; i --)
+            {
+                EnemyList[i].DoPostAiActivity();
             }
         }
 

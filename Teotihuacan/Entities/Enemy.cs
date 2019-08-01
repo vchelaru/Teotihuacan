@@ -132,18 +132,25 @@ namespace Teotihuacan.Entities
         #region Activity
 
         private void CustomActivity()
-		{
-		}
+        {
+            
+        }
+
+        public void DoPostAiActivity()
+        {
+            if (CurrentHP > 0)
+            {
+                RefreshVisualsFromDamageState();
+                DoShootingActivity(target);
+            }
+            spriteAnimationController.Activity();
+        }
 
         public void DoAiActivity(bool refreshPath, NodeNetwork nodeNetwork, 
             PositionedObjectList<Player> players, PlayerBase playerBase, TileShapeCollection solidCollisions, TileShapeCollection pitCollision)
         {
-            
-
             if (CurrentHP > 0)
             {
-                RefreshVisualsFromDamageState();
-
                 DoTargetDecision(players, playerBase);
 
                 if (refreshPath)
@@ -159,12 +166,7 @@ namespace Teotihuacan.Entities
                 UpdateCurrentBehavior(nodeNetwork, target);
 
                 UpdateCurrentMovementValues();
-
-                DoShootingActivity(target);
-
             }
-
-            spriteAnimationController.Activity();
         }
 
         private void RefreshVisualsFromDamageState()
@@ -336,7 +338,7 @@ namespace Teotihuacan.Entities
                     shotsLeftInClip = ClipSize;
                     CurrentBehavior = Behavior.Chasing;
                 }
-                shootingAnimationLayer.StopPlay();
+                //shootingAnimationLayer.StopPlay();
             }
             else
             {
@@ -440,9 +442,10 @@ namespace Teotihuacan.Entities
 
         private void DoShootingActivity(PositionedObject target)
         {
+            
             if (CurrentBehavior == Behavior.Shooting &&
                 FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastFireShotTime) >
-                1 / FireShotsPerSecond
+                (1 / FireShotsPerSecond)
                 )
             {
                 // Rotate the aiming vector to the farthest angle counterclockwise. (Positive)
@@ -458,10 +461,10 @@ namespace Teotihuacan.Entities
                     bullet.CurrentDataCategoryState = Bullet.DataCategory.EnemyBullet;
                     bullet.Velocity = bullet.BulletSpeed * currentAimingVector;
                     //bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(currentAimingVector, PossibleDirections), Weapon.ShootingFire);
-                    shootingAnimationLayer.PlayOnce(GetChainName(PrimaryActions.shoot, SecondaryActions.Shooting));
 
                     currentAimingVector = RotateVector(currentAimingVector, spreadIncremet);
                 }
+                shootingAnimationLayer.PlayOnce(GetChainName(PrimaryActions.shoot, SecondaryActions.Shooting));
                 lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
 
                 shotsLeftInClip--;

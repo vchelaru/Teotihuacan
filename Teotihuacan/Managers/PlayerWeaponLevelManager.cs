@@ -12,6 +12,7 @@ namespace Teotihuacan.Managers
     public static class PlayerWeaponLevelManager
     {
         public static Dictionary<IInputDevice, PlayerData> PlayerWeaponLevels = new Dictionary<IInputDevice, PlayerData>();
+        public static List<IInputDevice> ConnectedDevices = new List<IInputDevice>();
 
         public static void CreateNewWeaponLevelFromInputDevice(IInputDevice inputDevice)
         {
@@ -19,6 +20,14 @@ namespace Teotihuacan.Managers
             playerData.InitializeAllWeapons();
 
             PlayerWeaponLevels.Add(inputDevice, playerData);
+        }
+
+        public static void AddUniqueInputDevice(IInputDevice input)
+        {
+            if(!ConnectedDevices.Contains(input))
+            {
+                ConnectedDevices.Add(input);
+            }
         }
 
         public static void SaveAll()
