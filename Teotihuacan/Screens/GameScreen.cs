@@ -336,7 +336,7 @@ namespace Teotihuacan.Screens
             };
 
             gameScreenGumRuntime.StartLevel += () =>DoStartLevel();
-            gameScreenGumRuntime.ShowLevelStart($"Level {LevelName}");
+            gameScreenGumRuntime.ShowLevelStart($"{LevelName}");
 
             foreach(var player in PlayerList)
             {
