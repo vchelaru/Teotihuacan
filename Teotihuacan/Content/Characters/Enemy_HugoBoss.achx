@@ -439,7 +439,7 @@
     </Frame>
     <Frame>
       <TextureName>Enemy_HugoBoss_SpriteSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>288</LeftCoordinate>
       <RightCoordinate>324</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -460,7 +460,7 @@
     </Frame>
     <Frame>
       <TextureName>Enemy_HugoBoss_SpriteSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>36</RightCoordinate>
       <TopCoordinate>42</TopCoordinate>
@@ -481,7 +481,7 @@
     </Frame>
     <Frame>
       <TextureName>Enemy_HugoBoss_SpriteSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>144</LeftCoordinate>
       <RightCoordinate>180</RightCoordinate>
       <TopCoordinate>42</TopCoordinate>
@@ -504,7 +504,7 @@
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Enemy_HugoBoss_SpriteSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>36</RightCoordinate>
       <TopCoordinate>42</TopCoordinate>
@@ -527,7 +527,7 @@
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Enemy_HugoBoss_SpriteSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>288</LeftCoordinate>
       <RightCoordinate>324</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -550,7 +550,7 @@
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Enemy_HugoBoss_SpriteSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>144</LeftCoordinate>
       <RightCoordinate>180</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -571,7 +571,7 @@
     </Frame>
     <Frame>
       <TextureName>Enemy_HugoBoss_SpriteSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>36</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
@@ -592,7 +592,7 @@
     </Frame>
     <Frame>
       <TextureName>Enemy_HugoBoss_SpriteSheet.png</TextureName>
-      <FrameLength>0.2</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>144</LeftCoordinate>
       <RightCoordinate>180</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>

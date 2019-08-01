@@ -589,6 +589,11 @@ namespace Teotihuacan.Screens
 
                 ai.Activity();
             }
+
+            for (int i = EnemyList.Count -1; i >= 0; i --)
+            {
+                EnemyList[i].DoPostAiActivity();
+            }
         }
 
         private void HandleEnemySpawn(Enemy enemy)
