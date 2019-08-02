@@ -600,6 +600,7 @@ namespace Teotihuacan.Screens
             {
                 if(PlayerList.Count <= 0 || PlayerBaseList[0].CurrentHP <= 0)
                 {
+                    //FlatRedBall.Audio.AudioManager.Play(GameOver);
                     hasGameOverBeenTriggered = true;
                     ((GameScreenGumRuntime)GameScreenGum).ShowGameOver(this);
                 }
@@ -710,6 +711,8 @@ namespace Teotihuacan.Screens
                     spawnManager.EnableSpawning();
                 }
             }).After(TimeBetweenWaves);
+
+            //FlatRedBall.Audio.AudioManager.Play(WaveStart);
         }
 
         #endregion

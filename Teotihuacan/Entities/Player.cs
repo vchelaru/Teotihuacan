@@ -15,6 +15,7 @@ using System.Linq;
 using Teotihuacan.Managers;
 using Teotihuacan.GameData;
 using Teotihuacan.Models;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Teotihuacan.Entities
 {
@@ -60,7 +61,11 @@ namespace Teotihuacan.Entities
         IPressableInput swapWeaponsBack;
         IPressableInput swapWeaponsForward;
 
+        private SoundEffectInstance emptyClipSoundEffectInstance;
+
         public Action SwappedWeapon;
+
+        private SoundEffectInstance electricShotSoundEffect;
 
         bool isPrimaryInputDown
         {
@@ -141,10 +146,14 @@ namespace Teotihuacan.Entities
         private void CustomInitialize()
 		{
             PlayerData = new PlayerData();
+            electricShotSoundEffect = PlayerElectricShot.CreateInstance();
+            electricShotSoundEffect.IsLooped = true;
 
             this.PossibleDirections = PossibleDirections.EightWay;
             CurrentHP = MaxHP;
             CurrentEnergy = MaxEnergy;
+
+            emptyClipSoundEffectInstance = PlayerEmptyClip.CreateInstance();
 
             lightningAttachment = new PositionedObject();
             lightningAttachment.AttachTo(this);
@@ -224,7 +233,7 @@ namespace Teotihuacan.Entities
             UpdateOverlaySprite();
             LightningEndpointSprite.Visible = 
                 CurrentSecondaryAction == SecondaryActions.Shooting && EquippedWeapon == Weapon.ShootingLightning;
-
+            UpdateLightningSoundEffectStatus();
 #if DEBUG
             if (DebuggingVariables.DisplayWeaponLevelInfo)
             {
@@ -345,6 +354,11 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             {
                 CurrentEnergy += EnergyRecoveryRate * TimeManager.SecondDifference;
             }
+            else
+            {
+                if (emptyClipSoundEffectInstance?.State != SoundState.Playing)
+                    emptyClipSoundEffectInstance.Play();
+            }
             
             CurrentEnergy = System.Math.Min(CurrentEnergy, MaxEnergy);
             CurrentEnergy = System.Math.Max(CurrentEnergy, 0);
@@ -352,6 +366,18 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             if(DebuggingVariables.PlayersHaveInfiniteEnergy)
             {
                 CurrentEnergy = MaxEnergy;
+            }
+        }
+
+        private void UpdateLightningSoundEffectStatus()
+        {
+            if (CurrentSecondaryAction == SecondaryActions.Shooting && EquippedWeapon == Weapon.ShootingLightning && CurrentEnergy > 0)
+            {
+                if (electricShotSoundEffect.State != SoundState.Playing) electricShotSoundEffect?.Play();
+            }
+            else if (electricShotSoundEffect.State == SoundState.Playing)
+            {
+                electricShotSoundEffect?.Stop();
             }
         }
 
@@ -375,6 +401,13 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.Shooting));
 
             lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
+            if (bulletData == Bullet.DataCategory.PlayerFire)
+            {
+                FlatRedBall.Audio.AudioManager.Play(PlayerSingleShot);
+            } else if (bulletData == Bullet.DataCategory.PlayerSkull)
+            {
+                FlatRedBall.Audio.AudioManager.Play(PlayerShotCharged);
+            }
         }
 
         private void DoMovementValueUpdate()
@@ -661,8 +694,11 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
         private void CustomDestroy()
 		{
+            electricShotSoundEffect?.Stop();
+            electricShotSoundEffect?.Dispose();
 
-
+            emptyClipSoundEffectInstance?.Stop();
+            emptyClipSoundEffectInstance?.Dispose();
 		}
 
         private static void CustomLoadStaticContent(string contentManagerName)

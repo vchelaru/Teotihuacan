@@ -466,7 +466,7 @@ namespace Teotihuacan.Entities
                 }
                 shootingAnimationLayer.PlayOnce(GetChainName(PrimaryActions.shoot, SecondaryActions.Shooting));
                 lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
-
+                FlatRedBall.Audio.AudioManager.Play(EnemyShot);
                 shotsLeftInClip--;
             }
         }

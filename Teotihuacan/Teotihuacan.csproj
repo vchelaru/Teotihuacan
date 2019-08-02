@@ -400,6 +400,71 @@
     <Content Include="Content\shader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemyfootstep1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyFootstep1</Name>
+      <Link>content\entities\enemy\enemyfootstep1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemyfootstep2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyFootstep2</Name>
+      <Link>content\entities\enemy\enemyfootstep2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemyshot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyShot</Name>
+      <Link>content\entities\enemy\enemyshot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\player\player1footstep.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Player1Footstep</Name>
+      <Link>content\entities\player\player1footstep.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\player\player2footstep.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Player2Footstep</Name>
+      <Link>content\entities\player\player2footstep.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\player\player3foostep.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Player3Foostep</Name>
+      <Link>content\entities\player\player3foostep.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\player\player4footstep.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Player4Footstep</Name>
+      <Link>content\entities\player\player4footstep.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\player\playerelectricshot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PlayerElectricShot</Name>
+      <Link>content\entities\player\playerelectricshot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\player\playeremptyclip.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PlayerEmptyClip</Name>
+      <Link>content\entities\player\playeremptyclip.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\player\playershotcharged.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PlayerShotCharged</Name>
+      <Link>content\entities\player\playershotcharged.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\player\playersingleshot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PlayerSingleShot</Name>
+      <Link>content\entities\player\playersingleshot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\gameover.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>GameOver</Name>
+      <Link>content\screens\gamescreen\gameover.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\wavestart.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WaveStart</Name>
+      <Link>content\screens\gamescreen\wavestart.xnb</Link>
+    </None>
     <None Include="content\characters\death_1.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Death_1</Name>
