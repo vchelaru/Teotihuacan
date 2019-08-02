@@ -6291,6 +6291,21 @@
         <Version>2.0.7.0</Version>
         <VersionRequirement>EqualToOrNewerThan</VersionRequirement>
       </PluginRequirement>
+      <PluginRequirement>
+        <Name>Top Down Plugin</Name>
+        <Version>1.7.0</Version>
+        <VersionRequirement>EqualToOrNewerThan</VersionRequirement>
+      </PluginRequirement>
+      <PluginRequirement>
+        <Name>Tiled Plugin</Name>
+        <Version>2.5.4.0</Version>
+        <VersionRequirement>EqualToOrNewerThan</VersionRequirement>
+      </PluginRequirement>
+      <PluginRequirement>
+        <Name>Collision Plugin</Name>
+        <Version>1.1</Version>
+        <VersionRequirement>EqualToOrNewerThan</VersionRequirement>
+      </PluginRequirement>
     </RequiredPlugins>
   </PluginData>
   <DisplaySettings>
