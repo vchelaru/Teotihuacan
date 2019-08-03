@@ -82,6 +82,11 @@ namespace Teotihuacan.Entities
                 }
                 else
                 {
+                    if (CurrentHP > (MaxHp / 2))
+                        FlatRedBall.Audio.AudioManager.Play(PlayerBaseSmallDamage);
+                    else
+                        FlatRedBall.Audio.AudioManager.Play(PlayerBaseBigDamage);
+
                     FlashWhite();
                 }
             }
@@ -91,6 +96,8 @@ namespace Teotihuacan.Entities
 
         private void PerformDeath()
         {
+            FlatRedBall.Audio.AudioManager.Play(PlayerBaseDestroyed);
+
             int numberOfExplosions = 13;
 
             void PlayExplosions()

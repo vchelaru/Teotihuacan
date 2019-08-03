@@ -19,6 +19,7 @@ using FlatRedBall.TileCollisions;
 using Teotihuacan.GumRuntimes;
 using FlatRedBall.TileGraphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Teotihuacan.Screens
 {
@@ -66,6 +67,11 @@ namespace Teotihuacan.Screens
 
         #region Fields/Properties
 
+        private double levelStartTime;
+        private double musicFadeTime = 45.0;
+
+        protected SoundEffectInstance LoopedBackgroundMusic;
+
         protected StatMultipliers CurrentMultipliers
         {
             get; private set;
@@ -111,6 +117,35 @@ namespace Teotihuacan.Screens
             InitializeNodeNetworks();
 
             InitializeUi();
+
+            InitializeMusic();
+
+            levelStartTime = FlatRedBall.TimeManager.CurrentTime;
+        }
+
+        protected virtual void InitializeMusic()
+        {
+            LoopedBackgroundMusic = Level1LoopedMusic.CreateInstance();
+            LoopedBackgroundMusic.Volume = 0.3f;
+            LoopedBackgroundMusic.IsLooped = true;
+            LoopedBackgroundMusic.Play();
+        }
+
+        private void UpdateMusic()
+        {
+            if (LoopedBackgroundMusic != null && LoopedBackgroundMusic.State == SoundState.Playing)
+            {
+                var secondsSinceLevelStart = FlatRedBall.TimeManager.CurrentTime - levelStartTime;
+                var volume = (1f - (float)(secondsSinceLevelStart / musicFadeTime)) * 0.3f;
+                if (volume > 0)
+                {
+                    LoopedBackgroundMusic.Volume = volume;
+                }
+                else
+                {
+                    LoopedBackgroundMusic?.Stop();
+                }
+            }
         }
 
         private void InitializeCameraController()
@@ -407,6 +442,8 @@ namespace Teotihuacan.Screens
 
             // do this after pause/unpause
             JoinUnjoinActivity();
+
+            UpdateMusic();
         }
 
         private void HandleLightningVsSolidCollision(Player player, TileShapeCollection tileMap)
@@ -600,7 +637,7 @@ namespace Teotihuacan.Screens
             {
                 if(PlayerList.Count <= 0 || PlayerBaseList[0].CurrentHP <= 0)
                 {
-                    //FlatRedBall.Audio.AudioManager.Play(GameOver);
+                    FlatRedBall.Audio.AudioManager.Play(GameOver);
                     hasGameOverBeenTriggered = true;
                     ((GameScreenGumRuntime)GameScreenGum).ShowGameOver(this);
                 }
@@ -649,10 +686,10 @@ namespace Teotihuacan.Screens
             {
                 var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
                 gameScreenGumRuntime.SetWaveMessageText($"Wave Complete");
+                FlatRedBall.Audio.AudioManager.Play(WaveEnds);
 
                 var isLevelComplete = spawnManager.CurrentWaveIndex >= Spawns.Waves.Count;
-
-                if(isLevelComplete)
+                if (isLevelComplete)
                 {
                     DoLevelCompleteLogic();
                 }
@@ -712,7 +749,11 @@ namespace Teotihuacan.Screens
                 }
             }).After(TimeBetweenWaves);
 
-            //FlatRedBall.Audio.AudioManager.Play(WaveStart);
+            //Final wave, but without delay
+            if (Spawns.Waves.Count <= spawnManager.CurrentWaveIndex + 1)
+            {
+                FlatRedBall.Audio.AudioManager.Play(WaveStart);
+            }
         }
 
         #endregion
@@ -722,8 +763,9 @@ namespace Teotihuacan.Screens
             PlayerWeaponLevelManager.SaveAll();
 
             Camera.Main.Detach();
-
-		}
+            LoopedBackgroundMusic?.Stop();
+            LoopedBackgroundMusic?.Dispose();
+        }
 
         static void CustomLoadStaticContent(string contentManagerName)
         {

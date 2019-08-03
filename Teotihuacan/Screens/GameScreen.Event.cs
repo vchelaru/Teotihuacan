@@ -147,7 +147,7 @@ namespace Teotihuacan.Screens
         }
         void OnPlayerVsFirePitCollisionCollisionOccurred (Entities.Player player, FlatRedBall.TileCollisions.TileShapeCollection second) 
         {
-            player.TakeDamage(FirePitDps * TimeManager.SecondDifference);
+            player.TakeDamage(FirePitDps * TimeManager.SecondDifference, true);
         }
 
         void OnEnemyVsFirePitCollisionCollisionOccurred (Entities.Enemy enemy, FlatRedBall.TileCollisions.TileShapeCollection second) 

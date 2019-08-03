@@ -346,6 +346,30 @@
           <RuntimeType>Gum.Wireframe.GraphicalUiElement</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/GameScreen/GameOver.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/GameScreen/WaveEnds.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/GameScreen/WaveStart.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/GameScreen/Level1LoopedMusic.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <NamedObjects>
         <NamedObjectSave>
@@ -1934,6 +1958,12 @@
           <Name>Levels/Level10Tiled.tmx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.TileGraphics.LayeredTileMap</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/Level10/Level10LoopedMusic.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -3889,6 +3919,30 @@
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Bullet/BulletShotMiss1.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Bullet/BulletShotMiss3.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Bullet/BulletShotMiss2.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Bullet/BulletChargeShotHit.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
       <Is2D>true</Is2D>
@@ -4874,6 +4928,42 @@
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Enemy/EnemyDeath1.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Enemy/EnemyDeath2.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Enemy/EnemyDeath3.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Enemy/EnemyHitByShot.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Enemy/EnemyShotMiss.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Enemy/EnemyBurn.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
       <Events>
@@ -5670,12 +5760,66 @@
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
+          <Name>Entities/Player/Player1Death.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Player/Player2Death.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Player/Player3Death.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Player/Player4Death.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Player/PlayerFullyPowered.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Player/PlayerGetPowerup.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Player/Player1Burn.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Player/Player2Burn.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Player/Player3Burn.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Player/Player4Burn.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
           <Name>Entities/Player/PlayerSingleShot.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
@@ -6044,6 +6188,24 @@
           <Name>Various/misc_sprites.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/PlayerBase/PlayerBaseBigDamage.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/PlayerBase/PlayerBaseDestroyed.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/PlayerBase/PlayerBaseSmallDamage.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>

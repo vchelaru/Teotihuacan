@@ -12,14 +12,20 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
 using Teotihuacan.GameData;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Teotihuacan.Screens
 {
 	public partial class Level10
 	{
+        
 
 		void CustomInitialize()
 		{
+            LoopedBackgroundMusic = Level10LoopedMusic.CreateInstance();
+            LoopedBackgroundMusic.Volume = 0.3f;
+            LoopedBackgroundMusic.IsLooped = true;
+            LoopedBackgroundMusic.Play();
 
             this.Spawns = new Level5Spawns();
             CurrentMultipliers.LevelHealthMultiplier = 2.7f;
@@ -29,7 +35,15 @@ namespace Teotihuacan.Screens
             this.NextScreen = nameof(WinScreen);
         }
 
-		void CustomActivity(bool firstTimeCalled)
+        protected override void InitializeMusic()
+        {
+            LoopedBackgroundMusic = Level10LoopedMusic.CreateInstance();
+            LoopedBackgroundMusic.Volume = 0.3f;
+            LoopedBackgroundMusic.IsLooped = true;
+            LoopedBackgroundMusic.Play();
+        }
+
+        void CustomActivity(bool firstTimeCalled)
 		{
 
 
@@ -39,7 +53,7 @@ namespace Teotihuacan.Screens
 		{
 
 
-		}
+        }
 
         static void CustomLoadStaticContent(string contentManagerName)
         {

@@ -88,9 +88,7 @@ namespace Teotihuacan.Entities
                 bulletExplosion.CircleInstance.Radius = this.AoeRadius;
                 bulletExplosion.TeamIndex = this.TeamIndex;
                 bulletExplosion.Call(bulletExplosion.Destroy).After(0); // next frame
-
-
-
+                FlatRedBall.Audio.AudioManager.Play(BulletChargeShotHit);
             }
         }
 

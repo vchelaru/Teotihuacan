@@ -55,17 +55,24 @@ namespace Teotihuacan.Entities
 	{
         #region Fields/Properties
 
+        private static int PLAYER_COUNT = 0;
+
         I2DInput rightStick;
         Vector3 aimingVector;
         AnimationController spriteAnimationController;
         IPressableInput swapWeaponsBack;
         IPressableInput swapWeaponsForward;
 
-        private SoundEffectInstance emptyClipSoundEffectInstance;
 
         public Action SwappedWeapon;
 
+        private SoundEffectInstance emptyClipSoundEffectInstance;
         private SoundEffectInstance electricShotSoundEffect;
+        private SoundEffectInstance footStepLeftSoundEffect;
+        private SoundEffectInstance footStepRightSoundEffect;
+        private SoundEffectInstance burnPainSoundEffect;
+        private SoundEffectInstance playerDeathSoundEffect;
+
 
         bool isPrimaryInputDown
         {
@@ -146,24 +153,57 @@ namespace Teotihuacan.Entities
         private void CustomInitialize()
 		{
             PlayerData = new PlayerData();
-            electricShotSoundEffect = PlayerElectricShot.CreateInstance();
-            electricShotSoundEffect.IsLooped = true;
 
             this.PossibleDirections = PossibleDirections.EightWay;
             CurrentHP = MaxHP;
             CurrentEnergy = MaxEnergy;
 
-            emptyClipSoundEffectInstance = PlayerEmptyClip.CreateInstance();
-
             lightningAttachment = new PositionedObject();
             lightningAttachment.AttachTo(this);
 
             InitializeAnimationLayers();
-
             InitializeCollision();
-
             InitializeActionIcon();
-		}
+            InitializeSounds();
+
+            PLAYER_COUNT++;
+        }
+
+        private void InitializeSounds()
+        {
+            electricShotSoundEffect = PlayerElectricShot.CreateInstance();
+            electricShotSoundEffect.IsLooped = true;
+
+            emptyClipSoundEffectInstance = PlayerEmptyClip.CreateInstance();
+
+            switch (PLAYER_COUNT)
+            {
+                case 0:
+                    footStepLeftSoundEffect = Player1Footstep.CreateInstance();
+                    footStepRightSoundEffect = Player2Footstep.CreateInstance();
+                    burnPainSoundEffect = Player1Burn.CreateInstance();
+                    playerDeathSoundEffect = Player1Death.CreateInstance();
+                    break;
+                case 1:
+                    footStepLeftSoundEffect = Player3Foostep.CreateInstance();
+                    footStepRightSoundEffect = Player4Footstep.CreateInstance();
+                    burnPainSoundEffect = Player2Burn.CreateInstance();
+                    playerDeathSoundEffect = Player2Death.CreateInstance();
+                    break;
+                case 2:
+                    footStepLeftSoundEffect = Player2Footstep.CreateInstance();
+                    footStepRightSoundEffect = Player4Footstep.CreateInstance();
+                    burnPainSoundEffect = Player3Burn.CreateInstance();
+                    playerDeathSoundEffect = Player3Death.CreateInstance();
+                    break;
+                case 3:
+                    footStepLeftSoundEffect = Player1Footstep.CreateInstance();
+                    footStepRightSoundEffect = Player3Foostep.CreateInstance();
+                    burnPainSoundEffect = Player4Burn.CreateInstance();
+                    playerDeathSoundEffect = Player4Death.CreateInstance();
+                    break;
+            }
+        }
 
         private void InitializeActionIcon()
         {
@@ -457,7 +497,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             }
         }
 
-        public bool TakeDamage(float damageToTake)
+        public bool TakeDamage(float damageToTake, bool isBurn = false)
         {
             bool didTakeDamage = false;
 
@@ -477,10 +517,13 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
                     if (CurrentHP > 0)
                     {
+                        if (isBurn && burnPainSoundEffect?.State != SoundState.Playing) burnPainSoundEffect?.Play();
+
                         FlashWhite();
                     }
                     else
                     {
+                        playerDeathSoundEffect.Play();
                         PerformDeath();
                     }
 
@@ -680,9 +723,19 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
         public void ConsumeWeaponDrop(Weapon weaponType)
         {
-            //PlayerData.EquippedWeapon = weaponType;
-
+            int levelBefore = PlayerData.WeaponLevels.Single(item => item.WeaponType == weaponType).CurrentWeaponLevel;
             PlayerData.AddWeaponExperience(weaponType);
+            int levelAfter = PlayerData.WeaponLevels.Single(item => item.WeaponType == weaponType).CurrentWeaponLevel;
+
+            var isLevelUp = levelBefore != levelAfter;
+            if (isLevelUp)
+            {
+                FlatRedBall.Audio.AudioManager.Play(PlayerFullyPowered);
+            }
+            else
+            {
+                FlatRedBall.Audio.AudioManager.Play(PlayerGetPowerup);
+            }
         }
 
         public void SetActionIconVisibility(bool isVisible)
@@ -699,7 +752,19 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
             emptyClipSoundEffectInstance?.Stop();
             emptyClipSoundEffectInstance?.Dispose();
-		}
+
+            footStepLeftSoundEffect?.Stop();
+            footStepLeftSoundEffect?.Dispose();
+
+            footStepRightSoundEffect?.Stop();
+            footStepRightSoundEffect?.Dispose();
+
+            burnPainSoundEffect?.Stop();
+            burnPainSoundEffect?.Dispose();
+
+            playerDeathSoundEffect?.Stop();
+            playerDeathSoundEffect?.Dispose();
+        }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {

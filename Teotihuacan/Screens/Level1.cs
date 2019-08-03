@@ -17,9 +17,14 @@ namespace Teotihuacan.Screens
 {
 	public partial class Level1
 	{
+        
 
 		void CustomInitialize()
 		{
+            
+
+            
+
             NextScreen = nameof(Level2);
             Spawns = new Level1Spawns();
 		}

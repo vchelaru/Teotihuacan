@@ -3,7 +3,7 @@
   <SourceFile>C:/FRB/Source/Teotihuacan/Teotihuacan/Content/Entities/Player/PlayerSingleShot.wav</SourceFile>
   <SourceTime>2019-08-01T22:54:59.1072075-07:00</SourceTime>
   <DestFile>C:/FRB/Source/Teotihuacan/BuiltXnbs/DesktopGL/Entities/Player/PlayerSingleShot.xnb</DestFile>
-  <DestTime>2019-08-01T23:28:25.2212815-07:00</DestTime>
+  <DestTime>2019-08-03T02:28:39.9948402-07:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-09-23T00:28:20-07:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

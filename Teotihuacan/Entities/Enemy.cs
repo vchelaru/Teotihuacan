@@ -524,7 +524,7 @@ namespace Teotihuacan.Entities
                     System.Diagnostics.Debug.WriteLine(
                         $"Took {modifedDamage} damage and has {CurrentHP} left");
                     FlashWhite();
-
+                    FlatRedBall.Audio.AudioManager.Play(EnemyHitByShot);
                     SetForcedTarget(owner);
                 }
             }
@@ -614,6 +614,13 @@ namespace Teotihuacan.Entities
             }
             else
             {
+                switch (FlatRedBallServices.Random.Next(0, 4))
+                {
+                    case 0: FlatRedBall.Audio.AudioManager.Play(EnemyDeath1); break;
+                    case 1: FlatRedBall.Audio.AudioManager.Play(EnemyDeath2); break;
+                    case 2: FlatRedBall.Audio.AudioManager.Play(EnemyDeath3); break;
+                }
+
                 var death = SpriteManager.AddParticleSprite(Death_1_SpriteSheet);
                 death.AnimationChains = Death_1;
                 death.CurrentChainName = DeathChainName;
