@@ -2704,12 +2704,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Green</Member>
-            <ValueAsFloat>0.9</ValueAsFloat>
+            <ValueAsFloat>0.8</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Blue</Member>
-            <ValueAsFloat>0.4</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>FlatRedBall.Graphics.BlendOperation</Type>
