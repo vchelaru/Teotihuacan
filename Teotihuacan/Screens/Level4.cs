@@ -29,7 +29,15 @@ namespace Teotihuacan.Screens
 
         }
 
-		void CustomActivity(bool firstTimeCalled)
+        protected override void InitializeMusic()
+        {
+            LoopedBackgroundMusic = Level4LoopedMusic.CreateInstance();
+            LoopedBackgroundMusic.Volume = 0.3f;
+            LoopedBackgroundMusic.IsLooped = true;
+            LoopedBackgroundMusic.Play();
+        }
+
+        void CustomActivity(bool firstTimeCalled)
 		{
 
 

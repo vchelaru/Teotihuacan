@@ -26,6 +26,14 @@ namespace Teotihuacan.Screens
             NextScreen = nameof(Level3);
         }
 
+        protected override void InitializeMusic()
+        {
+            LoopedBackgroundMusic = Level2LoopedMusic.CreateInstance();
+            LoopedBackgroundMusic.Volume = 0.3f;
+            LoopedBackgroundMusic.IsLooped = true;
+            LoopedBackgroundMusic.Play();
+        }
+
         void CustomActivity(bool firstTimeCalled)
 		{
 

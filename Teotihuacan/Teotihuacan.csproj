@@ -710,6 +710,16 @@
       <Name>Level10LoopedMusic</Name>
       <Link>content\screens\level10\level10loopedmusic.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level2\level2loopedmusic.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level2LoopedMusic</Name>
+      <Link>content\screens\level2\level2loopedmusic.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level4\level4loopedmusic.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level4LoopedMusic</Name>
+      <Link>content\screens\level4\level4loopedmusic.xnb</Link>
+    </None>
     <None Include="content\characters\death_1.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Death_1</Name>
