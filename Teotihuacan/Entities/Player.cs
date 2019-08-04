@@ -397,7 +397,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             else
             {
                 if (emptyClipSoundEffectInstance?.State != SoundState.Playing)
-                    emptyClipSoundEffectInstance.Play();
+                    emptyClipSoundEffectInstance?.Play();
             }
             
             CurrentEnergy = System.Math.Min(CurrentEnergy, MaxEnergy);
