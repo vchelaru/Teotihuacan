@@ -176,7 +176,7 @@ namespace Teotihuacan.Entities
 
             emptyClipSoundEffectInstance = PlayerEmptyClip.CreateInstance();
 
-            switch (PLAYER_COUNT)
+            switch (PLAYER_COUNT % 4)
             {
                 case 0:
                     footStepLeftSoundEffect = Player1Footstep.CreateInstance();
@@ -523,7 +523,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                     }
                     else
                     {
-                        playerDeathSoundEffect.Play();
+                        playerDeathSoundEffect?.Play();
                         PerformDeath();
                     }
 
