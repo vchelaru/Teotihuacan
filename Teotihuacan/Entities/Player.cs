@@ -282,9 +282,9 @@ Weapon Modifier: {WeaponDamageModifier}
 Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrement}";
 
                 FlatRedBall.Debugging.Debugger.Write(debugString);
-#endif
             }
-		}
+#endif
+        }
 
         private void DoWeaponSwappingLogic()
         {
@@ -772,5 +772,4 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
         }
 	}
-
 }
