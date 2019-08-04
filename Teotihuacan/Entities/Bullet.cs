@@ -73,6 +73,8 @@ namespace Teotihuacan.Entities
             explosion.TextureScale = 1;
             explosion.Animate = true;
 
+            PlayImpactSound();
+
 #pragma warning disable CS0618 // Type or member is obsolete - can't do call.after because the bullet will be destroyed so its instructions will be removed
             SpriteManager.RemoveSpriteAtTime(explosion, explosion.CurrentChain.TotalLength);
 #pragma warning restore CS0618 // Type or member is obsolete
@@ -88,7 +90,35 @@ namespace Teotihuacan.Entities
                 bulletExplosion.CircleInstance.Radius = this.AoeRadius;
                 bulletExplosion.TeamIndex = this.TeamIndex;
                 bulletExplosion.Call(bulletExplosion.Destroy).After(0); // next frame
-                FlatRedBall.Audio.AudioManager.Play(BulletChargeShotHit);
+                
+            }
+        }
+
+        private void PlayImpactSound()
+        {
+            if (CurrentDataCategoryState == Bullet.DataCategory.PlayerFire)
+            {
+                switch (FlatRedBallServices.Random.Next(0, 4))
+                {
+                    case 0: FlatRedBall.Audio.AudioManager.Play(BulletFlameHit1); break;
+                    case 1: FlatRedBall.Audio.AudioManager.Play(BulletFlameHit2); break;
+                    case 2: FlatRedBall.Audio.AudioManager.Play(BulletFlameHit3); break;
+                    case 3: FlatRedBall.Audio.AudioManager.Play(BulletFlameHit4); break;
+                }
+            }
+            else if (CurrentDataCategoryState == Bullet.DataCategory.PlayerSkull)
+            {
+                switch (FlatRedBallServices.Random.Next(0, 4))
+                {
+                    case 0: FlatRedBall.Audio.AudioManager.Play(BulletSkullHit1); break;
+                    case 1: FlatRedBall.Audio.AudioManager.Play(BulletSkullHit2); break;
+                    case 2: FlatRedBall.Audio.AudioManager.Play(BulletSkullHit3); break;
+                    case 3: FlatRedBall.Audio.AudioManager.Play(BulletSkullHit4); break;
+                }
+            }
+            else if (CurrentDataCategoryState == Bullet.DataCategory.EnemyBullet)
+            {
+                FlatRedBall.Audio.AudioManager.Play(BulletEnemyShotHit);
             }
         }
 
@@ -96,7 +126,7 @@ namespace Teotihuacan.Entities
 		{
 
 
-		}
+        }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {

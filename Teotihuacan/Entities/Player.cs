@@ -66,6 +66,8 @@ namespace Teotihuacan.Entities
 
         public Action SwappedWeapon;
 
+        private float playerSoundsPitchAdjustment;
+
         private SoundEffectInstance emptyClipSoundEffectInstance;
         private SoundEffectInstance electricShotSoundEffect;
         private SoundEffectInstance footStepLeftSoundEffect;
@@ -183,24 +185,28 @@ namespace Teotihuacan.Entities
                     footStepRightSoundEffect = Player2Footstep.CreateInstance();
                     burnPainSoundEffect = Player1Burn.CreateInstance();
                     playerDeathSoundEffect = Player1Death.CreateInstance();
+                    playerSoundsPitchAdjustment = 1f;
                     break;
                 case 1:
                     footStepLeftSoundEffect = Player3Foostep.CreateInstance();
                     footStepRightSoundEffect = Player4Footstep.CreateInstance();
                     burnPainSoundEffect = Player2Burn.CreateInstance();
                     playerDeathSoundEffect = Player2Death.CreateInstance();
+                    playerSoundsPitchAdjustment = 1.05f;
                     break;
                 case 2:
                     footStepLeftSoundEffect = Player2Footstep.CreateInstance();
                     footStepRightSoundEffect = Player4Footstep.CreateInstance();
                     burnPainSoundEffect = Player3Burn.CreateInstance();
                     playerDeathSoundEffect = Player3Death.CreateInstance();
+                    playerSoundsPitchAdjustment = 0.95f;
                     break;
                 case 3:
                     footStepLeftSoundEffect = Player1Footstep.CreateInstance();
                     footStepRightSoundEffect = Player3Foostep.CreateInstance();
                     burnPainSoundEffect = Player4Burn.CreateInstance();
                     playerDeathSoundEffect = Player4Death.CreateInstance();
+                    playerSoundsPitchAdjustment = 1.08f;
                     break;
             }
         }
@@ -443,10 +449,15 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
             if (bulletData == Bullet.DataCategory.PlayerFire)
             {
-                FlatRedBall.Audio.AudioManager.Play(PlayerSingleShot);
+                FlatRedBall.Audio.AudioManager.Play(PlayerFlameShot);
             } else if (bulletData == Bullet.DataCategory.PlayerSkull)
             {
-                FlatRedBall.Audio.AudioManager.Play(PlayerShotCharged);
+                switch (FlatRedBallServices.Random.Next(0, 3))
+                {
+                    case 0: FlatRedBall.Audio.AudioManager.Play(PlayerShotSkull1); break;
+                    case 1: FlatRedBall.Audio.AudioManager.Play(PlayerShotSkull2); break;
+                    case 2: FlatRedBall.Audio.AudioManager.Play(PlayerShotSkull3); break;
+                }
             }
         }
 

@@ -400,25 +400,80 @@
     <Content Include="Content\shader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletchargeshothit.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletenemyshothit.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>BulletChargeShotHit</Name>
-      <Link>content\entities\bullet\bulletchargeshothit.xnb</Link>
+      <Name>BulletEnemyShotHit</Name>
+      <Link>content\entities\bullet\bulletenemyshothit.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletshotmiss1.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletflamehit1.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>BulletShotMiss1</Name>
-      <Link>content\entities\bullet\bulletshotmiss1.xnb</Link>
+      <Name>BulletFlameHit1</Name>
+      <Link>content\entities\bullet\bulletflamehit1.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletshotmiss2.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletflamehit2.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>BulletShotMiss2</Name>
-      <Link>content\entities\bullet\bulletshotmiss2.xnb</Link>
+      <Name>BulletFlameHit2</Name>
+      <Link>content\entities\bullet\bulletflamehit2.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletshotmiss3.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletflamehit3.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>BulletShotMiss3</Name>
-      <Link>content\entities\bullet\bulletshotmiss3.xnb</Link>
+      <Name>BulletFlameHit3</Name>
+      <Link>content\entities\bullet\bulletflamehit3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletflamehit4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BulletFlameHit4</Name>
+      <Link>content\entities\bullet\bulletflamehit4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletskullhit1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BulletSkullHit1</Name>
+      <Link>content\entities\bullet\bulletskullhit1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletskullhit2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BulletSkullHit2</Name>
+      <Link>content\entities\bullet\bulletskullhit2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletskullhit3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BulletSkullHit3</Name>
+      <Link>content\entities\bullet\bulletskullhit3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\bullet\bulletskullhit4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BulletSkullHit4</Name>
+      <Link>content\entities\bullet\bulletskullhit4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemy1explosion.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Enemy1Explosion</Name>
+      <Link>content\entities\enemy\enemy1explosion.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemy2explosion.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Enemy2Explosion</Name>
+      <Link>content\entities\enemy\enemy2explosion.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemy3explosion.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Enemy3Explosion</Name>
+      <Link>content\entities\enemy\enemy3explosion.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemy4explosion.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Enemy4Explosion</Name>
+      <Link>content\entities\enemy\enemy4explosion.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemybossdeath.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyBossDeath</Name>
+      <Link>content\entities\enemy\enemybossdeath.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemybossshot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyBossShot</Name>
+      <Link>content\entities\enemy\enemybossshot.xnb</Link>
     </None>
     <None Include="..\builtxnbs\desktopgl\entities\enemy\enemyburn.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -435,10 +490,35 @@
       <Name>EnemyDeath2</Name>
       <Link>content\entities\enemy\enemydeath2.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemydeath3.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemydeathshooter1.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>EnemyDeath3</Name>
-      <Link>content\entities\enemy\enemydeath3.xnb</Link>
+      <Name>EnemyDeathShooter1</Name>
+      <Link>content\entities\enemy\enemydeathshooter1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemydeathshooter2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyDeathShooter2</Name>
+      <Link>content\entities\enemy\enemydeathshooter2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemydeathshooter3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyDeathShooter3</Name>
+      <Link>content\entities\enemy\enemydeathshooter3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemydeathshooter4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyDeathShooter4</Name>
+      <Link>content\entities\enemy\enemydeathshooter4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemydeathshooterspread1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyDeathShooterSpread1</Name>
+      <Link>content\entities\enemy\enemydeathshooterspread1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemydeathshooterspread2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyDeathShooterSpread2</Name>
+      <Link>content\entities\enemy\enemydeathshooterspread2.xnb</Link>
     </None>
     <None Include="..\builtxnbs\desktopgl\entities\enemy\enemyfootstep1.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -454,6 +534,31 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>EnemyHitByShot</Name>
       <Link>content\entities\enemy\enemyhitbyshot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemyhitelectric.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyHitElectric</Name>
+      <Link>content\entities\enemy\enemyhitelectric.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemymultishot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyMultiShot</Name>
+      <Link>content\entities\enemy\enemymultishot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemyreloadingboss.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyReloadingBoss</Name>
+      <Link>content\entities\enemy\enemyreloadingboss.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemyreloadingshooter.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyReloadingShooter</Name>
+      <Link>content\entities\enemy\enemyreloadingshooter.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemy\enemyreloadingspreadshooter.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnemyReloadingSpreadShooter</Name>
+      <Link>content\entities\enemy\enemyreloadingspreadshooter.xnb</Link>
     </None>
     <None Include="..\builtxnbs\desktopgl\entities\enemy\enemyshot.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -550,6 +655,11 @@
       <Name>PlayerEmptyClip</Name>
       <Link>content\entities\player\playeremptyclip.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\entities\player\playerflameshot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PlayerFlameShot</Name>
+      <Link>content\entities\player\playerflameshot.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\entities\player\playerfullypowered.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>PlayerFullyPowered</Name>
@@ -560,15 +670,20 @@
       <Name>PlayerGetPowerup</Name>
       <Link>content\entities\player\playergetpowerup.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\entities\player\playershotcharged.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\player\playershotskull1.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>PlayerShotCharged</Name>
-      <Link>content\entities\player\playershotcharged.xnb</Link>
+      <Name>PlayerShotSkull1</Name>
+      <Link>content\entities\player\playershotskull1.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\entities\player\playersingleshot.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\player\playershotskull2.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>PlayerSingleShot</Name>
-      <Link>content\entities\player\playersingleshot.xnb</Link>
+      <Name>PlayerShotSkull2</Name>
+      <Link>content\entities\player\playershotskull2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\player\playershotskull3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PlayerShotSkull3</Name>
+      <Link>content\entities\player\playershotskull3.xnb</Link>
     </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\gameover.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

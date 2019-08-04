@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/FRB/Source/Teotihuacan/Teotihuacan/Content/Entities/Enemy/EnemyShot.wav</SourceFile>
-  <SourceTime>2019-08-01T22:48:57.7833522-07:00</SourceTime>
+  <SourceTime>2019-08-04T15:28:10.583499-07:00</SourceTime>
   <DestFile>C:/FRB/Source/Teotihuacan/BuiltXnbs/DesktopGL/Entities/Enemy/EnemyShot.xnb</DestFile>
-  <DestTime>2019-08-01T23:44:52.0887981-07:00</DestTime>
+  <DestTime>2019-08-04T15:28:28.677699-07:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-09-23T00:28:20-07:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

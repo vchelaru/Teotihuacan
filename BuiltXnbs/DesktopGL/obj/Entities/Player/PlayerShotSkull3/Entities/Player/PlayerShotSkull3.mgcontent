@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/FRB/Source/Teotihuacan/Teotihuacan/Content/Entities/Player/PlayerShotSkull3.wav</SourceFile>
+  <SourceTime>2019-08-04T16:25:00.9716633-07:00</SourceTime>
+  <DestFile>C:/FRB/Source/Teotihuacan/BuiltXnbs/DesktopGL/Entities/Player/PlayerShotSkull3.xnb</DestFile>
+  <DestTime>2019-08-04T16:25:48.691429-07:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2018-09-23T00:28:20-07:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2018-09-23T00:28:20-07:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

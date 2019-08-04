@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework;
 using Teotihuacan.Animation;
 using FlatRedBall.Math;
 using Teotihuacan.Screens;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Teotihuacan.Entities
 {
@@ -30,7 +31,7 @@ namespace Teotihuacan.Entities
     #endregion
 
     public partial class Enemy : ITopDownEntity
-	{
+    {
         #region Fields/Properties
 
         public GameScreen.StatMultipliers StatMultipliers;
@@ -78,6 +79,9 @@ namespace Teotihuacan.Entities
 
         public bool IsOnMud { get; set; }
 
+        private SoundEffectInstance reloadingSoundEffect;
+        private SoundEffectInstance shockedSoundEffect;
+
 
         #endregion
 
@@ -94,6 +98,25 @@ namespace Teotihuacan.Entities
 
             shotsLeftInClip = ClipSize;
             InitializeAnimations();
+            InitializeSounds();
+        }
+
+        private void InitializeSounds()
+        {
+            if (CurrentDataCategoryState == DataCategory.Shooter)
+            {
+                reloadingSoundEffect = EnemyReloadingShooter.CreateInstance();
+            }
+            else if (CurrentDataCategoryState == DataCategory.ShooterSpread)
+            {
+                reloadingSoundEffect = EnemyReloadingSpreadShooter.CreateInstance();
+            }
+            else if (CurrentDataCategoryState == DataCategory.Boss)
+            {
+                reloadingSoundEffect = EnemyReloadingBoss.CreateInstance();
+            }
+
+            shockedSoundEffect = EnemyHitElectric.CreateInstance();
         }
 
         private void InitializeAi()
@@ -297,6 +320,7 @@ namespace Teotihuacan.Entities
                 {
                     mCurrentMovement = TopDownValues[DataTypes.TopDownValues.WhileReloading];
                 }
+                PlayReloadingSound();
             }
             else 
             {
@@ -320,6 +344,22 @@ namespace Teotihuacan.Entities
                 {
                     mCurrentMovement = TopDownValues[DataTypes.TopDownValues.EnemyMud];
                 }
+            }
+        }
+
+        private void PlayReloadingSound()
+        {
+            if (reloadingSoundEffect != null && reloadingSoundEffect.State != SoundState.Playing)
+            {
+                reloadingSoundEffect.Play();
+            }
+        }
+
+        private void PlayShockedSound()
+        {
+            if (shockedSoundEffect != null && shockedSoundEffect.State != SoundState.Playing)
+            {
+                shockedSoundEffect.Play();
             }
         }
 
@@ -466,7 +506,7 @@ namespace Teotihuacan.Entities
                 }
                 shootingAnimationLayer.PlayOnce(GetChainName(PrimaryActions.shoot, SecondaryActions.Shooting));
                 lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
-                FlatRedBall.Audio.AudioManager.Play(EnemyShot);
+                PlayWeaponShotSound();
                 shotsLeftInClip--;
             }
         }
@@ -488,6 +528,22 @@ namespace Teotihuacan.Entities
             float sin = (float)Math.Sin(angleRadians);
             
             return new Vector3(vector.X * cos - vector.Y * sin, vector.X * sin + vector.Y * cos, 0);
+        }
+
+        private void PlayWeaponShotSound()
+        {
+            if (CurrentDataCategoryState == DataCategory.Shooter)
+            {
+                FlatRedBall.Audio.AudioManager.Play(EnemyShot);
+            }
+            else if (CurrentDataCategoryState == DataCategory.ShooterSpread)
+            {
+                FlatRedBall.Audio.AudioManager.Play(EnemyMultiShot);
+            }
+            else if (CurrentDataCategoryState == DataCategory.Boss)
+            {
+                FlatRedBall.Audio.AudioManager.Play(EnemyBossShot);
+            }
         }
 
         public void TakeNonLethalDamage(float damageToTake)
@@ -524,12 +580,17 @@ namespace Teotihuacan.Entities
                     System.Diagnostics.Debug.WriteLine(
                         $"Took {modifedDamage} damage and has {CurrentHP} left");
                     FlashWhite();
-                    FlatRedBall.Audio.AudioManager.Play(EnemyHitByShot);
+                    PlayDamageSound();
                     SetForcedTarget(owner);
                 }
             }
 
             return tookDamage;
+        }
+
+        private void PlayDamageSound()
+        {
+            FlatRedBall.Audio.AudioManager.Play(EnemyHitByShot);
         }
 
         private void FlashWhite()
@@ -587,6 +648,7 @@ namespace Teotihuacan.Entities
         {
             if(canTakeDamage)
             {
+                PlayShockedSound();
                 //For the lightning weapon use the player as the position to calculate rear hits.
                 float modifiedDps = ModifyDamageToTake(owner, owner.WeaponDamageModifier, dps);
                 CurrentHP -= modifiedDps * TimeManager.SecondDifference;
@@ -614,12 +676,7 @@ namespace Teotihuacan.Entities
             }
             else
             {
-                switch (FlatRedBallServices.Random.Next(0, 4))
-                {
-                    case 0: FlatRedBall.Audio.AudioManager.Play(EnemyDeath1); break;
-                    case 1: FlatRedBall.Audio.AudioManager.Play(EnemyDeath2); break;
-                    case 2: FlatRedBall.Audio.AudioManager.Play(EnemyDeath3); break;
-                }
+                PlayDeathSound();
 
                 var death = SpriteManager.AddParticleSprite(Death_1_SpriteSheet);
                 death.AnimationChains = Death_1;
@@ -632,6 +689,40 @@ namespace Teotihuacan.Entities
             }
 
             PerformWeaponDrop();
+        }
+
+        private void PlayDeathSound()
+        {
+            if (CurrentDataCategoryState == DataCategory.Shooter)
+            {
+                switch (FlatRedBallServices.Random.Next(0, 4))
+                {
+                    case 0: FlatRedBall.Audio.AudioManager.Play(EnemyDeathShooter1); break;
+                    case 1: FlatRedBall.Audio.AudioManager.Play(EnemyDeathShooter2); break;
+                    case 2: FlatRedBall.Audio.AudioManager.Play(EnemyDeathShooter3); break;
+                    case 3: FlatRedBall.Audio.AudioManager.Play(EnemyDeathShooter4); break;
+                }
+            }
+            else if (CurrentDataCategoryState == DataCategory.ShooterSpread)
+            {
+                switch (FlatRedBallServices.Random.Next(0, 2))
+                {
+                    case 0: FlatRedBall.Audio.AudioManager.Play(EnemyDeathShooterSpread1); break;
+                    case 1: FlatRedBall.Audio.AudioManager.Play(EnemyDeathShooterSpread2); break;
+                }
+            }
+            else if (CurrentDataCategoryState == DataCategory.Suicider)
+            {
+                FlatRedBall.Audio.AudioManager.Play(EnemyDeath1);
+            }
+            else if (CurrentDataCategoryState == DataCategory.SuiciderFast)
+            {
+                FlatRedBall.Audio.AudioManager.Play(EnemyDeath2); 
+            }
+            else if (CurrentDataCategoryState == DataCategory.Boss)
+            {
+                FlatRedBall.Audio.AudioManager.Play(EnemyBossDeath);
+            }
         }
 
         private void PerformWeaponDrop()
@@ -652,10 +743,21 @@ namespace Teotihuacan.Entities
             bulletExplosion.Call(bulletExplosion.Destroy).After(0); // next frame
 
             ExplodeVfx();
-
+            PlayExplosionSound();
             Destroy();
 
             bulletExplosion.ForceUpdateDependenciesDeep();
+        }
+
+        private void PlayExplosionSound()
+        {
+            switch (FlatRedBallServices.Random.Next(0, 4))
+            {
+                case 0: FlatRedBall.Audio.AudioManager.Play(Enemy1Explosion); break;
+                case 1: FlatRedBall.Audio.AudioManager.Play(Enemy2Explosion); break;
+                case 2: FlatRedBall.Audio.AudioManager.Play(Enemy3Explosion); break;
+                case 3: FlatRedBall.Audio.AudioManager.Play(Enemy4Explosion); break;
+            }
         }
 
         public void ExplodeVfx()
@@ -693,7 +795,11 @@ namespace Teotihuacan.Entities
             {
                 ShapeManager.Remove(thisToPerpendicularTarget);
             }
+            reloadingSoundEffect?.Stop();
+            reloadingSoundEffect?.Dispose();
 
+            shockedSoundEffect?.Stop();
+            shockedSoundEffect?.Dispose();
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)
