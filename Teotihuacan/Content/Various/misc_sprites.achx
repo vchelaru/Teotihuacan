@@ -967,11 +967,77 @@
     <Name>WeaponDropStar</Name>
     <Frame>
       <TextureName>misc_sprites_SpriteSheet.png</TextureName>
-      <FrameLength>1</FrameLength>
-      <LeftCoordinate>1</LeftCoordinate>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>16</RightCoordinate>
-      <TopCoordinate>77</TopCoordinate>
-      <BottomCoordinate>92</BottomCoordinate>
+      <TopCoordinate>92</TopCoordinate>
+      <BottomCoordinate>116</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>16</LeftCoordinate>
+      <RightCoordinate>32</RightCoordinate>
+      <TopCoordinate>92</TopCoordinate>
+      <BottomCoordinate>116</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>32</LeftCoordinate>
+      <RightCoordinate>48</RightCoordinate>
+      <TopCoordinate>92</TopCoordinate>
+      <BottomCoordinate>116</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>48</LeftCoordinate>
+      <RightCoordinate>64</RightCoordinate>
+      <TopCoordinate>92</TopCoordinate>
+      <BottomCoordinate>116</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>GoldDrop</Name>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>64</LeftCoordinate>
+      <RightCoordinate>80</RightCoordinate>
+      <TopCoordinate>92</TopCoordinate>
+      <BottomCoordinate>116</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>80</LeftCoordinate>
+      <RightCoordinate>96</RightCoordinate>
+      <TopCoordinate>92</TopCoordinate>
+      <BottomCoordinate>116</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>96</LeftCoordinate>
+      <RightCoordinate>112</RightCoordinate>
+      <TopCoordinate>92</TopCoordinate>
+      <BottomCoordinate>116</BottomCoordinate>
+      <RelativeY>6</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>112</LeftCoordinate>
+      <RightCoordinate>128</RightCoordinate>
+      <TopCoordinate>92</TopCoordinate>
+      <BottomCoordinate>116</BottomCoordinate>
       <RelativeY>6</RelativeY>
     </Frame>
   </AnimationChain>
