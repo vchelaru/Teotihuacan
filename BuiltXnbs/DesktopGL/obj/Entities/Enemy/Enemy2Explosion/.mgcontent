@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>W:/Programing/FlatRedBall Projects/Teotihuacan/Teotihuacan/Content/Entities/Enemy/Enemy2Explosion.wav</File>
     <File>C:/FRB/Source/Teotihuacan/Teotihuacan/Content/Entities/Enemy/Enemy2Explosion.wav</File>
   </SourceFiles>
   <DestFiles>

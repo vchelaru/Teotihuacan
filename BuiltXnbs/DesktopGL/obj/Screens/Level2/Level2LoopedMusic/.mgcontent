@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>W:/Programing/FlatRedBall Projects/Teotihuacan/Teotihuacan/Content/Screens/Level2/Level2LoopedMusic.wav</File>
     <File>C:/FRB/Source/Teotihuacan/Teotihuacan/Content/Screens/Level2/Level2LoopedMusic.wav</File>
   </SourceFiles>
   <DestFiles>
