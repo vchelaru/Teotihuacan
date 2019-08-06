@@ -335,12 +335,31 @@ namespace Teotihuacan.Utilities
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, SetWindowPosFlags uFlags);
 
+        /*
+        WinApi.SetWindowPos(this.Window.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+        WinApi.SetWindowPos(this.Window.Handle, HWND_TOPMOST, 0, 0, 0, 0, SetWindowPosFlags.DoNotReposition);
+        */
 
-        /*private static void Test()
+        internal static void SetWindowAlwaysOnTop(IntPtr hWnd)
         {
-            //WinApi.SetWindowPos(this.Window.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
-            WinApi.SetWindowPos(this.Window.Handle, HWND_TOPMOST, 0, 0, 0, 0, SetWindowPosFlags.DoNotReposition);
-        }*/
+            SetWindowPos(
+                hWnd,
+                WinApi.HWND_TOPMOST,
+                0, 0,
+                0, 0, //FlatRedBallServices.GraphicsOptions.ResolutionWidth, FlatRedBallServices.GraphicsOptions.ResolutionHeight,
+                SetWindowPosFlags.IgnoreMove | SetWindowPosFlags.IgnoreResize
+            );
+        }
 
+        internal static void UnsetWindowAlwaysOnTop(IntPtr hWnd)
+        {
+            SetWindowPos(
+                hWnd,
+                WinApi.HWND_NOTOPMOST,
+                0, 0,
+                0, 0, //FlatRedBallServices.GraphicsOptions.ResolutionWidth, FlatRedBallServices.GraphicsOptions.ResolutionHeight,
+                SetWindowPosFlags.IgnoreMove | SetWindowPosFlags.IgnoreResize
+            );
+        }
     }
 }

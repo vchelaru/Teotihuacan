@@ -360,7 +360,6 @@
     <Compile Include="TopDown\Interfaces.cs" />
     <Compile Include="TopDown\TopDownAiInput.cs" />
     <Compile Include="UiControllers\BarController.cs" />
-    <Compile Include="Utilities\User32.cs" />
     <Compile Include="Utilities\WinApi.cs" />
   </ItemGroup>
   <ItemGroup>
