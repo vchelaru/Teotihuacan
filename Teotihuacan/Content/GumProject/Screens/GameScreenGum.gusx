@@ -583,11 +583,6 @@
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
-    <Name>PauseMenuInstance</Name>
-    <BaseType>Menus/PauseMenu</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
     <Name>WaveStateInstance</Name>
     <BaseType>WaveState</BaseType>
     <DefinedByBase>false</DefinedByBase>
@@ -595,6 +590,11 @@
   <Instance>
     <Name>DarkRect</Name>
     <BaseType>ColoredRectangle</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PauseMenuInstance</Name>
+    <BaseType>Menus/PauseMenu</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>

@@ -1183,6 +1183,7 @@
     <None Include="Libraries\DesktopGl\Release\FlatRedBall.Forms.dll" />
     <None Include="Libraries\DesktopGl\Release\GumCoreXnaPc.dll" />
     <None Include="Libraries\DesktopGl\Release\StateInterpolation.dll" />
+    <EmbeddedResource Include="Icon.bmp" />
     <Content Include="MonoGame.Framework.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

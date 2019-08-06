@@ -106,7 +106,6 @@ namespace Teotihuacan
                     xnaWindow.AllowUserResizing = false;
                     //xnaWindow.IsBorderless = true; // This for some reason breaks the OnTop behaviour. MG bug ?
 
-
                     WinApi.SetWindowAlwaysOnTop(this.Window.Handle);
 
                     CameraSetup.ResetWindow();
