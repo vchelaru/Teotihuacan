@@ -125,26 +125,9 @@ namespace Teotihuacan.Screens
 
         protected virtual void InitializeMusic()
         {
-            LoopedBackgroundMusic = Level1LoopedMusic.CreateInstance();
-            LoopedBackgroundMusic.Volume = 0.3f;
-            LoopedBackgroundMusic.IsLooped = true;
-            LoopedBackgroundMusic.Play();
-        }
-
-        private void UpdateMusic()
-        {
-            if (LoopedBackgroundMusic != null && LoopedBackgroundMusic.State == SoundState.Playing)
+            if (FlatRedBall.Audio.AudioManager.CurrentSong != null)
             {
-                var secondsSinceLevelStart = FlatRedBall.TimeManager.CurrentTime - levelStartTime;
-                var volume = (1f - (float)(secondsSinceLevelStart / musicFadeTime)) * 0.3f;
-                if (volume > 0)
-                {
-                    LoopedBackgroundMusic.Volume = volume;
-                }
-                else
-                {
-                    LoopedBackgroundMusic?.Stop();
-                }
+                FlatRedBall.Audio.AudioManager.StopSong();
             }
         }
 
@@ -442,8 +425,6 @@ namespace Teotihuacan.Screens
 
             // do this after pause/unpause
             JoinUnjoinActivity();
-
-            UpdateMusic();
         }
 
         private void HandleLightningVsSolidCollision(Player player, TileShapeCollection tileMap)

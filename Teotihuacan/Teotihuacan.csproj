@@ -690,11 +690,6 @@
       <Name>GameOver</Name>
       <Link>content\screens\gamescreen\gameover.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\level1loopedmusic.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Level1LoopedMusic</Name>
-      <Link>content\screens\gamescreen\level1loopedmusic.xnb</Link>
-    </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\waveends.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>WaveEnds</Name>
@@ -705,20 +700,105 @@
       <Name>WaveStart</Name>
       <Link>content\screens\gamescreen\wavestart.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\screens\level10\level10loopedmusic.xnb">
+    <None Include="..\builtxnbs\desktopgl\screens\level10\level10music_the_escalation_by_kevin_macleod.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Level10LoopedMusic</Name>
-      <Link>content\screens\level10\level10loopedmusic.xnb</Link>
+      <Name>Level10Music_the_escalation_by_kevin_macleod</Name>
+      <Link>content\screens\level10\level10music_the_escalation_by_kevin_macleod.ogg</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\screens\level2\level2loopedmusic.xnb">
+    <None Include="..\builtxnbs\desktopgl\screens\level10\level10music_the_escalation_by_kevin_macleod.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Level2LoopedMusic</Name>
-      <Link>content\screens\level2\level2loopedmusic.xnb</Link>
+      <Name>Level10Music_the_escalation_by_kevin_macleod</Name>
+      <Link>content\screens\level10\level10music_the_escalation_by_kevin_macleod.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\screens\level4\level4loopedmusic.xnb">
+    <None Include="..\builtxnbs\desktopgl\screens\level1\level1music_artifact_by_kevin_macleod.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Level4LoopedMusic</Name>
-      <Link>content\screens\level4\level4loopedmusic.xnb</Link>
+      <Name>Level1Music_artifact_by_kevin_macleod</Name>
+      <Link>content\screens\level1\level1music_artifact_by_kevin_macleod.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level1\level1music_artifact_by_kevin_macleod.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level1Music_artifact_by_kevin_macleod</Name>
+      <Link>content\screens\level1\level1music_artifact_by_kevin_macleod.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level2\level2music_digya_by_kevin_macleod.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level2Music_digya_by_kevin_macleod</Name>
+      <Link>content\screens\level2\level2music_digya_by_kevin_macleod.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level2\level2music_digya_by_kevin_macleod.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level2Music_digya_by_kevin_macleod</Name>
+      <Link>content\screens\level2\level2music_digya_by_kevin_macleod.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level3\level3music_firebrand_by_kevin_macleod.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level3Music_firebrand_by_kevin_macleod</Name>
+      <Link>content\screens\level3\level3music_firebrand_by_kevin_macleod.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level3\level3music_firebrand_by_kevin_macleod.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level3Music_firebrand_by_kevin_macleod</Name>
+      <Link>content\screens\level3\level3music_firebrand_by_kevin_macleod.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level4\level4music_tafi_maradi_no_voice_by_kevin_macleod.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level4Music_tafi_maradi_no_voice_by_kevin_macleod</Name>
+      <Link>content\screens\level4\level4music_tafi_maradi_no_voice_by_kevin_macleod.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level4\level4music_tafi_maradi_no_voice_by_kevin_macleod.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level4Music_tafi_maradi_no_voice_by_kevin_macleod</Name>
+      <Link>content\screens\level4\level4music_tafi_maradi_no_voice_by_kevin_macleod.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level5\level5music_rite_of_passage_by_kevin_macleod.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level5Music_rite_of_passage_by_kevin_macleod</Name>
+      <Link>content\screens\level5\level5music_rite_of_passage_by_kevin_macleod.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level5\level5music_rite_of_passage_by_kevin_macleod.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level5Music_rite_of_passage_by_kevin_macleod</Name>
+      <Link>content\screens\level5\level5music_rite_of_passage_by_kevin_macleod.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level6\level6music_round_drums_by_kevin_macleod.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level6Music_round_drums_by_kevin_macleod</Name>
+      <Link>content\screens\level6\level6music_round_drums_by_kevin_macleod.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level6\level6music_round_drums_by_kevin_macleod.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level6Music_round_drums_by_kevin_macleod</Name>
+      <Link>content\screens\level6\level6music_round_drums_by_kevin_macleod.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level7\level7music_anglozulu_by_kevin_macleod.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level7Music_anglozulu_by_kevin_macleod</Name>
+      <Link>content\screens\level7\level7music_anglozulu_by_kevin_macleod.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level7\level7music_anglozulu_by_kevin_macleod.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level7Music_anglozulu_by_kevin_macleod</Name>
+      <Link>content\screens\level7\level7music_anglozulu_by_kevin_macleod.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level8\level8music_witch_hunt_by_kevin_macleod.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level8Music_witch_hunt_by_kevin_macleod</Name>
+      <Link>content\screens\level8\level8music_witch_hunt_by_kevin_macleod.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level8\level8music_witch_hunt_by_kevin_macleod.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level8Music_witch_hunt_by_kevin_macleod</Name>
+      <Link>content\screens\level8\level8music_witch_hunt_by_kevin_macleod.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level9\level9music_stompdance_by_kevin_macleod.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level9Music_stompdance_by_kevin_macleod</Name>
+      <Link>content\screens\level9\level9music_stompdance_by_kevin_macleod.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\level9\level9music_stompdance_by_kevin_macleod.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Level9Music_stompdance_by_kevin_macleod</Name>
+      <Link>content\screens\level9\level9music_stompdance_by_kevin_macleod.xnb</Link>
     </None>
     <None Include="content\characters\death_1.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

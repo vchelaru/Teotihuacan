@@ -31,10 +31,11 @@ namespace Teotihuacan.Screens
 
         protected override void InitializeMusic()
         {
-            LoopedBackgroundMusic = Level4LoopedMusic.CreateInstance();
-            LoopedBackgroundMusic.Volume = 0.3f;
-            LoopedBackgroundMusic.IsLooped = true;
-            LoopedBackgroundMusic.Play();
+            if (FlatRedBall.Audio.AudioManager.CurrentSong != null)
+            {
+                FlatRedBall.Audio.AudioManager.StopSong();
+            }
+            FlatRedBall.Audio.AudioManager.PlaySong(Level4Music_tafi_maradi_no_voice_by_kevin_macleod, true, false);
         }
 
         void CustomActivity(bool firstTimeCalled)

@@ -30,6 +30,15 @@ namespace Teotihuacan.Screens
 
         }
 
+        protected override void InitializeMusic()
+        {
+            if (FlatRedBall.Audio.AudioManager.CurrentSong != null)
+            {
+                FlatRedBall.Audio.AudioManager.StopSong();
+            }
+            FlatRedBall.Audio.AudioManager.PlaySong(Level6Music_round_drums_by_kevin_macleod, true, false);
+        }
+
         void CustomActivity(bool firstTimeCalled)
 		{
 

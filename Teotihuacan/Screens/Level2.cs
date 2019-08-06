@@ -28,10 +28,11 @@ namespace Teotihuacan.Screens
 
         protected override void InitializeMusic()
         {
-            LoopedBackgroundMusic = Level2LoopedMusic.CreateInstance();
-            LoopedBackgroundMusic.Volume = 0.3f;
-            LoopedBackgroundMusic.IsLooped = true;
-            LoopedBackgroundMusic.Play();
+            if (FlatRedBall.Audio.AudioManager.CurrentSong != null)
+            {
+                FlatRedBall.Audio.AudioManager.StopSong();
+            }
+            FlatRedBall.Audio.AudioManager.PlaySong(Level2Music_digya_by_kevin_macleod, true, false);
         }
 
         void CustomActivity(bool firstTimeCalled)

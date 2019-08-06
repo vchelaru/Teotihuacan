@@ -17,9 +17,16 @@ namespace Teotihuacan.Screens
 {
 	public partial class Level1
 	{
-        
+        protected override void InitializeMusic()
+        {
+            if (FlatRedBall.Audio.AudioManager.CurrentSong != null)
+            {
+                FlatRedBall.Audio.AudioManager.StopSong();
+            }
+            FlatRedBall.Audio.AudioManager.PlaySong(Level1Music_artifact_by_kevin_macleod, true, false);
+        }
 
-		void CustomInitialize()
+        void CustomInitialize()
 		{
             
 

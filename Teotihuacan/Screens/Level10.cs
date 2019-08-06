@@ -22,11 +22,6 @@ namespace Teotihuacan.Screens
 
 		void CustomInitialize()
 		{
-            LoopedBackgroundMusic = Level10LoopedMusic.CreateInstance();
-            LoopedBackgroundMusic.Volume = 0.3f;
-            LoopedBackgroundMusic.IsLooped = true;
-            LoopedBackgroundMusic.Play();
-
             this.Spawns = new Level5Spawns();
             CurrentMultipliers.LevelHealthMultiplier = 2.7f;
             CurrentMultipliers.LevelDamageMultiplier = 1.15f;
@@ -37,10 +32,11 @@ namespace Teotihuacan.Screens
 
         protected override void InitializeMusic()
         {
-            LoopedBackgroundMusic = Level10LoopedMusic.CreateInstance();
-            LoopedBackgroundMusic.Volume = 0.3f;
-            LoopedBackgroundMusic.IsLooped = true;
-            LoopedBackgroundMusic.Play();
+            if (FlatRedBall.Audio.AudioManager.CurrentSong != null)
+            {
+                FlatRedBall.Audio.AudioManager.StopSong();
+            }
+            FlatRedBall.Audio.AudioManager.PlaySong(Level10Music_the_escalation_by_kevin_macleod, true, false);
         }
 
         void CustomActivity(bool firstTimeCalled)

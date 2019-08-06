@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/FRB/Source/Teotihuacan/Teotihuacan/Content/Screens/Level2/Level2Music_digya_by_kevin_macleod.mp3</SourceFile>
+  <SourceTime>2019-08-05T16:26:06.8795576-07:00</SourceTime>
+  <DestFile>C:/FRB/Source/Teotihuacan/BuiltXnbs/DesktopGL/Screens/Level2/Level2Music_digya_by_kevin_macleod.xnb</DestFile>
+  <DestTime>2019-08-05T22:24:49.1042841-07:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2018-09-23T00:28:20-07:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2018-09-23T00:28:20-07:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>C:/FRB/Source/Teotihuacan/BuiltXnbs/DesktopGL/Screens/Level2/Level2Music_digya_by_kevin_macleod.ogg</string>
+  </BuildOutput>
+</PipelineBuildEvent>
