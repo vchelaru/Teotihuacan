@@ -13,6 +13,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using FlatRedBall.Input;
 
+using Teotihuacan.Utilities;
+using static Teotihuacan.Utilities.WinApi;
+
+using System.Diagnostics;
+
 namespace Teotihuacan
 {
     public class Game1 : Microsoft.Xna.Framework.Game
@@ -81,8 +86,30 @@ namespace Teotihuacan
         {
             if(InputManager.Keyboard.IsAltDown && InputManager.Keyboard.KeyPushed(Keys.Enter))
             {
-                CameraSetup.Data.IsFullScreen = !CameraSetup.Data.IsFullScreen;
-                CameraSetup.ResetWindow();
+                if (CameraSetup.Data.IsFullScreen)
+                {
+                    CameraSetup.Data.IsFullScreen = false;
+                    CameraSetup.Data.AllowWidowResizing = true;
+                    var xnaWindow = FlatRedBall.FlatRedBallServices.Game.Window;
+                    xnaWindow.AllowUserResizing = true;
+                    //xnaWindow.IsBorderless = false;
+
+                    WinApi.UnsetWindowAlwaysOnTop(this.Window.Handle);
+
+                    CameraSetup.ResetWindow();
+                }
+                else
+                {
+                    CameraSetup.Data.IsFullScreen = true;
+                    CameraSetup.Data.AllowWidowResizing = false;
+                    var xnaWindow = FlatRedBall.FlatRedBallServices.Game.Window;
+                    xnaWindow.AllowUserResizing = false;
+                    //xnaWindow.IsBorderless = true; // This for some reason breaks the OnTop behaviour. MG bug ?
+
+                    WinApi.SetWindowAlwaysOnTop(this.Window.Handle);
+
+                    CameraSetup.ResetWindow();
+                }
             }
         }
 

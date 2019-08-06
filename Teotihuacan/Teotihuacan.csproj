@@ -360,6 +360,7 @@
     <Compile Include="TopDown\Interfaces.cs" />
     <Compile Include="TopDown\TopDownAiInput.cs" />
     <Compile Include="UiControllers\BarController.cs" />
+    <Compile Include="Utilities\WinApi.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FlatRedBall.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -1252,10 +1253,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>misc_sprites</Name>
     </None>
-    <None Include="content\various\misc_sprites_placeholders_spritesheet.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>misc_sprites_placeholders_spritesheet</Name>
-    </None>
     <None Include="content\various\misc_sprites_spritesheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>misc_sprites_SpriteSheet</Name>
@@ -1266,6 +1263,7 @@
     <None Include="Libraries\DesktopGl\Release\FlatRedBall.Forms.dll" />
     <None Include="Libraries\DesktopGl\Release\GumCoreXnaPc.dll" />
     <None Include="Libraries\DesktopGl\Release\StateInterpolation.dll" />
+    <EmbeddedResource Include="Icon.bmp" />
     <Content Include="MonoGame.Framework.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -28,10 +28,6 @@ namespace Teotihuacan.Screens
 
         void CustomInitialize()
 		{
-            
-
-            
-
             NextScreen = nameof(Level2);
             Spawns = new Level1Spawns();
 		}
