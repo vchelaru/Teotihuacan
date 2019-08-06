@@ -13,6 +13,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using FlatRedBall.Input;
 
+using Teotihuacan.Utilities;
+using static Teotihuacan.Utilities.WinApi;
+
+using System.Diagnostics;
+
 namespace Teotihuacan
 {
     public class Game1 : Microsoft.Xna.Framework.Game
@@ -77,12 +82,67 @@ namespace Teotihuacan
             base.Update(gameTime);
         }
 
+        bool dbgIsOnTop = false;
         private void GlobalActivity()
         {
             if(InputManager.Keyboard.IsAltDown && InputManager.Keyboard.KeyPushed(Keys.Enter))
             {
-                CameraSetup.Data.IsFullScreen = !CameraSetup.Data.IsFullScreen;
-                CameraSetup.ResetWindow();
+                if (CameraSetup.Data.IsFullScreen)
+                //if (dbgIsOnTop)
+                {
+                    //Debug.WriteLine("Game1.GlobalActivity(): IsOnTop = true   =>   switching off OnTop");
+
+                    CameraSetup.Data.IsFullScreen = false;
+                    CameraSetup.Data.AllowWidowResizing = true;
+                    var xnaWindow = FlatRedBall.FlatRedBallServices.Game.Window;
+                    xnaWindow.AllowUserResizing = true;
+                    //xnaWindow.IsBorderless = false;
+
+                    dbgIsOnTop = false;
+
+                    WinApi.SetWindowPos(
+                        this.Window.Handle,
+                        WinApi.HWND_NOTOPMOST,
+                        0, 0,
+                        FlatRedBallServices.GraphicsOptions.ResolutionWidth, FlatRedBallServices.GraphicsOptions.ResolutionHeight,
+                        0 //SetWindowPosFlags.ShowWindow //SetWindowPosFlags.IgnoreMove | SetWindowPosFlags.IgnoreResize
+                    );
+
+                    //User32.UnsetWindowOnTop(
+                    //    this.Window.Handle,
+                    //    FlatRedBallServices.GraphicsOptions.ResolutionWidth,
+                    //    FlatRedBallServices.GraphicsOptions.ResolutionHeight
+                    //);
+
+                    CameraSetup.ResetWindow();
+                }
+                else
+                {
+                    //Debug.WriteLine("Game1.GlobalActivity(): IsOnTop = false   =>   switching to OnTop");
+
+                    CameraSetup.Data.IsFullScreen = true;
+                    CameraSetup.Data.AllowWidowResizing = false;
+                    var xnaWindow = FlatRedBall.FlatRedBallServices.Game.Window;
+                    xnaWindow.AllowUserResizing = false;
+                    //xnaWindow.IsBorderless = true;
+
+                    dbgIsOnTop = true;
+
+                    WinApi.SetWindowPos(
+                        this.Window.Handle, WinApi.HWND_TOPMOST,
+                        0, 0,
+                        FlatRedBallServices.GraphicsOptions.ResolutionWidth, FlatRedBallServices.GraphicsOptions.ResolutionHeight,
+                        0 //SetWindowPosFlags.ShowWindow
+                    );
+
+                    //User32.SetWindowOnTop(
+                    //    this.Window.Handle,
+                    //    FlatRedBallServices.GraphicsOptions.ResolutionWidth, 
+                    //    FlatRedBallServices.GraphicsOptions.ResolutionHeight
+                    //);
+
+                    CameraSetup.ResetWindow();
+                }
             }
         }
 
