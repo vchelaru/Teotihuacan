@@ -146,7 +146,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ControllerSpriteInstance.X</Name>
-      <Value xsi:type="xsd:float">21</Value>
+      <Value xsi:type="xsd:float">31</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -291,7 +291,7 @@
     <Variable>
       <Type>float</Type>
       <Name>KBSpriteInstance.X</Name>
-      <Value xsi:type="xsd:float">395</Value>
+      <Value xsi:type="xsd:float">384</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -388,7 +388,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MouseSpriteInstance.X</Name>
-      <Value xsi:type="xsd:float">424</Value>
+      <Value xsi:type="xsd:float">411</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

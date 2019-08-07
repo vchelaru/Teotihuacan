@@ -528,26 +528,6 @@
     </State>
   </Category>
   <Instance>
-    <Name>PlayerHUDInstance</Name>
-    <BaseType>PlayerHUD</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>PlayerHUDInstance1</Name>
-    <BaseType>PlayerHUD</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>PlayerHUDInstance2</Name>
-    <BaseType>PlayerHUD</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>PlayerHUDInstance3</Name>
-    <BaseType>PlayerHUD</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
     <Name>BaseHUDInstance</Name>
     <BaseType>BaseHUD</BaseType>
     <DefinedByBase>false</DefinedByBase>
@@ -563,26 +543,6 @@
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
-    <Name>PlayerHUDJoinInstance</Name>
-    <BaseType>PlayerHUDJoin</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>PlayerHUDJoinInstance1</Name>
-    <BaseType>PlayerHUDJoin</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>PlayerHUDJoinInstance2</Name>
-    <BaseType>PlayerHUDJoin</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
-    <Name>PlayerHUDJoinInstance3</Name>
-    <BaseType>PlayerHUDJoin</BaseType>
-    <DefinedByBase>false</DefinedByBase>
-  </Instance>
-  <Instance>
     <Name>WaveStateInstance</Name>
     <BaseType>WaveState</BaseType>
     <DefinedByBase>false</DefinedByBase>
@@ -595,6 +555,46 @@
   <Instance>
     <Name>PauseMenuInstance</Name>
     <BaseType>Menus/PauseMenu</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDInstance3</Name>
+    <BaseType>PlayerHUD</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDInstance2</Name>
+    <BaseType>PlayerHUD</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDInstance1</Name>
+    <BaseType>PlayerHUD</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDInstance</Name>
+    <BaseType>PlayerHUD</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDJoinInstance3</Name>
+    <BaseType>PlayerHUDJoin</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDJoinInstance2</Name>
+    <BaseType>PlayerHUDJoin</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDJoinInstance1</Name>
+    <BaseType>PlayerHUDJoin</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDJoinInstance</Name>
+    <BaseType>PlayerHUDJoin</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>
