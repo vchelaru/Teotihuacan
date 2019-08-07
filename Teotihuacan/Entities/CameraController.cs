@@ -49,6 +49,7 @@ namespace Teotihuacan.Entities
         float mapMaxXBounds = 0;
         float mapMinYBounds = 0;
         float mapMaxYBounds = 0;
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -65,7 +66,6 @@ namespace Teotihuacan.Entities
 
         private void InitializeCameraMaxBounds()
         {
-
             mapMinXBounds = Map.X;
             mapMaxXBounds = Map.X + Map.Width;
 
@@ -114,7 +114,10 @@ namespace Teotihuacan.Entities
 
                 ClampCameraToBounds();
             }
-
+            else
+            {
+                this.Velocity = Vector3.Zero;
+            }
         }
 
         private void ClampCameraToBounds()
@@ -230,7 +233,7 @@ namespace Teotihuacan.Entities
 
         private void CustomDestroy()
 		{
-
+            
 
 		}
 

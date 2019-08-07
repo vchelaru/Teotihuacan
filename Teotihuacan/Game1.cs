@@ -82,6 +82,9 @@ namespace Teotihuacan
             base.Update(gameTime);
         }
 
+        /// <summary>
+        /// * Code for fullscreen / windowed toggle
+        /// </summary>
         private void GlobalActivity()
         {
             if(InputManager.Keyboard.IsAltDown && InputManager.Keyboard.KeyPushed(Keys.Enter))

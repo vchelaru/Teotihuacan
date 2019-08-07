@@ -340,8 +340,7 @@ namespace Teotihuacan.Screens
             gameScreenGumRuntime.SetNumberOfPlayers(PlayerList.Count);
 
             gameScreenGumRuntime.QuitClicked += (not, used) => FlatRedBallServices.Game.Exit();
-            gameScreenGumRuntime.ResumeClicked += (not, used) =>
-                DoUnpause();
+            gameScreenGumRuntime.ResumeClicked += (not, used) => DoUnpause();
 
             gameScreenGumRuntime.ClearDataClicked += (not, used) =>
             {
@@ -411,17 +410,13 @@ namespace Teotihuacan.Screens
                 }
 
                 DoCollisionActivity();
-
             }
 
             DoUiActivity();
 
             DoCheckForGameOver();
-
-            if (PlayerList.Count > 0)
-            {
-                DoCheckPauseInput();
-            }
+            
+            DoCheckPauseInput();
 
             // do this after pause/unpause
             JoinUnjoinActivity();
@@ -583,20 +578,22 @@ namespace Teotihuacan.Screens
 
         private void DoCheckPauseInput()
         {
-            foreach(var player in PlayerList)
+            if (PlayerList.Count > 0)
             {
-                if(player.PauseInputPressed)
+                foreach (var player in PlayerList)
                 {
-                    if(IsPaused)
+                    if (player.PauseInputPressed)
                     {
-                        DoUnpause();
+                        if (IsPaused)
+                        {
+                            DoUnpause();
+                        }
+                        else
+                        {
+                            PauseThisScreen();
+                            ((GameScreenGumRuntime)GameScreenGum).SetPauseScreenVisibility(true);
+                        }
                     }
-                    else
-                    {
-                        PauseThisScreen();
-                        ((GameScreenGumRuntime)GameScreenGum).SetPauseScreenVisibility(true);
-                    }
-                    
                 }
             }
         }
@@ -661,6 +658,9 @@ namespace Teotihuacan.Screens
             enemy.TopDownSpeedMultiplier = CurrentMultipliers.EffectiveSpeedMultiplier;
         }
 
+        /// <summary>
+        /// Checks if enemy list is empty and if, calls wave complete or level complete code.
+        /// </summary>
         private void HandleEnemyListChanged()
         {
             if(EnemyList.Count <= 0 && !spawnManager.CanSpawn && PlayerList.Count > 0 && PlayerBaseList.Count > 0)
