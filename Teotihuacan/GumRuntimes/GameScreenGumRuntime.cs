@@ -18,8 +18,7 @@ namespace Teotihuacan.GumRuntimes
         #region Fields/Properties
 
         List<PlayerHUDRuntime> playerHuds = new List<PlayerHUDRuntime>();
-        List<PlayerHUDJoinRuntime> playerJoinHuds =
-            new List<PlayerHUDJoinRuntime>();
+        List<PlayerHUDJoinRuntime> playerJoinHuds = new List<PlayerHUDJoinRuntime>();
 
         #endregion
 
@@ -88,7 +87,6 @@ namespace Teotihuacan.GumRuntimes
                         break;
                 }
                 hud.UpdateStatusBars(player);
-
             }
 
             for(int i = 0; i < 4; i++)
@@ -116,7 +114,7 @@ namespace Teotihuacan.GumRuntimes
 
         }
 
-        public void ShowGameOver(Screens.GameScreen currentScreen)
+        public void ShowGameOverOverlay(Screens.GameScreen currentScreen)
         {
             this.GameOverInstance.Visible = true;
 
@@ -124,7 +122,6 @@ namespace Teotihuacan.GumRuntimes
             this.GameOverInstance.PopupAppearAnimation.Play();
             this.GameOverInstance.PopupAppearAnimation.EndReached += () =>
             {
-
                 GameOverInstance.FadeToBlackAnimation.PlayAfter(3);
                 GameOverInstance.FadeToBlackAnimation.EndReached += () =>
                 {
@@ -133,7 +130,7 @@ namespace Teotihuacan.GumRuntimes
             };
         }
 
-        public void ShowLevelStart(string levelName)
+        public void ShowLevelStartOverlay(string levelName)
         {
             LevelStartInstance.Visible = true;
             LevelStartInstance.LevelNameText = levelName;
@@ -145,24 +142,23 @@ namespace Teotihuacan.GumRuntimes
             LevelStartInstance.FadeInAndCountDownAnimation.Play();
         }
 
-        public void SetWaveMessageText(string message)
+        public void ShowWaveStateOverlay(string message)
         {
             WaveStateInstance.WaveMessageText = message;
             WaveStateInstance.Visible = true;
         }
 
-        public void HideWaveStateInstance()
+        public void HideWaveStateOverlay()
         {
             WaveStateInstance.Visible = false;
         }
 
-        public void SetPauseScreenVisibility(bool isVisible)
+        public void SetPauseMenuVisibility(bool isVisible)
         {
             if(isVisible)
             {
                 // no animations?
                 this.PauseMenuInstance.Visible = true;
-                
             }
             else
             {

@@ -168,7 +168,6 @@ namespace Teotihuacan.Screens
             ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(
                 player, 
                 UpdateType.Instant, false);
-
         }
 
         private void SetInitialPlayerPosition(Player player)
@@ -335,7 +334,6 @@ namespace Teotihuacan.Screens
 
         private void InitializeUi()
         {
-            
             var gameScreenGumRuntime = ((GameScreenGumRuntime)GameScreenGum);
             gameScreenGumRuntime.SetNumberOfPlayers(PlayerList.Count);
 
@@ -348,13 +346,12 @@ namespace Teotihuacan.Screens
                 this.MoveToScreen(nameof(Level1));
             };
 
-            gameScreenGumRuntime.StartLevel += () =>DoStartLevel();
-            gameScreenGumRuntime.ShowLevelStart($"{LevelName}");
+            gameScreenGumRuntime.StartLevel += () => DoStartLevel();
+            gameScreenGumRuntime.ShowLevelStartOverlay($"{LevelName}");
 
             foreach(var player in PlayerList)
             {
-                ((GameScreenGumRuntime)GameScreenGum)
-                    .RefreshExperienceBar(player, UpdateType.Instant, false);
+                gameScreenGumRuntime.RefreshExperienceBar(player, UpdateType.Instant, false);
             }
         }
 
@@ -590,8 +587,8 @@ namespace Teotihuacan.Screens
                         }
                         else
                         {
-                            PauseThisScreen();
-                            ((GameScreenGumRuntime)GameScreenGum).SetPauseScreenVisibility(true);
+                            PauseThisScreen(); // generated
+                            ((GameScreenGumRuntime)GameScreenGum).SetPauseMenuVisibility(true);
                         }
                     }
                 }
@@ -600,8 +597,8 @@ namespace Teotihuacan.Screens
 
         private void DoUnpause()
         {
-            UnpauseThisScreen();
-            ((GameScreenGumRuntime)GameScreenGum).SetPauseScreenVisibility(false);
+            UnpauseThisScreen(); // generated
+            ((GameScreenGumRuntime)GameScreenGum).SetPauseMenuVisibility(false);
         }
 
         private void DoStartLevel()
@@ -617,7 +614,7 @@ namespace Teotihuacan.Screens
                 {
                     FlatRedBall.Audio.AudioManager.Play(GameOver);
                     hasGameOverBeenTriggered = true;
-                    ((GameScreenGumRuntime)GameScreenGum).ShowGameOver(this);
+                    ((GameScreenGumRuntime)GameScreenGum).ShowGameOverOverlay(this);
                 }
 
             }
@@ -666,7 +663,7 @@ namespace Teotihuacan.Screens
             if(EnemyList.Count <= 0 && !spawnManager.CanSpawn && PlayerList.Count > 0 && PlayerBaseList.Count > 0)
             {
                 var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
-                gameScreenGumRuntime.SetWaveMessageText($"Wave Complete");
+                gameScreenGumRuntime.ShowWaveStateOverlay($"Wave Complete");
                 FlatRedBall.Audio.AudioManager.Play(WaveEnds);
 
                 var isLevelComplete = spawnManager.CurrentWaveIndex >= Spawns.Waves.Count;
@@ -687,7 +684,7 @@ namespace Teotihuacan.Screens
 
             this.Call(() =>
             {
-                gameScreenGumRuntime.SetWaveMessageText($"Level Complete");
+                gameScreenGumRuntime.ShowWaveStateOverlay($"Level Complete");
             }).After(1);
 
             ((GameScreenGumRuntime)gameScreenGumRuntime).FadeOutAnimation.PlayAfter(3);
@@ -696,7 +693,7 @@ namespace Teotihuacan.Screens
 
             this.Call(() =>
             {
-                gameScreenGumRuntime.HideWaveStateInstance();
+                gameScreenGumRuntime.HideWaveStateOverlay();
                 IsActivityFinished = true;
             }).After(3 + animationDuration);
         }
@@ -713,17 +710,17 @@ namespace Teotihuacan.Screens
             {
                 if (Spawns.Waves.Count > spawnManager.CurrentWaveIndex + 1)
                 {
-                    gameScreenGumRuntime.SetWaveMessageText($"Wave {spawnManager.CurrentWaveIndex + 1}");
+                    gameScreenGumRuntime.ShowWaveStateOverlay($"Wave {spawnManager.CurrentWaveIndex + 1}");
                 }
                 else 
                 {
-                    gameScreenGumRuntime.SetWaveMessageText($"Final Wave");
+                    gameScreenGumRuntime.ShowWaveStateOverlay($"Final Wave");
                 }
             }).After(TimeBetweenWaves * .5);
 
             this.Call(() =>
             {
-                gameScreenGumRuntime.HideWaveStateInstance();
+                gameScreenGumRuntime.HideWaveStateOverlay();
                 if (Spawns.Waves.Count > spawnManager.CurrentWaveIndex)
                 {
                     spawnManager.EnableSpawning();
