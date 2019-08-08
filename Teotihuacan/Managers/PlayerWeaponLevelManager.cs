@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Teotihuacan.Entities;
 using Teotihuacan.GameData;
 using Teotihuacan.Models;
 
@@ -11,47 +12,49 @@ namespace Teotihuacan.Managers
 {
     public static class PlayerWeaponLevelManager
     {
-        public static Dictionary<IInputDevice, PlayerData> PlayerWeaponLevels = new Dictionary<IInputDevice, PlayerData>();
+        public static PlayerData[] PlayersData = new PlayerData[4];
         public static List<IInputDevice> ConnectedDevices = new List<IInputDevice>();
 
-        public static void CreateNewWeaponLevelFromInputDevice(IInputDevice inputDevice)
+        // TODO: check who is using this !
+        public static void CreateNewWeaponLevel(Player playerEntity)
         {
-            var playerData = new PlayerData();
+            var playerData = new PlayerData(playerEntity);
             playerData.InitializeAllWeapons();
 
-            PlayerWeaponLevels.Add(inputDevice, playerData);
+            PlayersData[playerEntity.Index] = playerData;
         }
 
-        public static void AddUniqueInputDevice(IInputDevice input)
+        /*public static void AddUniqueInputDevice(IInputDevice input)
         {
             if(!ConnectedDevices.Contains(input))
             {
                 ConnectedDevices.Add(input);
             }
-        }
+        }*/
 
         public static void SaveAll()
         {
-            foreach(var kvp in PlayerWeaponLevels)
+            for (int i = 0; i < Screens.GameScreen.MaxNumberOfPlayers; i++)
             {
-                var inputDevice = kvp.Key;
-                string name = GetNameFromInputDevice(inputDevice);
-                DataLoader.SaveData(kvp.Value, name);
+                var playerData = PlayersData[i];
+                if (playerData != null)
+                {
+                    DataLoader.SaveData(playerData);
+                }
             }
         }
 
         public static void ClearAll()
         {
-            DataLoader.Delete("Keyboard");
-            DataLoader.Delete("Gamepad0");
-            DataLoader.Delete("Gamepad1");
-            DataLoader.Delete("Gamepad2");
-            DataLoader.Delete("Gamepad3");
+            DataLoader.Delete(0);
+            DataLoader.Delete(1);
+            DataLoader.Delete(2);
+            DataLoader.Delete(3);
 
-            PlayerWeaponLevels.Clear();
+            Array.Clear(PlayersData, 0, PlayersData.Length);
         }
 
-        private static string GetNameFromInputDevice(IInputDevice inputDevice)
+        /*private static string GetNameFromInputDevice(IInputDevice inputDevice)
         {
             string name = null;
 
@@ -66,13 +69,17 @@ namespace Teotihuacan.Managers
             }
 
             return name;
-        }
+        }*/
 
-        public static PlayerData LoadForInputDevice(IInputDevice inputDevice)
+        /*public static PlayerData LoadForInputDevice(IInputDevice inputDevice)
         {
             var name = GetNameFromInputDevice(inputDevice);
 
             return DataLoader.LoadData(name);
+        }*/
+        public static PlayerData LoadPlayerData(int playerIndex)
+        {
+            return DataLoader.LoadData(playerIndex);
         }
     }
 }

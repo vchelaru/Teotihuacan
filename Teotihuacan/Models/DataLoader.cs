@@ -10,36 +10,36 @@ namespace Teotihuacan.Models
 {
     public static class DataLoader
     {
-        public static void SaveData(PlayerData playerData, string playerName)
+        public static void SaveData(PlayerData playerData)
         {
-            var serialized = JsonConvert.SerializeObject(playerData);
+            var serializedData = JsonConvert.SerializeObject(playerData);
 
-            var path = PathFromName(playerName);
+            var path = PathFromName(playerData.PlayerIndex);
 
             var directory = FileManager.GetDirectory(path);
             System.IO.Directory.CreateDirectory(directory);
 
-            System.IO.File.WriteAllText(path, serialized);
+            System.IO.File.WriteAllText(path, serializedData);
         }
 
-        public static PlayerData LoadData(string playerName)
+        public static PlayerData LoadData(int playerIndex)
         {
             PlayerData playerData = null;
 
-            var path = PathFromName(playerName);
+            var path = PathFromName(playerIndex);
 
             if (System.IO.File.Exists(path))
             {
-                var serialized = System.IO.File.ReadAllText(path);
+                var serializedData = System.IO.File.ReadAllText(path);
 
-                playerData = JsonConvert.DeserializeObject<PlayerData>(serialized);
+                playerData = JsonConvert.DeserializeObject<PlayerData>(serializedData);
             }
             return playerData;
         }
 
-        public static void Delete(string playerName)
+        public static void Delete(int playerIndex)
         {
-            var path = PathFromName(playerName);
+            var path = PathFromName(playerIndex);
 
             if(System.IO.File.Exists(path))
             {
@@ -48,9 +48,9 @@ namespace Teotihuacan.Models
         }
 
 
-        static string PathFromName(string playerName)
+        static string PathFromName(int playerIndex)
         {
-            return "Data/" + playerName + ".data";
+            return "Data/" + playerIndex + ".data";
         }
     }
 }

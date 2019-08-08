@@ -55,14 +55,15 @@ namespace Teotihuacan.Entities
 	{
         #region Fields/Properties
 
+        public IInputControls InputControls;
+        public PlayerData PlayerData;
+
+
         private static int PLAYER_COUNT = 0;
 
-        I2DInput rightStick;
-        Vector3 aimingVector;
-        AnimationController spriteAnimationController;
-        IPressableInput swapWeaponsBack;
-        IPressableInput swapWeaponsForward;
+        Vector2 aimingVector = new Vector2(1f,0f);
 
+        AnimationController spriteAnimationController;
 
         public Action SwappedWeapon;
 
@@ -75,26 +76,6 @@ namespace Teotihuacan.Entities
         private SoundEffectInstance burnPainSoundEffect;
         private SoundEffectInstance playerDeathSoundEffect;
 
-
-        bool isPrimaryInputDown
-        {
-            get
-            {
-                if(InputDevice == InputManager.Keyboard)
-                {
-                    return InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton);
-                }
-                else if(InputDevice is Xbox360GamePad gamePad)
-                {
-                    return gamePad.RightTrigger.IsDown;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-
-        }
 
         PrimaryActions currentPrimaryAction = PrimaryActions.idle;
         public SecondaryActions CurrentSecondaryAction
@@ -113,7 +94,7 @@ namespace Teotihuacan.Entities
 
         public Action UpdateHud;
 
-        public bool PauseInputPressed => InputDevice.DefaultPauseInput.WasJustPressed;
+        public bool PauseInputPressed => InputControls.WasPauseJustPressed;
 
         PositionedObject lightningAttachment;
 
@@ -126,7 +107,6 @@ namespace Teotihuacan.Entities
 
         public bool IsOnMud { get; set; }
 
-        public PlayerData PlayerData { get; set; }
 
         WeaponLevelBase CurrentWeaponLevelData
         {
@@ -154,7 +134,7 @@ namespace Teotihuacan.Entities
         /// </summary>
         private void CustomInitialize()
 		{
-            PlayerData = new PlayerData();
+            PlayerData = new PlayerData(this);
 
             this.PossibleDirections = PossibleDirections.EightWay;
             CurrentHP = MaxHP;
@@ -213,12 +193,11 @@ namespace Teotihuacan.Entities
 
         private void InitializeActionIcon()
         {
-            
-            if(InputDevice is Xbox360GamePad)
+            if(InputControls is Xbox360GamePadControls)
             {
                 CurrentInputDeviceTypeState = InputDeviceType.GamePad;
             }
-            else if(InputDevice is Keyboard)
+            else if(InputControls is KeyboardMouseControls)
             {
                 CurrentInputDeviceTypeState = InputDeviceType.Keyboard;
             }
@@ -238,21 +217,9 @@ namespace Teotihuacan.Entities
             spriteAnimationController.Layers.Add(shootingLayer);
         }
 
-        partial void CustomInitializeTopDownInput()
+        /*partial void CustomInitializeTopDownInput()
         {
-            if(InputDevice is Xbox360GamePad gamePad)
-            {
-                rightStick = gamePad.RightStick;
-                swapWeaponsBack = gamePad.GetButton(Xbox360GamePad.Button.LeftShoulder);
-                swapWeaponsForward = gamePad.GetButton(Xbox360GamePad.Button.RightShoulder);
-            }
-            else if(InputDevice is Keyboard keyboard)
-            {
-                rightStick = null; // Fixes bug when KB player joins game and GamePad is connected.
-                swapWeaponsBack = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Q);
-                swapWeaponsForward = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.E);
-            }
-        }
+        }*/
 
 
         private void InitializeCollision()
@@ -294,7 +261,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
         private void DoWeaponSwappingLogic()
         {
-            if(swapWeaponsBack.WasJustPressed)
+            if(InputControls.WasSwapWeaponsBackJustPressed)
             {
                 switch(EquippedWeapon)
                 {
@@ -304,7 +271,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                 }
                 SwappedWeapon();
             }
-            if(swapWeaponsForward.WasJustPressed)
+            if(InputControls.WasSwapWeaponsForwardJustPressed)
             {
                 switch (EquippedWeapon)
                 {
@@ -325,39 +292,20 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
         private void DoAimingActivity()
         {
-            Vector3 newAimingVector = aimingVector;
-            if (rightStick != null)
+            Vector2? newAimingVector = InputControls.TryGetAimingVector(ref Position);
+
+            if (newAimingVector.HasValue)
             {
-                if (rightStick.Magnitude > 0)
-                {
-                    newAimingVector = new Vector3(rightStick.X, rightStick.Y, 0);
-                }
+                aimingVector = newAimingVector.Value;
+
+                LightningCollisionLine.RelativeRotationZ = (float)Math.Atan2(aimingVector.Y, aimingVector.X);
             }
-            else
-            {
-
-                Vector3 cursorPosition = new Vector3(GuiManager.Cursor.WorldXAt(Z), GuiManager.Cursor.WorldYAt(Z), 0);
-
-                newAimingVector = cursorPosition - new Vector3(X, Y, 0);
-            }
-
-            // in case the stick happens to report 0:
-            if(newAimingVector.X == 0 && newAimingVector.Y == 0)
-            {
-                newAimingVector.X = 1;
-            }
-
-            //Normalize at the end in case the right stick input is not at max magnitude
-            newAimingVector.Normalize();
-            aimingVector = newAimingVector;
-
-            LightningCollisionLine.RelativeRotationZ = (float)Math.Atan2(aimingVector.Y, aimingVector.X);
         }
 
         private void DoShootingActivity()
         {
             Bullet.DataCategory bulletData = null;
-            if (isPrimaryInputDown)
+            if (InputControls.IsPrimaryFireDown)
             {
                 if(EquippedWeapon == Weapon.ShootingFire)
                 {
@@ -396,7 +344,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             {
                 CurrentEnergy -= ModifyEnergyDrain(LightningEnergyUsePerSecond) * TimeManager.SecondDifference;
             }
-            else if(isPrimaryInputDown == false)
+            else if(InputControls.IsPrimaryFireDown == false)
             {
                 CurrentEnergy += EnergyRecoveryRate * TimeManager.SecondDifference;
             }
@@ -434,7 +382,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
         private void DoShootingFireActivity(Bullet.DataCategory bulletData)
         {
-            var direction = aimingVector;
+            var direction = new Vector3(aimingVector.X, aimingVector.Y, 0f);
 
             var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
             bullet.Owner = this;

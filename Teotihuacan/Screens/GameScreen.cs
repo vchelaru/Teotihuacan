@@ -91,7 +91,7 @@ namespace Teotihuacan.Screens
 
         List<IInputDevice> deadPlayerInputDevices = new List<IInputDevice>();
 
-        const int maxNumberOfPlayers = 4;
+        public const int MaxNumberOfPlayers = 4;
         #endregion
 
         #region Initialize
@@ -358,26 +358,27 @@ namespace Teotihuacan.Screens
         private void AssignPlayerData(Player player)
         {
             // see if it's cached
-            var inputDevice = player.InputDevice;
 
-            if(PlayerWeaponLevelManager.PlayerWeaponLevels.ContainsKey(inputDevice))
+            //var inputDevice = player.InputDevice;
+
+            if(PlayerWeaponLevelManager.PlayersData[player.Index] != null)
             {
                 player.PlayerData =
-                    PlayerWeaponLevelManager.PlayerWeaponLevels[inputDevice];
+                    PlayerWeaponLevelManager.PlayersData[player.Index];
             }
             else
             {
                 // try to load or create:
                 player.PlayerData =
-                    PlayerWeaponLevelManager.LoadForInputDevice(inputDevice);
+                    PlayerWeaponLevelManager.LoadPlayerData(player.Index);
 
                 if(player.PlayerData == null)
                 {
-                    player.PlayerData = new Models.PlayerData();
+                    player.PlayerData = new Models.PlayerData(player);
                     player.PlayerData.InitializeAllWeapons();
                 }
 
-                PlayerWeaponLevelManager.PlayerWeaponLevels[player.InputDevice] =
+                PlayerWeaponLevelManager.PlayersData[player.Index] =
                     player.PlayerData;
             }
 
@@ -489,7 +490,7 @@ namespace Teotihuacan.Screens
 
         private void JoinUnjoinActivity()
         {
-            if (PlayerList.Count < maxNumberOfPlayers)
+            if (PlayerList.Count < MaxNumberOfPlayers)
             {
                 foreach (var gamePad in InputManager.Xbox360GamePads)
                 {

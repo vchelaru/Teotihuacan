@@ -256,6 +256,9 @@
     <Compile Include="Managers\PlayerWeaponLevelManager.cs" />
     <Compile Include="Managers\SpawnManager.cs" />
     <Compile Include="Models\DataLoader.cs" />
+    <Compile Include="Models\IInputControls.cs" />
+    <Compile Include="Models\Xbox360GamePadControls.cs" />
+    <Compile Include="Models\KeyboardMouseControls.cs" />
     <Compile Include="Models\PlayerData.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />
