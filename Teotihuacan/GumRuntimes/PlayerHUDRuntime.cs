@@ -44,6 +44,7 @@ namespace Teotihuacan.GumRuntimes
             XPGauge.Visible = XPGauge.Height > 1;
         }
 
+        
         public void RefreshExperienceBar(Player owningPlayer, UpdateType updateType, bool isLevelUp)
         {
             if(updateType == UpdateType.Instant)

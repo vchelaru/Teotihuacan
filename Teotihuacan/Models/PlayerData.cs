@@ -18,7 +18,9 @@ namespace Teotihuacan.Models
             Free = 0,
             ReservedLeft = 1,
             ReservedDisconnect = 2,
+
             FullPlayerDead = 3,
+
             Full = 4,
         }
 

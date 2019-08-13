@@ -549,10 +549,13 @@ namespace Teotihuacan.Screens
                         PlayerData slotPlayerData;
                         if (CanPlayerJoin(gamepadIndex, out slotPlayerData))
                         {
+                            Player newPlayer;
                             if (slotPlayerData != null)
-                                JoinWith(slotPlayerData);
+                                newPlayer = JoinWith(slotPlayerData);
                             else
-                                JoinWith(new Xbox360GamePadControls(gamePad, gamepadIndex));
+                                newPlayer = JoinWith(new Xbox360GamePadControls(gamePad, gamepadIndex));
+
+                            SetPlayerHudOnJoin(newPlayer);
                         }
                     }
                 }
@@ -573,10 +576,13 @@ namespace Teotihuacan.Screens
                     PlayerData slotPlayerData;
                     if (CanPlayerJoin(InputControls.KeyboardAndMouse_ControlsID, out slotPlayerData))
                     {
+                        Player newPlayer;
                         if (slotPlayerData != null)
-                            JoinWith(slotPlayerData);
+                            newPlayer = JoinWith(slotPlayerData);
                         else
-                            JoinWith(new KeyboardMouseControls());
+                            newPlayer = JoinWith(new KeyboardMouseControls());
+
+                        SetPlayerHudOnJoin(newPlayer);
                     }
                 }
             }
@@ -689,11 +695,6 @@ namespace Teotihuacan.Screens
 
             SetInitialPlayerPosition(newPlayer);
 
-            ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(
-                newPlayer,
-                UpdateType.Instant, false
-            );
-
             return newPlayer;
         }
         /*private Player JoinWith(int controlsID)
@@ -720,7 +721,13 @@ namespace Teotihuacan.Screens
 
             return player;
         }*/
-
+        private void SetPlayerHudOnJoin(Player newPlayer)
+        {
+            ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(
+                newPlayer,
+                UpdateType.Instant, false
+            );
+        }
 
         private void DropPlayer(int slotIndex)
         {
@@ -732,7 +739,7 @@ namespace Teotihuacan.Screens
         private void DoUiActivity()
         {
             (GameScreenGum as GameScreenGumRuntime).CustomActivity(
-                PlayerList, PlayerBaseList[0], deadPlayerInputDevices);
+                PlayerList, PlayerBaseList[0]/*, deadPlayerInputDevices*/);
         }
 
         private void DoCheckPauseInput()

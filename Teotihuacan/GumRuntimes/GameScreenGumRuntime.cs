@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Teotihuacan.Entities;
+using Teotihuacan.Managers;
 
 namespace Teotihuacan.GumRuntimes
 {
@@ -59,37 +60,52 @@ namespace Teotihuacan.GumRuntimes
 
 
 
-        public void CustomActivity(PositionedObjectList<Player> players, PlayerBase playerBase, List<IInputDevice> deadPlayerInputDevices)
+        public void CustomActivity(PositionedObjectList<Player> players, PlayerBase playerBase/*, List<IInputDevice> deadPlayerInputDevices*/)
         {
-            // make all huds invisible, will be made visible below:
-            foreach(var hud in playerHuds)
+            // Update players' HUDs
+            for (int playerSlotIndex = 0; playerSlotIndex < PlayerManager.MaxNumberOfPlayers; playerSlotIndex++)
             {
-                hud.Visible = false;
-            }
+                var slotData = PlayerManager.PlayersSlots[playerSlotIndex];
+                var hud = playerHuds[playerSlotIndex];
 
-            foreach(var player in players)
-            {
-                var index = player.CurrentColorCategoryState.ToInt();
-                var hud = playerHuds[index];
-
-                hud.Visible = true;
-                switch(player.EquippedWeapon)
+                if (slotData == null 
+                    ||
+                    slotData.SlotState <= Models.PlayerData.eSlotState.ReservedDisconnect)
                 {
-                    case Animation.Weapon.ShootingFire:
-                        hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Fireball;
-                        break;
-                    case Animation.Weapon.ShootingLightning:
-                        hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Lightning;
-                        break;
-                    case Animation.Weapon.ShootingSkulls:
-                        hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Skull;
-
-                        break;
+                    // free slot
+                    hud.Visible = false;
                 }
-                hud.UpdateStatusBars(player);
+                else if (slotData.SlotState == Models.PlayerData.eSlotState.FullPlayerDead)
+                {
+                    // dead player slot
+                    // TODO: dead player HUD
+                    hud.Visible = false;
+                }
+                else
+                {
+                    // active player slot
+                    hud.Visible = true;
+
+                    switch (slotData.EquippedWeapon)
+                    {
+                        case Animation.Weapon.ShootingFire:
+                            hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Fireball;
+                            break;
+                        case Animation.Weapon.ShootingLightning:
+                            hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Lightning;
+                            break;
+                        case Animation.Weapon.ShootingSkulls:
+                            hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Skull;
+
+                            break;
+                    }
+
+                    hud.UpdateStatusBars(players.First(p => p.PlayerData.SlotIndex == playerSlotIndex));
+                }
             }
 
-            for(int i = 0; i < 4; i++)
+            // TODO: Update join HUDs' visibility
+            /*for (int i = 0; i < 4; i++)
             {
                 if (!deadPlayerInputDevices.Contains(InputManager.Xbox360GamePads[i]))
                 {
@@ -108,10 +124,10 @@ namespace Teotihuacan.GumRuntimes
                 //Assume the keyboad player is in slot 0;
                 playerJoinHuds[0].Visible = false;
                 playerHuds[0].Visible = false;
-            }
+            }*/
 
+            // Update Base's HUD
             BaseHUDInstance.UpdateHealth(playerBase);
-
         }
 
         public void ShowGameOverOverlay(Screens.GameScreen currentScreen)
@@ -168,8 +184,7 @@ namespace Teotihuacan.GumRuntimes
 
         public void RefreshExperienceBar(Player player, UpdateType updateType, bool isLevelUp)
         {
-            var index = player.CurrentColorCategoryState.ToInt();
-            var hud = playerHuds[index];
+            var hud = playerHuds[player.PlayerData.SlotIndex];
 
             hud.RefreshExperienceBar(player, updateType, isLevelUp);
         }
