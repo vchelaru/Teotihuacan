@@ -13,11 +13,22 @@ namespace Teotihuacan.Models
 
     public class PlayerData
     {
-        public readonly int PlayerIndex;
+        public enum eSlotState
+        {
+            Free = 0,
+            ReservedLeft = 1,
+            ReservedDisconnect = 2,
+            FullPlayerDead = 3,
+            Full = 4,
+        }
 
-        public IInputControls InputControls;
 
-        public bool IsPlayerDead = false;
+
+        public int SlotIndex;
+
+        public eSlotState SlotState; // = eSlotState.Free;
+
+        public InputControls InputControls;
 
         public List<WeaponLevelBase> WeaponLevels = new List<WeaponLevelBase>();
 
@@ -25,16 +36,23 @@ namespace Teotihuacan.Models
 
 
 
-        public PlayerData(Player playerCharEntity)
+
+        public PlayerData() { }
+
+        /*public PlayerData(Player playerCharEntity)
         {
-            PlayerIndex = playerCharEntity.Index;
+            SlotIndex = playerCharEntity.Index; // DO NOT USE Player.Index !! It's for Pleyr Entity pooling only !
             InputControls = playerCharEntity.InputControls;
-        }
-        public PlayerData(int playerIndex, IInputControls inputControls)
+        }*/
+
+        public PlayerData(int slotIndex, InputControls inputControls)
         {
-            PlayerIndex = playerIndex;
+            SlotIndex = slotIndex;
             InputControls = inputControls;
+
+            InitializeAllWeapons();
         }
+
 
 
 
@@ -58,6 +76,12 @@ namespace Teotihuacan.Models
 
             weaponLevel.AddWeaponExperience();
         }
+
+        /*public void SetStateFree()
+        {
+            SlotState = eSlotState.Free;
+            InputControls = null;
+        }*/
 
     }
 }

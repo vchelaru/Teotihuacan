@@ -20,6 +20,7 @@ using Teotihuacan.GumRuntimes;
 using FlatRedBall.TileGraphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using Teotihuacan.Models;
 
 namespace Teotihuacan.Screens
 {
@@ -89,9 +90,8 @@ namespace Teotihuacan.Screens
 
         bool hasGameOverBeenTriggered = false;
 
-        List<IInputDevice> deadPlayerInputDevices = new List<IInputDevice>();
+        //List<IInputDevice> deadPlayerInputDevices = new List<IInputDevice>();
 
-        public const int MaxNumberOfPlayers = 4;
         #endregion
 
         #region Initialize
@@ -142,7 +142,27 @@ namespace Teotihuacan.Screens
 
         private void CreatePlayers()
         {
-            var numberOfControllers = InputManager.NumberOfConnectedGamePads;
+            // Auto re-join players on start of level
+            foreach (var slotPlayerData in PlayerManager.PlayersSlots)
+            {
+                if (slotPlayerData != null)
+                {
+                    if (slotPlayerData.SlotState == PlayerData.eSlotState.Full
+                        ||
+                        slotPlayerData.SlotState == PlayerData.eSlotState.FullPlayerDead)
+                    {
+                        JoinWith(slotPlayerData);
+                    }
+                    else if (slotPlayerData.SlotState == PlayerData.eSlotState.ReservedDisconnect
+                             && 
+                             slotPlayerData.InputControls.AreConnected)
+                    {
+                        JoinWith(slotPlayerData);
+                    }
+                }
+            }
+
+            /*var numberOfControllers = InputManager.NumberOfConnectedGamePads;
             if (numberOfControllers == 0)
             {
                 JoinWith(InputManager.Keyboard);
@@ -152,7 +172,7 @@ namespace Teotihuacan.Screens
                 for(int i = 0; i < InputManager.Xbox360GamePads.Length; i++)
                 {
                     var controller = InputManager.Xbox360GamePads[i];
-                    if (i == 0 || PlayerWeaponLevelManager.ConnectedDevices.Contains(controller))
+                    if (i == 0 || PlayerManager.ConnectedDevices.Contains(controller))
                     {
                         if (controller.IsConnected)
                         {
@@ -160,6 +180,12 @@ namespace Teotihuacan.Screens
                         }
                     }
                 }
+            }*/
+
+            // TEMP
+            if (PlayerList.Count == 0)
+            {
+                JoinWith(new KeyboardMouseControls());
             }
         }
 
@@ -342,7 +368,7 @@ namespace Teotihuacan.Screens
 
             gameScreenGumRuntime.ClearDataClicked += (not, used) =>
             {
-                PlayerWeaponLevelManager.ClearAll();
+                PlayerManager.ClearAll();
                 this.MoveToScreen(nameof(Level1));
             };
 
@@ -355,41 +381,51 @@ namespace Teotihuacan.Screens
             }
         }
 
-        private void AssignPlayerData(Player player)
+        /*private void AssignPlayerData(Player player)
         {
+            // TODO           
+
             // see if it's cached
 
             //var inputDevice = player.InputDevice;
 
-            if(PlayerWeaponLevelManager.PlayersData[player.Index] != null)
+            if (PlayerManager.PlayersSlots[player.Index] != null)
             {
                 player.PlayerData =
-                    PlayerWeaponLevelManager.PlayersData[player.Index];
+                    PlayerManager.PlayersSlots[player.Index];
             }
             else
             {
                 // try to load or create:
                 player.PlayerData =
-                    PlayerWeaponLevelManager.LoadPlayerData(player.Index);
+                    PlayerManager.TryLoadPlayerData(player.Index);
 
                 if(player.PlayerData == null)
                 {
-                    player.PlayerData = new Models.PlayerData(player);
+                    player.PlayerData = new PlayerData(player);
                     player.PlayerData.InitializeAllWeapons();
                 }
 
-                PlayerWeaponLevelManager.PlayersData[player.Index] =
+                PlayerManager.PlayersSlots[player.Index] =
                     player.PlayerData;
             }
 
-            player.OnPlayerDeath += (deadPlayer) =>
+            player.OnPlayerDeath += OnPlayerDeath;
+        }*/
+
+        void OnPlayerDeath(Player deadPlayer)
+        {
+            /*deadPlayerInputDevices.Add(deadPlayer.InputDevice);
+            foreach (var enemy in EnemyList)
             {
-                deadPlayerInputDevices.Add(deadPlayer.InputDevice);
-                foreach(var enemy in EnemyList)
-                {
-                    enemy.ReactToPlayerDeath(deadPlayer);
-                }
-            };
+                enemy.ReactToPlayerDeath(deadPlayer);
+            }*/
+
+            PlayerManager.AddDeadPlayer(deadPlayer.PlayerData.SlotIndex);
+            foreach (var enemy in EnemyList)
+            {
+                enemy.ReactToPlayerDeath(deadPlayer);
+            }
         }
 
         #endregion
@@ -417,7 +453,7 @@ namespace Teotihuacan.Screens
             DoCheckPauseInput();
 
             // do this after pause/unpause
-            JoinUnjoinActivity();
+            PlayersJoinLeaveActivity();
         }
 
         private void HandleLightningVsSolidCollision(Player player, TileShapeCollection tileMap)
@@ -488,85 +524,210 @@ namespace Teotihuacan.Screens
             EnemyVsMudCollision.DoCollisions();
         }
 
-        private void JoinUnjoinActivity()
+        private void PlayersJoinLeaveActivity()
         {
-            if (PlayerList.Count < MaxNumberOfPlayers)
+            // -- Joining
+            if (PlayerList.Count < PlayerManager.MaxNumberOfPlayers)
             {
-                foreach (var gamePad in InputManager.Xbox360GamePads)
+                //foreach (var gamePad in InputManager.Xbox360GamePads)
+                Xbox360GamePad gamePad;
+                for (int gamepadIndex = 0; gamepadIndex < InputManager.Xbox360GamePads.Length; gamepadIndex++)
                 {
-                    if (gamePad.ButtonPushed(Xbox360GamePad.Button.Start))
+                    gamePad = InputManager.Xbox360GamePads[gamepadIndex];
+                    if (gamePad.ButtonPushed(InputControls.Xbox360GamePad_Button_Join))
                     {
                         // See if this is connected with no player:
                         // Or if input device did not die this level
-                        var canJoin = PlayerList.Any(item => item.InputDevice == gamePad) == false &&
-                                        deadPlayerInputDevices.Contains(gamePad) == false;
+                        /*var canJoin = PlayerList.Any(item => 
+                                        item.InputControls.ControlsID == gamepadIndex
+                                      ) == false 
+                                      &&
+                                      PlayerManager.DeadPlayers.Any(playerData => 
+                                        playerData.InputControls.ControlsID == gamepadIndex
+                                      ) == false;*/
 
-                        if (canJoin)
+                        PlayerData slotPlayerData;
+                        if (CanPlayerJoin(gamepadIndex, out slotPlayerData))
                         {
-                            JoinPlayer(gamePad);
+                            if (slotPlayerData != null)
+                                JoinWith(slotPlayerData);
+                            else
+                                JoinWith(new Xbox360GamePadControls(gamePad, gamepadIndex));
                         }
-                    }
-                    else if (gamePad.ButtonPushed(Xbox360GamePad.Button.Back) && this.IsPaused && PlayerList.Count > 1)
-                    {
-                        DropPlayer(PlayerList.First(item => item.InputDevice == gamePad));
-                    }
-                    else if (gamePad.IsConnected == false && PlayerList.Any(item => item.InputDevice == gamePad))
-                    {
-                        // player disconnected, so pause and drop the player:
-                        DropPlayer(PlayerList.First(item => item.InputDevice == gamePad));
                     }
                 }
 
-                var keyboard = InputManager.Keyboard;
-                if (keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Insert))
+                if (InputManager.Keyboard.KeyPushed(InputControls.KeyboardAndMouse_Button_Join))
                 {
-                    var canJoin = PlayerList.Any(item => item.InputDevice == keyboard) == false &&
-                                        deadPlayerInputDevices.Contains(keyboard) == false;
+                    /*var canJoin = PlayerList.Any(item => item.InputDevice == gamePad) == false
+                                      &&
+                                      PlayerManager.DeadPlayers.Any(playerData =>
+                                        playerData.InputControls.ControlsID == InputControls.KeyboardAndMouse_ControlsID
+                                      ) == false;
 
                     if (canJoin)
                     {
                         JoinPlayer(keyboard);
+                    }*/
+
+                    PlayerData slotPlayerData;
+                    if (CanPlayerJoin(InputControls.KeyboardAndMouse_ControlsID, out slotPlayerData))
+                    {
+                        if (slotPlayerData != null)
+                            JoinWith(slotPlayerData);
+                        else
+                            JoinWith(new KeyboardMouseControls());
                     }
                 }
-                else if (keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Delete) && this.IsPaused && PlayerList.Count > 1)
+            }
+
+            // -- Leaving & Disconnects
+
+            /*Xbox360GamePad gamePad;
+            for (int gamepadIndex = 0; gamepadIndex < InputManager.Xbox360GamePads.Length; gamepadIndex++)
+            {
+                gamePad = InputManager.Xbox360GamePads[gamepadIndex];
+
+                if (gamePad.ButtonPushed(InputControls.Xbox360GamePad_Button_Leave) && PlayerList.Count > 1)
                 {
-                    DropPlayer(PlayerList.First(item => item.InputDevice == keyboard));
+                    DropPlayer();
+                }
+            }
+
+            if (InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Delete) && PlayerList.Count > 1)
+            {
+                xDropPlayer(PlayerList.First(item => item.InputDevice == keyboard));
+            }*/
+
+            foreach (var playerSlotData in PlayerManager.PlayersSlots)
+            {
+                if (playerSlotData != null)
+                {
+                    if (playerSlotData.InputControls.AreConnected == false)
+                    {
+                        // player disconnected, so pause ? and drop the player:
+                        playerSlotData.SlotState = PlayerData.eSlotState.ReservedDisconnect;
+                        DropPlayer(playerSlotData.SlotIndex);
+                    }
+                    else if (playerSlotData.InputControls.WasLeaveJustPressed && this.IsPaused)
+                    {
+                        playerSlotData.SlotState = PlayerData.eSlotState.ReservedLeft;
+                        DropPlayer(playerSlotData.SlotIndex);
+                    }
                 }
             }
         }
 
-        private void JoinPlayer(IInputDevice inputDevice)
+        private bool CanPlayerJoin(int controlsID, out PlayerData playerdata)
         {
-            var newPlayer = JoinWith(inputDevice);
+            foreach (var slotData in PlayerManager.PlayersSlots)
+            {
+                if (slotData.InputControls != null
+                    &&
+                    slotData.InputControls.ControlsID == controlsID)
+                {
+                    /*
+                    Free = 0,                   = cant't happen
+
+                    ReservedLeft = 1,           = can re-join
+                    ReservedDisconnect = 2,     = can re-join
+
+                    FullPlayerDead = 3,         = can't re-join this level
+
+                    Full = 4,                   = cant't happen (can't re-join)
+                    */
+
+                    // Can join if 
+                    //  has no playerdata
+                    //  has player data state ReservedLeft or ReservedDisconnect
+
+                    if (slotData.SlotState < PlayerData.eSlotState.FullPlayerDead)
+                    {
+                        playerdata = slotData;
+                        return true;
+                    }
+                    else
+                    {
+                        playerdata = null;
+                        return false;
+                    }
+                }
+            }
+
+            // PlayerData for this controls not found in any slot = not previously connected
+            playerdata = null;
+            return true;
+        }
+
+        private Player JoinWith(InputControls inputControls)
+        {
+            //PlayerWeaponLevelManager.AddUniqueInputDevice(inputDevice);
+            PlayerData playerData;
+            if (!PlayerManager.TryAssignSlotToPlayer(inputControls, out playerData))
+                return null;
+
+            return JoinWith(playerData);
+        }
+        private Player JoinWith(PlayerData playerData)
+        {
+            //PlayerWeaponLevelManager.AddUniqueInputDevice(inputDevice);
+            playerData.SlotState = PlayerData.eSlotState.Full;
+
+            var newPlayer = new Player();
+
+            newPlayer.CurrentColorCategoryState =
+                playerData.SlotIndex.ToPlayerColorCategory();
+
+            PlayerList.Add(newPlayer);
+            newPlayer.InitializeTopDownInput(playerData.InputControls.PrimaryInputDevice);
+
+            newPlayer.SwappedWeapon += () => HandlePlayerSwappedWeapon(newPlayer);
+            newPlayer.OnPlayerDeath += OnPlayerDeath;
+
+            //AssignPlayerData(player);
+            newPlayer.PlayerData = playerData;
+
             SetInitialPlayerPosition(newPlayer);
+
             ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(
                 newPlayer,
-                UpdateType.Instant, false);
-        }
+                UpdateType.Instant, false
+            );
 
-        private void DropPlayer(Player player)
-        {
-            player.Destroy();
+            return newPlayer;
         }
-
-        private Player JoinWith(IInputDevice inputDevice)
+        /*private Player JoinWith(int controlsID)
         {
+            //PlayerWeaponLevelManager.AddUniqueInputDevice(inputDevice);
+            PlayerData playerData;
+            if (!PlayerManager.TryAssignSlotToPlayer(inputControls, out playerData))
+                return null;
+
             var player = new Player();
-            PlayerWeaponLevelManager.AddUniqueInputDevice(inputDevice);
-            
+
             player.CurrentColorCategoryState =
-                PlayerList.Count.ToPlayerColorCategory();
+                playerData.SlotIndex.ToPlayerColorCategory();
 
             PlayerList.Add(player);
-            player.InitializeTopDownInput(inputDevice);
+            player.InitializeTopDownInput(inputControls.PrimaryInputDevice);
 
             player.SwappedWeapon += () => HandlePlayerSwappedWeapon(player);
 
-            AssignPlayerData(player);
+            //AssignPlayerData(player);
+            player.PlayerData = playerData;
 
             SetInitialPlayerPosition(player);
+
             return player;
+        }*/
+
+
+        private void DropPlayer(int slotIndex)
+        {
+            Player player = PlayerList.First(p => p.PlayerData.SlotIndex == slotIndex);
+            player.Destroy();
         }
+
 
         private void DoUiActivity()
         {
@@ -739,7 +900,7 @@ namespace Teotihuacan.Screens
 
         void CustomDestroy()
 		{
-            PlayerWeaponLevelManager.SaveAll();
+            PlayerManager.SaveAll();
 
             Camera.Main.Detach();
             LoopedBackgroundMusic?.Stop();

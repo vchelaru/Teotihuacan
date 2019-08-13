@@ -8,72 +8,42 @@ using System.Threading.Tasks;
 
 namespace Teotihuacan.Models
 {
-    public class Xbox360GamePadControls : IInputControls
+    public class Xbox360GamePadControls : InputControls
     {
         private readonly Xbox360GamePad _GamePad;
 
-        public IInputDevice PrimaryInputDevice
+        public override IInputDevice PrimaryInputDevice
         {
             get { return _GamePad; }
         }
 
-        public Mouse SecondaryInputDevice
-        {
-            get { return null; }
-        }
-
-        public bool IsPrimaryFireDown
-        {
-            get { return _GamePad.RightTrigger.IsDown; }
-        }
-
-        private readonly IPressableInput _SwapWeaponsBackButton;
-        public bool WasSwapWeaponsBackJustPressed
-        {
-            get { return _SwapWeaponsBackButton.WasJustPressed; }
-        }
-
-        private readonly IPressableInput _SwapWeaponsForwardButton;
-        public bool WasSwapWeaponsForwardJustPressed
-        {
-            get { return _SwapWeaponsForwardButton.WasJustPressed; }
-        }
-
-        private readonly IPressableInput _PauseButton;
-        public bool WasPauseJustPressed
-        {
-            get { return _PauseButton.WasJustPressed; }
-        }
-
-        private readonly IPressableInput _JoinButton;
-        public bool WasJoinJustPressed
-        {
-            get { return _JoinButton.WasJustPressed; }
-        }
-
-        private readonly IPressableInput _LeaveButton;
-        public bool WasLeaveJustPressed
-        {
-            get { return _LeaveButton.WasJustPressed; }
-        }
+        public override Mouse SecondaryInputDevice { get { return null; } }
 
         private I2DInput _AimInput;
 
+        public override bool AreConnected
+        {
+            get { return _GamePad.IsConnected; }
+        }
 
-        public Xbox360GamePadControls(Xbox360GamePad gamePad)
+
+
+        public Xbox360GamePadControls(Xbox360GamePad gamePad, int gamePadIndex) : base(gamePadIndex)
         {
             _GamePad = gamePad;
 
-            _SwapWeaponsBackButton = gamePad.GetButton(Xbox360GamePad.Button.LeftShoulder);
-            _SwapWeaponsForwardButton = gamePad.GetButton(Xbox360GamePad.Button.RightShoulder);
-            _PauseButton = _JoinButton = gamePad.GetButton(Xbox360GamePad.Button.Start);
-            _LeaveButton = gamePad.GetButton(Xbox360GamePad.Button.Back);
+            _PrimaryFireInput = gamePad.GetButton(InputControls.Xbox360GamePad_Button_FrimaryFire);
+            _SwapWeaponsBackInput = gamePad.GetButton(InputControls.Xbox360GamePad_Button_SwapWeaponsBack);
+            _SwapWeaponsForwardInput = gamePad.GetButton(InputControls.Xbox360GamePad_Button_SwapWeaponsForward);
+            //_JoinButton =
+            _PauseInput = gamePad.GetButton(InputControls.Xbox360GamePad_Button_Pause);
+            _LeaveInput = gamePad.GetButton(InputControls.Xbox360GamePad_Button_Leave);
 
             _AimInput = gamePad.RightStick;
         }
 
 
-        public Vector2? TryGetAimingVector(ref Vector3 origin)
+        public override Vector2? TryGetAimingVector(ref Vector3 origin)
         {
             if (_AimInput.Magnitude > 0)
             {
@@ -95,5 +65,12 @@ namespace Teotihuacan.Models
                 return null;
             }
         }
+
+
+        public override string ToString()
+        {
+            return "Xbox360GamePadControls ID: " + ControlsID;
+        }
+        
     }
 }

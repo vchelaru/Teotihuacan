@@ -253,10 +253,10 @@
       <DependentUpon>WinScreenGumRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="Managers\LightningWeaponManager.cs" />
-    <Compile Include="Managers\PlayerWeaponLevelManager.cs" />
+    <Compile Include="Managers\PlayerManager.cs" />
     <Compile Include="Managers\SpawnManager.cs" />
     <Compile Include="Models\DataLoader.cs" />
-    <Compile Include="Models\IInputControls.cs" />
+    <Compile Include="Models\InputControls.cs" />
     <Compile Include="Models\Xbox360GamePadControls.cs" />
     <Compile Include="Models\KeyboardMouseControls.cs" />
     <Compile Include="Models\PlayerData.cs" />
@@ -363,6 +363,7 @@
     <Compile Include="TopDown\Interfaces.cs" />
     <Compile Include="TopDown\TopDownAiInput.cs" />
     <Compile Include="UiControllers\BarController.cs" />
+    <Compile Include="Utilities\Tests.cs" />
     <Compile Include="Utilities\WinApi.cs" />
   </ItemGroup>
   <ItemGroup>

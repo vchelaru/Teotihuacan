@@ -14,7 +14,7 @@ namespace Teotihuacan.Models
         {
             var serializedData = JsonConvert.SerializeObject(playerData);
 
-            var path = PathFromName(playerData.PlayerIndex);
+            var path = PathFromName(playerData.SlotIndex);
 
             var directory = FileManager.GetDirectory(path);
             System.IO.Directory.CreateDirectory(directory);
@@ -22,11 +22,14 @@ namespace Teotihuacan.Models
             System.IO.File.WriteAllText(path, serializedData);
         }
 
-        public static PlayerData LoadData(int playerIndex)
+        /// <summary>Returns PlayerData for given slot index or null if data do not exist on disk.</summary>
+        /// <param name="slotIndex"></param>
+        /// <returns>PlayerData for given slot index or null if data do not exist on disk.</returns>
+        public static PlayerData TryLoadData(int slotIndex)
         {
             PlayerData playerData = null;
 
-            var path = PathFromName(playerIndex);
+            var path = PathFromName(slotIndex);
 
             if (System.IO.File.Exists(path))
             {
@@ -37,9 +40,9 @@ namespace Teotihuacan.Models
             return playerData;
         }
 
-        public static void Delete(int playerIndex)
+        public static void Delete(int slotIndex)
         {
-            var path = PathFromName(playerIndex);
+            var path = PathFromName(slotIndex);
 
             if(System.IO.File.Exists(path))
             {
@@ -48,9 +51,9 @@ namespace Teotihuacan.Models
         }
 
 
-        static string PathFromName(int playerIndex)
+        static string PathFromName(int slotIndex)
         {
-            return "Data/" + playerIndex + ".data";
+            return "Data/" + slotIndex + ".data";
         }
     }
 }

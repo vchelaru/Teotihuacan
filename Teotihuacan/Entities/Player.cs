@@ -55,7 +55,7 @@ namespace Teotihuacan.Entities
 	{
         #region Fields/Properties
 
-        public IInputControls InputControls;
+        public InputControls InputControls;
         public PlayerData PlayerData;
 
 
@@ -134,8 +134,6 @@ namespace Teotihuacan.Entities
         /// </summary>
         private void CustomInitialize()
 		{
-            PlayerData = new PlayerData(this);
-
             this.PossibleDirections = PossibleDirections.EightWay;
             CurrentHP = MaxHP;
             CurrentEnergy = MaxEnergy;

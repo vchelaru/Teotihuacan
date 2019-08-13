@@ -6,72 +6,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XnaInput = Microsoft.Xna.Framework.Input;
 
 namespace Teotihuacan.Models
 {
-    public class KeyboardMouseControls : IInputControls
+    public class KeyboardMouseControls : InputControls
     {
-        public IInputDevice PrimaryInputDevice
+        public override IInputDevice PrimaryInputDevice
         {
             get { return InputManager.Keyboard; }
         }
 
-        public Mouse SecondaryInputDevice
-        {
-            get { return InputManager.Mouse; }
-        }
+        public override Mouse SecondaryInputDevice { get { return InputManager.Mouse; } }
 
-        public bool IsPrimaryFireDown
-        {
-            get { return InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton); }
-        }
-
-        private readonly IPressableInput _SwapWeaponsBackKey;
-        public bool WasSwapWeaponsBackJustPressed
-        {
-            get { return _SwapWeaponsBackKey.WasJustPressed; }
-        }
-
-        private readonly IPressableInput _SwapWeaponsForwardKey;
-        public bool WasSwapWeaponsForwardJustPressed
-        {
-            get { return _SwapWeaponsForwardKey.WasJustPressed; }
-        }
-
-        private readonly IPressableInput _PauseKey;
-        public bool WasPauseJustPressed
-        {
-            get { return _PauseKey.WasJustPressed; }
-        }
-
-        private readonly IPressableInput _JoinKey;
-        public bool WasJoinJustPressed
-        {
-            get { return _JoinKey.WasJustPressed; }
-        }
-
-        private readonly IPressableInput _LeaveKey;
-        public bool WasLeaveJustPressed
-        {
-            get { return _LeaveKey.WasJustPressed; }
-        }
+        public override bool AreConnected { get { return true; } }
 
 
 
-        public KeyboardMouseControls()
+        public KeyboardMouseControls() : base(KeyboardAndMouse_ControlsID)
         {
             var keyboard = InputManager.Keyboard;
 
-            _SwapWeaponsBackKey = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Q);
-            _SwapWeaponsForwardKey = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.E);
-            _PauseKey = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Escape);
-            _JoinKey = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Insert);
-            _LeaveKey = keyboard.GetKey(Microsoft.Xna.Framework.Input.Keys.Delete);
+            _PrimaryFireInput = InputManager.Mouse.GetButton(InputControls.KeyboardAndMouse_Button_FrimaryFire);
+            _SwapWeaponsBackInput = keyboard.GetKey(InputControls.KeyboardAndMouse_Button_SwapWeaponsBack);
+            _SwapWeaponsForwardInput = keyboard.GetKey(InputControls.KeyboardAndMouse_Button_SwapWeaponsForward);
+            _PauseInput = keyboard.GetKey(InputControls.KeyboardAndMouse_Button_Pause);
+            //_JoinKey = keyboard.GetKey();
+            _LeaveInput = keyboard.GetKey(InputControls.KeyboardAndMouse_Button_Leave);
         }
 
 
 
-        public Vector2? TryGetAimingVector(ref Vector3 origin)
+        public override Vector2? TryGetAimingVector(ref Vector3 origin)
         {
             Vector2 cursorPosition = new Vector2(GuiManager.Cursor.WorldXAt(origin.Z), GuiManager.Cursor.WorldYAt(origin.Z));
 
@@ -91,6 +57,11 @@ namespace Teotihuacan.Models
             newAimingVector.Normalize();
 
             return newAimingVector;
+        }
+
+        public override string ToString()
+        {
+            return "KeyboardMouseControls ID: " + KeyboardAndMouse_ControlsID;
         }
     }
 }
