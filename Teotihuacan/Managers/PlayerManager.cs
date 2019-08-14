@@ -55,9 +55,19 @@ namespace Teotihuacan.Managers
 
                     // Create new player stats
                     if (playerData == null)
+                    {
                         playerData = new PlayerData(slotIndex, inputControls);
-
+                        //playerData.SlotIndex = slotIndex;
+                    }
+                    else
+                    {
+                        playerData.InputControls = inputControls;
+                    }
+                    
                     playerData.SlotState = PlayerData.eSlotState.Full;
+
+                    PlayersSlots[slotIndex] = playerData;
+
                     return true;
                 }
                 /*else if (slotPlayerData.SlotState == PlayerData.eSlotState.Free)
@@ -100,9 +110,9 @@ namespace Teotihuacan.Managers
             return false;
         }
 
-        public static void AddDeadPlayer(int slotIndex)
+        //public static void AddDeadPlayer(int slotIndex)
+        public static void AddDeadPlayer(PlayerData deadPlayerData)
         {
-            var deadPlayerData = PlayersSlots[slotIndex];
             DeadPlayers.Add(deadPlayerData);
             deadPlayerData.SlotState = PlayerData.eSlotState.FullPlayerDead;
         }

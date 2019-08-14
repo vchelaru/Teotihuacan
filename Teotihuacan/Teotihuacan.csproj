@@ -234,6 +234,8 @@
     </Compile>
     <Compile Include="GumRuntimes\PolygonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\RivaGameTestScreenGumRuntime.cs" />
+    <Compile Include="GumRuntimes\RivaGameTestScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RivaTestScreenGumRuntime.cs" />
     <Compile Include="GumRuntimes\RivaTestScreenGumRuntime.Generated.cs">
       <DependentUpon>RivaTestScreenGumRuntime.cs</DependentUpon>
@@ -317,6 +319,10 @@
     <Compile Include="Screens\Level9.cs" />
     <Compile Include="Screens\Level9.Generated.cs">
       <DependentUpon>Level9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\RivaGameTestScreen.cs" />
+    <Compile Include="Screens\RivaGameTestScreen.Generated.cs">
+      <DependentUpon>RivaGameTestScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\RivaTestScreen.cs" />
     <Compile Include="Screens\RivaTestScreen.Generated.cs">
@@ -1100,6 +1106,10 @@
     <None Include="content\gumproject\screens\level9gum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level9Gum</Name>
+    </None>
+    <None Include="content\gumproject\screens\rivagametestscreengum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>RivaGameTestScreenGum</Name>
     </None>
     <None Include="content\gumproject\screens\rivatestscreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

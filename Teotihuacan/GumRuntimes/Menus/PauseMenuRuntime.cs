@@ -34,7 +34,6 @@ namespace Teotihuacan.GumRuntimes.Menus
 
         private void ClearDataButtonClicked(object sender, EventArgs e)
         {
-
             ClearDataClicked(this, null);
         }
     }

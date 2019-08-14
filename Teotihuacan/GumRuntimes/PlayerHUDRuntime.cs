@@ -35,10 +35,10 @@ namespace Teotihuacan.GumRuntimes
             HealthGauge.Height = healthGageMax * ((float)(owningPlayer.CurrentHP) / (float)(owningPlayer.MaxHP));
             // below 1 and things overlap. We could use clipping but...this works
             HealthGauge.Visible = HealthGauge.Height > 1;
+
             EnergyGauge.Height = energyGaugeMax * owningPlayer.CurrentEnergy / owningPlayer.MaxEnergy;
             // below 1 and things overlap. We could use clipping but...this works
             EnergyGauge.Visible = EnergyGauge.Height > 1;
-
 
             //XPGauge.Height = xpGaugeMax * owningPlayer.ProgressToNextLevel;
             XPGauge.Visible = XPGauge.Height > 1;

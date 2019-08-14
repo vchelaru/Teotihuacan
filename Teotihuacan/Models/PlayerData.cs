@@ -1,4 +1,5 @@
 ﻿using FlatRedBall.Input;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,10 @@ namespace Teotihuacan.Models
 
         public int SlotIndex;
 
+        [JsonIgnore]
         public eSlotState SlotState; // = eSlotState.Free;
 
+        [JsonIgnore]
         public InputControls InputControls;
 
         public List<WeaponLevelBase> WeaponLevels = new List<WeaponLevelBase>();
@@ -40,12 +43,6 @@ namespace Teotihuacan.Models
 
 
         public PlayerData() { }
-
-        /*public PlayerData(Player playerCharEntity)
-        {
-            SlotIndex = playerCharEntity.Index; // DO NOT USE Player.Index !! It's for Pleyr Entity pooling only !
-            InputControls = playerCharEntity.InputControls;
-        }*/
 
         public PlayerData(int slotIndex, InputControls inputControls)
         {

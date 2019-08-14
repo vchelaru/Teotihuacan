@@ -99,8 +99,11 @@ namespace Teotihuacan.Screens
         void CustomInitialize()
         {
             CurrentMultipliers = new StatMultipliers(this);
+
             TileEntityInstantiator.CreateEntitiesFrom(Map);
             Map.RemoveTiles(t => t.Any(item => item.Name == "Type" && (item.Value as string) == "RemoveMe"), Map.TileProperties);
+
+            //var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
 
             // Create players after other entities so they can be spawned next to the base
             CreatePlayers();
@@ -112,7 +115,7 @@ namespace Teotihuacan.Screens
             InitializeCameraController();
 
             Factories.EnemyFactory.EntitySpawned = HandleEnemySpawn;
-            EnemyList.CollectionChanged += (a, b) => HandleEnemyListChanged();
+            EnemyList.CollectionChanged += (not, used) => HandleEnemyListChanged();
 
             InitializeNodeNetworks();
 
@@ -361,11 +364,10 @@ namespace Teotihuacan.Screens
         private void InitializeUi()
         {
             var gameScreenGumRuntime = ((GameScreenGumRuntime)GameScreenGum);
-            gameScreenGumRuntime.SetNumberOfPlayers(PlayerList.Count);
+            //gameScreenGumRuntime.SetNumberOfPlayers(PlayerList.Count);
 
             gameScreenGumRuntime.QuitClicked += (not, used) => FlatRedBallServices.Game.Exit();
             gameScreenGumRuntime.ResumeClicked += (not, used) => DoUnpause();
-
             gameScreenGumRuntime.ClearDataClicked += (not, used) =>
             {
                 PlayerManager.ClearAll();
@@ -375,9 +377,17 @@ namespace Teotihuacan.Screens
             gameScreenGumRuntime.StartLevel += () => DoStartLevel();
             gameScreenGumRuntime.ShowLevelStartOverlay($"{LevelName}");
 
-            foreach(var player in PlayerList)
+            int numberOfControlsConnected = 1; // 1 for keyboard+mouse
+            foreach (var gamePad in InputManager.Xbox360GamePads)
             {
-                gameScreenGumRuntime.RefreshExperienceBar(player, UpdateType.Instant, false);
+                if (gamePad.IsConnected)
+                    numberOfControlsConnected++;
+            }
+            gameScreenGumRuntime.SetJoinHUDsVisibility(numberOfControlsConnected);
+
+            foreach (var player in PlayerList)
+            {
+                SetPlayerHudOnJoin(player);
             }
         }
 
@@ -412,21 +422,6 @@ namespace Teotihuacan.Screens
 
             player.OnPlayerDeath += OnPlayerDeath;
         }*/
-
-        void OnPlayerDeath(Player deadPlayer)
-        {
-            /*deadPlayerInputDevices.Add(deadPlayer.InputDevice);
-            foreach (var enemy in EnemyList)
-            {
-                enemy.ReactToPlayerDeath(deadPlayer);
-            }*/
-
-            PlayerManager.AddDeadPlayer(deadPlayer.PlayerData.SlotIndex);
-            foreach (var enemy in EnemyList)
-            {
-                enemy.ReactToPlayerDeath(deadPlayer);
-            }
-        }
 
         #endregion
 
@@ -555,7 +550,8 @@ namespace Teotihuacan.Screens
                             else
                                 newPlayer = JoinWith(new Xbox360GamePadControls(gamePad, gamepadIndex));
 
-                            SetPlayerHudOnJoin(newPlayer);
+                            if (newPlayer != null)
+                                SetPlayerHudOnJoin(newPlayer);
                         }
                     }
                 }
@@ -582,7 +578,8 @@ namespace Teotihuacan.Screens
                         else
                             newPlayer = JoinWith(new KeyboardMouseControls());
 
-                        SetPlayerHudOnJoin(newPlayer);
+                        if (newPlayer != null)
+                            SetPlayerHudOnJoin(newPlayer);
                     }
                 }
             }
@@ -613,12 +610,17 @@ namespace Teotihuacan.Screens
                     {
                         // player disconnected, so pause ? and drop the player:
                         playerSlotData.SlotState = PlayerData.eSlotState.ReservedDisconnect;
-                        DropPlayer(playerSlotData.SlotIndex);
+                        DropPlayer(playerSlotData);
                     }
                     else if (playerSlotData.InputControls.WasLeaveJustPressed && this.IsPaused)
                     {
-                        playerSlotData.SlotState = PlayerData.eSlotState.ReservedLeft;
-                        DropPlayer(playerSlotData.SlotIndex);
+                        // player wants to leave
+                        if (playerSlotData.SlotState == PlayerData.eSlotState.Full)
+                            playerSlotData.SlotState = PlayerData.eSlotState.ReservedLeft;
+                        // else PlayerData.eSlotState.FullPlayerDead
+                        //  stays in dead state
+                        
+                        DropPlayer(playerSlotData);
                     }
                 }
             }
@@ -628,7 +630,9 @@ namespace Teotihuacan.Screens
         {
             foreach (var slotData in PlayerManager.PlayersSlots)
             {
-                if (slotData.InputControls != null
+                if (slotData != null
+                    &&
+                    slotData.InputControls != null
                     &&
                     slotData.InputControls.ControlsID == controlsID)
                 {
@@ -647,7 +651,7 @@ namespace Teotihuacan.Screens
                     //  has no playerdata
                     //  has player data state ReservedLeft or ReservedDisconnect
 
-                    if (slotData.SlotState < PlayerData.eSlotState.FullPlayerDead)
+                    if (slotData.SlotState <= PlayerData.eSlotState.ReservedDisconnect)
                     {
                         playerdata = slotData;
                         return true;
@@ -683,15 +687,13 @@ namespace Teotihuacan.Screens
 
             newPlayer.CurrentColorCategoryState =
                 playerData.SlotIndex.ToPlayerColorCategory();
-
-            PlayerList.Add(newPlayer);
-            newPlayer.InitializeTopDownInput(playerData.InputControls.PrimaryInputDevice);
-
             newPlayer.SwappedWeapon += () => HandlePlayerSwappedWeapon(newPlayer);
             newPlayer.OnPlayerDeath += OnPlayerDeath;
-
-            //AssignPlayerData(player);
             newPlayer.PlayerData = playerData;
+            newPlayer.InputControls = playerData.InputControls;
+            newPlayer.InitializeTopDownInput(playerData.InputControls.PrimaryInputDevice);
+
+            PlayerList.Add(newPlayer);
 
             SetInitialPlayerPosition(newPlayer);
 
@@ -723,18 +725,48 @@ namespace Teotihuacan.Screens
         }*/
         private void SetPlayerHudOnJoin(Player newPlayer)
         {
-            ((GameScreenGumRuntime)GameScreenGum).RefreshExperienceBar(
+            //var playerSlotIndex = 
+            var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
+
+            gameScreenGumRuntime.PlayerJoinHuds[newPlayer.PlayerData.SlotIndex].Visible = false;
+            gameScreenGumRuntime.PlayerHuds[newPlayer.PlayerData.SlotIndex].Visible = true;
+
+            gameScreenGumRuntime
+                .RefreshExperienceBar(
                 newPlayer,
                 UpdateType.Instant, false
             );
         }
 
-        private void DropPlayer(int slotIndex)
+        private void DropPlayer(PlayerData playerSlotData)
         {
-            Player player = PlayerList.First(p => p.PlayerData.SlotIndex == slotIndex);
-            player.Destroy();
+            var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
+
+            gameScreenGumRuntime.PlayerHuds[playerSlotData.SlotIndex].Visible = false;
+            // TODO: PlayerHudsDead.Visible = false;
+            gameScreenGumRuntime.PlayerJoinHuds[playerSlotData.SlotIndex].Visible = true;
+
+            Player player = PlayerList.FirstOrDefault(p => p.PlayerData.SlotIndex == playerSlotData.SlotIndex);
+            if (player != null)
+                player.Destroy();
         }
 
+        void OnPlayerDeath(Player deadPlayer)
+        {
+            //deadPlayerInputDevices.Add(deadPlayer.InputDevice);
+            PlayerManager.AddDeadPlayer(deadPlayer.PlayerData);
+
+            var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
+            gameScreenGumRuntime.PlayerHuds[deadPlayer.PlayerData.SlotIndex].Visible = false;
+            gameScreenGumRuntime.PlayerJoinHuds[deadPlayer.PlayerData.SlotIndex].Visible = false;
+            // TODO: dead player HUD
+            //gameScreenGumRuntime.PlayerHudsDead[slotIndex].Visible = true;
+
+            foreach (var enemy in EnemyList)
+            {
+                enemy.ReactToPlayerDeath(deadPlayer);
+            }
+        }
 
         private void DoUiActivity()
         {

@@ -18,8 +18,8 @@ namespace Teotihuacan.GumRuntimes
 
         #region Fields/Properties
 
-        List<PlayerHUDRuntime> playerHuds = new List<PlayerHUDRuntime>();
-        List<PlayerHUDJoinRuntime> playerJoinHuds = new List<PlayerHUDJoinRuntime>();
+        public List<PlayerHUDRuntime> PlayerHuds = new List<PlayerHUDRuntime>();
+        public List<PlayerHUDJoinRuntime> PlayerJoinHuds = new List<PlayerHUDJoinRuntime>();
 
         #endregion
 
@@ -38,24 +38,35 @@ namespace Teotihuacan.GumRuntimes
             PauseMenuInstance.ResumeClicked += (not, used) => ResumeClicked(this, null);
             PauseMenuInstance.QuitClicked += (not, used) => QuitClicked(this, null);
             PauseMenuInstance.ClearDataClicked += (not, used) => ClearDataClicked(this, null);
+
+            PlayerHuds.Add(PlayerHUDInstance);
+            PlayerHuds.Add(PlayerHUDInstance1);
+            PlayerHuds.Add(PlayerHUDInstance2);
+            PlayerHuds.Add(PlayerHUDInstance3);
+            PlayerHUDInstance.Visible = false;
+            PlayerHUDInstance1.Visible = false;
+            PlayerHUDInstance2.Visible = false;
+            PlayerHUDInstance3.Visible = false;
+
+            PlayerJoinHuds.Add(PlayerHUDJoinInstance);
+            PlayerJoinHuds.Add(PlayerHUDJoinInstance1);
+            PlayerJoinHuds.Add(PlayerHUDJoinInstance2);
+            PlayerJoinHuds.Add(PlayerHUDJoinInstance3);
         }
 
-        public void SetNumberOfPlayers(int numberOfPlayers)
+        public void SetJoinHUDsVisibility(int numberOfControlsConnected)
         {
-            this.PlayerHUDInstance.Visible = numberOfPlayers > 0;
-            this.PlayerHUDInstance1.Visible = numberOfPlayers > 1;
-            this.PlayerHUDInstance2.Visible = numberOfPlayers > 2;
-            this.PlayerHUDInstance3.Visible = numberOfPlayers > 3;
+            int numberOfJoingHUDs = Math.Min(PlayerManager.MaxNumberOfPlayers, numberOfControlsConnected);
 
-            playerHuds.Add(PlayerHUDInstance);
-            playerHuds.Add(PlayerHUDInstance1);
-            playerHuds.Add(PlayerHUDInstance2);
-            playerHuds.Add(PlayerHUDInstance3);
-
-            playerJoinHuds.Add(PlayerHUDJoinInstance);
-            playerJoinHuds.Add(PlayerHUDJoinInstance1);
-            playerJoinHuds.Add(PlayerHUDJoinInstance2);
-            playerJoinHuds.Add(PlayerHUDJoinInstance3);
+            int slotIndex = 0;
+            for (; slotIndex < numberOfJoingHUDs; slotIndex++)
+            {
+                PlayerJoinHuds[slotIndex].Visible = true;
+            }
+            for (; slotIndex < PlayerManager.MaxNumberOfPlayers; slotIndex++)
+            {
+                PlayerJoinHuds[slotIndex].Visible = false;
+            }
         }
 
 
@@ -66,25 +77,11 @@ namespace Teotihuacan.GumRuntimes
             for (int playerSlotIndex = 0; playerSlotIndex < PlayerManager.MaxNumberOfPlayers; playerSlotIndex++)
             {
                 var slotData = PlayerManager.PlayersSlots[playerSlotIndex];
-                var hud = playerHuds[playerSlotIndex];
 
-                if (slotData == null 
-                    ||
-                    slotData.SlotState <= Models.PlayerData.eSlotState.ReservedDisconnect)
-                {
-                    // free slot
-                    hud.Visible = false;
-                }
-                else if (slotData.SlotState == Models.PlayerData.eSlotState.FullPlayerDead)
-                {
-                    // dead player slot
-                    // TODO: dead player HUD
-                    hud.Visible = false;
-                }
-                else
+                if (slotData != null && slotData.SlotState == Models.PlayerData.eSlotState.Full)
                 {
                     // active player slot
-                    hud.Visible = true;
+                    var hud = PlayerHuds[playerSlotIndex];
 
                     switch (slotData.EquippedWeapon)
                     {
@@ -96,7 +93,6 @@ namespace Teotihuacan.GumRuntimes
                             break;
                         case Animation.Weapon.ShootingSkulls:
                             hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Skull;
-
                             break;
                     }
 
@@ -112,18 +108,6 @@ namespace Teotihuacan.GumRuntimes
                     playerJoinHuds[i].Visible = !playerHuds[i].Visible &&
                         FlatRedBall.Input.InputManager.Xbox360GamePads[i].IsConnected;
                 }
-                else
-                {
-                    playerJoinHuds[i].Visible = false;
-                    playerHuds[i].Visible = false;
-                }
-            }
-
-            if(deadPlayerInputDevices.Contains(InputManager.Keyboard))
-            {
-                //Assume the keyboad player is in slot 0;
-                playerJoinHuds[0].Visible = false;
-                playerHuds[0].Visible = false;
             }*/
 
             // Update Base's HUD
@@ -184,7 +168,7 @@ namespace Teotihuacan.GumRuntimes
 
         public void RefreshExperienceBar(Player player, UpdateType updateType, bool isLevelUp)
         {
-            var hud = playerHuds[player.PlayerData.SlotIndex];
+            var hud = PlayerHuds[player.PlayerData.SlotIndex];
 
             hud.RefreshExperienceBar(player, updateType, isLevelUp);
         }

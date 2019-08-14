@@ -362,6 +362,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDJoinInstance.Y</Name>
+      <Value xsi:type="xsd:float">-1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>PortraitCategoryState</Type>
       <Name>PlayerHUDJoinInstance1.PortraitCategoryState</Name>
       <Value xsi:type="xsd:string">Player2</Value>
@@ -436,7 +442,7 @@
     <Variable>
       <Type>float</Type>
       <Name>PlayerHUDJoinInstance2.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">-1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

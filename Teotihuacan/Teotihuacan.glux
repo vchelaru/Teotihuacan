@@ -1859,6 +1859,10 @@
               <Name>Volume</Name>
               <ValueAsInt>100</ValueAsInt>
             </PropertySave>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
           </Properties>
           <Name>Screens/Level1/Level1Music_artifact_by_kevin_macleod.mp3</Name>
           <IsSharedStatic>true</IsSharedStatic>
@@ -1989,6 +1993,10 @@
             <PropertySave>
               <Name>Volume</Name>
               <ValueAsInt>100</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
           <Name>Screens/Level10/Level10Music_the_escalation_by_kevin_macleod.mp3</Name>
@@ -2136,6 +2144,10 @@
               <Name>Volume</Name>
               <ValueAsInt>100</ValueAsInt>
             </PropertySave>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
           </Properties>
           <Name>Screens/Level2/Level2Music_digya_by_kevin_macleod.mp3</Name>
           <IsSharedStatic>true</IsSharedStatic>
@@ -2281,6 +2293,10 @@
             <PropertySave>
               <Name>Volume</Name>
               <ValueAsInt>100</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
           <Name>Screens/Level3/Level3Music_firebrand_by_kevin_macleod.mp3</Name>
@@ -2428,6 +2444,10 @@
               <Name>Volume</Name>
               <ValueAsInt>100</ValueAsInt>
             </PropertySave>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
           </Properties>
           <Name>Screens/Level4/Level4Music_tafi_maradi_no_voice_by_kevin_macleod.mp3</Name>
           <IsSharedStatic>true</IsSharedStatic>
@@ -2573,6 +2593,10 @@
             <PropertySave>
               <Name>Volume</Name>
               <ValueAsInt>100</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
           <Name>Screens/Level5/Level5Music_rite_of_passage_by_kevin_macleod.mp3</Name>
@@ -2720,6 +2744,10 @@
               <Name>Volume</Name>
               <ValueAsInt>100</ValueAsInt>
             </PropertySave>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
           </Properties>
           <Name>Screens/Level6/Level6Music_round_drums_by_kevin_macleod.mp3</Name>
           <IsSharedStatic>true</IsSharedStatic>
@@ -2865,6 +2893,10 @@
             <PropertySave>
               <Name>Volume</Name>
               <ValueAsInt>100</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
           <Name>Screens/Level7/Level7Music_anglozulu_by_kevin_macleod.mp3</Name>
@@ -3012,6 +3044,10 @@
               <Name>Volume</Name>
               <ValueAsInt>100</ValueAsInt>
             </PropertySave>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
           </Properties>
           <Name>Screens/Level8/Level8Music_witch_hunt_by_kevin_macleod.mp3</Name>
           <IsSharedStatic>true</IsSharedStatic>
@@ -3158,6 +3194,10 @@
               <Name>Volume</Name>
               <ValueAsInt>100</ValueAsInt>
             </PropertySave>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
           </Properties>
           <Name>Screens/Level9/Level9Music_stompdance_by_kevin_macleod.mp3</Name>
           <IsSharedStatic>true</IsSharedStatic>
@@ -3218,6 +3258,140 @@
             <Type>bool</Type>
             <Member>Visible</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>5</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Red</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Green</Member>
+            <ValueAsFloat>0.9</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>0.4</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>2</ValueAsInt>
+          </CustomProperty>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightOverlaySprite</InstanceName>
+          <ExposedInDerived>true</ExposedInDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <InstantiatedByBase>true</InstantiatedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+    </ScreenSave>
+    <ScreenSave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <BaseScreen>Screens\GameScreen</BaseScreen>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>LevelName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">RivaGameTestScreen</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
+      <Name>Screens\RivaGameTestScreen</Name>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>gumproject/Screens/RivaGameTestScreenGum.gusx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Gum.Wireframe.GraphicalUiElement</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Levels/Level1Tiled.tmx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.TileGraphics.LayeredTileMap</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-3</ValueAsFloat>
+          </CustomProperty>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">File</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>File</SourceType>
+          <SourceFile>Levels/Level1Tiled.tmx</SourceFile>
+          <SourceName>Entire File (LayeredTileMap)</SourceName>
+          <SourceClassType>LayeredTileMap</SourceClassType>
+          <InstanceName>Map</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>11</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>5000</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>4000</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>FlatRedBall.Graphics.ColorOperation</Type>
