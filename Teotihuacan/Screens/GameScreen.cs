@@ -454,7 +454,6 @@ namespace Teotihuacan.Screens
         private void HandleLightningVsSolidCollision(Player player, TileShapeCollection tileMap)
         {
             player.LightningWeaponManager.HandleCollisionVsSolid(player);
-            
         }
 
         private void HandleLightningVsEnemyCollision(Player player, Enemy enemy)
@@ -468,8 +467,10 @@ namespace Teotihuacan.Screens
             foreach (var player in PlayerList)
             {
                 player.LightningWeaponManager.StartCollisionFrameLogic();
-                if(player.CurrentSecondaryAction == Animation.SecondaryActions.Shooting &&
-                    player.EquippedWeapon == Animation.Weapon.ShootingLightning)
+
+                if(player.CurrentSecondaryAction == Animation.SecondaryActions.Shooting 
+                   &&
+                   player.EquippedWeapon == Animation.Weapon.ShootingLightning)
                 {
                     areAnyShootingLightning = true;
                 }
@@ -744,7 +745,7 @@ namespace Teotihuacan.Screens
             var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
 
             gameScreenGumRuntime.PlayerHuds[playerSlotData.SlotIndex].Visible = false;
-            // TODO: PlayerHudsDead.Visible = false;
+            gameScreenGumRuntime.PlayerDeadHuds[playerSlotData.SlotIndex].Visible = false;
             gameScreenGumRuntime.PlayerJoinHuds[playerSlotData.SlotIndex].Visible = true;
 
             Player player = PlayerList.FirstOrDefault(p => p.PlayerData.SlotIndex == playerSlotData.SlotIndex);
@@ -761,7 +762,7 @@ namespace Teotihuacan.Screens
             gameScreenGumRuntime.PlayerHuds[deadPlayer.PlayerData.SlotIndex].Visible = false;
             gameScreenGumRuntime.PlayerJoinHuds[deadPlayer.PlayerData.SlotIndex].Visible = false;
             // TODO: dead player HUD
-            //gameScreenGumRuntime.PlayerHudsDead[slotIndex].Visible = true;
+            gameScreenGumRuntime.PlayerDeadHuds[deadPlayer.PlayerData.SlotIndex].Visible = true;
 
             foreach (var enemy in EnemyList)
             {

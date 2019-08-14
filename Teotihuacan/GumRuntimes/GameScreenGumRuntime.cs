@@ -20,6 +20,7 @@ namespace Teotihuacan.GumRuntimes
 
         public List<PlayerHUDRuntime> PlayerHuds = new List<PlayerHUDRuntime>();
         public List<PlayerHUDJoinRuntime> PlayerJoinHuds = new List<PlayerHUDJoinRuntime>();
+        public List<PlayerHUDDeadRuntime> PlayerDeadHuds = new List<PlayerHUDDeadRuntime>();
 
         #endregion
 
@@ -52,6 +53,19 @@ namespace Teotihuacan.GumRuntimes
             PlayerJoinHuds.Add(PlayerHUDJoinInstance1);
             PlayerJoinHuds.Add(PlayerHUDJoinInstance2);
             PlayerJoinHuds.Add(PlayerHUDJoinInstance3);
+            PlayerHUDJoinInstance.Visible = false;
+            PlayerHUDJoinInstance1.Visible = false;
+            PlayerHUDJoinInstance2.Visible = false;
+            PlayerHUDJoinInstance3.Visible = false;
+
+            PlayerDeadHuds.Add(PlayerHUDDeadInstance);
+            PlayerDeadHuds.Add(PlayerHUDDeadInstance1);
+            PlayerDeadHuds.Add(PlayerHUDDeadInstance2);
+            PlayerDeadHuds.Add(PlayerHUDDeadInstance3);
+            PlayerHUDDeadInstance.Visible = false;
+            PlayerHUDDeadInstance1.Visible = false;
+            PlayerHUDDeadInstance2.Visible = false;
+            PlayerHUDDeadInstance3.Visible = false;
         }
 
         public void SetJoinHUDsVisibility(int numberOfControlsConnected)

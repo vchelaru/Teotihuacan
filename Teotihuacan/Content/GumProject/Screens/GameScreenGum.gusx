@@ -158,6 +158,108 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>PlayerHUDDeadInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDDeadInstance.Y</Name>
+      <Value xsi:type="xsd:float">-1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PortraitCategoryState</Type>
+      <Name>PlayerHUDDeadInstance1.PortraitCategoryState</Name>
+      <Value xsi:type="xsd:string">Player2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>PlayerHUDDeadInstance1.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDDeadInstance1.Y</Name>
+      <Value xsi:type="xsd:float">-45</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>PlayerHUDDeadInstance1.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PlayerHUDDeadInstance1.Y Units</Name>
+      <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LeftRightVersionState</Type>
+      <Name>PlayerHUDDeadInstance2.LeftRightVersionState</Name>
+      <Value xsi:type="xsd:string">Right</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PortraitCategoryState</Type>
+      <Name>PlayerHUDDeadInstance2.PortraitCategoryState</Name>
+      <Value xsi:type="xsd:string">Player3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>PlayerHUDDeadInstance2.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDDeadInstance2.Y</Name>
+      <Value xsi:type="xsd:float">-1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LeftRightVersionState</Type>
+      <Name>PlayerHUDDeadInstance3.LeftRightVersionState</Name>
+      <Value xsi:type="xsd:string">Right</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PortraitCategoryState</Type>
+      <Name>PlayerHUDDeadInstance3.PortraitCategoryState</Name>
+      <Value xsi:type="xsd:string">Player4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>PlayerHUDDeadInstance3.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>PlayerHUDDeadInstance3.Y</Name>
+      <Value xsi:type="xsd:float">-32</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>PlayerHUDDeadInstance3.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>PlayerHUDDeadInstance3.Y Units</Name>
+      <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>PlayerHUDInstance.Parent</Name>
       <Value xsi:type="xsd:string">ContainerInstance</Value>
@@ -167,6 +269,12 @@
       <Type>PortraitCategoryState</Type>
       <Name>PlayerHUDInstance.PortraitCategoryState</Name>
       <Value xsi:type="xsd:string">Player1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>PlayerHUDInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -215,6 +323,12 @@
       <Type>PortraitCategoryState</Type>
       <Name>PlayerHUDInstance1.PortraitCategoryState</Name>
       <Value xsi:type="xsd:string">Player2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>PlayerHUDInstance1.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -272,6 +386,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>PlayerHUDInstance2.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>PlayerHUDInstance2.X</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -326,6 +446,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>PlayerHUDInstance3.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>PlayerHUDInstance3.X</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -362,6 +488,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>PlayerHUDJoinInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>PlayerHUDJoinInstance.Y</Name>
       <Value xsi:type="xsd:float">-1</Value>
@@ -371,6 +503,12 @@
       <Type>PortraitCategoryState</Type>
       <Name>PlayerHUDJoinInstance1.PortraitCategoryState</Name>
       <Value xsi:type="xsd:string">Player2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>PlayerHUDJoinInstance1.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -394,7 +532,7 @@
     <Variable>
       <Type>float</Type>
       <Name>PlayerHUDJoinInstance1.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -419,6 +557,12 @@
       <Type>PortraitCategoryState</Type>
       <Name>PlayerHUDJoinInstance2.PortraitCategoryState</Name>
       <Value xsi:type="xsd:string">Player3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>PlayerHUDJoinInstance2.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -470,6 +614,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>PlayerHUDJoinInstance3.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>PlayerHUDJoinInstance3.X</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -490,7 +640,7 @@
     <Variable>
       <Type>float</Type>
       <Name>PlayerHUDJoinInstance3.Y</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -601,6 +751,26 @@
   <Instance>
     <Name>PlayerHUDJoinInstance</Name>
     <BaseType>PlayerHUDJoin</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDDeadInstance3</Name>
+    <BaseType>PlayerHUDDead</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDDeadInstance2</Name>
+    <BaseType>PlayerHUDDead</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDDeadInstance1</Name>
+    <BaseType>PlayerHUDDead</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>PlayerHUDDeadInstance</Name>
+    <BaseType>PlayerHUDDead</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>

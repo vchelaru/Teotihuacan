@@ -224,6 +224,8 @@
     <Compile Include="GumRuntimes\PauseRuntime.Generated.cs">
       <DependentUpon>PauseRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\PlayerHUDDeadRuntime.cs" />
+    <Compile Include="GumRuntimes\PlayerHUDDeadRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\PlayerHUDJoinRuntime.cs" />
     <Compile Include="GumRuntimes\PlayerHUDJoinRuntime.Generated.cs">
       <DependentUpon>PlayerHUDJoinRuntime.cs</DependentUpon>
@@ -1004,6 +1006,10 @@
     <None Include="content\gumproject\components\playerhud.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>playerhud</Name>
+    </None>
+    <None Include="content\gumproject\components\playerhuddead.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>playerhuddead</Name>
     </None>
     <None Include="content\gumproject\components\playerhudjoin.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

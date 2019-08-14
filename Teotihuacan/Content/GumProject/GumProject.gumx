@@ -81,15 +81,15 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
-    <Name>DefaultForms/CheckBox</Name>
-    <ElementType>Component</ElementType>
-  </ComponentReference>
-  <ComponentReference>
     <Name>DefaultForms/ColoredFrame</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/ComboBox</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>DefaultForms/CheckBox</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
@@ -177,6 +177,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>PlayerHUDDead</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>PlayerHUDJoin</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -224,10 +228,10 @@
     <Name>ButtonBehavior</Name>
   </BehaviorReference>
   <BehaviorReference>
-    <Name>CheckBoxBehavior</Name>
+    <Name>ComboBoxBehavior</Name>
   </BehaviorReference>
   <BehaviorReference>
-    <Name>ComboBoxBehavior</Name>
+    <Name>CheckBoxBehavior</Name>
   </BehaviorReference>
   <BehaviorReference>
     <Name>ListBoxBehavior</Name>
