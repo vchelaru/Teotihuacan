@@ -235,7 +235,9 @@
     <Compile Include="GumRuntimes\PolygonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RivaGameTestScreenGumRuntime.cs" />
-    <Compile Include="GumRuntimes\RivaGameTestScreenGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\RivaGameTestScreenGumRuntime.Generated.cs">
+      <DependentUpon>RivaGameTestScreenGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\RivaTestScreenGumRuntime.cs" />
     <Compile Include="GumRuntimes\RivaTestScreenGumRuntime.Generated.cs">
       <DependentUpon>RivaTestScreenGumRuntime.cs</DependentUpon>

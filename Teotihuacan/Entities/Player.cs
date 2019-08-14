@@ -143,7 +143,7 @@ namespace Teotihuacan.Entities
 
             InitializeAnimationLayers();
             InitializeCollision();
-            InitializeActionIcon();
+            //InitializeActionIcon();
             InitializeSounds();
 
             PLAYER_COUNT++;
@@ -189,13 +189,13 @@ namespace Teotihuacan.Entities
             }
         }
 
-        private void InitializeActionIcon()
+        public void InitializeActionIcon()
         {
-            if(InputControls is Xbox360GamePadControls)
+            if (InputControls is Xbox360GamePadControls)
             {
                 CurrentInputDeviceTypeState = InputDeviceType.GamePad;
             }
-            else if(InputControls is KeyboardMouseControls)
+            else if (InputControls is KeyboardMouseControls)
             {
                 CurrentInputDeviceTypeState = InputDeviceType.Keyboard;
             }

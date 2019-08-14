@@ -692,6 +692,7 @@ namespace Teotihuacan.Screens
             newPlayer.PlayerData = playerData;
             newPlayer.InputControls = playerData.InputControls;
             newPlayer.InitializeTopDownInput(playerData.InputControls.PrimaryInputDevice);
+            newPlayer.InitializeActionIcon();
 
             PlayerList.Add(newPlayer);
 
