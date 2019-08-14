@@ -16,9 +16,9 @@ namespace Teotihuacan.Managers
 
         public static PlayerData[] PlayersSlots = new PlayerData[MaxNumberOfPlayers];
         //public static List<IInputDevice> ConnectedDevices = new List<IInputDevice>();
-        public static List<PlayerData> DeadPlayers = new List<PlayerData>(MaxNumberOfPlayers);
+        //public static List<PlayerData> DeadPlayers = new List<PlayerData>(MaxNumberOfPlayers);
 
-
+        public static List<PlayerData> ActivePlayers = new List<PlayerData>(MaxNumberOfPlayers);
 
 
         public static bool TryAssignSlotToPlayer(InputControls inputControls, out PlayerData playerData)
@@ -38,6 +38,7 @@ namespace Teotihuacan.Managers
                     playerData = slotPlayerData;
                     playerData.InputControls = inputControls;
                     playerData.SlotState = PlayerData.eSlotState.Full;
+                    ActivePlayers.Add(playerData);
                     return true;
                 }
             }
@@ -67,6 +68,7 @@ namespace Teotihuacan.Managers
                     playerData.SlotState = PlayerData.eSlotState.Full;
 
                     PlayersSlots[slotIndex] = playerData;
+                    ActivePlayers.Add(playerData);
 
                     return true;
                 }
@@ -88,6 +90,7 @@ namespace Teotihuacan.Managers
                     playerData = slotPlayerData;
                     playerData.InputControls = inputControls;
                     playerData.SlotState = PlayerData.eSlotState.Full;
+                    ActivePlayers.Add(playerData);
                     return true;
                 }
             }
@@ -101,7 +104,7 @@ namespace Teotihuacan.Managers
                     playerData = slotPlayerData;
                     playerData.InputControls = inputControls;
                     playerData.SlotState = PlayerData.eSlotState.Full;
-
+                    ActivePlayers.Add(playerData);
                     return true;
                 }
             }
@@ -111,10 +114,16 @@ namespace Teotihuacan.Managers
         }
 
         //public static void AddDeadPlayer(int slotIndex)
-        public static void AddDeadPlayer(PlayerData deadPlayerData)
+        public static void SetPlayerDead(PlayerData deadPlayerData)
         {
-            DeadPlayers.Add(deadPlayerData);
+            //DeadPlayers.Add(deadPlayerData);
+            ActivePlayers.Remove(deadPlayerData);
             deadPlayerData.SlotState = PlayerData.eSlotState.FullPlayerDead;
+        }
+
+        public static void SetPlayerInactive(PlayerData playerData)
+        {
+            ActivePlayers.Remove(playerData);
         }
 
         /*public static IEnumerable<PlayerData> FindDisconnectedPlayers()

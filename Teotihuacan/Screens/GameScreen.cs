@@ -742,6 +742,8 @@ namespace Teotihuacan.Screens
 
         private void DropPlayer(PlayerData playerSlotData)
         {
+            PlayerManager.SetPlayerInactive(playerSlotData);
+
             var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
 
             gameScreenGumRuntime.PlayerHuds[playerSlotData.SlotIndex].Visible = false;
@@ -756,7 +758,7 @@ namespace Teotihuacan.Screens
         void OnPlayerDeath(Player deadPlayer)
         {
             //deadPlayerInputDevices.Add(deadPlayer.InputDevice);
-            PlayerManager.AddDeadPlayer(deadPlayer.PlayerData);
+            PlayerManager.SetPlayerDead(deadPlayer.PlayerData);
 
             var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
             gameScreenGumRuntime.PlayerHuds[deadPlayer.PlayerData.SlotIndex].Visible = false;
