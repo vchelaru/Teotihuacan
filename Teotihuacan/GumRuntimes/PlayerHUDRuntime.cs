@@ -3,6 +3,7 @@ using System;
     using System.Collections.Generic;
     using System.Linq;
 using Teotihuacan.Entities;
+using Teotihuacan.Models;
 using Teotihuacan.UiControllers;
 
 namespace Teotihuacan.GumRuntimes
@@ -74,5 +75,20 @@ namespace Teotihuacan.GumRuntimes
                 }).After(1);
             }
         }
+
+        /// <summary>For Main menu</summary>
+        public void RefreshExperienceBar(PlayerData playerData)
+        {
+            // updateType == UpdateType.Instant)
+
+            var equippedWeapon = playerData.EquippedWeapon;
+            var selectedWeaponLevelData = playerData.WeaponLevels.FirstOrDefault(item => item.WeaponType == equippedWeapon);
+            
+            XPGauge.Height = xpGaugeMax * selectedWeaponLevelData.ProgressToNextLevel();
+            WeaponLevelText = $"{selectedWeaponLevelData.CurrentWeaponLevel + 1}";
+        }
+
+
+
     }
 }

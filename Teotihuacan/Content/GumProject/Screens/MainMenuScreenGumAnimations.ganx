@@ -3,16 +3,16 @@
   <Animations>
     <AnimationSave>
       <Loops>false</Loops>
-      <Name>Appear</Name>
+      <Name>IntroFadeIns</Name>
       <States>
         <AnimatedStateSave>
-          <StateName>Alpha/Transparent</StateName>
+          <StateName>FadeCathegory/Black</StateName>
           <Time>0</Time>
           <InterpolationType>Linear</InterpolationType>
           <Easing>Out</Easing>
         </AnimatedStateSave>
         <AnimatedStateSave>
-          <StateName>Alpha/Opaque</StateName>
+          <StateName>FadeCathegory/Clear</StateName>
           <Time>1</Time>
           <InterpolationType>Linear</InterpolationType>
           <Easing>Out</Easing>

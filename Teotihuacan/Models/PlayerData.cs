@@ -17,10 +17,10 @@ namespace Teotihuacan.Models
         public enum eSlotState
         {
             Free = 0,
-            ReservedLeft = 1,
-            ReservedDisconnect = 2,
+            Reserved_Left = 1,
+            Reserved_Disconnect = 2,
 
-            FullPlayerDead = 3,
+            Full_PlayerDead = 3,
 
             Full = 4,
         }

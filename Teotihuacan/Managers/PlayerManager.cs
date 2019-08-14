@@ -29,9 +29,9 @@ namespace Teotihuacan.Managers
                 var slotPlayerData = PlayersSlots[slotIndex];
                 if (slotPlayerData != null
                     &&
-                    (slotPlayerData.SlotState == PlayerData.eSlotState.ReservedDisconnect
+                    (slotPlayerData.SlotState == PlayerData.eSlotState.Reserved_Disconnect
                      ||
-                     slotPlayerData.SlotState == PlayerData.eSlotState.ReservedLeft)
+                     slotPlayerData.SlotState == PlayerData.eSlotState.Reserved_Left)
                     &&
                     slotPlayerData.InputControls.ControlsID == inputControls.ControlsID)
                 {
@@ -85,7 +85,7 @@ namespace Teotihuacan.Managers
             for (int slotIndex = 0; slotIndex < MaxNumberOfPlayers; slotIndex++)
             {
                 var slotPlayerData = PlayersSlots[slotIndex];
-                if (slotPlayerData.SlotState == PlayerData.eSlotState.ReservedLeft)
+                if (slotPlayerData.SlotState == PlayerData.eSlotState.Reserved_Left)
                 {
                     playerData = slotPlayerData;
                     playerData.InputControls = inputControls;
@@ -99,7 +99,7 @@ namespace Teotihuacan.Managers
             for (int slotIndex = 0; slotIndex < MaxNumberOfPlayers; slotIndex++)
             {
                 var slotPlayerData = PlayersSlots[slotIndex];
-                if (slotPlayerData.SlotState == PlayerData.eSlotState.ReservedDisconnect)
+                if (slotPlayerData.SlotState == PlayerData.eSlotState.Reserved_Disconnect)
                 {
                     playerData = slotPlayerData;
                     playerData.InputControls = inputControls;
@@ -118,7 +118,7 @@ namespace Teotihuacan.Managers
         {
             //DeadPlayers.Add(deadPlayerData);
             ActivePlayers.Remove(deadPlayerData);
-            deadPlayerData.SlotState = PlayerData.eSlotState.FullPlayerDead;
+            deadPlayerData.SlotState = PlayerData.eSlotState.Full_PlayerDead;
         }
 
         public static void SetPlayerInactive(PlayerData playerData)

@@ -90,8 +90,6 @@ namespace Teotihuacan.Screens
 
         bool hasGameOverBeenTriggered = false;
 
-        //List<IInputDevice> deadPlayerInputDevices = new List<IInputDevice>();
-
         #endregion
 
         #region Initialize
@@ -146,17 +144,18 @@ namespace Teotihuacan.Screens
         private void CreatePlayers()
         {
             // Auto re-join players on start of level
+            // Also rejoin dead players !
             foreach (var slotPlayerData in PlayerManager.PlayersSlots)
             {
                 if (slotPlayerData != null)
                 {
                     if (slotPlayerData.SlotState == PlayerData.eSlotState.Full
                         ||
-                        slotPlayerData.SlotState == PlayerData.eSlotState.FullPlayerDead)
+                        slotPlayerData.SlotState == PlayerData.eSlotState.Full_PlayerDead)
                     {
                         JoinWith(slotPlayerData);
                     }
-                    else if (slotPlayerData.SlotState == PlayerData.eSlotState.ReservedDisconnect
+                    else if (slotPlayerData.SlotState == PlayerData.eSlotState.Reserved_Disconnect
                              && 
                              slotPlayerData.InputControls.AreConnected)
                     {
@@ -523,7 +522,7 @@ namespace Teotihuacan.Screens
         private void PlayersJoinLeaveActivity()
         {
             // -- Joining
-            if (PlayerList.Count < PlayerManager.MaxNumberOfPlayers)
+            if (PlayerManager.ActivePlayers.Count < PlayerManager.MaxNumberOfPlayers)
             {
                 //foreach (var gamePad in InputManager.Xbox360GamePads)
                 Xbox360GamePad gamePad;
@@ -603,24 +602,47 @@ namespace Teotihuacan.Screens
                 xDropPlayer(PlayerList.First(item => item.InputDevice == keyboard));
             }*/
 
+            /*PlayerData playerSlotData;
+            for (int i = PlayerManager.ActivePlayers.Count - 1; i > -1; i--)
+            {
+                playerSlotData = PlayerManager.ActivePlayers[i];
+
+                if (playerSlotData.InputControls.AreConnected == false)
+                {
+                    // player disconnected, so pause ? and drop the player:
+                    playerSlotData.SlotState = PlayerData.eSlotState.Reserved_Disconnect;
+                    DropPlayer(playerSlotData);
+                }
+                else if (playerSlotData.InputControls.WasLeaveJustPressed && this.IsPaused)
+                {
+                    // player wants to leave
+                    playerSlotData.SlotState = PlayerData.eSlotState.Reserved_Left;
+                        
+                    DropPlayer(playerSlotData);
+                }
+            }*/
+
             foreach (var playerSlotData in PlayerManager.PlayersSlots)
             {
                 if (playerSlotData != null)
                 {
+                    // Have to account for dead players who want to leave as well
+                    // TODO: need to separate eSlotState and dead / alive state ?
+
                     if (playerSlotData.InputControls.AreConnected == false)
                     {
                         // player disconnected, so pause ? and drop the player:
-                        playerSlotData.SlotState = PlayerData.eSlotState.ReservedDisconnect;
+                        playerSlotData.SlotState = PlayerData.eSlotState.Reserved_Disconnect;
                         DropPlayer(playerSlotData);
                     }
                     else if (playerSlotData.InputControls.WasLeaveJustPressed && this.IsPaused)
                     {
                         // player wants to leave
                         if (playerSlotData.SlotState == PlayerData.eSlotState.Full)
-                            playerSlotData.SlotState = PlayerData.eSlotState.ReservedLeft;
+                            playerSlotData.SlotState = PlayerData.eSlotState.Reserved_Left;
                         // else PlayerData.eSlotState.FullPlayerDead
                         //  stays in dead state
-                        
+
                         DropPlayer(playerSlotData);
                     }
                 }
@@ -640,10 +662,10 @@ namespace Teotihuacan.Screens
                     /*
                     Free = 0,                   = cant't happen
 
-                    ReservedLeft = 1,           = can re-join
-                    ReservedDisconnect = 2,     = can re-join
+                    Reserved_Left = 1,           = can re-join
+                    Reserved_Disconnect = 2,     = can re-join
 
-                    FullPlayerDead = 3,         = can't re-join this level
+                    FullPlayer_Dead = 3,         = can't re-join this level
 
                     Full = 4,                   = cant't happen (can't re-join)
                     */
@@ -652,7 +674,7 @@ namespace Teotihuacan.Screens
                     //  has no playerdata
                     //  has player data state ReservedLeft or ReservedDisconnect
 
-                    if (slotData.SlotState <= PlayerData.eSlotState.ReservedDisconnect)
+                    if (slotData.SlotState <= PlayerData.eSlotState.Reserved_Disconnect)
                     {
                         playerdata = slotData;
                         return true;
@@ -950,11 +972,7 @@ namespace Teotihuacan.Screens
             LoopedBackgroundMusic?.Dispose();
         }
 
-        static void CustomLoadStaticContent(string contentManagerName)
-        {
-
-
-        }
+        static void CustomLoadStaticContent(string contentManagerName) { }
 
 	}
 }
