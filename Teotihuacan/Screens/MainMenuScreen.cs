@@ -133,11 +133,7 @@ namespace Teotihuacan.Screens
 
         private void JoinPlayer(PlayerData playerSlotData)
         {
-            // TODO: how to enable button control
-            /*MainMenuScreenGumRuntime.StartButtonInstance
-                .CurrentButtonCategoryState = 
-                    GumRuntimes.Menus.MenuParts.AztecMenuButtonRuntime.ButtonCategory.Enabled;*/
-            MainMenuScreenGumRuntime.StartButtonInstance.FormsControl.IsEnabled = true;
+            UpdateStartButton();
 
             SetPlayerHudOnJoin(playerSlotData);
         }
@@ -156,15 +152,22 @@ namespace Teotihuacan.Screens
 
         void UpdateStartButton()
         {
-            if (PlayerManager.ActivePlayers.Count == 0)
-            {
-                // TODO: how to disable button control
-                /*MainMenuScreenGumRuntime.StartButtonInstance
-                    .CurrentButtonCategoryState =
-                        GumRuntimes.Menus.MenuParts.AztecMenuButtonRuntime.ButtonCategory.Disabled;*/
-                MainMenuScreenGumRuntime.StartButtonInstance.FormsControl.IsEnabled = false;
-                //MainMenuScreenGumRuntime.StartButtonInstance.
-            }
+            // TODO: how to disable button control
+
+            //if (PlayerManager.ActivePlayers.Count == 0)
+            //{
+            //    //MainMenuScreenGumRuntime.StartButtonInstance
+            //    //    .CurrentButtonCategoryState =
+            //    //        GumRuntimes.Menus.MenuParts.AztecMenuButtonRuntime.ButtonCategory.Disabled;
+
+            //    //MainMenuScreenGumRuntime.StartButtonInstance.FormsControl.IsEnabled = false;
+
+            //    //MainMenuScreenGumRuntime.StartButtonInstance.
+            //}
+
+            bool canStartGame = PlayerManager.ActivePlayers.Count > 0;
+            MainMenuScreenGumRuntime.StartButtonInstance.FormsControl.IsEnabled = canStartGame;
+            MainMenuScreenGumRuntime.StartButtonInstance.Enabled = canStartGame;
         }
 
 

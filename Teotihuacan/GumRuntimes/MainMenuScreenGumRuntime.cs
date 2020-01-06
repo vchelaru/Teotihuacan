@@ -18,6 +18,12 @@ namespace Teotihuacan.GumRuntimes
 
         partial void CustomInitialize() 
         {
+            // TODO: This doesn't block the buttons from changing states :(
+            StartButtonInstance.FormsControl.IsEnabled = false;
+            QuitButtonInstance.FormsControl.IsEnabled = false;
+            ClearDataButtonInstance.FormsControl.IsEnabled = false;
+
+
             // PauseMenuInstance.QuitClicked += (not, used) => QuitClicked(this, null);
             //StartButtonInstance.Click += (notUsed) => StartGameClicked(this, null);
             //ClearDataButtonInstance.Click += (notUsed) => ClearDataClicked(this, null);
@@ -70,10 +76,12 @@ namespace Teotihuacan.GumRuntimes
         public void PlayScreenStartAnim()
         {
             //LevelStartInstance.Visible = true;
-            /*IntroFadeInAnimation.EndReached += () =>
+            IntroFadeInAnimation.EndReached += () =>
             {
                 //LevelStartInstance.Visible = false;
-            };*/
+                QuitButtonInstance.FormsControl.IsEnabled = true;
+                ClearDataButtonInstance.FormsControl.IsEnabled = true;
+            };
             IntroFadeInAnimation.Play(); //PlayAfter(0.5f);
 
             // Test
