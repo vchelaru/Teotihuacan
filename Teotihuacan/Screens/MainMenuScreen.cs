@@ -25,6 +25,20 @@ namespace Teotihuacan.Screens
 		{
             MainMenuScreenGumRuntime = MainMenuScreenGum as MainMenuScreenGumRuntime;
 
+            UpdateStartButton();
+
+            MainMenuScreenGumRuntime.IntroFadeInAnimation.EndReached += IntroFadeInAnimation_EndReached;
+            MainMenuScreenGumRuntime.IntroFadeInAnimation.Play();
+        }
+
+        private void IntroFadeInAnimation_EndReached()
+        {
+            MainMenuScreenGumRuntime.IntroFadeInAnimation.EndReached -= IntroFadeInAnimation_EndReached;
+
+            //LevelStartInstance.Visible = false;
+            MainMenuScreenGumRuntime.QuitButtonInstance.FormsControl.IsEnabled = true;
+            MainMenuScreenGumRuntime.ClearDataButtonInstance.FormsControl.IsEnabled = true;
+
             MainMenuScreenGumRuntime.QuitClicked = FlatRedBallServices.Game.Exit;
             MainMenuScreenGumRuntime.ClearDataClicked = () =>
             {
@@ -32,7 +46,7 @@ namespace Teotihuacan.Screens
 
                 // TODO: reset HUDs
             };
-            MainMenuScreenGumRuntime.StartGameClicked = () => MoveToScreen(typeof(Level1));           
+            MainMenuScreenGumRuntime.StartGameClicked = () => MoveToScreen(typeof(Level1));
 
             int numberOfControlsConnected = 1; // 1 for keyboard+mouse always connected
             foreach (var gamePad in InputManager.Xbox360GamePads)
@@ -41,10 +55,6 @@ namespace Teotihuacan.Screens
                     numberOfControlsConnected++;
             }
             MainMenuScreenGumRuntime.SetJoinHUDsVisibility(numberOfControlsConnected);
-
-            UpdateStartButton();
-
-            MainMenuScreenGumRuntime.PlayScreenStartAnim();
         }
 
         void CustomActivity(bool firstTimeCalled)
@@ -126,9 +136,21 @@ namespace Teotihuacan.Screens
             //var mainMenuScreenGumRuntime = MainMenuScreenGum as MainMenuScreenGumRuntime;
 
             MainMenuScreenGumRuntime.PlayerJoinHuds[playerSlotData.SlotIndex].Visible = false;
+            
             MainMenuScreenGumRuntime.PlayerHuds[playerSlotData.SlotIndex].Visible = true;
-
             MainMenuScreenGumRuntime.RefreshExperienceBar(playerSlotData);
+            
+            ControlsIconRuntime playerControlsIcon = MainMenuScreenGumRuntime.PlayerControlsIcons[playerSlotData.SlotIndex];
+            if (playerSlotData.InputControls.ControlsID == InputControls.KeyboardAndMouse_ControlsID)
+            {
+                playerControlsIcon.CurrentTypeCathegoryState = ControlsIconRuntime.TypeCathegory.KBM;
+            }
+            else
+            {
+                playerControlsIcon.CurrentTypeCathegoryState = ControlsIconRuntime.TypeCathegory.Controler;
+                playerControlsIcon.ControlerIndexText = (playerSlotData.InputControls.ControlsID + 1).ToString();
+            }
+            playerControlsIcon.Visible = true;
         }
 
         private void JoinPlayer(PlayerData playerSlotData)
@@ -146,6 +168,7 @@ namespace Teotihuacan.Screens
 
             MainMenuScreenGumRuntime.PlayerHuds[playerSlotData.SlotIndex].Visible = false;
             MainMenuScreenGumRuntime.PlayerJoinHuds[playerSlotData.SlotIndex].Visible = true;
+            MainMenuScreenGumRuntime.PlayerControlsIcons[playerSlotData.SlotIndex].Visible = false;
 
             UpdateStartButton();
         }

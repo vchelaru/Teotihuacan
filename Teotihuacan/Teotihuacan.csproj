@@ -127,6 +127,8 @@
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ControlsIconRuntime.cs" />
+    <Compile Include="GumRuntimes\ControlsIconRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\DefaultForms\ButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\DefaultForms\CheckBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\DefaultForms\ColoredFrameRuntime.cs" />
@@ -917,6 +919,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>basehud</Name>
     </None>
+    <None Include="content\gumproject\components\controlsicon.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>controlsicon</Name>
+    </None>
     <None Include="content\gumproject\components\defaultforms\button.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>button</Name>
@@ -1028,6 +1034,14 @@
     <None Include="content\gumproject\components\wavestate.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>wavestate</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font11arial_black_nosmooth.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>font11arial_black_nosmooth</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font11arial_black_nosmooth_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font11Arial_Black_noSmooth_0</Name>
     </None>
     <None Include="content\gumproject\fontcache\font16arial_black_o1.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

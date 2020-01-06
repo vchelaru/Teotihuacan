@@ -160,6 +160,90 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>LeftRightVersionState</Type>
+      <Name>ControlsIconInstance.LeftRightVersionState</Name>
+      <Value xsi:type="xsd:string">Left</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>ControlsIconInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ControlsIconInstance.X</Name>
+      <Value xsi:type="xsd:float">15</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ControlsIconInstance.Y</Name>
+      <Value xsi:type="xsd:float">29</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>LeftRightVersionState</Type>
+      <Name>ControlsIconInstance1.LeftRightVersionState</Name>
+      <Value xsi:type="xsd:string">Left</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>ControlsIconInstance1.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ControlsIconInstance1.X</Name>
+      <Value xsi:type="xsd:float">15</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ControlsIconInstance1.Y</Name>
+      <Value xsi:type="xsd:float">243</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>ControlsIconInstance2.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ControlsIconInstance2.X</Name>
+      <Value xsi:type="xsd:float">488</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ControlsIconInstance2.Y</Name>
+      <Value xsi:type="xsd:float">29</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>ControlsIconInstance3.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ControlsIconInstance3.X</Name>
+      <Value xsi:type="xsd:float">488</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ControlsIconInstance3.Y</Name>
+      <Value xsi:type="xsd:float">243</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>DarkOverlay.Alpha</Name>
       <Value xsi:type="xsd:int">192</Value>
@@ -1056,6 +1140,26 @@
   <Instance>
     <Name>PlayerHUDInstance3</Name>
     <BaseType>PlayerHUD</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>ControlsIconInstance</Name>
+    <BaseType>ControlsIcon</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>ControlsIconInstance1</Name>
+    <BaseType>ControlsIcon</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>ControlsIconInstance2</Name>
+    <BaseType>ControlsIcon</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>ControlsIconInstance3</Name>
+    <BaseType>ControlsIcon</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>

@@ -10,6 +10,7 @@ namespace Teotihuacan.GumRuntimes
     {
         public List<PlayerHUDRuntime> PlayerHuds = new List<PlayerHUDRuntime>();
         public List<PlayerHUDJoinRuntime> PlayerJoinHuds = new List<PlayerHUDJoinRuntime>();
+        public List<ControlsIconRuntime> PlayerControlsIcons = new List<ControlsIconRuntime>();
 
         //public event EventHandler StartGameClicked;
         public Action StartGameClicked;
@@ -49,6 +50,11 @@ namespace Teotihuacan.GumRuntimes
             PlayerHUDJoinInstance1.Visible = false;
             PlayerHUDJoinInstance2.Visible = false;
             PlayerHUDJoinInstance3.Visible = false;
+
+            PlayerControlsIcons.Add(ControlsIconInstance);
+            PlayerControlsIcons.Add(ControlsIconInstance1);
+            PlayerControlsIcons.Add(ControlsIconInstance2);
+            PlayerControlsIcons.Add(ControlsIconInstance3);
         }
 
         public void SetJoinHUDsVisibility(int numberOfControlsConnected)
@@ -71,21 +77,6 @@ namespace Teotihuacan.GumRuntimes
             var hud = PlayerHuds[playerSlotData.SlotIndex];
 
             hud.RefreshExperienceBar(playerSlotData);
-        }
-
-        public void PlayScreenStartAnim()
-        {
-            //LevelStartInstance.Visible = true;
-            IntroFadeInAnimation.EndReached += () =>
-            {
-                //LevelStartInstance.Visible = false;
-                QuitButtonInstance.FormsControl.IsEnabled = true;
-                ClearDataButtonInstance.FormsControl.IsEnabled = true;
-            };
-            IntroFadeInAnimation.Play(); //PlayAfter(0.5f);
-
-            // Test
-            //GodTopGradientInstance.GodFloatingAnimation.Play();
         }
     }
 }

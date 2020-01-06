@@ -184,11 +184,11 @@ namespace Teotihuacan.Screens
                 }
             }*/
 
-            // TEMP
+            /*// temporary
             if (PlayerList.Count == 0)
             {
                 JoinWith(new KeyboardMouseControls());
-            }
+            }*/
         }
 
         private void HandlePlayerSwappedWeapon(Player player)
@@ -392,8 +392,6 @@ namespace Teotihuacan.Screens
 
         /*private void AssignPlayerData(Player player)
         {
-            // TODO           
-
             // see if it's cached
 
             //var inputDevice = player.InputDevice;
@@ -785,7 +783,6 @@ namespace Teotihuacan.Screens
             var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
             gameScreenGumRuntime.PlayerHuds[deadPlayer.PlayerData.SlotIndex].Visible = false;
             gameScreenGumRuntime.PlayerJoinHuds[deadPlayer.PlayerData.SlotIndex].Visible = false;
-            // TODO: dead player HUD
             gameScreenGumRuntime.PlayerDeadHuds[deadPlayer.PlayerData.SlotIndex].Visible = true;
 
             foreach (var enemy in EnemyList)
