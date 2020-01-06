@@ -1157,7 +1157,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>WinScreenGum</Name>
     </None>
-    <None Include="content\gumproject\splashscreen.jpg">
+    <None Include="content\gumproject\splashscreen.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>splashscreen</Name>
     </None>

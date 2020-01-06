@@ -19,7 +19,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>BGSpriteInstance.SourceFile</Name>
-      <Value xsi:type="xsd:string">SplashScreen.jpg</Value>
+      <Value xsi:type="xsd:string">SplashScreen.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -241,12 +241,6 @@
       <Type>DimensionUnitType</Type>
       <Name>LogoSpriteInstance.Width Units</Name>
       <Value xsi:type="xsd:int">3</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>LogoSpriteInstance.X</Name>
-      <Value xsi:type="xsd:float">-1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -936,6 +930,12 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
+        <Type>bool</Type>
+        <Name>ClearDataButtonInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>int</Type>
         <Name>DarkOverlay.Alpha</Name>
         <Value xsi:type="xsd:int">192</Value>
@@ -956,6 +956,12 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
+        <Type>bool</Type>
+        <Name>QuitButtonInstance.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>int</Type>
         <Name>StartButtonInstance.BGSpriteAlpha</Name>
         <Value xsi:type="xsd:int">255</Value>
@@ -967,18 +973,6 @@
         <Name>StartButtonInstance.TextAlpha</Name>
         <Value xsi:type="xsd:int">255</Value>
         <ExposedAsName>TextAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>QuitButtonInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>ClearDataButtonInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
