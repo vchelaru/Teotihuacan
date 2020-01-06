@@ -21,5 +21,31 @@
       <Animations />
       <Events />
     </AnimationSave>
+    <AnimationSave>
+      <Loops>true</Loops>
+      <Name>GodFloating</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>FloatingAnimCathegory/BasePosition</StateName>
+          <Time>0</Time>
+          <InterpolationType>Sinusoidal</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>FloatingAnimCathegory/UpPosition</StateName>
+          <Time>3</Time>
+          <InterpolationType>Sinusoidal</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>FloatingAnimCathegory/BasePosition</StateName>
+          <Time>6</Time>
+          <InterpolationType>Sinusoidal</InterpolationType>
+          <Easing>InOut</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
   </Animations>
 </ElementAnimationsSave>

@@ -167,17 +167,19 @@ namespace Teotihuacan.GumRuntimes
             WaveStateInstance.Visible = false;
         }
 
-        public void SetPauseMenuVisibility(bool isVisible)
+        public void ShowPauseMenu()
         {
-            if(isVisible)
-            {
-                // no animations?
-                this.PauseMenuInstance.Visible = true;
-            }
-            else
-            {
-                this.PauseMenuInstance.Visible = false;
-            }
+            this.PauseMenuInstance.Visible = true;
+
+            // BUG: this seem to get the game stuck (create endless loop ?)
+            // Also GodFloats animation doesn't play
+            //this.PauseMenuInstance.GodFloatsAnimation.Play();
+        }
+
+        public void HidePauseMenu()
+        {
+            this.PauseMenuInstance.Visible = false;
+            //this.PauseMenuInstance.GodFloatsAnimation.Stop();
         }
 
         public void RefreshExperienceBar(Player player, UpdateType updateType, bool isLevelUp)

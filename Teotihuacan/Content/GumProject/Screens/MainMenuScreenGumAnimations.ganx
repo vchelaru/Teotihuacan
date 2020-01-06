@@ -3,7 +3,7 @@
   <Animations>
     <AnimationSave>
       <Loops>false</Loops>
-      <Name>IntroFadeIns</Name>
+      <Name>IntroFadeIn</Name>
       <States>
         <AnimatedStateSave>
           <StateName>FadeCathegory/Black</StateName>
@@ -12,7 +12,45 @@
           <Easing>Out</Easing>
         </AnimatedStateSave>
         <AnimatedStateSave>
+          <StateName>FadeCathegory/Black</StateName>
+          <Time>1</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
           <StateName>FadeCathegory/Clear</StateName>
+          <Time>2</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>FadeCathegory/Clear</StateName>
+          <Time>4</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>FadeCathegory/DimmBlue</StateName>
+          <Time>5</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+      </States>
+      <Animations />
+      <Events />
+    </AnimationSave>
+    <AnimationSave>
+      <Loops>false</Loops>
+      <Name>FadeToBlack</Name>
+      <States>
+        <AnimatedStateSave>
+          <StateName>FadeCathegory/DimmBlue</StateName>
+          <Time>0</Time>
+          <InterpolationType>Linear</InterpolationType>
+          <Easing>Out</Easing>
+        </AnimatedStateSave>
+        <AnimatedStateSave>
+          <StateName>FadeCathegory/Black</StateName>
           <Time>1</Time>
           <InterpolationType>Linear</InterpolationType>
           <Easing>Out</Easing>

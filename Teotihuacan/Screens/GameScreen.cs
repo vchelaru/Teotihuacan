@@ -24,7 +24,7 @@ using Teotihuacan.Models;
 
 namespace Teotihuacan.Screens
 {
-	public partial class GameScreen
+	public partial class GameScreen // base class for all Level* screens
 	{
         #region StatMultipliers
 
@@ -370,7 +370,7 @@ namespace Teotihuacan.Screens
             gameScreenGumRuntime.ClearDataClicked += (not, used) =>
             {
                 PlayerManager.ClearAll();
-                this.MoveToScreen(nameof(Level1));
+                this.MoveToScreen(nameof(MainMenuScreen));
             };
 
             gameScreenGumRuntime.StartLevel += () => DoStartLevel();
@@ -815,7 +815,7 @@ namespace Teotihuacan.Screens
                         else
                         {
                             PauseThisScreen(); // generated
-                            ((GameScreenGumRuntime)GameScreenGum).SetPauseMenuVisibility(true);
+                            ((GameScreenGumRuntime)GameScreenGum).ShowPauseMenu();
                         }
                     }
                 }
@@ -824,8 +824,8 @@ namespace Teotihuacan.Screens
 
         private void DoUnpause()
         {
+            ((GameScreenGumRuntime)GameScreenGum).HidePauseMenu();
             UnpauseThisScreen(); // generated
-            ((GameScreenGumRuntime)GameScreenGum).SetPauseMenuVisibility(false);
         }
 
         private void DoStartLevel()

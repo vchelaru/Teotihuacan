@@ -23,18 +23,31 @@ namespace Teotihuacan.Screens
 
         void CustomInitialize()
 		{
-             MainMenuScreenGumRuntime = MainMenuScreenGum as MainMenuScreenGumRuntime;
+            MainMenuScreenGumRuntime = MainMenuScreenGum as MainMenuScreenGumRuntime;
 
-            int numberOfControlsConnected = 1; // 1 for keyboard+mouse
+            MainMenuScreenGumRuntime.QuitClicked = FlatRedBallServices.Game.Exit;
+            MainMenuScreenGumRuntime.ClearDataClicked = () =>
+            {
+                PlayerManager.ClearAll();
+
+                // TODO: reset HUDs
+            };
+            MainMenuScreenGumRuntime.StartGameClicked = () => MoveToScreen(typeof(Level1));           
+
+            int numberOfControlsConnected = 1; // 1 for keyboard+mouse always connected
             foreach (var gamePad in InputManager.Xbox360GamePads)
             {
                 if (gamePad.IsConnected)
                     numberOfControlsConnected++;
             }
             MainMenuScreenGumRuntime.SetJoinHUDsVisibility(numberOfControlsConnected);
+
+            UpdateStartButton();
+
+            MainMenuScreenGumRuntime.PlayScreenStartAnim();
         }
 
-		void CustomActivity(bool firstTimeCalled)
+        void CustomActivity(bool firstTimeCalled)
 		{
             PlayersJoinLeaveActivity();
         }
@@ -56,7 +69,7 @@ namespace Teotihuacan.Screens
                         if (PlayerManager.TryAssignSlotToPlayer(new Xbox360GamePadControls(gamePad, gamepadIndex), out slotPlayerData))
                         {
                             // join success
-                            SetPlayerHudOnJoin(slotPlayerData);
+                            JoinPlayer(slotPlayerData);
                         }
                     }
                 }
@@ -67,9 +80,9 @@ namespace Teotihuacan.Screens
                 {
                     PlayerData slotPlayerData;
                     if (PlayerManager.TryAssignSlotToPlayer(new KeyboardMouseControls(), out slotPlayerData))
-                    { 
+                    {
                         // join success
-                        SetPlayerHudOnJoin(slotPlayerData);
+                        JoinPlayer(slotPlayerData);
                     }
                 }
             }
@@ -110,24 +123,49 @@ namespace Teotihuacan.Screens
         private void SetPlayerHudOnJoin(PlayerData playerSlotData)
         {
             //var playerSlotIndex = 
-            var mainMenuScreenGumRuntime = MainMenuScreenGum as MainMenuScreenGumRuntime;
+            //var mainMenuScreenGumRuntime = MainMenuScreenGum as MainMenuScreenGumRuntime;
 
-            mainMenuScreenGumRuntime.PlayerJoinHuds[playerSlotData.SlotIndex].Visible = false;
-            mainMenuScreenGumRuntime.PlayerHuds[playerSlotData.SlotIndex].Visible = true;
+            MainMenuScreenGumRuntime.PlayerJoinHuds[playerSlotData.SlotIndex].Visible = false;
+            MainMenuScreenGumRuntime.PlayerHuds[playerSlotData.SlotIndex].Visible = true;
 
-            mainMenuScreenGumRuntime.RefreshExperienceBar(playerSlotData);
+            MainMenuScreenGumRuntime.RefreshExperienceBar(playerSlotData);
+        }
+
+        private void JoinPlayer(PlayerData playerSlotData)
+        {
+            // TODO: how to enable button control
+            /*MainMenuScreenGumRuntime.StartButtonInstance
+                .CurrentButtonCategoryState = 
+                    GumRuntimes.Menus.MenuParts.AztecMenuButtonRuntime.ButtonCategory.Enabled;*/
+            MainMenuScreenGumRuntime.StartButtonInstance.FormsControl.IsEnabled = true;
+
+            SetPlayerHudOnJoin(playerSlotData);
         }
 
         private void DropPlayer(PlayerData playerSlotData)
         {
             PlayerManager.SetPlayerInactive(playerSlotData);
 
-            var mainMenuScreenGumRuntime = MainMenuScreenGum as MainMenuScreenGumRuntime;
+            //var mainMenuScreenGumRuntime = MainMenuScreenGum as MainMenuScreenGumRuntime;
 
-            mainMenuScreenGumRuntime.PlayerHuds[playerSlotData.SlotIndex].Visible = false;
-            mainMenuScreenGumRuntime.PlayerJoinHuds[playerSlotData.SlotIndex].Visible = true;
+            MainMenuScreenGumRuntime.PlayerHuds[playerSlotData.SlotIndex].Visible = false;
+            MainMenuScreenGumRuntime.PlayerJoinHuds[playerSlotData.SlotIndex].Visible = true;
+
+            UpdateStartButton();
         }
 
+        void UpdateStartButton()
+        {
+            if (PlayerManager.ActivePlayers.Count == 0)
+            {
+                // TODO: how to disable button control
+                /*MainMenuScreenGumRuntime.StartButtonInstance
+                    .CurrentButtonCategoryState =
+                        GumRuntimes.Menus.MenuParts.AztecMenuButtonRuntime.ButtonCategory.Disabled;*/
+                MainMenuScreenGumRuntime.StartButtonInstance.FormsControl.IsEnabled = false;
+                //MainMenuScreenGumRuntime.StartButtonInstance.
+            }
+        }
 
 
         void CustomDestroy() { }

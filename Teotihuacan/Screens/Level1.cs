@@ -35,7 +35,6 @@ namespace Teotihuacan.Screens
 		void CustomActivity(bool firstTimeCalled)
 		{
 
-
 		}
 
 		void CustomDestroy()
