@@ -630,18 +630,15 @@ namespace Teotihuacan.Screens
                     if (playerSlotData.InputControls.AreConnected == false)
                     {
                         // player disconnected, so pause ? and drop the player:
-                        playerSlotData.SlotState = PlayerData.eSlotState.Reserved_Disconnect;
-                        DropPlayer(playerSlotData);
+                        DropPlayer(playerSlotData, PlayerData.eSlotState.Reserved_Disconnect);
                     }
                     else if (playerSlotData.InputControls.WasLeaveJustPressed && this.IsPaused)
                     {
                         // player wants to leave
                         if (playerSlotData.SlotState == PlayerData.eSlotState.Full)
-                            playerSlotData.SlotState = PlayerData.eSlotState.Reserved_Left;
+                            DropPlayer(playerSlotData, PlayerData.eSlotState.Reserved_Left);
                         // else PlayerData.eSlotState.FullPlayerDead
                         //  stays in dead state
-
-                        DropPlayer(playerSlotData);
                     }
                 }
             }
@@ -760,9 +757,9 @@ namespace Teotihuacan.Screens
             );
         }
 
-        private void DropPlayer(PlayerData playerSlotData)
+        private void DropPlayer(PlayerData playerSlotData, PlayerData.eSlotState reason)
         {
-            PlayerManager.SetPlayerInactive(playerSlotData);
+            PlayerManager.SetPlayerRemoved(playerSlotData, reason);
 
             var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
 

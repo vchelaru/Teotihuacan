@@ -113,6 +113,57 @@ namespace Teotihuacan.Managers
             return false;
         }
 
+        /// <summary>
+        /// Different behaviour than standard TryAssignSlotToPlayer() used for in game joining.
+        /// Puts player in first free slot.
+        /// Made so players can rearange themselfs as they want before the game starts.
+        /// </summary>
+
+        /// <returns>True if free slot was found and assigned to player.</returns>
+        public static bool TryAssignSlotToPlayerInMainMenu(InputControls inputControls, out PlayerData playerData)
+        {
+            // pass 2 - try find free slot 
+            for (int slotIndex = 0; slotIndex < MaxNumberOfPlayers; slotIndex++)
+            {
+                if (PlayersSlots[slotIndex] == null)
+                {
+                    // Try load player stats
+                    playerData = DataLoader.TryLoadData(slotIndex);
+
+                    // or Create new player stats
+                    if (playerData == null)
+                    {
+                        playerData = new PlayerData(slotIndex, inputControls);
+                        //playerData.SlotIndex = slotIndex;
+                    }
+                    else
+                    {
+                        playerData.InputControls = inputControls;
+                    }
+
+                    playerData.SlotState = PlayerData.eSlotState.Full;
+
+                    PlayersSlots[slotIndex] = playerData;
+                    ActivePlayers.Add(playerData);
+
+                    return true;
+                }
+                else if (PlayersSlots[slotIndex].SlotState != PlayerData.eSlotState.Full)
+                {
+                    playerData = PlayersSlots[slotIndex];
+                    playerData.InputControls = inputControls;
+                    playerData.SlotState = PlayerData.eSlotState.Full;
+
+                    ActivePlayers.Add(playerData);
+
+                    return true;
+                }
+            }
+
+            playerData = null;
+            return false;
+        }
+
         //public static void AddDeadPlayer(int slotIndex)
         public static void SetPlayerDead(PlayerData deadPlayerData)
         {
@@ -121,38 +172,12 @@ namespace Teotihuacan.Managers
             deadPlayerData.SlotState = PlayerData.eSlotState.Full_PlayerDead;
         }
 
-        public static void SetPlayerInactive(PlayerData playerData)
+        public static void SetPlayerRemoved(PlayerData playerData, PlayerData.eSlotState reason)
         {
             ActivePlayers.Remove(playerData);
+            playerData.SlotState = reason;
         }
-
-        /*public static IEnumerable<PlayerData> FindDisconnectedPlayers()
-        {
-            foreach (var playerSlot in PlayersSlots)
-            {
-                if (playerSlot != null && playerSlot.InputControls.AreConnected == false)
-                {
-                    yield return playerSlot;
-                }
-            }
-        }*/
-
-        // TODO: check who is using this !
-        /*public static void CreateNewWeaponLevel(Player playerEntity)
-        {
-            var playerData = new PlayerData(playerEntity);
-            playerData.InitializeAllWeapons();
-
-            PlayersSlots[playerEntity.PlayerData.SlotIndex] = playerData;
-        }*/
-
-        /*public static void AddUniqueInputDevice(IInputDevice input)
-        {
-            if(!ConnectedDevices.Contains(input))
-            {
-                ConnectedDevices.Add(input);
-            }
-        }*/
+        
 
         public static void SaveAll()
         {
@@ -175,34 +200,5 @@ namespace Teotihuacan.Managers
 
             Array.Clear(PlayersSlots, 0, PlayersSlots.Length);
         }
-
-        /*private static string GetNameFromInputDevice(IInputDevice inputDevice)
-        {
-            string name = null;
-
-            if (inputDevice is Keyboard)
-            {
-                name = "Keyboard";
-            }
-            else if (inputDevice is Xbox360GamePad gamePad)
-            {
-                name = "Gamepad" +
-                    Array.IndexOf(InputManager.Xbox360GamePads, gamePad);
-            }
-
-            return name;
-        }*/
-
-        /*public static PlayerData LoadForInputDevice(IInputDevice inputDevice)
-        {
-            var name = GetNameFromInputDevice(inputDevice);
-
-            return DataLoader.LoadData(name);
-        }*/
-
-        /*public static PlayerData TryLoadPlayerData(int slotIndex)
-        {
-            return DataLoader.TryLoadData(slotIndex);
-        }*/
     }
 }

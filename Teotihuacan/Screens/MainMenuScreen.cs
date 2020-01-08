@@ -35,10 +35,6 @@ namespace Teotihuacan.Screens
         {
             MainMenuScreenGumRuntime.IntroFadeInAnimation.EndReached -= IntroFadeInAnimation_EndReached;
 
-            //LevelStartInstance.Visible = false;
-            MainMenuScreenGumRuntime.QuitButtonInstance.FormsControl.IsEnabled = true;
-            MainMenuScreenGumRuntime.ClearDataButtonInstance.FormsControl.IsEnabled = true;
-
             MainMenuScreenGumRuntime.QuitClicked = FlatRedBallServices.Game.Exit;
             MainMenuScreenGumRuntime.ClearDataClicked = () =>
             {
@@ -47,6 +43,10 @@ namespace Teotihuacan.Screens
                 // TODO: reset HUDs
             };
             MainMenuScreenGumRuntime.StartGameClicked = () => MoveToScreen(typeof(Level1));
+
+            //LevelStartInstance.Visible = false;
+            MainMenuScreenGumRuntime.QuitButtonInstance.FormsControl.IsEnabled = true;
+            MainMenuScreenGumRuntime.ClearDataButtonInstance.FormsControl.IsEnabled = true;
 
             int numberOfControlsConnected = 1; // 1 for keyboard+mouse always connected
             foreach (var gamePad in InputManager.Xbox360GamePads)
@@ -76,7 +76,7 @@ namespace Teotihuacan.Screens
                         CanPlayerJoin(gamepadIndex))
                     {
                         PlayerData slotPlayerData;
-                        if (PlayerManager.TryAssignSlotToPlayer(new Xbox360GamePadControls(gamePad, gamepadIndex), out slotPlayerData))
+                        if (PlayerManager.TryAssignSlotToPlayerInMainMenu(new Xbox360GamePadControls(gamePad, gamepadIndex), out slotPlayerData))
                         {
                             // join success
                             JoinPlayer(slotPlayerData);
@@ -89,7 +89,7 @@ namespace Teotihuacan.Screens
                     CanPlayerJoin(InputControls.KeyboardAndMouse_ControlsID))
                 {
                     PlayerData slotPlayerData;
-                    if (PlayerManager.TryAssignSlotToPlayer(new KeyboardMouseControls(), out slotPlayerData))
+                    if (PlayerManager.TryAssignSlotToPlayerInMainMenu(new KeyboardMouseControls(), out slotPlayerData))
                     {
                         // join success
                         JoinPlayer(slotPlayerData);
@@ -104,18 +104,8 @@ namespace Teotihuacan.Screens
             {
                 playerSlotData = PlayerManager.ActivePlayers[i];
 
-                if (playerSlotData.InputControls.AreConnected == false)
-                {
-                    // player disconnected, so pause ? and drop the player:
-                    playerSlotData.SlotState = PlayerData.eSlotState.Reserved_Disconnect;
-                    DropPlayer(playerSlotData);
-                }
-                else if (playerSlotData.InputControls.WasLeaveJustPressed)
-                {
-                    // player wants to leave
-                    playerSlotData.SlotState = PlayerData.eSlotState.Reserved_Left;
-                    DropPlayer(playerSlotData);
-                }
+                if (playerSlotData.InputControls.AreConnected == false || playerSlotData.InputControls.WasLeaveJustPressed)
+                    DropPlayer(playerSlotData, PlayerData.eSlotState.Free);
             }
         }
 
@@ -160,11 +150,9 @@ namespace Teotihuacan.Screens
             SetPlayerHudOnJoin(playerSlotData);
         }
 
-        private void DropPlayer(PlayerData playerSlotData)
+        private void DropPlayer(PlayerData playerSlotData, PlayerData.eSlotState reason)
         {
-            PlayerManager.SetPlayerInactive(playerSlotData);
-
-            //var mainMenuScreenGumRuntime = MainMenuScreenGum as MainMenuScreenGumRuntime;
+            PlayerManager.SetPlayerRemoved(playerSlotData, reason);
 
             MainMenuScreenGumRuntime.PlayerHuds[playerSlotData.SlotIndex].Visible = false;
             MainMenuScreenGumRuntime.PlayerJoinHuds[playerSlotData.SlotIndex].Visible = true;
@@ -197,6 +185,5 @@ namespace Teotihuacan.Screens
         void CustomDestroy() { }
 
         static void CustomLoadStaticContent(string contentManagerName) { }
-
 	}
 }
