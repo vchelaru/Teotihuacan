@@ -148,6 +148,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>ClearDataButtonInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>ClearDataButtonInstance.X</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -796,6 +802,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>QuitButtonInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>QuitButtonInstance.X</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -823,6 +835,12 @@
       <Type>string</Type>
       <Name>StartButtonInstance.Text</Name>
       <Value xsi:type="xsd:string">START GAME</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>StartButtonInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -857,62 +875,8 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>ClearDataButtonInstance.BGSpriteAlpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>ClearDataButtonInstance.TextAlpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>ClearDataButtonInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>DarkOverlay.Alpha</Name>
         <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>QuitButtonInstance.BGSpriteAlpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>QuitButtonInstance.TextAlpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>QuitButtonInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>StartButtonInstance.BGSpriteAlpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>StartButtonInstance.TextAlpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>StartButtonInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -926,68 +890,8 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>ClearDataButtonInstance.BGSpriteAlpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <ExposedAsName>BGSpriteAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>ClearDataButtonInstance.TextAlpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <ExposedAsName>TextAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>ClearDataButtonInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>DarkOverlay.Alpha</Name>
         <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>QuitButtonInstance.BGSpriteAlpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <ExposedAsName>BGSpriteAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>QuitButtonInstance.TextAlpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <ExposedAsName>TextAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>QuitButtonInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>StartButtonInstance.BGSpriteAlpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <ExposedAsName>BGSpriteAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>StartButtonInstance.TextAlpha</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <ExposedAsName>TextAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>StartButtonInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1001,68 +905,8 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>ClearDataButtonInstance.BGSpriteAlpha</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <ExposedAsName>BGSpriteAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>ClearDataButtonInstance.TextAlpha</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <ExposedAsName>TextAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>ClearDataButtonInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>DarkOverlay.Alpha</Name>
         <Value xsi:type="xsd:int">192</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>QuitButtonInstance.BGSpriteAlpha</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <ExposedAsName>BGSpriteAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>QuitButtonInstance.TextAlpha</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <ExposedAsName>TextAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>QuitButtonInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>StartButtonInstance.BGSpriteAlpha</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <ExposedAsName>BGSpriteAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>StartButtonInstance.TextAlpha</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <ExposedAsName>TextAlpha</ExposedAsName>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>bool</Type>
-        <Name>StartButtonInstance.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

@@ -46,7 +46,20 @@ namespace Teotihuacan.Screens
 
             //LevelStartInstance.Visible = false;
             MainMenuScreenGumRuntime.QuitButtonInstance.FormsControl.IsEnabled = true;
+            MainMenuScreenGumRuntime.QuitButtonInstance.Visible = true;
             MainMenuScreenGumRuntime.ClearDataButtonInstance.FormsControl.IsEnabled = true;
+            MainMenuScreenGumRuntime.ClearDataButtonInstance.Visible = true;
+            MainMenuScreenGumRuntime.StartButtonInstance.Visible = true;
+
+            // Fix for button showing as enabled even when it's IsEnabled = false:
+            //bool startButtonInstanceIsEnabled = MainMenuScreenGumRuntime.StartButtonInstance.FormsControl.IsEnabled;
+            //MainMenuScreenGumRuntime.StartButtonInstance.FormsControl.IsEnabled = !startButtonInstanceIsEnabled;
+            //MainMenuScreenGumRuntime.StartButtonInstance.FormsControl.IsEnabled = startButtonInstanceIsEnabled;
+            if (!MainMenuScreenGumRuntime.StartButtonInstance.FormsControl.IsEnabled)
+            {
+                MainMenuScreenGumRuntime.StartButtonInstance.FormsControl.IsEnabled = true;
+                MainMenuScreenGumRuntime.StartButtonInstance.FormsControl.IsEnabled = false;
+            }
 
             int numberOfControlsConnected = 1; // 1 for keyboard+mouse always connected
             foreach (var gamePad in InputManager.Xbox360GamePads)

@@ -128,7 +128,9 @@
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ControlsIconRuntime.cs" />
-    <Compile Include="GumRuntimes\ControlsIconRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ControlsIconRuntime.Generated.cs">
+      <DependentUpon>ControlsIconRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\DefaultForms\ButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\DefaultForms\CheckBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\DefaultForms\ColoredFrameRuntime.cs" />
