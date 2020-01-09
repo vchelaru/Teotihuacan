@@ -44,7 +44,6 @@ namespace Teotihuacan.Managers
             lastLineCollisionPoint = new Vector2(
                 (float)player.LightningCollisionLine.LastCollisionPoint.X,
                 (float)player.LightningCollisionLine.LastCollisionPoint.Y);
-
         }
 
         public void HandleCollisionVsEnemy(Enemy enemy)

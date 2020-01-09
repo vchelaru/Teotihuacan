@@ -903,15 +903,18 @@ namespace Teotihuacan.Screens
         {
             var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
 
+            // Wait 1 sec & Show level finished overlay
             this.Call(() =>
             {
                 gameScreenGumRuntime.ShowWaveStateOverlay($"Level Complete");
             }).After(1);
 
-            ((GameScreenGumRuntime)gameScreenGumRuntime).FadeOutAnimation.PlayAfter(3);
+            // Wait 3 sec and fade out
+            gameScreenGumRuntime.FadeOutAnimation.PlayAfter(5);
 
-            var animationDuration = ((GameScreenGumRuntime)gameScreenGumRuntime).FadeOutAnimation.Length;
+            var animationDuration = gameScreenGumRuntime.FadeOutAnimation.Length;
 
+            // Wait for fade out finished and wait 3 sec and finish level
             this.Call(() =>
             {
                 gameScreenGumRuntime.HideWaveStateOverlay();

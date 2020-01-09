@@ -5627,6 +5627,11 @@
                   <Member>SpriteInstanceAnimationChains</Member>
                   <ValueAsString>Hero_2_Animations</ValueAsString>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>AimingReticleSprite_CurrentFrameIndex</Member>
+                  <ValueAsInt>0</ValueAsInt>
+                </InstructionSave>
               </InstructionSaves>
               <Name>Blue</Name>
             </StateSave>
@@ -5636,6 +5641,11 @@
                   <Type>String</Type>
                   <Member>SpriteInstanceAnimationChains</Member>
                   <ValueAsString>Hero_1_Animations</ValueAsString>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>AimingReticleSprite_CurrentFrameIndex</Member>
+                  <ValueAsInt>1</ValueAsInt>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Red</Name>
@@ -5647,6 +5657,11 @@
                   <Member>SpriteInstanceAnimationChains</Member>
                   <ValueAsString>hero_3_animations</ValueAsString>
                 </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>AimingReticleSprite_CurrentFrameIndex</Member>
+                  <ValueAsInt>2</ValueAsInt>
+                </InstructionSave>
               </InstructionSaves>
               <Name>Yellow</Name>
             </StateSave>
@@ -5656,6 +5671,11 @@
                   <Type>String</Type>
                   <Member>SpriteInstanceAnimationChains</Member>
                   <ValueAsString>hero_4_animations</ValueAsString>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>AimingReticleSprite_CurrentFrameIndex</Member>
+                  <ValueAsInt>3</ValueAsInt>
                 </InstructionSave>
               </InstructionSaves>
               <Name>Green</Name>
@@ -6014,6 +6034,19 @@
           <SourceObject>ActionIcon</SourceObject>
           <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>AimingReticleSprite_CurrentFrameIndex</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+          <SourceObject>AimingReticleSprite</SourceObject>
+          <SourceObjectProperty>CurrentFrameIndex</SourceObjectProperty>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\Player</Name>
@@ -6248,6 +6281,62 @@
           <SourceName />
           <SourceClassType>Sprite</SourceClassType>
           <InstanceName>ActionIcon</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesRotation</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>UseAnimationRelativePosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Animate</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>misc_sprites</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>AimingReticleColors</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>75</ValueAsFloat>
+          </CustomProperty>
+          <Properties>
+            <PropertySave>
+              <Name>SourceType</Name>
+              <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+          </Properties>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>AimingReticleSprite</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>

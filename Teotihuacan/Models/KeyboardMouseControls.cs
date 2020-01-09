@@ -36,7 +36,11 @@ namespace Teotihuacan.Models
         }
 
 
-
+        /// <summary>
+        /// Get 
+        /// </summary>
+        /// <param name="origin"></param>
+        /// <returns>Normalized </returns>
         public override Vector2? TryGetAimingVector(ref Vector3 origin)
         {
             Vector2 cursorPosition = new Vector2(GuiManager.Cursor.WorldXAt(origin.Z), GuiManager.Cursor.WorldYAt(origin.Z));
@@ -48,10 +52,10 @@ namespace Teotihuacan.Models
             {
                 newAimingVector.X = 1;
             }
-            else
+            /*else
             {
 
-            }
+            }*/
 
             //Normalize at the end in case the right stick input is not at max magnitude
             newAimingVector.Normalize();

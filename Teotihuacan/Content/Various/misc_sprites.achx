@@ -1104,4 +1104,43 @@
       <RelativeY>5</RelativeY>
     </Frame>
   </AnimationChain>
+  <AnimationChain>
+    <Name>AimingReticleColors</Name>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>77</LeftCoordinate>
+      <RightCoordinate>81</RightCoordinate>
+      <TopCoordinate>1</TopCoordinate>
+      <BottomCoordinate>5</BottomCoordinate>
+      <RelativeY>5</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>82</LeftCoordinate>
+      <RightCoordinate>86</RightCoordinate>
+      <TopCoordinate>1</TopCoordinate>
+      <BottomCoordinate>5</BottomCoordinate>
+      <RelativeY>5</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>87</LeftCoordinate>
+      <RightCoordinate>91</RightCoordinate>
+      <TopCoordinate>1</TopCoordinate>
+      <BottomCoordinate>5</BottomCoordinate>
+      <RelativeY>5</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>misc_sprites_SpriteSheet.png</TextureName>
+      <FrameLength>0.2</FrameLength>
+      <LeftCoordinate>92</LeftCoordinate>
+      <RightCoordinate>96</RightCoordinate>
+      <TopCoordinate>1</TopCoordinate>
+      <BottomCoordinate>5</BottomCoordinate>
+      <RelativeY>5</RelativeY>
+    </Frame>
+  </AnimationChain>
 </AnimationChainArraySave>

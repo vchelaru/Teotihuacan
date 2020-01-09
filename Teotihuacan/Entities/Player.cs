@@ -62,6 +62,7 @@ namespace Teotihuacan.Entities
         private static int PLAYER_COUNT = 0;
 
         Vector2 aimingVector = new Vector2(1f,0f);
+        float aimingRotation;
 
         AnimationController spriteAnimationController;
 
@@ -296,7 +297,15 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             {
                 aimingVector = newAimingVector.Value;
 
-                LightningCollisionLine.RelativeRotationZ = (float)Math.Atan2(aimingVector.Y, aimingVector.X);
+                aimingRotation = (float)Math.Atan2(aimingVector.Y, aimingVector.X);
+
+                // lightning colision line update
+                LightningCollisionLine.RelativeRotationZ = aimingRotation;
+
+                // !TODO aiming reticle
+                AimingReticleSprite.RelativePosition = new Vector3(aimingVector.X * 75f,
+                                                           aimingVector.Y * 75f,
+                                                           AimingReticleSprite.RelativePosition.Z);
             }
         }
 
@@ -723,10 +732,6 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             playerDeathSoundEffect?.Dispose();
         }
 
-        private static void CustomLoadStaticContent(string contentManagerName)
-        {
-
-
-        }
+        private static void CustomLoadStaticContent(string contentManagerName) { }
 	}
 }
