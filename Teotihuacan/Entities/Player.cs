@@ -64,7 +64,7 @@ namespace Teotihuacan.Entities
             //new Vector2(6f,6f), 
             new Vector2(-6f,3f), // left        = h mirror of right
             //new Vector2(6f,3f),
-            new Vector2(-4f,2f), // down left   = h mirror of right down
+            new Vector2(-4f,-2f), // down left   = h mirror of right down
             //new Vector2(4f,2f),
             new Vector2(0f,0f),  // down
             new Vector2(4f,-2f),  // down right
