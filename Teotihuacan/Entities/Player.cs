@@ -55,6 +55,21 @@ namespace Teotihuacan.Entities
 	{
         #region Fields/Properties
 
+        private static readonly Vector2[] MUZZLE_POINTS =
+        {
+            new Vector2(6f,3f),  // right
+            new Vector2(6f,6f),  // up right 
+            new Vector2(0f,15f), // up
+            new Vector2(-6f,6f), // up left     = h mirror of up right
+            //new Vector2(6f,6f), 
+            new Vector2(-6f,3f), // left        = h mirror of right
+            //new Vector2(6f,3f),
+            new Vector2(-4f,2f), // down left   = h mirror of right down
+            //new Vector2(4f,2f),
+            new Vector2(0f,0f),  // down
+            new Vector2(4f,-2f),  // down right
+        };
+
         public InputControls InputControls;
         public PlayerData PlayerData;
 
@@ -63,6 +78,7 @@ namespace Teotihuacan.Entities
 
         Vector2 aimingVector = new Vector2(1f,0f);
         float aimingRotation;
+        TopDownDirection topDownDirection;
 
         AnimationController spriteAnimationController;
 
@@ -139,6 +155,7 @@ namespace Teotihuacan.Entities
             CurrentHP = MaxHP;
             CurrentEnergy = MaxEnergy;
 
+            // pivot object for lightning sprites
             lightningAttachment = new PositionedObject();
             lightningAttachment.AttachTo(this);
 
@@ -302,7 +319,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                 // lightning colision line update
                 LightningCollisionLine.RelativeRotationZ = aimingRotation;
 
-                // !TODO aiming reticle
+                // aiming reticle
                 AimingReticleSprite.RelativePosition = new Vector3(aimingVector.X * 75f,
                                                            aimingVector.Y * 75f,
                                                            AimingReticleSprite.RelativePosition.Z);
@@ -338,36 +355,46 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                 CurrentSecondaryAction = SecondaryActions.None;
             }
 
-            if(CurrentSecondaryAction == SecondaryActions.Shooting &&
+            if (CurrentSecondaryAction == SecondaryActions.Shooting &&
                 bulletData != null &&
                 FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedSecondsSince(lastFireShotTime) > 
                 1/ bulletData.ShotsPerSecond && 
                 CurrentEnergy > ModifyEnergyDrain(bulletData.EnergyUsePerShot)
                 )
             {
-                DoShootingFireActivity(bulletData);
+                // Shooting Fireball or Skull
+
+                DoShootingProjectileActivity(bulletData);
             }
-            else if(CurrentSecondaryAction == SecondaryActions.Shooting && EquippedWeapon == Weapon.ShootingLightning)
+            else if (CurrentSecondaryAction == SecondaryActions.Shooting && EquippedWeapon == Weapon.ShootingLightning)
             {
+                // Shooting lightning
+
                 CurrentEnergy -= ModifyEnergyDrain(LightningEnergyUsePerSecond) * TimeManager.SecondDifference;
             }
-            else if(InputControls.IsPrimaryFireDown == false)
+            else if (InputControls.IsPrimaryFireDown == false)
             {
+                // Not shooting
+
                 CurrentEnergy += EnergyRecoveryRate * TimeManager.SecondDifference;
             }
             else
             {
+                // Trying to shoot but low on energy
+
                 if (emptyClipSoundEffectInstance?.State != SoundState.Playing)
                     emptyClipSoundEffectInstance?.Play();
             }
-            
-            CurrentEnergy = System.Math.Min(CurrentEnergy, MaxEnergy);
-            CurrentEnergy = System.Math.Max(CurrentEnergy, 0);
 
+            // DEBUG
             if(DebuggingVariables.PlayersHaveInfiniteEnergy)
             {
                 CurrentEnergy = MaxEnergy;
+                return;
             }
+
+            CurrentEnergy = System.Math.Min(CurrentEnergy, MaxEnergy);
+            CurrentEnergy = System.Math.Max(CurrentEnergy, 0);
         }
 
         private void UpdateLightningSoundEffectStatus()
@@ -387,25 +414,35 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             return baseEnergyDrain * (1 - CurrentWeaponLevel * WeaponLevelEnergyDrainDecrement);
         }
 
-        private void DoShootingFireActivity(Bullet.DataCategory bulletData)
+        private void DoShootingProjectileActivity(Bullet.DataCategory bulletData)
         {
+            // * Here CurrentSecondaryAction is SecondaryActions.Shooting
+
             var direction = new Vector3(aimingVector.X, aimingVector.Y, 0f);
 
+            // Create and set bullet object
             var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
             bullet.Owner = this;
             bullet.CurrentDataCategoryState = bulletData;
             bullet.Velocity = bullet.BulletSpeed * direction;
+            // Set type of projectile based on selected weapon
             bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections), EquippedWeapon);
 
+            // Drain player energy
             CurrentEnergy -= ModifyEnergyDrain(bulletData.EnergyUsePerShot);
 
-            shootingLayer.PlayOnce(GetChainName(currentPrimaryAction, SecondaryActions.Shooting));
+            // Play shooting anim on player sprite ?
+            var chainName = GetChainName(currentPrimaryAction, SecondaryActions.Shooting);
+            shootingLayer.PlayOnce(chainName);
 
             lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
+
+            // Play shooting sound
             if (bulletData == Bullet.DataCategory.PlayerFire)
             {
                 FlatRedBall.Audio.AudioManager.Play(PlayerFlameShot);
-            } else if (bulletData == Bullet.DataCategory.PlayerSkull)
+            } 
+            else if (bulletData == Bullet.DataCategory.PlayerSkull)
             {
                 switch (FlatRedBallServices.Random.Next(0, 3))
                 {
@@ -451,11 +488,13 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             {
                 weapon = EquippedWeapon;
             }
+
             if(aimingVector.X != 0 || aimingVector.Y != 0)
             {
-                var direction = TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
+                topDownDirection = 
+                    TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
 
-                return ChainNameHelperMethods.GenerateChainName(primaryAction, weapon, direction);
+                return ChainNameHelperMethods.GenerateChainName(primaryAction, weapon, topDownDirection);
             }
             else
             {
@@ -591,6 +630,8 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             }
         }
 
+        Vector2 muzzlePosToTarget;
+
         public void UpdateLightningSprites()
         {
             Vector2 target = LightningWeaponManager.LineEndpoint;
@@ -600,9 +641,11 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
             var widthHalf = widthPerSprite / 2.0f;
 
-            var thisVector2 = new Vector2(this.X, this.Y);
-            var thisToTarget = (target - thisVector2);
-            var spriteCountFloat = thisToTarget.Length() / widthPerSprite;
+            int topDownDirectionIndex = (int)topDownDirection;
+            Vector2 muzzlePosOffset = MUZZLE_POINTS[topDownDirectionIndex];
+            Vector2 muzzlePos = new Vector2(this.X + muzzlePosOffset.X, this.Y + muzzlePosOffset.Y);
+            muzzlePosToTarget = (target - muzzlePos);
+            var spriteCountFloat = muzzlePosToTarget.Length() / widthPerSprite;
 
             var spriteCount = 1 + (int)spriteCountFloat;
 
@@ -618,7 +661,6 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                     sprite.TimeIntoAnimation = LightningSpriteList[0].TimeIntoAnimation;
                 }
                 LightningSpriteList.Add(sprite);
-
             }
 
             while(LightningSpriteList.Count > spriteCount)
@@ -630,13 +672,16 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             {
                 var sprite = LightningSpriteList[i];
                 sprite.UpdateToCurrentAnimationFrame();
+
+                // sprites are layed out horizontaly and to the right (positive x axis)
+
                 sprite.RelativeX = widthHalf + widthPerSprite * i;
             }
 
 
-
+            lightningAttachment.RelativePosition = new Vector3(muzzlePosOffset.X, muzzlePosOffset.Y, lightningAttachment.RelativeZ);
             lightningAttachment.RelativeRotationZ =
-                (float)Math.Atan2(thisToTarget.Y, thisToTarget.X);
+                (float)Math.Atan2(muzzlePosToTarget.Y, muzzlePosToTarget.X);
 
             LightningEndpointSprite.RelativeX = target.X - X;
             LightningEndpointSprite.RelativeY = target.Y - Y;
@@ -654,14 +699,11 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
         void DoLastLightingSpriteResizeActivity()
         {
-
-            var thisVector2 = new Vector2(this.X, this.Y);
             var lengthPerSprite = Lightning_Stream_Anim[0].Texture.Width *
                 (Lightning_Stream_Anim[0].RightCoordinate -
                 Lightning_Stream_Anim[0].LeftCoordinate);
-            var thisToTarget = (LightningWeaponManager.LineEndpoint - thisVector2);
 
-            var spriteCountFloat = thisToTarget.Length() / lengthPerSprite;
+            var spriteCountFloat = muzzlePosToTarget.Length() / lengthPerSprite;
             var leftover = spriteCountFloat - (int)spriteCountFloat;
             if (leftover != 0)
             {
@@ -678,12 +720,11 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                     (Lightning_Stream_Anim[0].RightCoordinate -
                     Lightning_Stream_Anim[0].LeftCoordinate);
 
-                var widthHalf = widthPerSprite / 2.0f;
+                //var widthHalf = widthPerSprite / 2.0f;
 
                 int index = LightningSpriteList.Count - 1;
                 var leftOfPreviousSprite = widthPerSprite * index;
                 lastSprite.RelativeX = leftOfPreviousSprite + widthPerSprite * leftover/2.0f ;
-
             }
         }
 

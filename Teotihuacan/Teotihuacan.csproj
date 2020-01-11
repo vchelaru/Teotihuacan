@@ -54,6 +54,10 @@
     <Compile Include="Entities\CameraController.Generated.cs">
       <DependentUpon>CameraController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DbgCross.cs" />
+    <Compile Include="Entities\DbgCross.Generated.cs">
+      <DependentUpon>DbgCross.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\DebuggingVariables.cs" />
     <Compile Include="Entities\DebuggingVariables.Generated.cs">
       <DependentUpon>DebuggingVariables.cs</DependentUpon>
