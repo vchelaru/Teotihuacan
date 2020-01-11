@@ -294,14 +294,14 @@
       </Variable>
       <Variable>
         <Type>bool</Type>
-        <Name>TextControlerIndex.Visible</Name>
-        <Value xsi:type="xsd:boolean">false</Value>
+        <Name>SpriteKBM.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>bool</Type>
-        <Name>SpriteKBM.Visible</Name>
-        <Value xsi:type="xsd:boolean">true</Value>
+        <Name>TextControlerIndex.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

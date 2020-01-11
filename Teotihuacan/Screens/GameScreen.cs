@@ -808,7 +808,7 @@ namespace Teotihuacan.Screens
                         }
                         else
                         {
-                            PauseThisScreen(); // generated
+                            PauseThisScreen(); // generated method
                             ((GameScreenGumRuntime)GameScreenGum).ShowPauseMenu();
                         }
                     }

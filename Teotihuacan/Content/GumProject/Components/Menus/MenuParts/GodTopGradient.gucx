@@ -381,20 +381,6 @@
       <Name>Opaque</Name>
       <Variable>
         <Type>int</Type>
-        <Name>SpriteGodBodyVanishing.Alpha</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <Category>Rendering</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>SpriteGodHead.Alpha</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <Category>Rendering</Category>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
         <Name>SpriteGodBodyStretchable1.Alpha</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
@@ -403,6 +389,20 @@
       <Variable>
         <Type>int</Type>
         <Name>SpriteGodBodyStretchable2.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteGodBodyVanishing.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>SpriteGodHead.Alpha</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>

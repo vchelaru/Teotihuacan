@@ -1380,21 +1380,15 @@
     <State>
       <Name>BigState</Name>
       <Variable>
+        <Type>int</Type>
+        <Name>WeaponLevel.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>float</Type>
         <Name>WeaponLevel.Font Scale</Name>
         <Value xsi:type="xsd:float">1</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>WeaponLevel.Y</Name>
-        <Value xsi:type="xsd:float">-1</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>WeaponLevel.Red</Name>
-        <Value xsi:type="xsd:int">240</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1405,29 +1399,29 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>WeaponLevel.Blue</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Name>WeaponLevel.Red</Name>
+        <Value xsi:type="xsd:int">240</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>WeaponLevel.Y</Name>
+        <Value xsi:type="xsd:float">-1</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>NormalState</Name>
       <Variable>
+        <Type>int</Type>
+        <Name>WeaponLevel.Blue</Name>
+        <Value xsi:type="xsd:int">48</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
         <Type>float</Type>
         <Name>WeaponLevel.Font Scale</Name>
         <Value xsi:type="xsd:float">0.45</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>WeaponLevel.Y</Name>
-        <Value xsi:type="xsd:float">-7</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>WeaponLevel.Red</Name>
-        <Value xsi:type="xsd:int">248</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1438,8 +1432,14 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>WeaponLevel.Blue</Name>
-        <Value xsi:type="xsd:int">48</Value>
+        <Name>WeaponLevel.Red</Name>
+        <Value xsi:type="xsd:int">248</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>WeaponLevel.Y</Name>
+        <Value xsi:type="xsd:float">-7</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

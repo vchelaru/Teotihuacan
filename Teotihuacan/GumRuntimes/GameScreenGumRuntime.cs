@@ -114,8 +114,8 @@ namespace Teotihuacan.GumRuntimes
                 }
             }
 
-            // TODO: Update join HUDs' visibility
-            /*for (int i = 0; i < 4; i++)
+            /*// Update join HUDs' visibility
+            for (int i = 0; i < 4; i++)
             {
                 if (!deadPlayerInputDevices.Contains(InputManager.Xbox360GamePads[i]))
                 {
