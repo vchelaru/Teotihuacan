@@ -12,7 +12,8 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
 
-
+using Teotihuacan.Models;
+using Teotihuacan.Managers;
 
 namespace Teotihuacan.Screens
 {
@@ -21,8 +22,23 @@ namespace Teotihuacan.Screens
 
 		void CustomInitialize()
 		{
+			PlayerData slotPlayerData;
+			if (PlayerManager.TryAssignSlotToPlayerInMainMenu(new KeyboardMouseControls(), out slotPlayerData))
+			{
+				// join success
+				JoinWith(slotPlayerData);
+			}
+			else
+			{
+				throw new Exception("R: unexpected");
+			}
 
+			foreach (var player in PlayerList)
+			{
+				SetPlayerHudOnJoin(player);
+			}
 
+			InitializeCameraController();
 		}
 
 		void CustomActivity(bool firstTimeCalled)

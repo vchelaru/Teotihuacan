@@ -110,7 +110,8 @@ namespace Teotihuacan.Screens
 
             InitializeCollisions();
 
-            InitializeCameraController();
+            if (PlayerList.Count > 0)
+                InitializeCameraController();
 
             Factories.EnemyFactory.EntitySpawned = HandleEnemySpawn;
             EnemyList.CollectionChanged += (not, used) => HandleEnemyListChanged();
@@ -132,7 +133,7 @@ namespace Teotihuacan.Screens
             }
         }
 
-        private void InitializeCameraController()
+        protected void InitializeCameraController()
         {
             CameraControllerInstance.Targets = PlayerList;
 
@@ -163,32 +164,6 @@ namespace Teotihuacan.Screens
                     }
                 }
             }
-
-            /*var numberOfControllers = InputManager.NumberOfConnectedGamePads;
-            if (numberOfControllers == 0)
-            {
-                JoinWith(InputManager.Keyboard);
-            }
-            else
-            {
-                for(int i = 0; i < InputManager.Xbox360GamePads.Length; i++)
-                {
-                    var controller = InputManager.Xbox360GamePads[i];
-                    if (i == 0 || PlayerManager.ConnectedDevices.Contains(controller))
-                    {
-                        if (controller.IsConnected)
-                        {
-                            JoinWith(controller);
-                        }
-                    }
-                }
-            }*/
-
-            /*// temporary
-            if (PlayerList.Count == 0)
-            {
-                JoinWith(new KeyboardMouseControls());
-            }*/
         }
 
         private void HandlePlayerSwappedWeapon(Player player)
@@ -687,7 +662,7 @@ namespace Teotihuacan.Screens
             return true;
         }
 
-        private Player JoinWith(InputControls inputControls)
+        protected Player JoinWith(InputControls inputControls)
         {
             //PlayerWeaponLevelManager.AddUniqueInputDevice(inputDevice);
             PlayerData playerData;
@@ -696,7 +671,7 @@ namespace Teotihuacan.Screens
 
             return JoinWith(playerData);
         }
-        private Player JoinWith(PlayerData playerData)
+        protected Player JoinWith(PlayerData playerData)
         {
             //PlayerWeaponLevelManager.AddUniqueInputDevice(inputDevice);
             playerData.SlotState = PlayerData.eSlotState.Full;
@@ -742,7 +717,7 @@ namespace Teotihuacan.Screens
 
             return player;
         }*/
-        private void SetPlayerHudOnJoin(Player newPlayer)
+        protected void SetPlayerHudOnJoin(Player newPlayer)
         {
             //var playerSlotIndex = 
             var gameScreenGumRuntime = GameScreenGum as GameScreenGumRuntime;
@@ -769,7 +744,12 @@ namespace Teotihuacan.Screens
 
             Player player = PlayerList.FirstOrDefault(p => p.PlayerData.SlotIndex == playerSlotData.SlotIndex);
             if (player != null)
+            {
+                player.SwappedWeapon -= () => HandlePlayerSwappedWeapon(player);
+                player.OnPlayerDeath -= OnPlayerDeath;
+
                 player.Destroy();
+            }
         }
 
         void OnPlayerDeath(Player deadPlayer)
@@ -786,6 +766,9 @@ namespace Teotihuacan.Screens
             {
                 enemy.ReactToPlayerDeath(deadPlayer);
             }
+
+            deadPlayer.SwappedWeapon -= () => HandlePlayerSwappedWeapon(deadPlayer);
+            deadPlayer.OnPlayerDeath -= OnPlayerDeath;
         }
 
         private void DoUiActivity()

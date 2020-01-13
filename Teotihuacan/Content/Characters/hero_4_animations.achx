@@ -776,7 +776,7 @@
   
   
   <AnimationChain>
-    <Name>walk_ShootingLighning_Right</Name>
+    <Name>walk_ShootingLightning_Right</Name>
     <Frame>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -811,7 +811,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_ShootingLighning_UpRight</Name>
+    <Name>walk_ShootingLightning_UpRight</Name>
     <Frame>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -846,7 +846,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_ShootingLighning_Up</Name>
+    <Name>walk_ShootingLightning_Up</Name>
     <Frame>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -881,7 +881,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_ShootingLighning_UpLeft</Name>
+    <Name>walk_ShootingLightning_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
@@ -920,7 +920,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_ShootingLighning_Left</Name>
+    <Name>walk_ShootingLightning_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
@@ -959,7 +959,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_ShootingLighning_DownLeft</Name>
+    <Name>walk_ShootingLightning_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
@@ -998,7 +998,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_ShootingLighning_Down</Name>
+    <Name>walk_ShootingLightning_Down</Name>
     <Frame>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -1033,7 +1033,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>walk_ShootingLighning_DownRight</Name>
+    <Name>walk_ShootingLightning_DownRight</Name>
     <Frame>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -1069,7 +1069,7 @@
   </AnimationChain>
   
   <AnimationChain>
-    <Name>idle_ShootingLighning_Right</Name>
+    <Name>idle_ShootingLightning_Right</Name>
     <Frame>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -1080,7 +1080,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_ShootingLighning_UpRight</Name>
+    <Name>idle_ShootingLightning_UpRight</Name>
     <Frame>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -1091,7 +1091,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_ShootingLighning_Up</Name>
+    <Name>idle_ShootingLightning_Up</Name>
     <Frame>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -1102,7 +1102,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_ShootingLighning_UpLeft</Name>
+    <Name>idle_ShootingLightning_UpLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
@@ -1114,7 +1114,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_ShootingLighning_Left</Name>
+    <Name>idle_ShootingLightning_Left</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
@@ -1126,7 +1126,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_ShootingLighning_DownLeft</Name>
+    <Name>idle_ShootingLightning_DownLeft</Name>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
@@ -1138,7 +1138,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_ShootingLighning_Down</Name>
+    <Name>idle_ShootingLightning_Down</Name>
     <Frame>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>
@@ -1149,7 +1149,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>idle_ShootingLighning_DownRight</Name>
+    <Name>idle_ShootingLightning_DownRight</Name>
     <Frame>
       <TextureName>Hero_4_SpriteSheet.png</TextureName>
       <FrameLength>0.2</FrameLength>

@@ -105,7 +105,7 @@ namespace Teotihuacan.GumRuntimes
                         case Animation.Weapon.ShootingLightning:
                             hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Lightning;
                             break;
-                        case Animation.Weapon.ShootingSkulls:
+                        case Animation.Weapon.ShootingSkull:
                             hud.CurrentWeaponCategoryState = PlayerHUDRuntime.WeaponCategory.Skull;
                             break;
                     }

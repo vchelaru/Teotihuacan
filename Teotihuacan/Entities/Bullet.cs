@@ -47,7 +47,7 @@ namespace Teotihuacan.Entities
             switch(weapon)
             {
                 case Weapon.ShootingFire: weaponAnimationName = "Fireball"; break;
-                case Weapon.ShootingSkulls: weaponAnimationName = "Skull"; break;
+                case Weapon.ShootingSkull: weaponAnimationName = "Skull"; break;
             }
             SpriteInstance.CurrentChainName = weaponAnimationName + "_" + aimingDirection.ToFriendlyString();
             var positionOffset = TopDownDirectionExtensions.ToVector(aimingDirection);

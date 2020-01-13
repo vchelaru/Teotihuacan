@@ -59,7 +59,7 @@ namespace Teotihuacan.Models
         {
             AddWeapon(Weapon.ShootingFire);
             AddWeapon(Weapon.ShootingLightning);
-            AddWeapon(Weapon.ShootingSkulls);
+            AddWeapon(Weapon.ShootingSkull);
         }
 
         private void AddWeapon(Weapon weaponType)

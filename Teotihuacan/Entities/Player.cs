@@ -61,13 +61,10 @@ namespace Teotihuacan.Entities
             new Vector2(6f,6f),  // up right 
             new Vector2(0f,15f), // up
             new Vector2(-6f,6f), // up left     = h mirror of up right
-            //new Vector2(6f,6f), 
             new Vector2(-6f,3f), // left        = h mirror of right
-            //new Vector2(6f,3f),
-            new Vector2(-4f,-2f), // down left   = h mirror of right down
-            //new Vector2(4f,2f),
+            new Vector2(-4f,2f), // down left   = h mirror of right down
             new Vector2(0f,0f),  // down
-            new Vector2(4f,-2f),  // down right
+            new Vector2(4f,2f),  // down right
         };
 
         public InputControls InputControls;
@@ -78,9 +75,8 @@ namespace Teotihuacan.Entities
 
         Vector2 aimingVector = new Vector2(1f,0f);
         float aimingRotation;
-        TopDownDirection topDownDirection;
-
-        AnimationController spriteAnimationController;
+        TopDownDirection lastTopDownDirection = TopDownDirection.Right;
+        TopDownDirection currentTopDownDirection;
 
         public Action SwappedWeapon;
 
@@ -93,16 +89,17 @@ namespace Teotihuacan.Entities
         private SoundEffectInstance burnPainSoundEffect;
         private SoundEffectInstance playerDeathSoundEffect;
 
-
+        PrimaryActions lastPrimaryAction = PrimaryActions.idle;
         PrimaryActions currentPrimaryAction = PrimaryActions.idle;
+        private SecondaryActions lastSecondaryAction = SecondaryActions.None;
         public SecondaryActions CurrentSecondaryAction
         {
             get; private set;
         } = SecondaryActions.None;
-        AnimationLayer shootingLayer;
         double lastFireShotTime;
         double lastHealingTime;
 
+        private Weapon lastEquippedWeapon;
         public Weapon EquippedWeapon => PlayerData.EquippedWeapon;
 
         public float CurrentHP { get; private set; }
@@ -159,7 +156,7 @@ namespace Teotihuacan.Entities
             lightningAttachment = new PositionedObject();
             lightningAttachment.AttachTo(this);
 
-            InitializeAnimationLayers();
+            //InitializeAnimationLayers();
             InitializeCollision();
             //InitializeActionIcon();
             InitializeSounds();
@@ -219,24 +216,7 @@ namespace Teotihuacan.Entities
             }
         }
 
-        private void InitializeAnimationLayers()
-        {
-            spriteAnimationController = new AnimationController(SpriteInstance);
-            AnimationLayer walkAnimationLayer = new AnimationLayer();
-            walkAnimationLayer.EveryFrameAction  = () =>
-            {
-                return GetChainName(currentPrimaryAction);
-            };
-            spriteAnimationController.Layers.Add(walkAnimationLayer);
-
-            shootingLayer = new AnimationLayer();
-            spriteAnimationController.Layers.Add(shootingLayer);
-        }
-
-        /*partial void CustomInitializeTopDownInput()
-        {
-        }*/
-
+        partial void CustomInitializeTopDownInput() { }
 
         private void InitializeCollision()
         {
@@ -258,7 +238,8 @@ namespace Teotihuacan.Entities
             DoShootingActivity();
             DoMovementValueUpdate();
             DoWeaponSwappingLogic();
-            spriteAnimationController.Activity();
+            //spriteAnimationController.Activity();
+            DoAnimationsActivity();
             UpdateOverlaySprite();
             LightningEndpointSprite.Visible = 
                 CurrentSecondaryAction == SecondaryActions.Shooting && EquippedWeapon == Weapon.ShootingLightning;
@@ -266,7 +247,8 @@ namespace Teotihuacan.Entities
 #if DEBUG
             if (DebuggingVariables.DisplayWeaponLevelInfo)
             {
-                string debugString = $@"Current Level: {CurrentWeaponLevelData.CurrentWeaponLevel}
+                string debugString = 
+$@"Current Level: {CurrentWeaponLevelData.CurrentWeaponLevel}
 Weapon Modifier: {WeaponDamageModifier}
 Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergyDrainDecrement}";
 
@@ -282,8 +264,8 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                 switch(EquippedWeapon)
                 {
                     case Weapon.ShootingFire: PlayerData.EquippedWeapon = Weapon.ShootingLightning; break;
-                    case Weapon.ShootingLightning: PlayerData.EquippedWeapon = Weapon.ShootingSkulls; break;
-                    case Weapon.ShootingSkulls: PlayerData.EquippedWeapon = Weapon.ShootingFire; break;
+                    case Weapon.ShootingLightning: PlayerData.EquippedWeapon = Weapon.ShootingSkull; break;
+                    case Weapon.ShootingSkull: PlayerData.EquippedWeapon = Weapon.ShootingFire; break;
                 }
                 SwappedWeapon();
             }
@@ -291,8 +273,8 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             {
                 switch (EquippedWeapon)
                 {
-                    case Weapon.ShootingFire: PlayerData.EquippedWeapon = Weapon.ShootingSkulls; break;
-                    case Weapon.ShootingSkulls: PlayerData.EquippedWeapon = Weapon.ShootingLightning; break;
+                    case Weapon.ShootingFire: PlayerData.EquippedWeapon = Weapon.ShootingSkull; break;
+                    case Weapon.ShootingSkull: PlayerData.EquippedWeapon = Weapon.ShootingLightning; break;
                     case Weapon.ShootingLightning: PlayerData.EquippedWeapon = Weapon.ShootingFire; break;
                 }
                 SwappedWeapon();
@@ -340,7 +322,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                 {
                     CurrentSecondaryAction = SecondaryActions.Shooting;
                 }
-                else if(EquippedWeapon == Weapon.ShootingSkulls)
+                else if(EquippedWeapon == Weapon.ShootingSkull)
                 {
                     CurrentSecondaryAction = SecondaryActions.Shooting;
                     bulletData = Bullet.DataCategory.PlayerSkull;
@@ -431,9 +413,9 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             // Drain player energy
             CurrentEnergy -= ModifyEnergyDrain(bulletData.EnergyUsePerShot);
 
-            // Play shooting anim on player sprite ?
+            /*// Play shooting anim on player sprite ?
             var chainName = GetChainName(currentPrimaryAction, SecondaryActions.Shooting);
-            shootingLayer.PlayOnce(chainName);
+            shootingAnimLayer.PlayOnce(chainName);*/
 
             lastFireShotTime = FlatRedBall.Screens.ScreenManager.CurrentScreen.PauseAdjustedCurrentTime;
 
@@ -480,6 +462,33 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             }
         }
 
+        private void DoAnimationsActivity()
+        {
+            if (aimingVector.X != 0 || aimingVector.Y != 0)
+            {
+                currentTopDownDirection =
+                    TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
+            }
+            else
+            {
+                currentTopDownDirection = TopDownDirection.Right;
+            }
+
+            if (currentTopDownDirection != lastTopDownDirection 
+                || currentPrimaryAction != lastPrimaryAction 
+                || CurrentSecondaryAction != lastSecondaryAction 
+                || EquippedWeapon != lastEquippedWeapon)
+            {
+                string newChainName = GetChainName(currentPrimaryAction, CurrentSecondaryAction);
+                SpriteInstance.CurrentChainName = newChainName;
+            }
+
+            lastTopDownDirection = currentTopDownDirection;
+            lastPrimaryAction = currentPrimaryAction;
+            lastSecondaryAction = CurrentSecondaryAction;
+            lastEquippedWeapon = EquippedWeapon;
+        }
+
         private string GetChainName(PrimaryActions primaryAction, SecondaryActions secondaryAction = SecondaryActions.None)
         {
             Weapon? weapon = null;
@@ -489,17 +498,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                 weapon = EquippedWeapon;
             }
 
-            if(aimingVector.X != 0 || aimingVector.Y != 0)
-            {
-                topDownDirection = 
-                    TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
-
-                return ChainNameHelperMethods.GenerateChainName(primaryAction, weapon, topDownDirection);
-            }
-            else
-            {
-                return ChainNameHelperMethods.GenerateChainName(primaryAction, weapon, TopDownDirection.Right);
-            }
+            return ChainNameHelperMethods.GenerateChainName(primaryAction, weapon, currentTopDownDirection);
         }
 
         public bool TakeDamage(float damageToTake, bool isBurn = false)
@@ -556,6 +555,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             death.Position = SpriteInstance.Position;
             death.TextureScale = 1;
             death.Animate = true;
+            // HACK: this is obsolete method ?
             SpriteManager.RemoveSpriteAtTime(death, death.CurrentChain.TotalLength);
 
             OnPlayerDeath?.Invoke(this);
@@ -630,8 +630,6 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             }
         }
 
-        Vector2 muzzlePosToTarget;
-
         public void UpdateLightningSprites()
         {
             Vector2 target = LightningWeaponManager.LineEndpoint;
@@ -641,10 +639,10 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
             var widthHalf = widthPerSprite / 2.0f;
 
-            int topDownDirectionIndex = (int)topDownDirection;
+            int topDownDirectionIndex = (int)currentTopDownDirection;
             Vector2 muzzlePosOffset = MUZZLE_POINTS[topDownDirectionIndex];
             Vector2 muzzlePos = new Vector2(this.X + muzzlePosOffset.X, this.Y + muzzlePosOffset.Y);
-            muzzlePosToTarget = (target - muzzlePos);
+            Vector2 muzzlePosToTarget = (target - muzzlePos);
             var spriteCountFloat = muzzlePosToTarget.Length() / widthPerSprite;
 
             var spriteCount = 1 + (int)spriteCountFloat;
@@ -686,18 +684,9 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             LightningEndpointSprite.RelativeX = target.X - X;
             LightningEndpointSprite.RelativeY = target.Y - Y;
 
-            DoLastLightingSpriteResizeActivity();
+            DoLastLightingSpriteResizeActivity(muzzlePosToTarget);
         }
-
-        public void ClearLightningSprites()
-        {
-            while(LightningSpriteList.Count > 0)
-            {
-                SpriteManager.RemoveSprite(LightningSpriteList.Last());
-            }
-        }
-
-        void DoLastLightingSpriteResizeActivity()
+        void DoLastLightingSpriteResizeActivity(Vector2 muzzlePosToTarget)
         {
             var lengthPerSprite = Lightning_Stream_Anim[0].Texture.Width *
                 (Lightning_Stream_Anim[0].RightCoordinate -
@@ -724,9 +713,16 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
                 int index = LightningSpriteList.Count - 1;
                 var leftOfPreviousSprite = widthPerSprite * index;
-                lastSprite.RelativeX = leftOfPreviousSprite + widthPerSprite * leftover/2.0f ;
+                lastSprite.RelativeX = leftOfPreviousSprite + widthPerSprite * leftover / 2.0f;
             }
         }
+        public void ClearLightningSprites()
+        {
+            while(LightningSpriteList.Count > 0)
+            {
+                SpriteManager.RemoveSprite(LightningSpriteList.Last());
+            }
+        }       
 
         public void ConsumeWeaponDrop(Weapon weaponType)
         {

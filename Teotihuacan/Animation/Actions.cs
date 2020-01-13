@@ -28,7 +28,7 @@ namespace Teotihuacan.Animation
     {
         ShootingFire,
         ShootingLightning,
-        ShootingSkulls
+        ShootingSkull
     }
 
     public static class ActionsExtentions
@@ -64,6 +64,8 @@ namespace Teotihuacan.Animation
                     return $"{nameof(Weapon.ShootingFire)}_";
                 case Weapon.ShootingLightning:
                     return $"{nameof(Weapon.ShootingLightning)}_";
+                case Weapon.ShootingSkull:
+                    return $"{nameof(Weapon.ShootingSkull)}_";
             }
 
             return string.Empty;

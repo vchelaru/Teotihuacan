@@ -571,6 +571,7 @@
           <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
           <SourceClassGenericType>Entities\Player</SourceClassGenericType>
           <InstanceName>PlayerList</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>false</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -4537,7 +4538,6 @@
     <EntitySave>
       <Tags>
         <string>GLUE</string>
-        <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <CustomVariables>
@@ -4677,7 +4677,7 @@
           </Properties>
           <Name>ArePlayersInvincible</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -4689,7 +4689,7 @@
           </Properties>
           <Name>IsBaseInvincible</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -4701,7 +4701,7 @@
           </Properties>
           <Name>PlayersHaveInfiniteEnergy</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
