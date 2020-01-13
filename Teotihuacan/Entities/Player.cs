@@ -235,6 +235,7 @@ namespace Teotihuacan.Entities
 		{
             DoPrimaryActionActivity();
             DoAimingActivity();
+            DoTopDownDirectionActivity();
             DoShootingActivity();
             DoMovementValueUpdate();
             DoWeaponSwappingLogic();
@@ -305,6 +306,19 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
                 AimingReticleSprite.RelativePosition = new Vector3(aimingVector.X * 75f,
                                                            aimingVector.Y * 75f,
                                                            AimingReticleSprite.RelativePosition.Z);
+            }
+        }
+
+        private void DoTopDownDirectionActivity()
+        {
+            if (aimingVector.X != 0 || aimingVector.Y != 0)
+            {
+                currentTopDownDirection =
+                    TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
+            }
+            else
+            {
+                currentTopDownDirection = TopDownDirection.Right;
             }
         }
 
@@ -401,9 +415,10 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             // * Here CurrentSecondaryAction is SecondaryActions.Shooting
 
             var direction = new Vector3(aimingVector.X, aimingVector.Y, 0f);
+            Vector2 muzzlePosOffset = MUZZLE_POINTS[ (int)currentTopDownDirection ];
 
             // Create and set bullet object
-            var bullet = Factories.BulletFactory.CreateNew(this.X, this.Y);
+            var bullet = Factories.BulletFactory.CreateNew(this.X + muzzlePosOffset.X, this.Y + muzzlePosOffset.Y);
             bullet.Owner = this;
             bullet.CurrentDataCategoryState = bulletData;
             bullet.Velocity = bullet.BulletSpeed * direction;
@@ -464,16 +479,6 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
         private void DoAnimationsActivity()
         {
-            if (aimingVector.X != 0 || aimingVector.Y != 0)
-            {
-                currentTopDownDirection =
-                    TopDownDirectionExtensions.FromDirection(new Vector2(aimingVector.X, aimingVector.Y), PossibleDirections.EightWay);
-            }
-            else
-            {
-                currentTopDownDirection = TopDownDirection.Right;
-            }
-
             if (currentTopDownDirection != lastTopDownDirection 
                 || currentPrimaryAction != lastPrimaryAction 
                 || CurrentSecondaryAction != lastSecondaryAction 
