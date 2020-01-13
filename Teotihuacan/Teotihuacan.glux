@@ -4201,21 +4201,6 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
-        <NamedObjectSave>
-          <Properties>
-            <PropertySave>
-              <Name>SourceType</Name>
-              <ValueAsObject xsi:type="SourceType">File</ValueAsObject>
-            </PropertySave>
-          </Properties>
-          <SourceType>File</SourceType>
-          <SourceFile>Various/misc_sprites.achx</SourceFile>
-          <SourceName>BigExplosionSkull (AnimationChain)</SourceName>
-          <InstanceName>BigExplosionSkull</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>

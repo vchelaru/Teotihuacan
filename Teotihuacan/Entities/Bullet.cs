@@ -67,7 +67,7 @@ namespace Teotihuacan.Entities
             }
             else if(CurrentDataCategoryState == Bullet.DataCategory.PlayerSkull)
             {
-                explosion.CurrentChainName = BigExplosionSkull.Name;
+                explosion.CurrentChainName = "BigExplosionSkull";
             }
             explosion.Position = SpriteInstance.Position;
             explosion.TextureScale = 1;
