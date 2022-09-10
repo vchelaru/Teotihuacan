@@ -13,7 +13,7 @@
     <AssemblyName>Teotihuacan</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>DesktopGL</MonoGamePlatform>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -40,7 +40,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Animation\ChainNameHelperMethods.cs" />
-    <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
     <Compile Include="DataTypes\TopDownValues.Generated.cs" />
     <Compile Include="Entities\Bullet.cs" />
     <Compile Include="Entities\Bullet.Generated.cs">
@@ -92,7 +91,74 @@
     <Compile Include="Factories\SpawnPointFactory.Generated.cs" />
     <Compile Include="Factories\WeaponDropFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
+    <Compile Include="Forms\Components\Menus\PauseMenuForms.cs" />
+    <Compile Include="Forms\Components\Menus\PauseMenuForms.Generated.cs">
+      <DependentUpon>PauseMenuForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\CameraTestScreenGumForms.cs" />
+    <Compile Include="Forms\Screens\CameraTestScreenGumForms.Generated.cs">
+      <DependentUpon>CameraTestScreenGumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\GameScreenGumForms.cs" />
+    <Compile Include="Forms\Screens\GameScreenGumForms.Generated.cs">
+      <DependentUpon>GameScreenGumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\Level10GumForms.cs" />
+    <Compile Include="Forms\Screens\Level10GumForms.Generated.cs">
+      <DependentUpon>Level10GumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\Level1GumForms.cs" />
+    <Compile Include="Forms\Screens\Level1GumForms.Generated.cs">
+      <DependentUpon>Level1GumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\Level2GumForms.cs" />
+    <Compile Include="Forms\Screens\Level2GumForms.Generated.cs">
+      <DependentUpon>Level2GumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\Level3GumForms.cs" />
+    <Compile Include="Forms\Screens\Level3GumForms.Generated.cs">
+      <DependentUpon>Level3GumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\Level4GumForms.cs" />
+    <Compile Include="Forms\Screens\Level4GumForms.Generated.cs">
+      <DependentUpon>Level4GumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\Level5GumForms.cs" />
+    <Compile Include="Forms\Screens\Level5GumForms.Generated.cs">
+      <DependentUpon>Level5GumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\Level6GumForms.cs" />
+    <Compile Include="Forms\Screens\Level6GumForms.Generated.cs">
+      <DependentUpon>Level6GumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\Level7GumForms.cs" />
+    <Compile Include="Forms\Screens\Level7GumForms.Generated.cs">
+      <DependentUpon>Level7GumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\Level8GumForms.cs" />
+    <Compile Include="Forms\Screens\Level8GumForms.Generated.cs">
+      <DependentUpon>Level8GumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\Level9GumForms.cs" />
+    <Compile Include="Forms\Screens\Level9GumForms.Generated.cs">
+      <DependentUpon>Level9GumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\RivaTestScreenGumForms.cs" />
+    <Compile Include="Forms\Screens\RivaTestScreenGumForms.Generated.cs">
+      <DependentUpon>RivaTestScreenGumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\UiTestScreenGumForms.cs" />
+    <Compile Include="Forms\Screens\UiTestScreenGumForms.Generated.cs">
+      <DependentUpon>UiTestScreenGumForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Screens\WinScreenGumForms.cs" />
+    <Compile Include="Forms\Screens\WinScreenGumForms.Generated.cs">
+      <DependentUpon>WinScreenGumForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Game1.cs" />
+    <Compile Include="Game1.Generated.cs">
+      <DependentUpon>Game1.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameData\Level1Spawns.cs" />
     <Compile Include="GameData\Level2Spawns.cs" />
     <Compile Include="GameData\Level3Spawns.cs" />
@@ -356,9 +422,15 @@
     <Compile Include="TileGraphics\Tileset.cs" />
     <Compile Include="TileGraphics\TilesetExtensionMethods.cs" />
     <Compile Include="Animation\Actions.cs" />
-    <Compile Include="TopDown\Enums.cs" />
-    <Compile Include="TopDown\Interfaces.cs" />
-    <Compile Include="TopDown\TopDownAiInput.cs" />
+    <Compile Include="TopDown\AnimationSet.Generated.cs" />
+    <Compile Include="TopDown\DirectionBasedAnimationLayer.Generated.cs" />
+    <Compile Include="TopDown\Enums.Generated.cs">
+    </Compile>
+    <Compile Include="TopDown\Interfaces.Generated.cs">
+    </Compile>
+    <Compile Include="TopDown\TopDownAiInput.Generated.cs">
+    </Compile>
+    <Compile Include="TopDown\TopDownAiTargetLogic.Generated.cs" />
     <Compile Include="UiControllers\BarController.cs" />
     <Compile Include="Utilities\WinApi.cs" />
   </ItemGroup>

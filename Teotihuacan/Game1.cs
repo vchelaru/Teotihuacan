@@ -20,9 +20,13 @@ using System.Diagnostics;
 
 namespace Teotihuacan
 {
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public partial class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
+
+        partial void GeneratedInitialize();
+        partial void GeneratedUpdate(Microsoft.Xna.Framework.GameTime gameTime);
+        partial void GeneratedDraw(Microsoft.Xna.Framework.GameTime gameTime);
 
         public Game1() : base()
         {
@@ -64,8 +68,8 @@ namespace Teotihuacan
             SpriteManager.OrderedSortType = SortType.ZSecondaryParentY;
 
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
-			GlobalContent.Initialize();
-			FlatRedBall.Screens.ScreenManager.Start(typeof(Teotihuacan.Screens.Level1));
+            GlobalContent.Initialize();
+            FlatRedBall.Screens.ScreenManager.Start(typeof(Teotihuacan.Screens.Level1));
 
             base.Initialize();
         }
@@ -92,7 +96,7 @@ namespace Teotihuacan
                 if (CameraSetup.Data.IsFullScreen)
                 {
                     CameraSetup.Data.IsFullScreen = false;
-                    CameraSetup.Data.AllowWidowResizing = true;
+                    CameraSetup.Data.AllowWindowResizing = true;
                     var xnaWindow = FlatRedBall.FlatRedBallServices.Game.Window;
                     xnaWindow.AllowUserResizing = true;
                     //xnaWindow.IsBorderless = false;
@@ -104,7 +108,7 @@ namespace Teotihuacan
                 else
                 {
                     CameraSetup.Data.IsFullScreen = true;
-                    CameraSetup.Data.AllowWidowResizing = false;
+                    CameraSetup.Data.AllowWindowResizing = false;
                     var xnaWindow = FlatRedBall.FlatRedBallServices.Game.Window;
                     xnaWindow.AllowUserResizing = false;
                     //xnaWindow.IsBorderless = true; // This for some reason breaks the OnTop behaviour. MG bug ?

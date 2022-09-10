@@ -1,8 +1,8 @@
-"Name (System.String, required)",MaxSpeed (System.Single),AccelerationTime (System.Single),DecelerationTime (System.Single),UpdateDirectionFromVelocity (System.Boolean)
-DefaultValues,40,.35,.175,True
-WhileShooting,20,.25,.125,True
-WhileReloading,17,.25,.125,True
-EnemyMud,15,.2,.1,True
-BossReloading,0,0,0,False
-SuiciderFast,85,.15,.05,True
-SuiciderFastMud,25,.1,.02,True
+"Name (string, required)",UsesAcceleration (System.Boolean),MaxSpeed (System.Single),AccelerationTime (System.Single),DecelerationTime (System.Single),UpdateDirectionFromVelocity (System.Boolean),UpdateDirectionFromInput (System.Boolean),IsUsingCustomDeceleration (System.Boolean),CustomDecelerationValue (System.Single),InheritOrOverwriteAsInt (System.Int32)
+DefaultValues,True,40,0.35,0.175,True,False,False,100,0
+WhileShooting,True,20,0.25,0.125,True,False,False,100,0
+WhileReloading,True,17,0.25,0.125,True,False,False,100,0
+EnemyMud,True,15,0.2,0.1,True,False,False,100,0
+BossReloading,True,0,0,0,True,False,False,100,0
+SuiciderFast,True,85,0.15,0.05,True,False,False,100,0
+SuiciderFastMud,True,25,0.1,0.02,True,False,False,100,0

@@ -111,7 +111,7 @@ namespace Teotihuacan.Screens
 
             InitializeCameraController();
 
-            Factories.EnemyFactory.EntitySpawned = HandleEnemySpawn;
+            Factories.EnemyFactory.EntitySpawned += HandleEnemySpawn;
             EnemyList.CollectionChanged += (a, b) => HandleEnemyListChanged();
 
             InitializeNodeNetworks();
@@ -173,8 +173,11 @@ namespace Teotihuacan.Screens
 
         private void SetInitialPlayerPosition(Player player)
         {
-            player.Y = this.PlayerBaseList[0].Y;
-            player.X = this.PlayerBaseList[0].X + 48;
+            if(PlayerBaseList.Count > 0)
+            {
+                player.Y = this.PlayerBaseList[0].Y;
+                player.X = this.PlayerBaseList[0].X + 48;
+            }
         }
 
         private void InitializeNodeNetworks()

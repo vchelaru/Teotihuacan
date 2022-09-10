@@ -5,7 +5,7 @@
   <State>
     <Name>Default</Name>
     <Variable>
-      <Type>AlphaState</Type>
+      <Type>Alpha</Type>
       <Name>AlphaState</Name>
       <SetsValue>false</SetsValue>
     </Variable>

@@ -135,7 +135,7 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>FadeCategoryState</Type>
+      <Type>FadeCategory</Type>
       <Name>FadeCategoryState</Name>
       <SetsValue>false</SetsValue>
     </Variable>

@@ -44,8 +44,8 @@ namespace TMXGlueLib
 
         public static LayerVisibleBehavior LayerVisibleBehaviorValue = LayerVisibleBehavior.Ignore;
         public static int MaxDegreeOfParallelism = 1;
-
-        const string animationColumnName = "EmbeddedAnimation (List<FlatRedBall.Content.AnimationChain.AnimationFrameSaveBase>)";
+        
+        const string animationColumnName = "EmbeddedAnimation (List<FlatRedBall.Content.AnimationChain.AnimationFrameSave>)";
 
 
         private static Tuple<float, float, float> _offset = new Tuple<float, float, float>(0f, 0f, 0f);
@@ -389,7 +389,7 @@ namespace TMXGlueLib
                     out leftCoordinate, out topCoordinate, out rightCoordinate, out bottomCoordinate);
 
                 row.Add(string.Format(
-                    "new FlatRedBall.Content.AnimationChain.AnimationFrameSaveBase(TextureName={0}, " +
+                    "new FlatRedBall.Content.AnimationChain.AnimationFrameSave(TextureName={0}, " +
                     "FrameLength={1}, LeftCoordinate={2}, RightCoordinate={3}, TopCoordinate={4}, BottomCoordinate={5})",
                     indexOfLayerReferencingTileset,
                     (frame.Duration / 1000.0f).ToString(CultureInfo.InvariantCulture),
@@ -682,7 +682,7 @@ namespace TMXGlueLib
 
                 MapLayer mLayer = mapLayer;
                 int mLayerCount = layercount;
-                Parallel.For(0, mapLayer.data[0].tiles.Count, count =>
+                Parallel.For(0, mapLayer.data[0].tiles.Length, count =>
                 {
                     uint gid = mLayer.data[0].tiles[count];
 
@@ -693,14 +693,14 @@ namespace TMXGlueLib
 
                         //int tileWidth = requireTile ? tileSet.tilewidth : tilewidth;
                         //int tileHeight = requireTile ? tileSet.tileheight : tileheight;
-                        int x = count % this.Width;
-                        int y = count / this.Width;
+                        int x = (int)count % this.Width;
+                        int y = (int)count / this.Width;
 
                         float nodex;
                         float nodey;
                         float nodez;
 
-                        CalculateWorldCoordinates(mLayerCount, count, tilewidth, tileheight, mLayer.width, out nodex, out nodey, out nodez);
+                        CalculateWorldCoordinates(mLayerCount, (int)count, tilewidth, tileheight, mLayer.width, out nodex, out nodey, out nodez);
 
                         node.X = nodex;
                         node.Y = nodey;
@@ -855,7 +855,7 @@ namespace TMXGlueLib
                     MapLayer mLayer = mapLayer;
                     int mLayerCount = layercount;
 
-                    for (int i = 0; i < mapLayer.data[0].tiles.Count; i++)
+                    for (int i = 0; i < mapLayer.data[0].tiles.Length; i++)
                     {
                         uint gid = mLayer.data[0].tiles[i];
                         if (gid > 0)
@@ -876,7 +876,7 @@ namespace TMXGlueLib
                 }
 
                 var group = abstractMapLayer as mapObjectgroup;
-                bool shouldProcess = group?.@object != null && group.Visible && !string.IsNullOrEmpty(group.Name);
+                bool shouldProcess = group?.@object != null && group.IsVisible && !string.IsNullOrEmpty(group.Name);
                 if (shouldProcess) //&& (string.IsNullOrEmpty(layerName) || group.name.Equals(layerName)))
                 {
                     foreach (mapObjectgroupObject @object in @group.@object)
@@ -1236,13 +1236,8 @@ namespace TMXGlueLib
 
             var gidWithoutRotation = gid & 0x0fffffff;
 
-            const uint FlippedHorizontallyFlag = 0x80000000;
-            const uint FlippedVerticallyFlag = 0x40000000;
-            const uint FlippedDiagonallyFlag = 0x20000000;
-
-            bool flipHorizontally = (gid & FlippedHorizontallyFlag) == FlippedHorizontallyFlag;
-            bool flipVertically = (gid & FlippedVerticallyFlag) == FlippedVerticallyFlag;
-            bool flipDiagonally = (gid & FlippedDiagonallyFlag) == FlippedDiagonallyFlag;
+            bool flipHorizontally, flipVertically, flipDiagonally;
+            GetFlipBoolsFromGid(gid, out flipHorizontally, out flipVertically, out flipDiagonally);
 
             // Calculate pixel coordinates in the texture sheet
             leftPixelCoord = CalculateXCoordinate(gidWithoutRotation - tileSet.Firstgid, imageWidth, tileWidth, spacing, margin);
@@ -1266,6 +1261,17 @@ namespace TMXGlueLib
                 bottomPixelCoord = temp;
 
             }
+        }
+
+        public static void GetFlipBoolsFromGid(uint gid, out bool flipHorizontally, out bool flipVertically, out bool flipDiagonally)
+        {
+            const uint FlippedHorizontallyFlag = 0x80000000;
+            const uint FlippedVerticallyFlag = 0x40000000;
+            const uint FlippedDiagonallyFlag = 0x20000000;
+
+            flipHorizontally = (gid & FlippedHorizontallyFlag) == FlippedHorizontallyFlag;
+            flipVertically = (gid & FlippedVerticallyFlag) == FlippedVerticallyFlag;
+            flipDiagonally = (gid & FlippedDiagonallyFlag) == FlippedDiagonallyFlag;
         }
 
         public Tileset GetTilesetForGid(uint gid, bool shouldRemoveFlipFlags = true)

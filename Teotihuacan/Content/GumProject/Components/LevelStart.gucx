@@ -100,7 +100,7 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>DarkRectAlphaState</Type>
+      <Type>DarkRectAlpha</Type>
       <Name>DarkRectAlphaState</Name>
       <SetsValue>false</SetsValue>
     </Variable>
@@ -462,7 +462,7 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>TextsVisibilityState</Type>
+      <Type>TextsVisibility</Type>
       <Name>TextsVisibilityState</Name>
       <SetsValue>false</SetsValue>
     </Variable>

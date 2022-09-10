@@ -22,12 +22,16 @@ using VertexType = Microsoft.Xna.Framework.Graphics.VertexPositionTexture;
 
 namespace FlatRedBall.TileGraphics
 {
+    #region Enums
+
     public enum SortAxis
     {
         None,
         X,
         Y
     }
+
+    #endregion
 
     public class MapDrawableBatch : PositionedObject, IVisible, IDrawableBatch
     {
@@ -62,6 +66,8 @@ namespace FlatRedBall.TileGraphics
         protected int[] mIndices;
 
         Dictionary<string, List<int>> mNamedTileOrderedIndexes = new Dictionary<string, List<int>>();
+
+        public byte[] FlipFlagArray;
 
         private int mCurrentNumberOfTiles = 0;
 
@@ -116,6 +122,12 @@ namespace FlatRedBall.TileGraphics
             set;
         }
 
+        /// <summary>
+        /// Contains the list of tile indexes for each name, enabling quick lookup of tile
+        /// indexes by name. The indexes stored in the list indicate the ordered index of the tile
+        /// (not the vertex or index in the index buffer), so the values will always be less
+        /// than the total number of tiles in the MapDrawableBatch.
+        /// </summary>
         public Dictionary<string, List<int>> NamedTileOrderedIndexes
         {
             get
@@ -144,13 +156,7 @@ namespace FlatRedBall.TileGraphics
             }
         }
 
-        public VertexPositionTexture[] Vertices
-        {
-            get
-            {
-                return mVertices;
-            }
-        }
+        public VertexPositionTexture[] Vertices => mVertices;
 
         public Texture2D Texture
         {
@@ -181,6 +187,15 @@ namespace FlatRedBall.TileGraphics
         // so -(_parallaxMultiplier - 1) = value
         // thus -_parallaxMultiplier + 1 = value (get)
         private float _parallaxMultiplierX;
+
+        /// <summary>
+        /// The multiplier applied when scrolling the camera. 
+        /// Defaults to a value of 1, which 
+        /// means when the camera scrolls 1 unit, the 
+        /// layer moves by 1 unit to the left. A value of less than 1 should be used for
+        /// layers in the background, while a value greater
+        /// than 1 for layers in the foreground.
+        /// </summary>
         public float ParallaxMultiplierX
         {
             get { return -_parallaxMultiplierX + 1; }
@@ -188,6 +203,14 @@ namespace FlatRedBall.TileGraphics
         }
 
         private float _parallaxMultiplierY;
+        /// <summary>
+        /// The multiplier applied when scrolling the camera. 
+        /// Defaults to a value of 1, which 
+        /// means when the camera scrolls 1 unit, the 
+        /// layer moves by 1 unit to the left. A value of less than 1 should be used for
+        /// layers in the background, while a value greater
+        /// than 1 for layers in the foreground.
+        /// </summary>
         public float ParallaxMultiplierY
         {
             get { return -_parallaxMultiplierY + 1; }
@@ -218,6 +241,7 @@ namespace FlatRedBall.TileGraphics
 
             mTexture = texture;
             mVertices = new VertexPositionTexture[4 * numberOfTiles];
+            FlipFlagArray = new byte[numberOfTiles];
             mIndices = new int[6 * numberOfTiles];
         }
 
@@ -229,14 +253,16 @@ namespace FlatRedBall.TileGraphics
         public MapDrawableBatch(int numberOfTiles, int textureTileDimensionWidth, int textureTileDimensionHeight, Texture2D texture)
             : base()
         {
-            if (texture == null)
-                throw new ArgumentNullException("texture");
+            // Update - maybe this is okay, it's just an empty layer, and we want to support that...
+            //if (texture == null)
+            //    throw new ArgumentNullException("texture");
 
             Visible = true;
             InternalInitialize();
 
             mTexture = texture;
             mVertices = new VertexPositionTexture[4 * numberOfTiles];
+            FlipFlagArray = new byte[numberOfTiles];
             mIndices = new int[6 * numberOfTiles];
 
             mTileset = new Tileset(texture, textureTileDimensionWidth, textureTileDimensionHeight);
@@ -328,9 +354,12 @@ namespace FlatRedBall.TileGraphics
         public void AddToManagers()
         {
             SpriteManager.AddDrawableBatch(this);
-            //SpriteManager.AddPositionedObject(mMapBatch);
         }
 
+        /// <summary>
+        /// Adds this MapDrawableBatch to the engine (for rendering) on the argument layer.
+        /// </summary>
+        /// <param name="layer">The layer to add to.</param>
         public void AddToManagers(Layer layer)
         {
             SpriteManager.AddToLayer(this, layer);
@@ -434,7 +463,7 @@ namespace FlatRedBall.TileGraphics
         }
 
         // Bring the texture coordinates in to adjust for rendering issues on dx9/ogl
-        public const float CoordinateAdjustment = .00002f;
+        public static float CoordinateAdjustment = .00002f;
 
         internal static MapDrawableBatch FromReducedLayer(TMXGlueLib.DataTypes.ReducedLayerInfo reducedLayerInfo, LayeredTileMap owner, TMXGlueLib.DataTypes.ReducedTileMapInfo rtmi, string contentManagerName)
         {
@@ -452,7 +481,11 @@ namespace FlatRedBall.TileGraphics
 
 #endif
 
-            Texture2D texture = FlatRedBallServices.Load<Texture2D>(textureName, contentManagerName);
+            Texture2D texture = null;
+            if (!string.IsNullOrEmpty(textureName))
+            {
+                texture = FlatRedBallServices.Load<Texture2D>(textureName, contentManagerName);
+            }
 
             MapDrawableBatch toReturn = new MapDrawableBatch(reducedLayerInfo.Quads.Count, tileDimensionWidth, tileDimensionHeight, texture);
 
@@ -461,21 +494,24 @@ namespace FlatRedBall.TileGraphics
             Vector3 position = new Vector3();
 
 
-            IEnumerable<TMXGlueLib.DataTypes.ReducedQuadInfo> quads = null;
+            TMXGlueLib.DataTypes.ReducedQuadInfo[] quads = null;
 
             if (rtmi.NumberCellsWide > rtmi.NumberCellsTall)
             {
-                quads = reducedLayerInfo.Quads.OrderBy(item => item.LeftQuadCoordinate).ToList();
+                quads = reducedLayerInfo.Quads.OrderBy(item => item.LeftQuadCoordinate).ToArray();
                 toReturn.mSortAxis = SortAxis.X;
             }
             else
             {
-                quads = reducedLayerInfo.Quads.OrderBy(item => item.BottomQuadCoordinate).ToList();
+                quads = reducedLayerInfo.Quads.OrderBy(item => item.BottomQuadCoordinate).ToArray();
                 toReturn.mSortAxis = SortAxis.Y;
             }
 
-            foreach (var quad in quads)
+            var quadLength = quads.Length;
+            for (int i = 0; i < quadLength; i++)
             {
+                var quad = quads[i];
+
                 Vector2 tileDimensions = new Vector2(quadWidth, quadHeight);
                 if (quad.OverridingWidth != null)
                 {
@@ -529,6 +565,8 @@ namespace FlatRedBall.TileGraphics
                     textureValues.W = temp;
                 }
 
+                toReturn.FlipFlagArray[i] = quad.FlipFlags;
+
                 int tileIndex = toReturn.AddTile(position, tileDimensions,
                     //quad.LeftTexturePixel, quad.TopTexturePixel, quad.LeftTexturePixel + tileDimensionWidth, quad.TopTexturePixel + tileDimensionHeight);
                     textureValues);
@@ -568,6 +606,9 @@ namespace FlatRedBall.TileGraphics
 
                 toReturn.RegisterName(quad.Name, tileIndex);
             }
+
+            toReturn.ParallaxMultiplierX = reducedLayerInfo.ParallaxMultiplierX;
+            toReturn.ParallaxMultiplierY = reducedLayerInfo.ParallaxMultiplierY;
 
             return toReturn;
         }
@@ -703,8 +744,22 @@ namespace FlatRedBall.TileGraphics
         /// to the MapDrawableBatch, so it supports any configuration including non-rectangular maps and maps with
         /// gaps.
         /// </summary>
+        /// <example>
+        /// newTextureId is the ID of the tile within the referenced tileset. Each ID represents one square in the texture. For example, consider
+        /// a tileset which is 64x64 pixels, and each tile in the tileset is 16 pixels wide and tall. In this case, a newTextureId of 0
+        /// would paint a tile with the the top-left 16x16 pixel in the referenced tileset. Since the tileset in this example is 4 tiles wide
+        /// (64 pixels wide, each tile is 16 pixels wide), the following indexes would reference the following sections of the tileset:
+        /// 0: top-left tile
+        /// 3: top-right tile
+        /// 4: left-most tile on the 2nd row
+        /// 7: right-most tile on the 2nd row
+        /// 12: bottom-left tile 
+        /// 15: bottom-right tile
+        /// In this case 15 is the last tile index, so values of 16 and greater are invalid.
+        /// </example>
         /// <param name="orderedTileIndex">The index of the tile to paint - this matches the index of the tile as it was added.</param>
-        /// <param name="newTextureId"></param>
+        /// <param name="newTextureId">The ID of the tile in the texture, where 0 is the top-left tile. Increasing this value moves to the right until the tile reaches
+        /// the end of the first row. After that, the next index is the first column on the second row. See remarks for an example.</param>
         public void PaintTile(int orderedTileIndex, int newTextureId)
         {
             int currentVertex = orderedTileIndex * 4; // 4 vertices per tile
@@ -829,6 +884,50 @@ namespace FlatRedBall.TileGraphics
 
             x = vector.X;
             y = vector.Y;
+        }
+
+        public int? GetQuadIndex(float worldX, float worldY)
+        {
+            if (mVertices.Length == 0)
+            {
+                return null;
+            }
+
+            var firstVertIndex = 0;
+
+            var lastVertIndexExclusive = mVertices.Length;
+
+            float tileWidth = mVertices[1].Position.X - mVertices[0].Position.X;
+
+            if (mSortAxis == SortAxis.X)
+            {
+                firstVertIndex = GetFirstAfterX(mVertices, worldX - tileWidth);
+                lastVertIndexExclusive = GetFirstAfterX(mVertices, worldX + tileWidth);
+            }
+            else if (mSortAxis == SortAxis.Y)
+            {
+                firstVertIndex = GetFirstAfterY(mVertices, worldY - tileWidth);
+                lastVertIndexExclusive = GetFirstAfterY(mVertices, worldY + tileWidth);
+            }
+
+            for (int i = firstVertIndex; i < lastVertIndexExclusive; i += 4)
+            {
+                // Coords are
+                // 3   2
+                //
+                // 0   1
+
+                if (mVertices[i + 0].Position.X <= worldX && mVertices[i + 0].Position.Y <= worldY &&
+                    mVertices[i + 1].Position.X >= worldX && mVertices[i + 1].Position.Y <= worldY &&
+                    mVertices[i + 2].Position.X >= worldX && mVertices[i + 2].Position.Y >= worldY &&
+                    mVertices[i + 3].Position.X <= worldX && mVertices[i + 3].Position.Y >= worldY)
+                {
+                    return i / 4;
+                }
+            }
+
+
+            return null;
         }
 
         /// <summary>
@@ -1022,7 +1121,7 @@ namespace FlatRedBall.TileGraphics
             // on non-power-of-two textures.
             oldTextureAddressMode = Renderer.TextureAddressMode;
             Renderer.TextureAddressMode = TextureAddressMode.Clamp;
-            
+
             return effectTouse;
         }
 
@@ -1183,6 +1282,68 @@ namespace FlatRedBall.TileGraphics
                 return list.Length;
             }
         }
+
+        string GetTileNameAt(float worldX, float worldY)
+        {
+            var quadIndex = GetQuadIndex(worldX, worldY);
+
+            if (quadIndex != null)
+            {
+                // look in all the dictionaries to find which names exist at this index
+                var foundKeyValuePair = NamedTileOrderedIndexes.FirstOrDefault(item => item.Value.Contains(quadIndex.Value));
+
+                return foundKeyValuePair.Key;
+            }
+            return null;
+        }
+
+        TMXGlueLib.mapTilesetTile GetTilesetTileAt(float worldX, float worldY, LayeredTileMap map)
+        {
+            TMXGlueLib.mapTilesetTile tilesetTile = null;
+
+            var quadIndex = GetQuadIndex(worldX, worldY);
+
+            if (quadIndex != null)
+            {
+                // look in all the dictionaries to find which names exist at this index
+                var foundKeyValuePair = NamedTileOrderedIndexes.FirstOrDefault(item => item.Value.Contains(quadIndex.Value));
+
+                if (foundKeyValuePair.Key != null)
+                {
+                    var name = foundKeyValuePair.Key;
+
+                    foreach (var tileset in map.Tilesets)
+                    {
+                        tilesetTile = GetTilesetTile(tileset, name);
+
+                        if (tilesetTile != null)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return tilesetTile;
+        }
+
+        private TMXGlueLib.mapTilesetTile GetTilesetTile(TMXGlueLib.Tileset tileset, string name)
+        {
+            foreach (var kvp in tileset.TileDictionary)
+            {
+                var candidate = kvp.Value;
+                var nameProperty = candidate.properties.FirstOrDefault(item => item.StrippedNameLower == "name");
+
+                if (nameProperty?.value == name)
+                {
+                    return candidate;
+                }
+            }
+
+            return null;
+        }
+
+
         #region XML Docs
         /// <summary>
         /// Here we update our batch - but this batch doesn't
@@ -1267,6 +1428,8 @@ namespace FlatRedBall.TileGraphics
 
         public void MergeOntoThis(IEnumerable<MapDrawableBatch> mapDrawableBatches)
         {
+
+
             int quadsToAdd = 0;
             int quadsOnThis = QuadCount;
             foreach (var mdb in mapDrawableBatches)
@@ -1281,6 +1444,262 @@ namespace FlatRedBall.TileGraphics
             var oldVerts = mVertices;
             var oldIndexes = mIndices;
 
+            if (this.SortAxis == SortAxis.X)
+            {
+                MergeSortedX(mapDrawableBatches, totalNumberOfVerts, totalNumberOfIndexes);
+            }
+            else if (this.SortAxis == SortAxis.Y)
+            {
+                MergeSortedY(mapDrawableBatches, totalNumberOfVerts, totalNumberOfIndexes);
+            }
+            else
+            {
+                MergeUnsorted(mapDrawableBatches, quadsOnThis, totalNumberOfVerts, totalNumberOfIndexes, oldVerts, oldIndexes);
+            }
+        }
+
+        private void MergeSortedX(IEnumerable<MapDrawableBatch> mapDrawableBatches, int totalNumberOfVerts, int totalNumberOfIndexes)
+        {
+            if (totalNumberOfVerts == this.mVertices.Length)
+            {
+                return;// nothing being added
+            }
+
+            List<Dictionary<int, string>> invertedDictionaries = new List<Dictionary<int, string>>();
+            var newNameIndexDictionary = new Dictionary<string, List<int>>();
+
+            List<MapDrawableBatch> layers = mapDrawableBatches.ToList();
+            layers.Insert(0, this);
+
+            int[] currentVertIndex = new int[layers.Count];
+
+            // they should be initialized to 0
+            int destinationVertIndex = 0;
+            int destinationIndexIndex = 0;
+
+
+
+            var newVerts = new VertexType[totalNumberOfVerts];
+            var newIndexes = new int[totalNumberOfIndexes];
+
+            mCurrentNumberOfTiles = totalNumberOfVerts / 4;
+
+            int newFlagFlipArraySize = 0;
+            foreach (var layer in layers)
+            {
+                newFlagFlipArraySize += layer.FlipFlagArray.Length;
+                var invertedLayerDictionary = new Dictionary<int, string>();
+
+                foreach (var kvp in layer.NamedTileOrderedIndexes)
+                {
+                    foreach (var index in kvp.Value)
+                    {
+                        invertedLayerDictionary[index] = kvp.Key;
+                    }
+                }
+
+                invertedDictionaries.Add(invertedLayerDictionary);
+            }
+
+            var newFlipFlagArray = new byte[newFlagFlipArraySize];
+
+            while (true)
+            {
+                float smallestX = float.PositiveInfinity;
+                //int smallestIndex = -1;
+                int layerIndexToCopyFrom = -1;
+
+                for (int layerIndex = 0; layerIndex < currentVertIndex.Length; layerIndex++)
+                {
+                    if (currentVertIndex[layerIndex] < layers[layerIndex].mVertices.Length)
+                    {
+                        var vertX = layers[layerIndex].mVertices[currentVertIndex[layerIndex]].Position.X;
+
+                        if (vertX < smallestX)
+                        {
+                            smallestX = vertX;
+                            layerIndexToCopyFrom = layerIndex;
+                            //smallestIndex = currentVertIndex[layerIndex];
+                        }
+                    }
+                }
+
+                if (layerIndexToCopyFrom == -1)
+                {
+                    break;
+                }
+                else
+                {
+                    var layerToCopyFrom = layers[layerIndexToCopyFrom];
+                    var sourceVertIndex = currentVertIndex[layerIndexToCopyFrom];
+                    var sourceIndexIndex = (sourceVertIndex / 4) * 6;
+                    var sourceFlipIndex = (sourceVertIndex / 4);
+
+                    var destinationFlipIndex = destinationVertIndex / 4;
+
+                    newFlipFlagArray[destinationFlipIndex] = layerToCopyFrom.FlipFlagArray[sourceFlipIndex];
+
+                    newVerts[destinationVertIndex] = layerToCopyFrom.mVertices[sourceVertIndex];
+                    newVerts[destinationVertIndex + 1] = layerToCopyFrom.mVertices[sourceVertIndex + 1];
+                    newVerts[destinationVertIndex + 2] = layerToCopyFrom.mVertices[sourceVertIndex + 2];
+                    newVerts[destinationVertIndex + 3] = layerToCopyFrom.mVertices[sourceVertIndex + 3];
+
+                    var firstVert = layerToCopyFrom.mIndices[sourceIndexIndex];
+
+                    newIndexes[destinationIndexIndex] =
+                        destinationVertIndex - firstVert + layerToCopyFrom.mIndices[sourceIndexIndex];
+                    newIndexes[destinationIndexIndex + 1] =
+                        destinationVertIndex - firstVert + layerToCopyFrom.mIndices[sourceIndexIndex + 1];
+                    newIndexes[destinationIndexIndex + 2] =
+                        destinationVertIndex - firstVert + layerToCopyFrom.mIndices[sourceIndexIndex + 2];
+                    newIndexes[destinationIndexIndex + 3] =
+                        destinationVertIndex - firstVert + layerToCopyFrom.mIndices[sourceIndexIndex + 3];
+                    newIndexes[destinationIndexIndex + 4] =
+                        destinationVertIndex - firstVert + layerToCopyFrom.mIndices[sourceIndexIndex + 4];
+                    newIndexes[destinationIndexIndex + 5] =
+                        destinationVertIndex - firstVert + layerToCopyFrom.mIndices[sourceIndexIndex + 5];
+
+                    if (invertedDictionaries[layerIndexToCopyFrom].ContainsKey(sourceVertIndex / 4))
+                    {
+                        var newName = invertedDictionaries[layerIndexToCopyFrom][sourceVertIndex / 4];
+
+                        if (newNameIndexDictionary.ContainsKey(newName) == false)
+                        {
+                            newNameIndexDictionary[newName] = new List<int>();
+                        }
+
+                        newNameIndexDictionary[newName].Add(destinationVertIndex / 4);
+                    }
+
+                    destinationVertIndex += 4;
+                    destinationIndexIndex += 6;
+                    currentVertIndex[layerIndexToCopyFrom] += 4;
+                }
+            }
+
+            this.mNamedTileOrderedIndexes = newNameIndexDictionary;
+            this.FlipFlagArray = newFlipFlagArray;
+
+            this.mVertices = newVerts;
+            this.mIndices = newIndexes;
+        }
+
+        private void MergeSortedY(IEnumerable<MapDrawableBatch> mapDrawableBatches, int totalNumberOfVerts, int totalNumberOfIndexes)
+        {
+            if (totalNumberOfVerts == this.mVertices.Length)
+            {
+                return;// nothing being added
+            }
+            List<Dictionary<int, string>> invertedDictionaries = new List<Dictionary<int, string>>();
+            var newNameIndexDictionary = new Dictionary<string, List<int>>();
+
+            List<MapDrawableBatch> layers = mapDrawableBatches.ToList();
+            layers.Insert(0, this);
+
+            int[] currentVertIndex = new int[layers.Count];
+
+            // they should be initialized to 0
+            int destinationVertIndex = 0;
+            int destinationIndexIndex = 0;
+
+            var newVerts = new VertexType[totalNumberOfVerts];
+            var newIndexes = new int[totalNumberOfIndexes];
+
+            mCurrentNumberOfTiles = totalNumberOfVerts / 4;
+
+            foreach (var layer in layers)
+            {
+                var invertedLayerDictionary = new Dictionary<int, string>();
+
+                foreach (var kvp in layer.NamedTileOrderedIndexes)
+                {
+                    foreach (var index in kvp.Value)
+                    {
+                        invertedLayerDictionary[index] = kvp.Key;
+                    }
+                }
+
+                invertedDictionaries.Add(invertedLayerDictionary);
+            }
+
+
+            while (true)
+            {
+                float smallestY = float.PositiveInfinity;
+                //int smallestIndex = -1;
+                int toCopyFrom = -1;
+
+                for (int layerIndex = 0; layerIndex < currentVertIndex.Length; layerIndex++)
+                {
+                    if (currentVertIndex[layerIndex] < layers[layerIndex].mVertices.Length)
+                    {
+                        var vertY = layers[layerIndex].mVertices[currentVertIndex[layerIndex]].Position.Y;
+
+                        if (vertY < smallestY)
+                        {
+                            smallestY = vertY;
+                            toCopyFrom = layerIndex;
+                            //smallestIndex = currentVertIndex[layerIndex];
+                        }
+                    }
+                }
+
+                if (toCopyFrom == -1)
+                {
+                    break;
+                }
+                else
+                {
+                    var sourceVertIndex = currentVertIndex[toCopyFrom];
+                    var sourceIndexIndex = (sourceVertIndex / 4) * 6;
+
+                    newVerts[destinationVertIndex] = layers[toCopyFrom].mVertices[sourceVertIndex];
+                    newVerts[destinationVertIndex + 1] = layers[toCopyFrom].mVertices[sourceVertIndex + 1];
+                    newVerts[destinationVertIndex + 2] = layers[toCopyFrom].mVertices[sourceVertIndex + 2];
+                    newVerts[destinationVertIndex + 3] = layers[toCopyFrom].mVertices[sourceVertIndex + 3];
+
+                    var firstVert = layers[toCopyFrom].mIndices[sourceIndexIndex];
+
+                    newIndexes[destinationIndexIndex] =
+                        destinationVertIndex - firstVert + layers[toCopyFrom].mIndices[sourceIndexIndex];
+                    newIndexes[destinationIndexIndex + 1] =
+                        destinationVertIndex - firstVert + layers[toCopyFrom].mIndices[sourceIndexIndex + 1];
+                    newIndexes[destinationIndexIndex + 2] =
+                        destinationVertIndex - firstVert + layers[toCopyFrom].mIndices[sourceIndexIndex + 2];
+                    newIndexes[destinationIndexIndex + 3] =
+                        destinationVertIndex - firstVert + layers[toCopyFrom].mIndices[sourceIndexIndex + 3];
+                    newIndexes[destinationIndexIndex + 4] =
+                        destinationVertIndex - firstVert + layers[toCopyFrom].mIndices[sourceIndexIndex + 4];
+                    newIndexes[destinationIndexIndex + 5] =
+                        destinationVertIndex - firstVert + layers[toCopyFrom].mIndices[sourceIndexIndex + 5];
+
+                    if (invertedDictionaries[toCopyFrom].ContainsKey(sourceVertIndex / 4))
+                    {
+                        var newName = invertedDictionaries[toCopyFrom][sourceVertIndex / 4];
+
+                        if (newNameIndexDictionary.ContainsKey(newName) == false)
+                        {
+                            newNameIndexDictionary[newName] = new List<int>();
+                        }
+
+                        newNameIndexDictionary[newName].Add(destinationVertIndex / 4);
+                    }
+
+                    destinationVertIndex += 4;
+                    destinationIndexIndex += 6;
+                    currentVertIndex[toCopyFrom] += 4;
+                }
+            }
+
+            this.mNamedTileOrderedIndexes = newNameIndexDictionary;
+
+            this.mVertices = newVerts;
+            this.mIndices = newIndexes;
+
+        }
+
+        private void MergeUnsorted(IEnumerable<MapDrawableBatch> mapDrawableBatches, int quadsOnThis, int totalNumberOfVerts, int totalNumberOfIndexes, VertexType[] oldVerts, int[] oldIndexes)
+        {
             mVertices = new VertexType[totalNumberOfVerts];
             mIndices = new int[totalNumberOfIndexes];
 
@@ -1340,6 +1759,45 @@ namespace FlatRedBall.TileGraphics
             }
         }
 
+        public void SortQuadsOnAxis(SortAxis sortAxis)
+        {
+            this.SortAxis = sortAxis;
+
+            List<Quad> quads = new List<Quad>();
+
+            for (int i = 0; i < Vertices.Count(); i += 4)
+            {
+                var quad = new Quad();
+                quad.Vertices[0] = Vertices[i + 0];
+                quad.Vertices[1] = Vertices[i + 1];
+                quad.Vertices[2] = Vertices[i + 2];
+                quad.Vertices[3] = Vertices[i + 3];
+
+                quads.Add(quad);
+            }
+
+            Quad[] sortedQuads = null;
+            if (sortAxis == SortAxis.X)
+            {
+                sortedQuads = quads.OrderBy(item => item.Position.X).ToArray();
+            }
+            else if (sortAxis == SortAxis.Y)
+            {
+                sortedQuads = quads.OrderBy(item => item.Position.Y).ToArray();
+            }
+            else
+            {
+                throw new ArgumentException($"Invalid sort axis: {sortAxis}");
+            }
+
+            for (int i = 0; i < sortedQuads.Length; i++)
+            {
+                Vertices[i * 4 + 0] = sortedQuads[i].Vertices[0];
+                Vertices[i * 4 + 1] = sortedQuads[i].Vertices[1];
+                Vertices[i * 4 + 2] = sortedQuads[i].Vertices[2];
+                Vertices[i * 4 + 3] = sortedQuads[i].Vertices[3];
+            }
+        }
 
         public void RemoveQuads(IEnumerable<int> quadIndexes)
         {
@@ -1407,8 +1865,14 @@ namespace FlatRedBall.TileGraphics
         #endregion
     }
 
+    #region Additional Classes
 
+    public class Quad
+    {
+        public Vector3 Position => Vertices[0].Position;
 
+        public VertexType[] Vertices = new VertexType[4];
+    }
 
     public static class MapDrawableBatchExtensionMethods
     {
@@ -1416,5 +1880,5 @@ namespace FlatRedBall.TileGraphics
 
     }
 
-
+    #endregion
 }

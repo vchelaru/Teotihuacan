@@ -38,13 +38,14 @@ namespace FlatRedBall.TileGraphics
             mTileDimensionWidth = tileDimensionWidth;
             mTileDimensionHeight = tileDimensionHeight;
 
-            mNumCols = mTexture.Width / tileDimensionWidth;
-            mNumRows = mTexture.Height / tileDimensionHeight;
+            if(mTexture != null)
+            {
+                mNumCols = mTexture.Width / tileDimensionWidth;
+                mNumRows = mTexture.Height / tileDimensionHeight;
 
-            mTextureTileWidth = (float)(tileDimensionWidth) / (float)(mTexture.Width);
-            mTextureTileHeight = (float)(tileDimensionHeight) / (float)(mTexture.Height);
-
-
+                mTextureTileWidth = (float)(tileDimensionWidth) / (float)(mTexture.Width);
+                mTextureTileHeight = (float)(tileDimensionHeight) / (float)(mTexture.Height);
+            }
         }
 
         public short GetTextureIndexFromCoordinate(Vector2 topLeftUVCoordinate)
@@ -67,6 +68,16 @@ namespace FlatRedBall.TileGraphics
         
         }
 
+        /// <summary>
+        /// Returns the texture coordinates for the argument index in this tileset. Returned coords array contains
+        /// four coordinates in the following order: 
+        /// 0: bottom left
+        /// 1: bottom right
+        /// 2: top right
+        /// 3: top left
+        /// </summary>
+        /// <param name="textureId">The texture ID, which is the index of fthe texture beginning at the top left of the tileset and moving to the right, then down</param>
+        /// <param name="coords">The resulting coordinates.</param>
         public void GetTextureCoordinateVectorsOfTextureIndex(int textureId, Vector2[] coords)
         {
             // TODO: pId needs to be constrained! 

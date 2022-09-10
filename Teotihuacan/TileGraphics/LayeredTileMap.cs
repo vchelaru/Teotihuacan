@@ -1,4 +1,13 @@
-﻿using System;
+#define PreVersion
+#define AddedGeneratedGame1
+#define ListsHaveAssociateWithFactoryBool
+#define HasFormsObject
+#define HasFormsObject
+#define HasFormsObject
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,20 +28,51 @@ namespace FlatRedBall.TileGraphics
 
 
     public partial class LayeredTileMap : PositionedObject, IVisible
+#if IPositionedSizedObjectInEngine
+        , FlatRedBall.Math.IPositionedSizedObject
+#endif
     {
-        #region Fields
+#region Fields
         FlatRedBall.Math.PositionedObjectList<MapDrawableBatch> mMapLists = new FlatRedBall.Math.PositionedObjectList<MapDrawableBatch>();
 
         float mRenderingScale = 1;
 
         float mZSplit = 1;
-        #endregion
+#endregion
 
-        #region Properties
+#region Properties
+
+        public float Left
+        {
+            get => X;
+            set => X = value;
+        }
+
+        public float Top
+        {
+            get => Y;
+            set => Y = value;
+        }
+
         public int? NumberTilesWide { get; private set; }
         public int? NumberTilesTall { get; private set; }
-        public float? WidthPerTile { get; private set; }
-        public float? HeightPerTile { get; private set; }
+        
+        /// <summary>
+        /// The width in world units for each tile in the map.
+        /// </summary>
+        /// <remarks>
+        /// Normally this property is set when the LayeredTileMap
+        /// is loaded from a TMX file.</remarks>
+        public float? WidthPerTile { get; set; }
+
+        /// <summary>
+        /// The height in world units for each tile in the map.
+        /// </summary>
+        /// <remarks>
+        /// Normally this property is set when the LayeredTileMap
+        /// is loaded from a TMX file.</remarks>
+        public float? HeightPerTile { get; set; }
+
         public Dictionary<string, List<NamedValue>> TileProperties
         {
             get;
@@ -156,6 +196,7 @@ namespace FlatRedBall.TileGraphics
         public LayeredTileMapAnimation Animation { get; set; }
 
         public List<NamedValue> MapProperties { get; set; }
+        public List<TMXGlueLib.Tileset> Tilesets { get; private set; }
 
 
         IVisible IVisible.Parent
@@ -198,7 +239,7 @@ namespace FlatRedBall.TileGraphics
         }
 
 
-        #endregion
+#endregion
 
         public IEnumerable<string> TileNamesWith(string propertyName)
         {
@@ -345,6 +386,15 @@ namespace FlatRedBall.TileGraphics
             return FromTiledMapSave(fileName, contentManager, tms);
         }
 
+        // from https://stackoverflow.com/questions/321370/how-can-i-convert-a-hex-string-to-a-byte-array
+        static byte[] StringToByteArray(string hex)
+        {
+            return Enumerable.Range(0, hex.Length)
+                             .Where(x => x % 2 == 0)
+                             .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                             .ToArray();
+        }
+
         public static LayeredTileMap FromTiledMapSave(string tiledMapSaveFile, string contentManager, TiledMapSave tms)
         {
 
@@ -392,6 +442,20 @@ namespace FlatRedBall.TileGraphics
 
                         matchingLayer.Visible = mapLayer.visible == 1;
                         matchingLayer.Alpha = mapLayer.Opacity;
+
+                        if (!string.IsNullOrWhiteSpace(mapLayer.TintColor))
+                        {
+                            var removedHash = mapLayer.TintColor.Substring(1);
+                            var bytes = StringToByteArray(removedHash);
+
+                            matchingLayer.Red = (bytes[0])/255.0f;
+                            matchingLayer.Green = (bytes[1]) / 255.0f;
+                            matchingLayer.Blue = (bytes[2]) / 255.0f;
+                        }
+                    }
+                    else if (layer is mapObjectgroup objectLayer)
+                    {
+                        matchingLayer.Visible = objectLayer.IsVisible;
                     }
                 }
             }
@@ -482,7 +546,7 @@ namespace FlatRedBall.TileGraphics
                 mdb.Alpha = imageLayer.Opacity;
                 mdb.AttachTo(toReturn, false);
                 mdb.Paste(newSprite);
-                mdb.Visible = imageLayer.Visible;
+                mdb.Visible = imageLayer.IsVisible;
 
                 toReturn.mMapLists.Add(mdb);
             }
@@ -558,6 +622,8 @@ namespace FlatRedBall.TileGraphics
                 { Name = propertySave.name, Value = propertySave.value, Type = propertySave.Type })
                 .ToList();
 
+            // copy the original tilesets over
+            toReturn.Tilesets = tms.Tilesets.ToList();
 
             return toReturn;
         }
@@ -661,17 +727,30 @@ namespace FlatRedBall.TileGraphics
                     var tilesetTileGid = tilesetTile.id + tileset.Firstgid;
                     foreach (var tilesetObject in tilesetTile.Objects.@object)
                     {
-                        var name = layer.Name;
+                        const bool applyVisibility = false;
+                        TiledMapToShapeCollectionConverter.ConvertTiledObjectToFrbShape(tilesetObject, applyVisibility, out polygon, out rectangle, out circle);
 
-                        TiledMapToShapeCollectionConverter.ConvertTiledObjectToFrbShape(tilesetObject, out polygon, out rectangle, out circle);
-                        if (rectangle != null)
+                        var hasShape = polygon != null || rectangle != null || circle != null;
+
+
+                        TileCollisions.TileShapeCollection collection = null;
+                        if (hasShape)
                         {
                             var collectionName = layer.Name;
-                            if (tilesetObject.Type != null && separateOnTileType)
+                            if (!string.IsNullOrWhiteSpace(tilesetObject.Type))
                             {
-                                collectionName += "_" + tilesetObject.Type;
+                                collectionName = tilesetObject.Type;
                             }
-                            var collection = GetOrAddTileShapeCollection(collectionName, collisionDictionary);
+                            else if (!string.IsNullOrWhiteSpace(tilesetTile.Type))
+                            {
+                                collectionName = tilesetTile.Type;
+                            }
+                            collection = GetOrAddTileShapeCollection(collectionName, collisionDictionary);
+                            collection.GridSize = tileDimension;
+                        }
+
+                        if (rectangle != null)
+                        {
                             rectangle.Z = z;
                             if (sortOnY)
                             {
@@ -696,12 +775,6 @@ namespace FlatRedBall.TileGraphics
                         }
                         else if (polygon != null)
                         {
-                            var collectionName = layer.Name;
-                            if (tilesetObject.Type != null && separateOnTileType)
-                            {
-                                collectionName += "_" + tilesetObject.Type;
-                            }
-                            var collection = GetOrAddTileShapeCollection(collectionName, collisionDictionary);
 
                             // For tile polygons we want them to be centered on the tile.
                             // To do this, we shift all points by its position:
@@ -723,8 +796,14 @@ namespace FlatRedBall.TileGraphics
                                 {
                                     for (int x = 0; x < layer.width; x++)
                                     {
-                                        AddPolygonCloneAtXY(layer, tileDimension, polygon, tiles, tilesetTileGid, x, y, collection);
+                                        var i = y * layer.width + x;
 
+                                        if ((tiles[i] & 0x0fffffff) == tilesetTileGid)
+                                        {
+                                            var cloned = AddPolygonCloneAtXY(layer, tileDimension, polygon, tiles, tilesetTileGid, i, collection);
+
+                                            ApplyFlip(tiles[i], cloned);
+                                        }
                                     }
                                 }
                             }
@@ -734,7 +813,14 @@ namespace FlatRedBall.TileGraphics
                                 {
                                     for (int y = 0; y < layer.height; y++)
                                     {
-                                        AddPolygonCloneAtXY(layer, tileDimension, polygon, tiles, tilesetTileGid, x, y, collection);
+                                        var i = y * layer.width + x;
+
+                                        if ((tiles[i] & 0x0fffffff) == tilesetTileGid)
+                                        {
+                                            var cloned = AddPolygonCloneAtXY(layer, tileDimension, polygon, tiles, tilesetTileGid, i, collection);
+
+                                            ApplyFlip(tiles[i], cloned);
+                                        }
                                     }
                                 }
                             }
@@ -750,27 +836,53 @@ namespace FlatRedBall.TileGraphics
 
         }
 
-        private static void AddPolygonCloneAtXY(MapLayer layer, float tileDimension, Polygon polygon, List<uint> tiles, long tilesetTileGid, int x, int y,
-            TileCollisions.TileShapeCollection collectionForThisName)
+        private static void ApplyFlip(uint idWithFlip, Polygon cloned)
         {
-            var i = y * layer.width + x;
+            TiledMapSave.GetFlipBoolsFromGid(idWithFlip,
+                out bool flipHorizontally,
+                out bool flipVertically,
+                out bool flipDiagonally);
 
-            if (tiles[i] == tilesetTileGid)
+            if (flipDiagonally)
             {
-                int xIndex = i % layer.width;
-                // intentional int division
-                int yIndex = i / layer.width;
+                for (int i = 0; i < cloned.Points.Count; i++)
+                {
+                    Point point = cloned.Points[i];
 
-                var cloned = polygon.Clone();
+                    var tempY = point.Y;
+                    point.Y = -point.X;
+                    point.X = -tempY;
 
-                cloned.X = (xIndex + .5f) * tileDimension;
-                cloned.Y = -(yIndex + .5f) * tileDimension;
-
-                collectionForThisName.Polygons.Add(cloned);
+                    cloned.SetPoint(i, point);
+                }
+            }
+            if (flipHorizontally)
+            {
+                cloned.FlipRelativePointsHorizontally();
+            }
+            if (flipVertically)
+            {
+                cloned.FlipRelativePointsVertically();
             }
         }
 
-        private static void AddRectangleCloneAtXY(MapLayer layer, float tileDimension, AxisAlignedRectangle rectangle, List<uint> tiles, long tilesetTileGid, int x, int y,
+        private static Polygon AddPolygonCloneAtXY(MapLayer layer, float tileDimension, Polygon polygon, uint[] tiles, long tilesetTileGid, int index,
+            TileCollisions.TileShapeCollection collectionForThisName)
+        {
+            int xIndex = index % layer.width;
+            // intentional int division
+            int yIndex = index / layer.width;
+
+            var cloned = polygon.Clone();
+
+            cloned.X = (xIndex + .5f) * tileDimension;
+            cloned.Y = -(yIndex + .5f) * tileDimension;
+
+            collectionForThisName.Polygons.Add(cloned);
+            return cloned;
+        }
+
+        private static void AddRectangleCloneAtXY(MapLayer layer, float tileDimension, AxisAlignedRectangle rectangle, uint[] tiles, long tilesetTileGid, int x, int y,
             TileCollisions.TileShapeCollection collectionForThisName)
         {
 
@@ -811,7 +923,7 @@ namespace FlatRedBall.TileGraphics
                 {
                     // This makes all shapes have the same Z as the index layer, which is useful if instantiating objects, so they're layered properly
                     shapeCollection.Shift(new Microsoft.Xna.Framework.Vector3(0, 0, indexInAllLayers));
-
+                    shapeCollection.UpdateDependencies(-1);
                     shapeCollection.Name = mapObjectgroup.Name;
                     layeredTileMap.ShapeCollections.Add(shapeCollection);
                 }
@@ -942,6 +1054,12 @@ namespace FlatRedBall.TileGraphics
                 toReturn.ShapeCollections.Add(shapeCollection.Clone());
             }
 
+            toReturn.Collisions = new List<TileCollisions.TileShapeCollection>(this.Collisions.Count);
+            foreach (var collision in this.Collisions)
+            {
+                toReturn.Collisions.Add(collision.Clone());
+            }
+
             return toReturn;
         }
 
@@ -984,12 +1102,12 @@ namespace FlatRedBall.TileGraphics
 
             for (int i = 0; i < this.Collisions.Count; i++)
             {
-                this.Collisions[i].RemoveFromManagers();
+                this.Collisions[i].RemoveFromManagersOneWay();
             }
 
             for (int i = 0; i < this.ShapeCollections.Count; i++)
             {
-                this.ShapeCollections[i].RemoveFromManagers();
+                this.ShapeCollections[i].RemoveFromManagers(false);
             }
 
             SpriteManager.RemovePositionedObject(this);

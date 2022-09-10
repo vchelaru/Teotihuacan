@@ -5,7 +5,7 @@
   <State>
     <Name>Default</Name>
     <Variable>
-      <Type>BlackOverlayAlphaState</Type>
+      <Type>BlackOverlayAlpha</Type>
       <Name>BlackOverlayAlphaState</Name>
       <SetsValue>false</SetsValue>
     </Variable>
@@ -235,7 +235,7 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>VisualsAlphaState</Type>
+      <Type>VisualsAlpha</Type>
       <Name>VisualsAlphaState</Name>
       <SetsValue>false</SetsValue>
     </Variable>

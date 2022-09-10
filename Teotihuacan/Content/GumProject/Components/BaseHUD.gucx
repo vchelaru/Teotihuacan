@@ -577,7 +577,7 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>PortraitCategoryState</Type>
+      <Type>PortraitCategory</Type>
       <Name>PortraitCategoryState</Name>
       <SetsValue>false</SetsValue>
     </Variable>

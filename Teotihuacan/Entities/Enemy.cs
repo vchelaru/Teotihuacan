@@ -477,7 +477,7 @@ namespace Teotihuacan.Entities
 
 
             ai.Path.AddRange(points);
-            ai.Target = ai.Path.FirstOrDefault();
+            ai.TargetPosition = ai.Path.FirstOrDefault();
         }
 
         private void DoShootingActivity(PositionedObject target)

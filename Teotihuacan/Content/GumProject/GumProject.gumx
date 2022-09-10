@@ -1,220 +1,280 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <GumProjectSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <CustomProperties />
+  <FontRanges>32-126,160-255</FontRanges>
   <Version>1</Version>
   <DefaultCanvasWidth>533</DefaultCanvasWidth>
   <DefaultCanvasHeight>300</DefaultCanvasHeight>
   <ShowOutlines>true</ShowOutlines>
+  <ShowCanvasOutline>true</ShowCanvasOutline>
+  <ShowRuler>true</ShowRuler>
+  <ShowCheckerBackground>true</ShowCheckerBackground>
+  <ConvertVariablesOnUnitTypeChange>false</ConvertVariablesOnUnitTypeChange>
   <RestrictToUnitValues>true</RestrictToUnitValues>
   <RestrictFileNamesForAndroid>false</RestrictFileNamesForAndroid>
   <Guides />
+  <ParentProjectRoot>../</ParentProjectRoot>
+  <ShowLocalizationInGum>true</ShowLocalizationInGum>
+  <CurrentLanguageIndex>0</CurrentLanguageIndex>
   <ScreenReference>
     <Name>CameraTestScreenGum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>GameScreenGum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>Level10Gum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>Level1Gum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>Level2Gum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>Level3Gum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>Level4Gum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>Level5Gum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>Level6Gum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>Level7Gum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>Level8Gum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>Level9Gum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>RivaTestScreenGum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>UiTestScreenGum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ScreenReference>
     <Name>WinScreenGum</Name>
     <ElementType>Screen</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ScreenReference>
   <ComponentReference>
     <Name>BaseHUD</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/Button</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/CheckBox</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/ColoredFrame</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/ComboBox</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/ListBox</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/ListBoxItem</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/PasswordBox</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/RadioButton</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/ScrollBar</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/ScrollBarThumb</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/ScrollViewer</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/Slider</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/TextBox</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/ToggleButton</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/TreeView</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/TreeViewItem</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/TreeViewToggleButton</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>DefaultForms/UserControl</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>GameOver</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>LevelStart</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>Menus/MenuParts/AztecMenuButton</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>Menus/MenuParts/GodTopGradient</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>Menus/PauseMenu</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>Pause</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>PlayerHUD</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>PlayerHUDJoin</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <ComponentReference>
     <Name>WaveState</Name>
     <ElementType>Component</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </ComponentReference>
   <StandardElementReference>
     <Name>Circle</Name>
     <ElementType>Standard</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </StandardElementReference>
   <StandardElementReference>
     <Name>ColoredRectangle</Name>
     <ElementType>Standard</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </StandardElementReference>
   <StandardElementReference>
     <Name>Component</Name>
     <ElementType>Standard</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </StandardElementReference>
   <StandardElementReference>
     <Name>Container</Name>
     <ElementType>Standard</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </StandardElementReference>
   <StandardElementReference>
     <Name>NineSlice</Name>
     <ElementType>Standard</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </StandardElementReference>
   <StandardElementReference>
     <Name>Polygon</Name>
     <ElementType>Standard</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </StandardElementReference>
   <StandardElementReference>
     <Name>Rectangle</Name>
     <ElementType>Standard</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </StandardElementReference>
   <StandardElementReference>
     <Name>Sprite</Name>
     <ElementType>Standard</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </StandardElementReference>
   <StandardElementReference>
     <Name>Text</Name>
     <ElementType>Standard</ElementType>
+    <LinkType>ReferenceOriginal</LinkType>
   </StandardElementReference>
   <BehaviorReference>
     <Name>ButtonBehavior</Name>
@@ -261,4 +321,8 @@
   <BehaviorReference>
     <Name>UserControlBehavior</Name>
   </BehaviorReference>
+  <SinglePixelTextureTop xsi:nil="true" />
+  <SinglePixelTextureLeft xsi:nil="true" />
+  <SinglePixelTextureRight xsi:nil="true" />
+  <SinglePixelTextureBottom xsi:nil="true" />
 </GumProjectSave>
