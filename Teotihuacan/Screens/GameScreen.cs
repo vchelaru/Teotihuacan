@@ -640,7 +640,7 @@ namespace Teotihuacan.Screens
             foreach(var enemy in EnemyList)
             {
                 var ai = enemy.InputDevice as TopDown.TopDownAiInput<Enemy>;
-
+                ai.NodeNetwork = nodeNetwork;
                 ai.Activity();
             }
 

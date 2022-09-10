@@ -245,6 +245,7 @@ namespace Teotihuacan.Entities
                 rightStick = gamePad.RightStick;
                 swapWeaponsBack = gamePad.GetButton(Xbox360GamePad.Button.LeftShoulder);
                 swapWeaponsForward = gamePad.GetButton(Xbox360GamePad.Button.RightShoulder);
+                gamePad.Deadzone = .2f;
             }
             else if(InputDevice is Keyboard keyboard)
             {
@@ -330,7 +331,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             {
                 if (rightStick.Magnitude > 0)
                 {
-                    newAimingVector = new Vector3(rightStick.X, rightStick.Y, 0);
+                    newAimingVector = new Vector3(rightStick.X, rightStick.Y, 0).NormalizedOrRight();
                 }
             }
             else
@@ -338,20 +339,12 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
 
                 Vector3 cursorPosition = new Vector3(GuiManager.Cursor.WorldXAt(Z), GuiManager.Cursor.WorldYAt(Z), 0);
 
-                newAimingVector = cursorPosition - new Vector3(X, Y, 0);
+                newAimingVector = (cursorPosition - new Vector3(X, Y, 0)).NormalizedOrRight();
             }
 
-            // in case the stick happens to report 0:
-            if(newAimingVector.X == 0 && newAimingVector.Y == 0)
-            {
-                newAimingVector.X = 1;
-            }
-
-            //Normalize at the end in case the right stick input is not at max magnitude
-            newAimingVector.Normalize();
             aimingVector = newAimingVector;
 
-            LightningCollisionLine.RelativeRotationZ = (float)Math.Atan2(aimingVector.Y, aimingVector.X);
+            LightningCollisionLine.RelativeRotationZ = newAimingVector.Angle() ?? 0;
         }
 
         private void DoShootingActivity()
