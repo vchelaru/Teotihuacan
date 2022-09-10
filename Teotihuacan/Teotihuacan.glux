@@ -205,7 +205,7 @@
         <ReferencedFileSave>
           <Name>GumProject/Screens/GameScreenGum.gusx</Name>
           <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Gum.Wireframe.GraphicalUiElement</RuntimeType>
+          <RuntimeType>Teotihuacan.GumRuntimes.GameScreenGumRuntime</RuntimeType>
           <ProjectsToExcludeFrom />
           <IsCreatedByWildcard>false</IsCreatedByWildcard>
         </ReferencedFileSave>
@@ -764,6 +764,14 @@
               <Name>FirstCollisionMass</Name>
               <ValueAsFloat>1</ValueAsFloat>
             </PropertySave>
+            <PropertySave>
+              <Name>IsCollisionActive</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstSubCollisionSelectedItem</Name>
+              <ValueAsString>&lt;Entire Object&gt;</ValueAsString>
+            </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -803,6 +811,14 @@
             <PropertySave>
               <Name>FirstCollisionMass</Name>
               <ValueAsFloat>1</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>IsCollisionActive</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstSubCollisionSelectedItem</Name>
+              <ValueAsString>&lt;Entire Object&gt;</ValueAsString>
             </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
@@ -1231,6 +1247,14 @@
             <PropertySave>
               <Name>SecondCollisionName</Name>
               <ValueAsString>SolidCollisions</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>IsCollisionActive</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstSubCollisionSelectedItem</Name>
+              <ValueAsString>&lt;Entire Object&gt;</ValueAsString>
             </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
@@ -1746,6 +1770,11 @@
             </PropertySave>
           </Properties>
           <CustomProperty>
+            <Type>bool</Type>
+            <Member>CreateEntitiesFromTiles</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
             <Type>float</Type>
             <Member>X</Member>
             <ValueAsFloat>0</ValueAsFloat>
@@ -1759,11 +1788,6 @@
             <Type>float</Type>
             <Member>Z</Member>
             <ValueAsFloat>-3</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>CreateEntitiesFromTiles</Member>
-            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -3898,7 +3922,7 @@
         <ReferencedFileSave>
           <Name>GumProject/Screens/WinScreenGum.gusx</Name>
           <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Gum.Wireframe.GraphicalUiElement</RuntimeType>
+          <RuntimeType>Teotihuacan.GumRuntimes.WinScreenGumRuntime</RuntimeType>
           <ProjectsToExcludeFrom />
           <IsCreatedByWildcard>false</IsCreatedByWildcard>
         </ReferencedFileSave>
@@ -4667,7 +4691,7 @@
             </PropertySave>
           </Properties>
           <Name>ShowEnemyAiShapes</Name>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>

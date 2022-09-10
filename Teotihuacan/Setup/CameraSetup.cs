@@ -44,7 +44,7 @@
                 AllowWindowResizing = true,
                 TextureFilter = Microsoft.Xna.Framework.Graphics.TextureFilter.Point,
                 ResizeBehavior = ResizeBehavior.StretchVisibleArea,
-                ScaleGum = 0f,
+                ScaleGum = 100f,
                 ResizeBehaviorGum = ResizeBehavior.StretchVisibleArea,
                 DominantInternalCoordinates = WidthOrHeight.Height,
             }
