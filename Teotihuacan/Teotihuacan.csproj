@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Animation\ChainNameHelperMethods.cs" />
+    <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
     <Compile Include="DataTypes\TopDownValues.Generated.cs" />
     <Compile Include="Entities\Bullet.cs" />
     <Compile Include="Entities\Bullet.Generated.cs">

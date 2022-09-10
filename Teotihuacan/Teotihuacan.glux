@@ -480,6 +480,23 @@
               <Name>SourceType</Name>
               <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
             </PropertySave>
+            <PropertySave>
+              <Name>SortAxis</Name>
+              <ValueAsInt>0</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>PartitionWidthHeight</Name>
+              <ValueAsFloat>32</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>IsSortListEveryFrameChecked</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+            <PropertySave>
+              <Name>AssociateWithFactory</Name>
+              <ValueAsBool>true</ValueAsBool>
+              <Type>Boolean</Type>
+            </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassGenericType>Entities\Player</SourceClassGenericType>
@@ -494,6 +511,23 @@
             <PropertySave>
               <Name>SourceType</Name>
               <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+            <PropertySave>
+              <Name>SortAxis</Name>
+              <ValueAsInt>0</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>PartitionWidthHeight</Name>
+              <ValueAsFloat>32</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>IsSortListEveryFrameChecked</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+            <PropertySave>
+              <Name>AssociateWithFactory</Name>
+              <ValueAsBool>true</ValueAsBool>
+              <Type>Boolean</Type>
             </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
@@ -510,6 +544,23 @@
               <Name>SourceType</Name>
               <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
             </PropertySave>
+            <PropertySave>
+              <Name>SortAxis</Name>
+              <ValueAsInt>0</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>PartitionWidthHeight</Name>
+              <ValueAsFloat>32</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>IsSortListEveryFrameChecked</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+            <PropertySave>
+              <Name>AssociateWithFactory</Name>
+              <ValueAsBool>true</ValueAsBool>
+              <Type>Boolean</Type>
+            </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassGenericType>Entities\Bullet</SourceClassGenericType>
@@ -524,6 +575,23 @@
             <PropertySave>
               <Name>SourceType</Name>
               <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+            <PropertySave>
+              <Name>SortAxis</Name>
+              <ValueAsInt>0</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>PartitionWidthHeight</Name>
+              <ValueAsFloat>32</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>IsSortListEveryFrameChecked</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+            <PropertySave>
+              <Name>AssociateWithFactory</Name>
+              <ValueAsBool>true</ValueAsBool>
+              <Type>Boolean</Type>
             </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
@@ -540,6 +608,23 @@
               <Name>SourceType</Name>
               <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
             </PropertySave>
+            <PropertySave>
+              <Name>SortAxis</Name>
+              <ValueAsInt>0</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>PartitionWidthHeight</Name>
+              <ValueAsFloat>32</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>IsSortListEveryFrameChecked</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+            <PropertySave>
+              <Name>AssociateWithFactory</Name>
+              <ValueAsBool>true</ValueAsBool>
+              <Type>Boolean</Type>
+            </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassGenericType>Entities\BulletExplosion</SourceClassGenericType>
@@ -555,6 +640,11 @@
               <Name>SourceType</Name>
               <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
             </PropertySave>
+            <PropertySave>
+              <Name>AssociateWithFactory</Name>
+              <ValueAsBool>true</ValueAsBool>
+              <Type>Boolean</Type>
+            </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassGenericType>Entities\SpawnPoint</SourceClassGenericType>
@@ -569,6 +659,23 @@
             <PropertySave>
               <Name>SourceType</Name>
               <ValueAsObject xsi:type="SourceType">FlatRedBallType</ValueAsObject>
+            </PropertySave>
+            <PropertySave>
+              <Name>SortAxis</Name>
+              <ValueAsInt>0</ValueAsInt>
+            </PropertySave>
+            <PropertySave>
+              <Name>PartitionWidthHeight</Name>
+              <ValueAsFloat>32</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>IsSortListEveryFrameChecked</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+            <PropertySave>
+              <Name>AssociateWithFactory</Name>
+              <ValueAsBool>true</ValueAsBool>
+              <Type>Boolean</Type>
             </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
@@ -607,7 +714,15 @@
             </PropertySave>
             <PropertySave>
               <Name>FirstCollisionMass</Name>
-              <ValueAsFloat>1</ValueAsFloat>
+              <ValueAsFloat>0</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>FirstSubCollisionSelectedItem</Name>
+              <ValueAsString>&lt;Entire Object&gt;</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>IsCollisionActive</Name>
+              <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
           <SourceType>FlatRedBallType</SourceType>
@@ -1644,6 +1759,11 @@
             <Type>float</Type>
             <Member>Z</Member>
             <ValueAsFloat>-3</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>CreateEntitiesFromTiles</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -4049,6 +4169,10 @@
           <Name>ImplementsICollidable</Name>
           <ValueAsBool>true</ValueAsBool>
         </PropertySave>
+        <PropertySave>
+          <Name>InputDevice</Name>
+          <ValueAsInt>0</ValueAsInt>
+        </PropertySave>
       </Properties>
       <NamedObjects>
         <NamedObjectSave>
@@ -4349,6 +4473,10 @@
           <Name>ImplementsICollidable</Name>
           <ValueAsBool>true</ValueAsBool>
         </PropertySave>
+        <PropertySave>
+          <Name>InputDevice</Name>
+          <ValueAsInt>0</ValueAsInt>
+        </PropertySave>
       </Properties>
       <NamedObjects>
         <NamedObjectSave>
@@ -4439,6 +4567,12 @@
           <DefaultValue xsi:type="xsd:float">200</DefaultValue>
         </CustomVariable>
       </CustomVariables>
+      <Properties>
+        <PropertySave>
+          <Name>InputDevice</Name>
+          <ValueAsInt>0</ValueAsInt>
+        </PropertySave>
+      </Properties>
       <NamedObjects>
         <NamedObjectSave>
           <InstanceName>CameraInstance</InstanceName>
@@ -4547,6 +4681,12 @@
           <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>
+      <Properties>
+        <PropertySave>
+          <Name>InputDevice</Name>
+          <ValueAsInt>0</ValueAsInt>
+        </PropertySave>
+      </Properties>
       <Name>Entities\DebuggingVariables</Name>
       <CustomClassesForExport />
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -5188,6 +5328,10 @@
         <PropertySave>
           <Name>IsTopDown</Name>
           <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+        <PropertySave>
+          <Name>InputDevice</Name>
+          <ValueAsInt>0</ValueAsInt>
         </PropertySave>
       </Properties>
       <NamedObjects>
@@ -6080,6 +6224,10 @@
           <Name>IsTopDown</Name>
           <ValueAsBool>true</ValueAsBool>
         </PropertySave>
+        <PropertySave>
+          <Name>InputDevice</Name>
+          <ValueAsInt>0</ValueAsInt>
+        </PropertySave>
       </Properties>
       <NamedObjects>
         <NamedObjectSave>
@@ -6634,6 +6782,10 @@
           <Name>ImplementsICollidable</Name>
           <ValueAsBool>true</ValueAsBool>
         </PropertySave>
+        <PropertySave>
+          <Name>InputDevice</Name>
+          <ValueAsInt>0</ValueAsInt>
+        </PropertySave>
       </Properties>
       <NamedObjects>
         <NamedObjectSave>
@@ -6946,6 +7098,12 @@
           <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>
+      <Properties>
+        <PropertySave>
+          <Name>InputDevice</Name>
+          <ValueAsInt>0</ValueAsInt>
+        </PropertySave>
+      </Properties>
       <NamedObjects>
         <NamedObjectSave>
           <InstanceName>CircleInstance</InstanceName>
@@ -7065,6 +7223,10 @@
         <PropertySave>
           <Name>ImplementsICollidable</Name>
           <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+        <PropertySave>
+          <Name>InputDevice</Name>
+          <ValueAsInt>0</ValueAsInt>
         </PropertySave>
       </Properties>
       <NamedObjects>
@@ -7302,7 +7464,7 @@
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
     <ResizeBehaviorGum>StretchVisibleArea</ResizeBehaviorGum>
     <DominantInternalCoordinates>Height</DominantInternalCoordinates>
-    <TextureFilter>0</TextureFilter>
+    <TextureFilter>1</TextureFilter>
   </DisplaySettings>
   <AllDisplaySettings />
   <UsesTranslation>false</UsesTranslation>

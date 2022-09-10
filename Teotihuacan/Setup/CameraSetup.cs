@@ -42,7 +42,7 @@
                 AspectRatio = 1.7777777777777777777777777778m,
                 IsFullScreen = false,
                 AllowWindowResizing = true,
-                TextureFilter = Microsoft.Xna.Framework.Graphics.TextureFilter.Linear,
+                TextureFilter = Microsoft.Xna.Framework.Graphics.TextureFilter.Point,
                 ResizeBehavior = ResizeBehavior.StretchVisibleArea,
                 ScaleGum = 0f,
                 ResizeBehaviorGum = ResizeBehavior.StretchVisibleArea,
