@@ -345,6 +345,7 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             aimingVector = newAimingVector;
 
             LightningCollisionLine.RelativeRotationZ = newAimingVector.Angle() ?? 0;
+
         }
 
         private void DoShootingActivity()

@@ -394,7 +394,7 @@
             </PropertySave>
             <PropertySave>
               <Name>CollisionCreationOptions</Name>
-              <ValueAsInt>5</ValueAsInt>
+              <ValueAsInt>3</ValueAsInt>
             </PropertySave>
             <PropertySave>
               <Name>CollisionTileSize</Name>
@@ -418,6 +418,18 @@
             </PropertySave>
             <PropertySave>
               <Name>CollisionLayerTileType</Name>
+              <ValueAsString>Mud</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>InnerSizeWidth</Name>
+              <ValueAsFloat>800</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>InnerSizeHeight</Name>
+              <ValueAsFloat>600</ValueAsFloat>
+            </PropertySave>
+            <PropertySave>
+              <Name>CollisionPropertyName</Name>
               <ValueAsString>Mud</ValueAsString>
             </PropertySave>
           </Properties>
@@ -4691,7 +4703,7 @@
             </PropertySave>
           </Properties>
           <Name>ShowEnemyAiShapes</Name>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
