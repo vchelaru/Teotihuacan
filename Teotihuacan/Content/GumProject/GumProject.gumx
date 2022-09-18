@@ -17,11 +17,6 @@
   <ShowLocalizationInGum>true</ShowLocalizationInGum>
   <CurrentLanguageIndex>0</CurrentLanguageIndex>
   <ScreenReference>
-    <Name>CameraTestScreenGum</Name>
-    <ElementType>Screen</ElementType>
-    <LinkType>ReferenceOriginal</LinkType>
-  </ScreenReference>
-  <ScreenReference>
     <Name>GameScreenGum</Name>
     <ElementType>Screen</ElementType>
     <LinkType>ReferenceOriginal</LinkType>
