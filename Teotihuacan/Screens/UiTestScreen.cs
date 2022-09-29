@@ -33,10 +33,10 @@ namespace Teotihuacan.Screens
 		{
             if(InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Space))
             {
-                this.GameOverInstance.Visible = true;
+                //this.GameOverInstance.Visible = true;
 
-                this.GameOverInstance.CurrentVisualsAlphaState = GameOverRuntime.VisualsAlpha.Transparent;
-                this.GameOverInstance.PopupAppearAnimation.Play();
+                //this.GameOverInstance.CurrentVisualsAlphaState = GameOverRuntime.VisualsAlpha.Transparent;
+                //this.GameOverInstance.PopupAppearAnimation.Play();
             }
 		}
 

@@ -434,7 +434,10 @@ Weapon Drain: {1 - CurrentWeaponLevelData.CurrentWeaponLevel * WeaponLevelEnergy
             bullet.Owner = this;
             bullet.CurrentDataCategoryState = bulletData;
             bullet.Velocity = bullet.BulletSpeed * direction;
-            bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections), EquippedWeapon);
+            if(aimingVector.Length() > 0)
+            {
+                bullet.SetAnimationChainFromVelocity(TopDownDirectionExtensions.FromDirection(aimingVector, PossibleDirections), EquippedWeapon);
+            }
 
             CurrentEnergy -= ModifyEnergyDrain(bulletData.EnergyUsePerShot);
 
